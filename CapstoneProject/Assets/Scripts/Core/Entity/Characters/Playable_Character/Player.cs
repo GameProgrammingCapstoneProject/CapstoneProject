@@ -1,19 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using Core.Entity;
+using Core.StateMachine;
 using UnityEngine;
 
-public class Player : Entity
+namespace Core.Entity
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Player : Entity
     {
-        
-    }
+        public EntityStateMachine<PlayerState> stateMachine { get; private set; }
+        public PlayerIdleState idleState { get; private set; }
 
-    // Update is called once per frame
-    void Update()
-    {
+        protected override void Awake()
+        {
+            base.Awake();
+            stateMachine = new EntityStateMachine<PlayerState>();
+            idleState = new PlayerIdleState(this, "Idle");
+        }
+        protected override void Start()
+        {
+            base.Start();
+            stateMachine.Initialize(idleState);
+        }
         
+        void Update()
+        {
+            stateMachine.currentState.StateUpdate();
+        }
     }
 }
