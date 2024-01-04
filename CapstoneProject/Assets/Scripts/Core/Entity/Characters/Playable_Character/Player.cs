@@ -10,12 +10,13 @@ namespace Core.Entity
     {
         public EntityStateMachine<PlayerState> stateMachine { get; private set; }
         public PlayerIdleState idleState { get; private set; }
-
+        public PlayerRunState runState { get; private set; }
         protected override void Awake()
         {
             base.Awake();
             stateMachine = new EntityStateMachine<PlayerState>();
             idleState = new PlayerIdleState(this, "Idle");
+            runState = new PlayerRunState(this, "Run");
         }
         protected override void Start()
         {
@@ -27,5 +28,6 @@ namespace Core.Entity
         {
             stateMachine.currentState.StateUpdate();
         }
+        
     }
 }
