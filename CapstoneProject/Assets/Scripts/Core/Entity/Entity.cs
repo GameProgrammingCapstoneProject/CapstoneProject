@@ -17,8 +17,20 @@ namespace Core.Entity
         }
         
         // The direction that the entity is facing
-        protected FacingDirections CurrentFacingDirection = FacingDirections.RIGHT;
-        
+        public FacingDirections CurrentFacingDirection = FacingDirections.RIGHT;
+        public Rigidbody2D rb { get; private set; }
+        public Animator animator { get; private set; }
+
+        protected virtual void Awake()
+        {
+        }
+
+        protected virtual void Start()
+        {
+            rb = GetComponentInChildren<Rigidbody2D>();
+            animator = GetComponentInChildren<Animator>();
+        }
+
         /// <summary>
         ///     Flip the sprite to the opposite direction.
         /// </summary>
@@ -28,6 +40,11 @@ namespace Core.Entity
             CurrentFacingDirection = (CurrentFacingDirection == FacingDirections.RIGHT) ? 
                 FacingDirections.LEFT : FacingDirections.RIGHT;
             transform.Rotate(0, 180, 0);
+        }
+
+        public void ResetToZeroVelocity()
+        {
+            rb.velocity = Vector2.zero;
         }
     }
 }
