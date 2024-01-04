@@ -278,7 +278,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_8
+      name: run_00
       rect:
         serializedVersion: 2
         x: 50
@@ -299,7 +299,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_9
+      name: run_01
       rect:
         serializedVersion: 2
         x: 100
@@ -320,7 +320,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_10
+      name: run_02
       rect:
         serializedVersion: 2
         x: 150
@@ -341,7 +341,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_11
+      name: run_03
       rect:
         serializedVersion: 2
         x: 200
@@ -362,7 +362,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_12
+      name: run_04
       rect:
         serializedVersion: 2
         x: 250
@@ -383,7 +383,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_13
+      name: run_05
       rect:
         serializedVersion: 2
         x: 300
@@ -2409,7 +2409,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Adventurer_Sheet_10: 1873552791
       Adventurer_Sheet_100: -1000763858
       Adventurer_Sheet_101: 1105283442
       Adventurer_Sheet_102: 1389871039
@@ -2419,9 +2418,6 @@ TextureImporter:
       Adventurer_Sheet_106: 208385039
       Adventurer_Sheet_107: 1807051637
       Adventurer_Sheet_108: 775225793
-      Adventurer_Sheet_11: -1556044189
-      Adventurer_Sheet_12: 2042598359
-      Adventurer_Sheet_13: -549423048
       Adventurer_Sheet_14: 527961495
       Adventurer_Sheet_15: -973840562
       Adventurer_Sheet_16: 1622623680
@@ -2492,7 +2488,6 @@ TextureImporter:
       Adventurer_Sheet_77: 974764025
       Adventurer_Sheet_78: 2032723901
       Adventurer_Sheet_79: -1467378758
-      Adventurer_Sheet_8: 130008316
       Adventurer_Sheet_80: 751590236
       Adventurer_Sheet_81: -285140721
       Adventurer_Sheet_82: -1852497930
@@ -2503,7 +2498,6 @@ TextureImporter:
       Adventurer_Sheet_87: 479382473
       Adventurer_Sheet_88: 60791952
       Adventurer_Sheet_89: -1025175532
-      Adventurer_Sheet_9: -747329372
       Adventurer_Sheet_90: 1919845908
       Adventurer_Sheet_91: -997206902
       Adventurer_Sheet_92: 485369960
@@ -2518,6 +2512,12 @@ TextureImporter:
       idle_01: 1383955356
       idle_02: 1874094676
       idle_03: -1048165796
+      run_00: 130008316
+      run_01: -747329372
+      run_02: 1873552791
+      run_03: -1556044189
+      run_04: 2042598359
+      run_05: -549423048
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
