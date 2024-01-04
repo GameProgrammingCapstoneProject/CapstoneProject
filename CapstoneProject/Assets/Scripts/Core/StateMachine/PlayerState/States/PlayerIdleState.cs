@@ -20,6 +20,8 @@ namespace Core.StateMachine
         public override void StateUpdate()
         {
             base.StateUpdate();
+            if (HorizontalInput != 0)
+                Player.stateMachine.ChangeState(Player.runState);
         }
 
         public override void StateEnd()
