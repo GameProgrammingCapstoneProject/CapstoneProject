@@ -79,7 +79,7 @@ namespace Core.Entity
         /// </summary>
         protected virtual void InitialSetup()
         {
-            rb = GetComponentInChildren<Rigidbody2D>();
+            rb = GetComponent<Rigidbody2D>();
             animator = GetComponentInChildren<Animator>();
             SetMoveSpeed(6f);
         }
