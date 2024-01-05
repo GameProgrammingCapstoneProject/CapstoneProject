@@ -1,8 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;using Core.Entity;
+using System.Collections.Generic;
+using Core.Entity;
 using UnityEngine;
 
-public class EntityAnimationTrigger<T> : MonoBehaviour where T : Entity
+namespace Core.Animation
 {
-    protected T _theEntity => GetComponentInParent<T>();
+    public class EntityAnimationTrigger<T> : MonoBehaviour where T : Entity.Entity
+    {
+        protected T _theEntity => GetComponentInParent<T>();
+    }
+
 }

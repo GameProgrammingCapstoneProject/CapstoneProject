@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using Core.Entity;
 using UnityEngine;
 
-public class PlayerAnimationTrigger : EntityAnimationTrigger<Player>
+namespace Core.Animation
 {
-    private void EndAttackAnimationTrigger()
+    public class PlayerAnimationTrigger : EntityAnimationTrigger<Player>
     {
-        _theEntity.EndAnimationTrigger();
+        private void EndAnimationTrigger()
+        {
+            _theEntity.EndAnimationTrigger();
+        }
     }
 }
+
