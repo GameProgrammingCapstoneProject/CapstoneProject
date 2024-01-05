@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlayerGroundLightAttack2
+  m_Name: PlayerAirAttack3
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,23 +21,19 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -243783192, guid: bdcd9f36c65e40343b91017ff298f1d0, type: 3}
-    - time: 0.1
-      value: {fileID: 1416317537, guid: bdcd9f36c65e40343b91017ff298f1d0, type: 3}
-    - time: 0.2
-      value: {fileID: 662593627, guid: bdcd9f36c65e40343b91017ff298f1d0, type: 3}
-    - time: 0.3
-      value: {fileID: -1806671122, guid: bdcd9f36c65e40343b91017ff298f1d0, type: 3}
-    - time: 0.4
-      value: {fileID: -136638576, guid: bdcd9f36c65e40343b91017ff298f1d0, type: 3}
-    - time: 0.5
-      value: {fileID: 596399043, guid: bdcd9f36c65e40343b91017ff298f1d0, type: 3}
+      value: {fileID: -536653007, guid: bdcd9f36c65e40343b91017ff298f1d0, type: 3}
+    - time: 0.125
+      value: {fileID: 208385039, guid: bdcd9f36c65e40343b91017ff298f1d0, type: 3}
+    - time: 0.25
+      value: {fileID: 1807051637, guid: bdcd9f36c65e40343b91017ff298f1d0, type: 3}
+    - time: 0.375
+      value: {fileID: 775225793, guid: bdcd9f36c65e40343b91017ff298f1d0, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 10
+  m_SampleRate: 8
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -54,18 +50,16 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -243783192, guid: bdcd9f36c65e40343b91017ff298f1d0, type: 3}
-    - {fileID: 1416317537, guid: bdcd9f36c65e40343b91017ff298f1d0, type: 3}
-    - {fileID: 662593627, guid: bdcd9f36c65e40343b91017ff298f1d0, type: 3}
-    - {fileID: -1806671122, guid: bdcd9f36c65e40343b91017ff298f1d0, type: 3}
-    - {fileID: -136638576, guid: bdcd9f36c65e40343b91017ff298f1d0, type: 3}
-    - {fileID: 596399043, guid: bdcd9f36c65e40343b91017ff298f1d0, type: 3}
+    - {fileID: -536653007, guid: bdcd9f36c65e40343b91017ff298f1d0, type: 3}
+    - {fileID: 208385039, guid: bdcd9f36c65e40343b91017ff298f1d0, type: 3}
+    - {fileID: 1807051637, guid: bdcd9f36c65e40343b91017ff298f1d0, type: 3}
+    - {fileID: 775225793, guid: bdcd9f36c65e40343b91017ff298f1d0, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -85,7 +79,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.5
+  - time: 0.375
     functionName: EndAnimationTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
