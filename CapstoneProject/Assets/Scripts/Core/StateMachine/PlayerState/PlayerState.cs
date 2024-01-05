@@ -9,11 +9,11 @@ namespace Core.StateMachine
     public class PlayerState : EntityState
     {
         protected Player Player;
-        protected Rigidbody2D Rb;
-        protected Animator Animator;
         protected float HorizontalInput;
         protected float VerticalInput;
         private string _animBoolName;
+        protected float StateTimer;
+        protected bool AnimationEndTrigger = false;
         public PlayerState(Player inputPlayer, string inputAnimName) : base(inputAnimName)
         {
             this.Player = inputPlayer;
@@ -22,22 +22,28 @@ namespace Core.StateMachine
         public override void StateBegin()
         {
             base.StateBegin();
-            Rb = Player.rb;
-            Animator = Player.animator;
-            Animator.SetBool(_animBoolName, true);
+            Player.animator.SetBool(_animBoolName, true);
+            AnimationEndTrigger = false;
         }
 
         public override void StateUpdate()
         {
             base.StateUpdate();
+            StateTimer -= Time.deltaTime;
             HorizontalInput = Input.GetAxisRaw("Horizontal");
             VerticalInput = Input.GetAxisRaw("Vertical");
+            Player.animator.SetFloat("VerticalVelocity", Player.rb.velocity.y);
         }
 
         public override void StateEnd()
         {
             base.StateEnd();
-            Animator.SetBool(_animBoolName, false);
+            Player.animator.SetBool(_animBoolName, false);
+        }
+
+        public void EndAnimationTrigger()
+        {
+            AnimationEndTrigger = true;
         }
     }
 }

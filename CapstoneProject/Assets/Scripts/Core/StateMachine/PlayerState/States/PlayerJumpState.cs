@@ -5,23 +5,23 @@ using UnityEngine;
 
 namespace Core.StateMachine
 {
-    public class PlayerOnGroundState : PlayerState
+    public class PlayerJumpState : PlayerAirState
     {
-        public PlayerOnGroundState(Player inputPlayer, string inputAnimName) : base(inputPlayer, inputAnimName)
+        public PlayerJumpState(Player inputPlayer, string inputAnimName) : base(inputPlayer, inputAnimName)
         {
         }
         public override void StateBegin()
         {
             base.StateBegin();
+            Player.rb.velocity = new Vector2(Player.rb.velocity.x, Player.GetJumpForce());
         }
 
         public override void StateUpdate()
         {
             base.StateUpdate();
-            if (Input.GetKeyDown(KeyCode.Space))
-                Player.stateMachine.ChangeState(Player.jumpState);
-            if (Input.GetKeyDown(KeyCode.A))
-                Player.stateMachine.ChangeState(Player.groundAttackState);
+
+            if (Player.rb.velocity.y < 0)
+                Player.stateMachine.ChangeState(Player.airState);
         }
 
         public override void StateEnd()
