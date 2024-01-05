@@ -4,19 +4,25 @@ using Core.Entity;
 using Core.StateMachine;
 using UnityEngine;
 
-public class PlayerRunState : PlayerOnGroundState
+namespace Core.StateMachine
 {
-    public PlayerRunState(Player inputPlayer, string inputAnimName) : base(inputPlayer, inputAnimName)
+    public class PlayerRunState : PlayerOnGroundState
     {
-    }
-    
-    public override void StateUpdate()
-    {
-        base.StateUpdate();
-        Player.SetVelocity(HorizontalInput * Player.GetMoveSpeed(), Rb.velocity.y);
-        if (Mathf.Approximately(0, Rb.velocity.x))
+        public PlayerRunState(Player inputPlayer, string inputAnimName) : base(inputPlayer, inputAnimName)
         {
-            Player.stateMachine.ChangeState(Player.idleState);
+        }
+    
+        public override void StateUpdate()
+        {
+            base.StateUpdate();
+            Player.SetVelocity(HorizontalInput * Player.GetMoveSpeed(), Player.rb.velocity.y);
+            if (Mathf.Approximately(0, Player.rb.velocity.x))
+            {
+                Player.stateMachine.ChangeState(Player.idleState);
+            }
+            if (Player.rb.velocity.y < -0.01)
+                Player.stateMachine.ChangeState(Player.airState);
         }
     }
 }
+

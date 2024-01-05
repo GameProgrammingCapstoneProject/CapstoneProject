@@ -22,6 +22,8 @@ namespace Core.StateMachine
             base.StateUpdate();
             if (HorizontalInput != 0)
                 Player.stateMachine.ChangeState(Player.runState);
+            if (Player.rb.velocity.y < 0)
+                Player.stateMachine.ChangeState(Player.airState);
         }
 
         public override void StateEnd()
