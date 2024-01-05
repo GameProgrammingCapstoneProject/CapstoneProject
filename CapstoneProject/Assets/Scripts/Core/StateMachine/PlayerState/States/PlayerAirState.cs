@@ -19,7 +19,10 @@ namespace Core.StateMachine
         public override void StateUpdate()
         {
             base.StateUpdate();
-
+            
+            if (Input.GetKey(KeyCode.A))
+                Player.stateMachine.ChangeState(Player.airAttackState);
+            
             if (Mathf.Approximately(0, Player.rb.velocity.y))
             {
                 Player.stateMachine.ChangeState(Player.idleState);

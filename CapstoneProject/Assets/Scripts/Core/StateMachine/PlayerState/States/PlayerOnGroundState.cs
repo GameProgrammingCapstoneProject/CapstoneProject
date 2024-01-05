@@ -22,6 +22,8 @@ namespace Core.StateMachine
                 Player.stateMachine.ChangeState(Player.jumpState);
             if (Input.GetKeyDown(KeyCode.A))
                 Player.stateMachine.ChangeState(Player.groundAttackState);
+            if (Input.GetKeyDown(KeyCode.E))
+                Player.stateMachine.ChangeState(Player.interactState);
         }
 
         public override void StateEnd()
