@@ -404,7 +404,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_14
+      name: jump_00
       rect:
         serializedVersion: 2
         x: 0
@@ -425,7 +425,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_15
+      name: jump_01
       rect:
         serializedVersion: 2
         x: 50
@@ -446,7 +446,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_16
+      name: jump_02
       rect:
         serializedVersion: 2
         x: 100
@@ -467,7 +467,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_17
+      name: jump_03
       rect:
         serializedVersion: 2
         x: 150
@@ -572,7 +572,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_22
+      name: fall_00
       rect:
         serializedVersion: 2
         x: 50
@@ -593,7 +593,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_23
+      name: fall_01
       rect:
         serializedVersion: 2
         x: 100
@@ -992,7 +992,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_42
+      name: groundlightattack_00
       rect:
         serializedVersion: 2
         x: 0
@@ -1013,7 +1013,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_43
+      name: groundlightattack_01
       rect:
         serializedVersion: 2
         x: 50
@@ -1034,7 +1034,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_44
+      name: groundlightattack_02
       rect:
         serializedVersion: 2
         x: 100
@@ -1055,7 +1055,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_45
+      name: groundlightattack_03
       rect:
         serializedVersion: 2
         x: 150
@@ -1076,7 +1076,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_46
+      name: groundlightattack_04
       rect:
         serializedVersion: 2
         x: 200
@@ -1097,7 +1097,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_47
+      name: groundlightattack_05
       rect:
         serializedVersion: 2
         x: 250
@@ -1118,7 +1118,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_48
+      name: groundlightattack_06
       rect:
         serializedVersion: 2
         x: 300
@@ -1139,7 +1139,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_49
+      name: groundlightattack_07
       rect:
         serializedVersion: 2
         x: 0
@@ -1160,7 +1160,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_50
+      name: groundlightattack_08
       rect:
         serializedVersion: 2
         x: 50
@@ -1181,7 +1181,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_51
+      name: groundlightattack_09
       rect:
         serializedVersion: 2
         x: 100
@@ -1202,7 +1202,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_52
+      name: groundlightattack_10
       rect:
         serializedVersion: 2
         x: 150
@@ -1223,7 +1223,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_53
+      name: groundlightattack_11
       rect:
         serializedVersion: 2
         x: 200
@@ -1244,7 +1244,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_54
+      name: groundlightattack_12
       rect:
         serializedVersion: 2
         x: 250
@@ -1265,7 +1265,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_55
+      name: groundlightattack_13
       rect:
         serializedVersion: 2
         x: 300
@@ -1286,7 +1286,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_56
+      name: groundlightattack_14
       rect:
         serializedVersion: 2
         x: 0
@@ -1307,7 +1307,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_57
+      name: groundlightattack_15
       rect:
         serializedVersion: 2
         x: 50
@@ -1328,7 +1328,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_58
+      name: groundlightattack_16
       rect:
         serializedVersion: 2
         x: 100
@@ -2418,16 +2418,10 @@ TextureImporter:
       Adventurer_Sheet_106: 208385039
       Adventurer_Sheet_107: 1807051637
       Adventurer_Sheet_108: 775225793
-      Adventurer_Sheet_14: 527961495
-      Adventurer_Sheet_15: -973840562
-      Adventurer_Sheet_16: 1622623680
-      Adventurer_Sheet_17: -1698709118
       Adventurer_Sheet_18: 829727813
       Adventurer_Sheet_19: -679586262
       Adventurer_Sheet_20: 41597561
       Adventurer_Sheet_21: 1049285112
-      Adventurer_Sheet_22: -369108604
-      Adventurer_Sheet_23: 334847007
       Adventurer_Sheet_24: -669934229
       Adventurer_Sheet_25: -1050755886
       Adventurer_Sheet_26: 637510259
@@ -2447,24 +2441,7 @@ TextureImporter:
       Adventurer_Sheet_4: 944322933
       Adventurer_Sheet_40: -56432834
       Adventurer_Sheet_41: 480670720
-      Adventurer_Sheet_42: -243783192
-      Adventurer_Sheet_43: 1416317537
-      Adventurer_Sheet_44: 662593627
-      Adventurer_Sheet_45: -1806671122
-      Adventurer_Sheet_46: -136638576
-      Adventurer_Sheet_47: 596399043
-      Adventurer_Sheet_48: -790307086
-      Adventurer_Sheet_49: 404174450
       Adventurer_Sheet_5: 1635275208
-      Adventurer_Sheet_50: -465402204
-      Adventurer_Sheet_51: 2000163148
-      Adventurer_Sheet_52: 11423493
-      Adventurer_Sheet_53: -707192891
-      Adventurer_Sheet_54: -149773219
-      Adventurer_Sheet_55: -2058218676
-      Adventurer_Sheet_56: 1214110259
-      Adventurer_Sheet_57: 490128574
-      Adventurer_Sheet_58: -998497345
       Adventurer_Sheet_59: 1555500545
       Adventurer_Sheet_6: -982168252
       Adventurer_Sheet_60: -848435784
@@ -2508,10 +2485,33 @@ TextureImporter:
       Adventurer_Sheet_97: 371217528
       Adventurer_Sheet_98: -121653760
       Adventurer_Sheet_99: 1060985463
+      fall_00: -369108604
+      fall_01: 334847007
+      groundlightattack_00: -243783192
+      groundlightattack_01: 1416317537
+      groundlightattack_02: 662593627
+      groundlightattack_03: -1806671122
+      groundlightattack_04: -136638576
+      groundlightattack_05: 596399043
+      groundlightattack_06: -790307086
+      groundlightattack_07: 404174450
+      groundlightattack_08: -465402204
+      groundlightattack_09: 2000163148
+      groundlightattack_10: 11423493
+      groundlightattack_11: -707192891
+      groundlightattack_12: -149773219
+      groundlightattack_13: -2058218676
+      groundlightattack_14: 1214110259
+      groundlightattack_15: 490128574
+      groundlightattack_16: -998497345
       idle_00: -1219999816
       idle_01: 1383955356
       idle_02: 1874094676
       idle_03: -1048165796
+      jump_00: 527961495
+      jump_01: -973840562
+      jump_02: 1622623680
+      jump_03: -1698709118
       run_00: 130008316
       run_01: -747329372
       run_02: 1873552791
