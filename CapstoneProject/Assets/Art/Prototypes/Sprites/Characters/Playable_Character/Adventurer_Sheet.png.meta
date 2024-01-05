@@ -2063,7 +2063,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_93
+      name: interact_00
       rect:
         serializedVersion: 2
         x: 100
@@ -2084,7 +2084,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_94
+      name: interact_01
       rect:
         serializedVersion: 2
         x: 150
@@ -2105,7 +2105,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_95
+      name: interact_02
       rect:
         serializedVersion: 2
         x: 200
@@ -2126,7 +2126,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_96
+      name: airattack_00
       rect:
         serializedVersion: 2
         x: 250
@@ -2147,7 +2147,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_97
+      name: airattack_01
       rect:
         serializedVersion: 2
         x: 300
@@ -2168,7 +2168,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_98
+      name: airattack_02
       rect:
         serializedVersion: 2
         x: 0
@@ -2189,7 +2189,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_99
+      name: airattack_03
       rect:
         serializedVersion: 2
         x: 50
@@ -2210,7 +2210,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_100
+      name: airattack_04
       rect:
         serializedVersion: 2
         x: 100
@@ -2231,7 +2231,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_101
+      name: airattack_05
       rect:
         serializedVersion: 2
         x: 150
@@ -2252,7 +2252,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_102
+      name: airattack_06
       rect:
         serializedVersion: 2
         x: 200
@@ -2273,7 +2273,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_103
+      name: airattack_07
       rect:
         serializedVersion: 2
         x: 250
@@ -2294,7 +2294,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_104
+      name: airattack_08
       rect:
         serializedVersion: 2
         x: 300
@@ -2315,7 +2315,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_105
+      name: airattack_09
       rect:
         serializedVersion: 2
         x: 0
@@ -2336,7 +2336,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_106
+      name: airattack_10
       rect:
         serializedVersion: 2
         x: 50
@@ -2357,7 +2357,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_107
+      name: airattack_11
       rect:
         serializedVersion: 2
         x: 100
@@ -2378,7 +2378,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adventurer_Sheet_108
+      name: airattack_12
       rect:
         serializedVersion: 2
         x: 150
@@ -2409,15 +2409,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Adventurer_Sheet_100: -1000763858
-      Adventurer_Sheet_101: 1105283442
-      Adventurer_Sheet_102: 1389871039
-      Adventurer_Sheet_103: -536653007
-      Adventurer_Sheet_104: 1210524328
-      Adventurer_Sheet_105: -1838028154
-      Adventurer_Sheet_106: 208385039
-      Adventurer_Sheet_107: 1807051637
-      Adventurer_Sheet_108: 775225793
       Adventurer_Sheet_18: 829727813
       Adventurer_Sheet_19: -679586262
       Adventurer_Sheet_20: 41597561
@@ -2478,13 +2469,19 @@ TextureImporter:
       Adventurer_Sheet_90: 1919845908
       Adventurer_Sheet_91: -997206902
       Adventurer_Sheet_92: 485369960
-      Adventurer_Sheet_93: -526835018
-      Adventurer_Sheet_94: -334934201
-      Adventurer_Sheet_95: 404569955
-      Adventurer_Sheet_96: -1045772160
-      Adventurer_Sheet_97: 371217528
-      Adventurer_Sheet_98: -121653760
-      Adventurer_Sheet_99: 1060985463
+      airattack_00: -1045772160
+      airattack_01: 371217528
+      airattack_02: -121653760
+      airattack_03: 1060985463
+      airattack_04: -1000763858
+      airattack_05: 1105283442
+      airattack_06: 1389871039
+      airattack_07: -536653007
+      airattack_08: 1210524328
+      airattack_09: -1838028154
+      airattack_10: 208385039
+      airattack_11: 1807051637
+      airattack_12: 775225793
       fall_00: -369108604
       fall_01: 334847007
       groundlightattack_00: -243783192
@@ -2508,6 +2505,9 @@ TextureImporter:
       idle_01: 1383955356
       idle_02: 1874094676
       idle_03: -1048165796
+      interact_00: -526835018
+      interact_01: -334934201
+      interact_02: 404569955
       jump_00: 527961495
       jump_01: -973840562
       jump_02: 1622623680
