@@ -5,14 +5,14 @@ using UnityEngine;
 
 namespace Core.StateMachine
 {
-    public class PlayerGroundAttack : PlayerState
+    public class PlayerGroundAttackState : PlayerState
     {
         private int _comboAttack;
         private float _lastTimeAttacked;
         private float _comboCooldown = 1;
         private Vector2[] _attackOffsetMovement = { new Vector2(2, 0f), new Vector2(1, 0.5f), new Vector2(3, 0) };
         
-        public PlayerGroundAttack(Player inputPlayer, string inputAnimName) : base(inputPlayer, inputAnimName)
+        public PlayerGroundAttackState(Player inputPlayer, string inputAnimName) : base(inputPlayer, inputAnimName)
         {
         }
         
@@ -24,7 +24,7 @@ namespace Core.StateMachine
         
             Player.animator.SetInteger("GroundComboAttack", _comboAttack);
 
-            float attackDirection = (Player.CurrentFacingDirection == Entity.Entity.FacingDirections.RIGHT) ? 1 : -1;
+            float attackDirection = (Player.CurrentFacingDirection == Character.FacingDirections.RIGHT) ? 1 : -1;
             if (HorizontalInput != 0)
                 attackDirection = (Mathf.Approximately(HorizontalInput, 1)) ? 
                     1 : -1;
