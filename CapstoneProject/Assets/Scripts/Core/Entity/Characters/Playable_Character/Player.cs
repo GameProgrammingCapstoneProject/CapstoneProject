@@ -6,16 +6,19 @@ using UnityEngine;
 
 namespace Core.Entity
 {
-    public class Player : Entity
+    public class Player : Character
     {
-        private float _jumpForce = 5f;
+        [SerializeField]
+        private float _jumpForce = 8f;
         private bool _isBusy = false;
         public EntityStateMachine<PlayerState> stateMachine { get; private set; }
         public PlayerIdleState idleState { get; private set; }
         public PlayerRunState runState { get; private set; }
         public PlayerAirState airState { get; private set; }
         public PlayerJumpState jumpState { get; private set; }
-        public PlayerGroundAttack groundAttackState { get; private set; }
+        public PlayerGroundAttackState groundAttackState { get; private set; }
+        public PlayerAirAttackState airAttackState { get; private set; }
+        public PlayerInteractState interactState { get; private set; }
         protected override void Awake()
         {
             base.Awake();
@@ -24,7 +27,9 @@ namespace Core.Entity
             runState = new PlayerRunState(this, "Run");
             airState = new PlayerAirState(this, "Jump");
             jumpState = new PlayerJumpState(this, "Jump");
-            groundAttackState = new PlayerGroundAttack(this, "GroundAttack");
+            groundAttackState = new PlayerGroundAttackState(this, "GroundAttack");
+            airAttackState = new PlayerAirAttackState(this, "AirAttack");
+            interactState = new PlayerInteractState(this, "Interact");
         }
         protected override void Start()
         {
@@ -32,8 +37,9 @@ namespace Core.Entity
             stateMachine.Initialize(idleState);
         }
         
-        void Update()
+        protected override void Update()
         {
+            base.Update();
             stateMachine.currentState.StateUpdate();
         }
         
@@ -48,7 +54,7 @@ namespace Core.Entity
         protected override void InitialSetup()
         {
             base.InitialSetup();
-            SetJumpForce(8f);
+            SetJumpForce(_jumpForce);
         }
 
         public float GetJumpForce() => _jumpForce;
