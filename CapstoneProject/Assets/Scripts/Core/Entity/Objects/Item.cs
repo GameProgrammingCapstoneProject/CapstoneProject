@@ -5,12 +5,11 @@ using UnityEngine;
 
 namespace Core.Entity
 {
-    public class Item : Entity, IGameplayInterface
+    public class Item : MonoBehaviour, IInteractable
     {
         public Animator animator { get; private set; }
-        protected override void Start()
+        private void Start()
         {
-            base.Start();
             animator = GetComponentInChildren<Animator>();
             animator.SetBool("Idle", true);
         }
