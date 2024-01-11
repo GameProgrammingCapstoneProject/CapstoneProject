@@ -9,28 +9,48 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Player _player;
-    private PlayerState _currentState => _player.stateMachine.currentState;
-    void Awake()
+    private PlayerStateComponent _playerStateComponent;
+    private PlayerState _currentState => _playerStateComponent.stateMachine.currentState;
+    private void Awake()
     {
-        _player = GetComponent<Player>();
+        _playerStateComponent = GetComponent<PlayerStateComponent>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        if (GameState.Instance.CurrentGameState != GameState.States.Gameplay) return;
         switch (_currentState)
         {
             case PlayerIdleState:
             {
-                if (PlayerInputSystem.Instance.movementAxis != 0)
-                    _player.stateMachine.ChangeState(_player.runState);
+                if (IsPressed(PlayerInputReader.Instance.movementAxis))
+                    _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.runState);
+                if (IsPressed(PlayerInputReader.Instance.jumpValue))
+                    _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.jumpState);
                 break;
             }
             case PlayerRunState:
             {
+                if (IsPressed(PlayerInputReader.Instance.jumpValue))
+                    _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.jumpState);
+                break;
+            }
+            case PlayerAirState:
+            {
+                if (IsPressed(PlayerInputReader.Instance.attackValue))
+                    _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.airAttackState);
                 break;
             }
         }
+    }
+
+    private bool IsPressed(float value)
+    {
+        return value != 0;
+    }
+    private bool IsPressed(Vector2 value)
+    {
+        return value != Vector2.zero;
     }
 }
