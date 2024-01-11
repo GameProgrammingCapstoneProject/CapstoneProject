@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Core.Entity;
+using Core.PlayerInput;
 using UnityEngine;
 
 namespace Core.StateMachine
@@ -20,16 +21,17 @@ namespace Core.StateMachine
         {
             base.StateUpdate();
             
-            if (Input.GetKey(KeyCode.A))
-                Player.stateMachine.ChangeState(Player.airAttackState);
+            // For testing
+            /*if (Input.GetKey(KeyCode.A))
+                Player.States.stateMachine.ChangeState(Player.States.airAttackState);*/
             
             if (Mathf.Approximately(0, Player.rb.velocity.y))
             {
-                Player.stateMachine.ChangeState(Player.idleState);
+                Player.States.stateMachine.ChangeState(Player.States.idleState);
             }
 
-            if (HorizontalInput != 0)
-                Player.SetVelocity(Player.GetMoveSpeed() * _moveSpeedWhileOnAir * HorizontalInput, Player.rb.velocity.y);
+            if (PlayerInputReader.Instance.movementAxis != 0)
+                Player.rb.SetVelocity(Player.GetMoveSpeed() * _moveSpeedWhileOnAir * PlayerInputReader.Instance.movementAxis, Player.rb.velocity.y);
         }
 
         public override void StateEnd()

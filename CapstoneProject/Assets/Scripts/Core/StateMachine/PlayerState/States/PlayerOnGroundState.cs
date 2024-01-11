@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Core.Entity;
+using Core.PlayerInput;
 using UnityEngine;
 
 namespace Core.StateMachine
@@ -18,12 +19,12 @@ namespace Core.StateMachine
         public override void StateUpdate()
         {
             base.StateUpdate();
-            if (Input.GetKeyDown(KeyCode.Space))
+            /*if (Input.GetKeyDown(KeyCode.Space))
                 Player.stateMachine.ChangeState(Player.jumpState);
             if (Input.GetKeyDown(KeyCode.A))
                 Player.stateMachine.ChangeState(Player.groundAttackState);
             if (Input.GetKeyDown(KeyCode.E))
-                Player.stateMachine.ChangeState(Player.interactState);
+                Player.stateMachine.ChangeState(Player.interactState);*/
         }
 
         public override void StateEnd()
