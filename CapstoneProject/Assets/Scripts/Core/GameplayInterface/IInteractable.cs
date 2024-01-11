@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Core.Gameplay
 {
-    public interface IGameplayInterface
+    public interface IInteractable
     {
         public void Interact();
     }
