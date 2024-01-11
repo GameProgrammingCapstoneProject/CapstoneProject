@@ -6,39 +6,40 @@ using UnityEngine;
 
 namespace Core.StateMachine
 {
-    public class PlayerState : EntityState
+    public class PlayerState
     {
         protected Player Player;
-        protected float HorizontalInput;
-        protected float VerticalInput;
-        private string _animBoolName;
+        protected string AnimName;
         protected float StateTimer;
         protected bool AnimationEndTrigger = false;
-        public PlayerState(Player inputPlayer, string inputAnimName) : base(inputAnimName)
+        private static readonly int VerticalVelocity = Animator.StringToHash("VerticalVelocity");
+
+        public PlayerState(Player inputPlayer, string inputAnimName)
         {
             this.Player = inputPlayer;
-            this._animBoolName = inputAnimName;
+            this.AnimName = inputAnimName;
         }
-        public override void StateBegin()
+        public virtual void StateBegin()
         {
-            base.StateBegin();
-            Player.animator.SetBool(_animBoolName, true);
+            Player.animator.SetBool(AnimName, true);
             AnimationEndTrigger = false;
         }
 
-        public override void StateUpdate()
+        //TODO: Implement this function like suggestions in this book: https://gameprogrammingpatterns.com/state.html
+        // After implementing this function, then we can use the OnGroundState.
+        public virtual void HandleInput()
         {
-            base.StateUpdate();
-            StateTimer -= Time.deltaTime;
-            HorizontalInput = Input.GetAxisRaw("Horizontal");
-            VerticalInput = Input.GetAxisRaw("Vertical");
-            Player.animator.SetFloat("VerticalVelocity", Player.rb.velocity.y);
         }
 
-        public override void StateEnd()
+        public virtual void StateUpdate()
         {
-            base.StateEnd();
-            Player.animator.SetBool(_animBoolName, false);
+            StateTimer -= Time.deltaTime;
+            Player.animator.SetFloat(VerticalVelocity, Player.rb.velocity.y);
+        }
+
+        public virtual void StateEnd()
+        {
+            Player.animator.SetBool(AnimName, false);
         }
 
         public void EndAnimationTrigger()

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Core.StateMachine
 {
-    public class PlayerGroundAttackState : PlayerState
+    public class PlayerGroundAttackState : PlayerOnGroundState
     {
         private int _comboAttack;
         private float _lastTimeAttacked;
@@ -19,7 +19,7 @@ namespace Core.StateMachine
         public override void StateBegin()
         {
             base.StateBegin();
-            if (_comboAttack > 2 || Time.time >= _lastTimeAttacked + _comboCooldown)
+            /*if (_comboAttack > 2 || Time.time >= _lastTimeAttacked + _comboCooldown)
                 _comboAttack = 0;
         
             Player.animator.SetInteger("GroundComboAttack", _comboAttack);
@@ -29,24 +29,24 @@ namespace Core.StateMachine
                 attackDirection = (Mathf.Approximately(HorizontalInput, 1)) ? 
                     1 : -1;
             Player.SetVelocity(_attackOffsetMovement[_comboAttack].x * attackDirection, _attackOffsetMovement[_comboAttack].y);
-            StateTimer = 0.1f;
+            StateTimer = 0.1f;*/
         }
 
         public override void StateUpdate()
         {
             base.StateUpdate();
-            if (StateTimer < 0)
+            /*if (StateTimer < 0)
                 Player.ResetToZeroVelocity();
             if (AnimationEndTrigger)
-                Player.stateMachine.ChangeState(Player.idleState);
+                Player.stateMachine.ChangeState(Player.idleState);*/
         }
 
         public override void StateEnd()
         {
             base.StateEnd();
-            Player.StartCoroutine(nameof(Player.BusyFor), 0.15f);
+            /*Player.StartCoroutine(nameof(Player.BusyFor), 0.15f);
             _comboAttack++;
-            _lastTimeAttacked = Time.time;
+            _lastTimeAttacked = Time.time;*/
         }
     }
 }

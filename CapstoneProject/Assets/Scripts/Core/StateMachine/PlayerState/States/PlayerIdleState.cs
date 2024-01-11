@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Core.StateMachine
 {
-    public class PlayerIdleState : PlayerOnGroundState
+    public class PlayerIdleState : PlayerState
     {
         public PlayerIdleState(Player inputPlayer, string inputAnimName) : base(inputPlayer, inputAnimName)
         {
@@ -14,16 +14,14 @@ namespace Core.StateMachine
         public override void StateBegin()
         {
             base.StateBegin();
-            Player.ResetToZeroVelocity();
+            Player.rb.ResetToZeroVelocity();
         }
 
         public override void StateUpdate()
         {
             base.StateUpdate();
-            if (HorizontalInput != 0)
-                Player.stateMachine.ChangeState(Player.runState);
             if (Player.rb.velocity.y < 0)
-                Player.stateMachine.ChangeState(Player.airState);
+                Player.States.stateMachine.ChangeState(Player.States.airState);
         }
 
         public override void StateEnd()

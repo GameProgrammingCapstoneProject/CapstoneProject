@@ -5,30 +5,35 @@ using Core.Gameplay;
 using Core.StateMachine;
 using UnityEngine;
 
-public class PlayerInteractState : PlayerState, IGameplayInterface
+namespace Core.StateMachine
 {
-    public PlayerInteractState(Player inputPlayer, string inputAnimName) : base(inputPlayer, inputAnimName)
+    public class PlayerInteractState : PlayerState, IInteractable
     {
-    }
-    public override void StateBegin()
-    {
-        base.StateBegin();
-    }
+        public PlayerInteractState(Player inputPlayer, string inputAnimName) : base(inputPlayer, inputAnimName)
+        {
+        }
+        public override void StateBegin()
+        {
+            base.StateBegin();
+            /*Interact();*/
+        }
 
-    public override void StateUpdate()
-    {
-        base.StateUpdate();
-        if (AnimationEndTrigger)
-            Player.stateMachine.ChangeState(Player.idleState);
-    }
+        public override void StateUpdate()
+        {
+            base.StateUpdate();
+            /*if (AnimationEndTrigger)
+                Player.stateMachine.ChangeState(Player.idleState);*/
+        }
 
-    public override void StateEnd()
-    {
-        base.StateEnd();
-    }
+        public override void StateEnd()
+        {
+            base.StateEnd();
+        }
 
-    public void Interact()
-    {
+        public void Interact()
+        {
         
+        }
     }
 }
+

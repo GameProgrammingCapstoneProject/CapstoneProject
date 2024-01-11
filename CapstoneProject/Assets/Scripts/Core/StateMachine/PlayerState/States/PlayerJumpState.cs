@@ -13,7 +13,7 @@ namespace Core.StateMachine
         public override void StateBegin()
         {
             base.StateBegin();
-            Player.rb.velocity = new Vector2(Player.rb.velocity.x, Player.GetJumpForce());
+            Player.rb.SetVelocity(Player.rb.velocity.x, Player.GetJumpForce());
         }
 
         public override void StateUpdate()
@@ -21,7 +21,7 @@ namespace Core.StateMachine
             base.StateUpdate();
 
             if (Player.rb.velocity.y < 0)
-                Player.stateMachine.ChangeState(Player.airState);
+                Player.States.stateMachine.ChangeState(Player.States.airState);
         }
 
         public override void StateEnd()
