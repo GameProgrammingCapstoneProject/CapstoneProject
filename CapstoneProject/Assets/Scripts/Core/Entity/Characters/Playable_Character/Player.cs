@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Core.Command;
 using Core.Components;
 using Core.Entity;
 using Core.PlayerInput;
@@ -13,25 +12,17 @@ namespace Core.Entity
     {
         public PlayerStateComponent States { get; private set; }
 
+        //TODO: The movement attributes needs to be made into one separate component
         [Header("Movement information")]
         [SerializeField]
         protected float _moveSpeed = 5f;
         [SerializeField]
         private float _jumpForce = 8f;
         private bool _isBusy = false;
-
-        protected virtual void Awake()
-        {
-            
-        }
         protected override void Start()
         {
             base.Start();
             States = GetComponent<PlayerStateComponent>();
-        }
-        
-        protected virtual void Update()
-        {
         }
         
         public bool IsBusy() => _isBusy;
