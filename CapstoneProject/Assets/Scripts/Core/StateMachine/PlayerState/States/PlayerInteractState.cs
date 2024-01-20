@@ -15,14 +15,14 @@ namespace Core.StateMachine
         public override void StateBegin()
         {
             base.StateBegin();
-            /*Interact();*/
+            Interact();
         }
 
         public override void StateUpdate()
         {
             base.StateUpdate();
-            /*if (AnimationEndTrigger)
-                Player.stateMachine.ChangeState(Player.idleState);*/
+            if (AnimationEndTrigger)
+                Player.States.stateMachine.ChangeState(Player.States.idleState);
         }
 
         public override void StateEnd()
@@ -32,7 +32,8 @@ namespace Core.StateMachine
 
         public void Interact()
         {
-        
+            Player.CollisionComponent.targetItem.Interact();
+            //TODO: Trigger a lever, pick up an item...
         }
     }
 }
