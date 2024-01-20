@@ -14,6 +14,7 @@ namespace Core.StateMachine
         public override void StateBegin()
         {
             base.StateBegin();
+            Player.canDoubleJump = true;
             Player.rb.ResetToZeroVelocity();
         }
 

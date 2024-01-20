@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using Core.StateMachine;
 using UnityEngine;
 
-public class PlayerStateMachine
+namespace Core.StateMachine
 {
-    public PlayerState currentState { get; private set; }
-    public void Initialize(PlayerState state)
+    public class PlayerStateMachine
     {
-        currentState = state;
-        currentState.StateBegin();
-    }
+        public PlayerState currentState { get; private set; }
+        public void Initialize(PlayerState state)
+        {
+            currentState = state;
+            currentState.StateBegin();
+        }
 
-    public void ChangeState(PlayerState newState)
-    {
-        currentState.StateEnd();
-        currentState = newState;
-        currentState.StateBegin();
+        public void ChangeState(PlayerState newState)
+        {
+            currentState.StateEnd();
+            currentState = newState;
+            currentState.StateBegin();
+        }
     }
 }
