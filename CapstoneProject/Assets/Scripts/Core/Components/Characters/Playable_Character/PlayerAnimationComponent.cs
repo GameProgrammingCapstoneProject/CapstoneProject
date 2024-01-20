@@ -29,6 +29,7 @@ namespace Core.Animation
         {
             _player.EndAnimationTrigger();
         }
+        
     }
 }
 
