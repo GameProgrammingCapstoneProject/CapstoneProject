@@ -1,5 +1,6 @@
 using System;
 using Core.Extension;
+using Core.GameStates;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,8 +12,8 @@ namespace Core.PlayerInput
         public float movementAxis { get; private set; } = 0;
         public float jumpValue { get; private set; } = 0;
         public float attackValue { get; private set; } = 0;
-        
-
+        public float dashValue { get; private set; } = 0;
+        public float interactValue { get; private set; } = 0;
         protected override void Awake()
         {
             base.Awake();
@@ -24,6 +25,12 @@ namespace Core.PlayerInput
             base.Start();
             GameState.OnGameStateChanged += SwitchPlayerInputSystem;
             SwitchPlayerInputSystem(GameState.States.Gameplay);
+        }
+
+        private void Update()
+        {
+            jumpValue = 0;
+            dashValue = 0;
         }
 
         private void SwitchPlayerInputSystem(GameState.States newgamestate)
@@ -39,6 +46,10 @@ namespace Core.PlayerInput
                 _playerInputActions.Gameplay.Jump.canceled += (context) => jumpValue = 0;
                 _playerInputActions.Gameplay.Attack.started += (context) => attackValue = context.ReadValue<float>();
                 _playerInputActions.Gameplay.Attack.canceled += (context) => attackValue = 0;
+                _playerInputActions.Gameplay.Dash.started += (context) => dashValue = context.ReadValue<float>();
+                _playerInputActions.Gameplay.Dash.canceled += (context) => dashValue = 0;
+                _playerInputActions.Gameplay.Interact.started += (context) => interactValue = context.ReadValue<float>();
+                _playerInputActions.Gameplay.Interact.canceled += (context) => interactValue = 0;
             }
             else
             {
