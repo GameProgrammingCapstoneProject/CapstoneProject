@@ -11,18 +11,22 @@ namespace Core.Entity
     public class Player : Character
     {
         public PlayerStateComponent States { get; private set; }
-
+        public CollisionComponent CollisionComponent { get; private set; }
         //TODO: The movement attributes needs to be made into one separate component
         [Header("Movement information")]
         [SerializeField]
         protected float _moveSpeed = 5f;
         [SerializeField]
         private float _jumpForce = 8f;
+
+        public bool canDoubleJump = false;
         private bool _isBusy = false;
         protected override void Start()
         {
             base.Start();
             States = GetComponent<PlayerStateComponent>();
+            CollisionComponent = GetComponent<CollisionComponent>();
+            canDoubleJump = true;
         }
         
         public bool IsBusy() => _isBusy;
