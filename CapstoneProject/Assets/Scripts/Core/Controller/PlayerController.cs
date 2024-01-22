@@ -72,6 +72,12 @@ public class PlayerController : MonoBehaviour
                     _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.airAttackState);
                 break;
             }
+            case PlayerWallSlideState:
+            {
+                if (IsPressed(PlayerInputReader.Instance.jumpValue))
+                    _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.wallJumpState);
+                break;
+            }
         }
     }
 

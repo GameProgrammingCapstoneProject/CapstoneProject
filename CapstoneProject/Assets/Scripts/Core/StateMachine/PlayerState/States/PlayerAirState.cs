@@ -25,6 +25,9 @@ namespace Core.StateMachine
             /*if (Input.GetKey(KeyCode.A))
                 Player.States.stateMachine.ChangeState(Player.States.airAttackState);*/
             
+            if (Player.CollisionComponent.IsInteractingWithWall())
+                Player.States.stateMachine.ChangeState(Player.States.wallSlideState);
+            
             if (Mathf.Approximately(0, Player.rb.velocity.y))
             {
                 Player.States.stateMachine.ChangeState(Player.States.idleState);

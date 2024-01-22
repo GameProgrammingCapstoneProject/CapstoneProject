@@ -18,7 +18,7 @@ namespace Core.Entity
         protected float _moveSpeed = 5f;
         [SerializeField]
         private float _jumpForce = 8f;
-
+        [HideInInspector]
         public bool canDoubleJump = false;
         private bool _isBusy = false;
         protected override void Start()
