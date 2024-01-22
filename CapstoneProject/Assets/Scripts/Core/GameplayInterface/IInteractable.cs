@@ -9,4 +9,3 @@ namespace Core.Gameplay
         public void Interact();
     }
 }
-
