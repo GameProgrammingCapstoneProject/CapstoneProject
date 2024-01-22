@@ -4,34 +4,38 @@ using System.Collections.Generic;
 using Core.Extension;
 using UnityEngine;
 
-public class GameState : PersistentObject<GameState>
+namespace Core.GameStates
 {
-    public enum States
+    public class GameState : PersistentObject<GameState>
     {
-        Gameplay,
-        UI
-    }
-
-    // Define a delegate for the event
-    public delegate void GameStateChangedHandler(States newGameState);
-    
-    // Define the event using the delegate
-    public static event GameStateChangedHandler OnGameStateChanged;
-    
-    private States _currentGameState = States.Gameplay;
-
-    public States CurrentGameState
-    {
-        get { return _currentGameState; }
-        set
+        public enum States
         {
-            if (_currentGameState != value)
-            {
-                _currentGameState = value;
+            Gameplay,
+            UI
+        }
 
-                // Trigger the event when the state changes
-                OnGameStateChanged?.Invoke(_currentGameState);
+        // Define a delegate for the event
+        public delegate void GameStateChangedHandler(States newGameState);
+    
+        // Define the event using the delegate
+        public static event GameStateChangedHandler OnGameStateChanged;
+    
+        private States _currentGameState = States.Gameplay;
+
+        public States CurrentGameState
+        {
+            get { return _currentGameState; }
+            set
+            {
+                if (_currentGameState != value)
+                {
+                    _currentGameState = value;
+
+                    // Trigger the event when the state changes
+                    OnGameStateChanged?.Invoke(_currentGameState);
+                }
             }
         }
     }
 }
+
