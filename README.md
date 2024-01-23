@@ -6,5 +6,5 @@ Team Members:
  * Thien
  * Ashhad
  * Noah
- * Josh
+ * Josh Muller
  * Kanika
