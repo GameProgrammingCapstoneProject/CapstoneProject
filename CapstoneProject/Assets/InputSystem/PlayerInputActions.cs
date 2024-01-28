@@ -71,6 +71,51 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FirstAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""3c72b7f6-0f37-4d42-9d31-333c7c654d94"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SecondAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""4d040720-4eb0-4c90-9384-41b043382714"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ThirdAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""51c1f8de-dbdb-4640-943d-5c8f5e218ea2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FourthAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""a9153bcd-1fc1-4984-b4b5-436346e0a875"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FifthAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""0ddba172-8cd2-487f-8ecc-c19f7611b63c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -148,6 +193,61 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""581c51ce-2eb5-4e99-a247-531601c9f3d6"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FirstAbility"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9ac39031-4561-410b-950f-4b755c1f6403"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondAbility"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""527c1b6d-8ee5-4630-aa45-9329b1e3a3db"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ThirdAbility"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""03729733-bc0c-41e1-b480-09370b80d899"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FourthAbility"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fcb4e580-d969-4a7a-8c15-ebf565650d5b"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FifthAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -295,6 +395,11 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
         m_Gameplay_Dash = m_Gameplay.FindAction("Dash", throwIfNotFound: true);
         m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
+        m_Gameplay_FirstAbility = m_Gameplay.FindAction("FirstAbility", throwIfNotFound: true);
+        m_Gameplay_SecondAbility = m_Gameplay.FindAction("SecondAbility", throwIfNotFound: true);
+        m_Gameplay_ThirdAbility = m_Gameplay.FindAction("ThirdAbility", throwIfNotFound: true);
+        m_Gameplay_FourthAbility = m_Gameplay.FindAction("FourthAbility", throwIfNotFound: true);
+        m_Gameplay_FifthAbility = m_Gameplay.FindAction("FifthAbility", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Confirm = m_UI.FindAction("Confirm", throwIfNotFound: true);
@@ -367,6 +472,11 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Interact;
     private readonly InputAction m_Gameplay_Dash;
     private readonly InputAction m_Gameplay_Attack;
+    private readonly InputAction m_Gameplay_FirstAbility;
+    private readonly InputAction m_Gameplay_SecondAbility;
+    private readonly InputAction m_Gameplay_ThirdAbility;
+    private readonly InputAction m_Gameplay_FourthAbility;
+    private readonly InputAction m_Gameplay_FifthAbility;
     public struct GameplayActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -376,6 +486,11 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
         public InputAction @Dash => m_Wrapper.m_Gameplay_Dash;
         public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
+        public InputAction @FirstAbility => m_Wrapper.m_Gameplay_FirstAbility;
+        public InputAction @SecondAbility => m_Wrapper.m_Gameplay_SecondAbility;
+        public InputAction @ThirdAbility => m_Wrapper.m_Gameplay_ThirdAbility;
+        public InputAction @FourthAbility => m_Wrapper.m_Gameplay_FourthAbility;
+        public InputAction @FifthAbility => m_Wrapper.m_Gameplay_FifthAbility;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -400,6 +515,21 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
+            @FirstAbility.started += instance.OnFirstAbility;
+            @FirstAbility.performed += instance.OnFirstAbility;
+            @FirstAbility.canceled += instance.OnFirstAbility;
+            @SecondAbility.started += instance.OnSecondAbility;
+            @SecondAbility.performed += instance.OnSecondAbility;
+            @SecondAbility.canceled += instance.OnSecondAbility;
+            @ThirdAbility.started += instance.OnThirdAbility;
+            @ThirdAbility.performed += instance.OnThirdAbility;
+            @ThirdAbility.canceled += instance.OnThirdAbility;
+            @FourthAbility.started += instance.OnFourthAbility;
+            @FourthAbility.performed += instance.OnFourthAbility;
+            @FourthAbility.canceled += instance.OnFourthAbility;
+            @FifthAbility.started += instance.OnFifthAbility;
+            @FifthAbility.performed += instance.OnFifthAbility;
+            @FifthAbility.canceled += instance.OnFifthAbility;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -419,6 +549,21 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
+            @FirstAbility.started -= instance.OnFirstAbility;
+            @FirstAbility.performed -= instance.OnFirstAbility;
+            @FirstAbility.canceled -= instance.OnFirstAbility;
+            @SecondAbility.started -= instance.OnSecondAbility;
+            @SecondAbility.performed -= instance.OnSecondAbility;
+            @SecondAbility.canceled -= instance.OnSecondAbility;
+            @ThirdAbility.started -= instance.OnThirdAbility;
+            @ThirdAbility.performed -= instance.OnThirdAbility;
+            @ThirdAbility.canceled -= instance.OnThirdAbility;
+            @FourthAbility.started -= instance.OnFourthAbility;
+            @FourthAbility.performed -= instance.OnFourthAbility;
+            @FourthAbility.canceled -= instance.OnFourthAbility;
+            @FifthAbility.started -= instance.OnFifthAbility;
+            @FifthAbility.performed -= instance.OnFifthAbility;
+            @FifthAbility.canceled -= instance.OnFifthAbility;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -513,6 +658,11 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnFirstAbility(InputAction.CallbackContext context);
+        void OnSecondAbility(InputAction.CallbackContext context);
+        void OnThirdAbility(InputAction.CallbackContext context);
+        void OnFourthAbility(InputAction.CallbackContext context);
+        void OnFifthAbility(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

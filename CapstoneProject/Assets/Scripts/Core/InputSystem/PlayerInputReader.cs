@@ -14,6 +14,12 @@ namespace Core.PlayerInput
         public float attackValue { get; private set; } = 0;
         public float dashValue { get; private set; } = 0;
         public float interactValue { get; private set; } = 0;
+        public float firstAbilityValue { get; private set; } = 0;
+        public float secondAbilityValue { get; private set; } = 0;
+        public float thirdAbilityValue { get; private set; } = 0;
+        public float fourthAbilityValue { get; private set; } = 0;
+        public float fifthAbilityValue { get; private set; } = 0;
+        
         protected override void Awake()
         {
             base.Awake();
@@ -50,6 +56,16 @@ namespace Core.PlayerInput
                 _playerInputActions.Gameplay.Dash.canceled += (context) => dashValue = 0;
                 _playerInputActions.Gameplay.Interact.started += (context) => interactValue = context.ReadValue<float>();
                 _playerInputActions.Gameplay.Interact.canceled += (context) => interactValue = 0;
+                _playerInputActions.Gameplay.FirstAbility.started += (context) => firstAbilityValue = context.ReadValue<float>();
+                _playerInputActions.Gameplay.FirstAbility.canceled += (context) => firstAbilityValue = 0;
+                _playerInputActions.Gameplay.SecondAbility.started += (context) => secondAbilityValue = context.ReadValue<float>();
+                _playerInputActions.Gameplay.SecondAbility.canceled += (context) => secondAbilityValue = 0;
+                _playerInputActions.Gameplay.ThirdAbility.started += (context) => thirdAbilityValue = context.ReadValue<float>();
+                _playerInputActions.Gameplay.ThirdAbility.canceled += (context) => thirdAbilityValue = 0;
+                _playerInputActions.Gameplay.FourthAbility.started += (context) => fourthAbilityValue = context.ReadValue<float>();
+                _playerInputActions.Gameplay.FourthAbility.canceled += (context) => fourthAbilityValue = 0;
+                _playerInputActions.Gameplay.FifthAbility.started += (context) => fifthAbilityValue = context.ReadValue<float>();
+                _playerInputActions.Gameplay.FifthAbility.canceled += (context) => fifthAbilityValue = 0;
             }
             else
             {
