@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
                     _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.groundAttackState);
                 if (IsPressed(PlayerInputReader.Instance.dashValue))
                 {
-                    if (_playerAbilityComponent.dashAbility.CanUseSkill())
+                    if (_playerAbilityComponent.DashAbility.CanUseAbility())
                     {
                         _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
                     }
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
                     _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.interactState);
                 if (IsPressed(PlayerInputReader.Instance.firstAbilityValue) && _playerAbilityComponent.playerAbilities[0] != null)
                 {
-                    if (_playerAbilityComponent.playerAbilities[0].CanUseSkill())
+                    if (_playerAbilityComponent.playerAbilities[0].CanUseAbility())
                     {
                         ExecuteAbilityState(_playerAbilityComponent.playerAbilities[0]);
                     }
@@ -62,9 +62,16 @@ public class PlayerController : MonoBehaviour
                     _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.groundAttackState);
                 if (IsPressed(PlayerInputReader.Instance.dashValue))
                 {
-                    if (_playerAbilityComponent.dashAbility.CanUseSkill())
+                    if (_playerAbilityComponent.DashAbility.CanUseAbility())
                     {
                         _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
+                    }
+                }
+                if (IsPressed(PlayerInputReader.Instance.firstAbilityValue) && _playerAbilityComponent.playerAbilities[0] != null)
+                {
+                    if (_playerAbilityComponent.playerAbilities[0].CanUseAbility())
+                    {
+                        ExecuteAbilityState(_playerAbilityComponent.playerAbilities[0]);
                     }
                 }
                 break;
