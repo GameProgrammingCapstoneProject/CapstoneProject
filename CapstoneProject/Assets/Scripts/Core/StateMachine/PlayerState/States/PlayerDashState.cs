@@ -9,10 +9,8 @@ namespace Core.StateMachine
 {
     public class PlayerDashState : PlayerState
     {
-        private float _lastTimeDashed;
-        private float _dashDuration = 0.4f;
+        private float _dashDuration = 0.5f;
         private float _dashSpeed = 10f;
-        private float _busyTime = 1f;
         public PlayerDashState(Player inputPlayer, string inputAnimName) : base(inputPlayer, inputAnimName)
         {
         }
@@ -21,7 +19,7 @@ namespace Core.StateMachine
         public override void StateBegin()
         {
             base.StateBegin();
-            if (Player.IsBusy()) return;
+            Player.AbilityComponent.DashAbility.UseAbility();
             StateTimer = _dashDuration;
             //player.stats.MakeInvincible(true);
             float dashDirection = (Player.rb.CurrentFacingDirection == RigidbodyComponent.FacingDirections.RIGHT) ? 1 : -1;
@@ -34,7 +32,6 @@ namespace Core.StateMachine
         public override void StateUpdate()
         {
             base.StateUpdate();
-            Player.StartCoroutine(nameof(Player.BusyFor), _busyTime);
             if (StateTimer < 0)
                 Player.States.stateMachine.ChangeState(Player.States.idleState);
             if (Player.rb.velocity.y < 0)
