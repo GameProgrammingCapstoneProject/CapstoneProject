@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu()]
 public class BehaviorTree : ScriptableObject
 {
-    Node rootNode;
+    public Node rootNode;
     public Node.State treeState = Node.State.RUNNING;
 
     public Node.State Update()

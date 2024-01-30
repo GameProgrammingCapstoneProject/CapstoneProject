@@ -35,5 +35,5 @@ public abstract class Node : ScriptableObject
 
     protected abstract void OnStart();
     protected abstract void OnStop();
-    protected abstract State OnRunning();
+    protected abstract State OnUpdate();
 }
