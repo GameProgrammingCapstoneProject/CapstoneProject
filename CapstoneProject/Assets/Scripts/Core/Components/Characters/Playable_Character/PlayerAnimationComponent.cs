@@ -36,6 +36,10 @@ namespace Core.Animation
         {
             _playerAbilityComponent.ShieldAbility.UseAbility();
         }
+        private void TriggerBowShootingAbility()
+        {
+            _playerAbilityComponent.BowShootingAbility.UseAbility();
+        }
     }
 }
 
