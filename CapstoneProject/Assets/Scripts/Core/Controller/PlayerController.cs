@@ -52,6 +52,8 @@ public class PlayerController : MonoBehaviour
                         ExecuteAbilityState(_playerAbilityComponent.playerAbilities[0]);
                     }
                 }
+
+                HandleAbilityState();
                 break;
             }
             case PlayerRunState:
@@ -67,13 +69,7 @@ public class PlayerController : MonoBehaviour
                         _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
                     }
                 }
-                if (IsPressed(PlayerInputReader.Instance.firstAbilityValue) && _playerAbilityComponent.playerAbilities[0] != null)
-                {
-                    if (_playerAbilityComponent.playerAbilities[0].CanUseAbility())
-                    {
-                        ExecuteAbilityState(_playerAbilityComponent.playerAbilities[0]);
-                    }
-                }
+                HandleAbilityState();
                 break;
             }
             case PlayerJumpState:
@@ -124,6 +120,29 @@ public class PlayerController : MonoBehaviour
             {
                 _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.shieldAbilityState);
                 break;
+            }
+            case BowShootingAbility:
+            {
+                _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.bowShootingState);
+                break;
+            }
+        }
+    }
+
+    private void HandleAbilityState()
+    {
+        if (IsPressed(PlayerInputReader.Instance.firstAbilityValue) && _playerAbilityComponent.playerAbilities[0] != null)
+        {
+            if (_playerAbilityComponent.playerAbilities[0].CanUseAbility())
+            {
+                ExecuteAbilityState(_playerAbilityComponent.playerAbilities[0]);
+            }
+        }
+        if (IsPressed(PlayerInputReader.Instance.secondAbilityValue) && _playerAbilityComponent.playerAbilities[1] != null)
+        {
+            if (_playerAbilityComponent.playerAbilities[1].CanUseAbility())
+            {
+                ExecuteAbilityState(_playerAbilityComponent.playerAbilities[1]);
             }
         }
     }
