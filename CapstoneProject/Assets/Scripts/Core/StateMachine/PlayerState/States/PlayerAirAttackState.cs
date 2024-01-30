@@ -14,7 +14,7 @@ namespace Core.StateMachine
         private float _lastTimeAttacked;
         private float _comboCooldown = 0.6f;
         private static readonly int AirComboAttack = Animator.StringToHash("AirComboAttack");
-        private const float _busyTime = 0.15f;
+        private const float _busyTime = 0.1f;
         private const float _airAttackTimer = 0.1f;
 
         public PlayerAirAttackState(Player inputPlayer, string inputAnimName) : base(inputPlayer, inputAnimName)

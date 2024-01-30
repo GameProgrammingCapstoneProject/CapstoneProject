@@ -20,6 +20,7 @@ public class PlayerStateComponent : MonoBehaviour
     public PlayerDoubleJumpState doubleJumpState { get; private set; }
     public PlayerWallSlideState wallSlideState { get; private set; }
     public PlayerWallJumpState wallJumpState { get; private set; }
+    public PlayerShieldAbilityState shieldAbilityState { get; private set; }
 
     private void Awake()
     {
@@ -37,6 +38,7 @@ public class PlayerStateComponent : MonoBehaviour
         doubleJumpState = new PlayerDoubleJumpState(_player, "DoubleJump");
         wallSlideState = new PlayerWallSlideState(_player, "WallSlide");
         wallJumpState = new PlayerWallJumpState(_player, "Jump");
+        shieldAbilityState = new PlayerShieldAbilityState(_player, "ShieldAbility");
     }
     private void Start()
     {
