@@ -12,11 +12,13 @@ public class PlayerController : MonoBehaviour
     private Player _player;
     private PlayerStateComponent _playerStateComponent;
     private CollisionComponent _collisionComponent;
+    private PlayerAbilityComponent _playerAbilityComponent;
     private PlayerState _currentState => _playerStateComponent.stateMachine.currentState;
     private void Awake()
     {
         _playerStateComponent = GetComponent<PlayerStateComponent>();
         _collisionComponent = GetComponent<CollisionComponent>();
+        _playerAbilityComponent = GetComponent<PlayerAbilityComponent>();
         _player = GetComponent<Player>();
     }
 
@@ -35,9 +37,21 @@ public class PlayerController : MonoBehaviour
                 if (IsPressed(PlayerInputReader.Instance.attackValue))
                     _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.groundAttackState);
                 if (IsPressed(PlayerInputReader.Instance.dashValue))
-                    _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
+                {
+                    if (_playerAbilityComponent.DashAbility.CanUseAbility())
+                    {
+                        _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
+                    }
+                }
                 if (IsPressed(PlayerInputReader.Instance.interactValue) && _collisionComponent.CanInteract)
                     _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.interactState);
+                if (IsPressed(PlayerInputReader.Instance.firstAbilityValue) && _playerAbilityComponent.playerAbilities[0] != null)
+                {
+                    if (_playerAbilityComponent.playerAbilities[0].CanUseAbility())
+                    {
+                        ExecuteAbilityState(_playerAbilityComponent.playerAbilities[0]);
+                    }
+                }
                 break;
             }
             case PlayerRunState:
@@ -47,7 +61,19 @@ public class PlayerController : MonoBehaviour
                 if (IsPressed(PlayerInputReader.Instance.attackValue))
                     _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.groundAttackState);
                 if (IsPressed(PlayerInputReader.Instance.dashValue))
-                    _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
+                {
+                    if (_playerAbilityComponent.DashAbility.CanUseAbility())
+                    {
+                        _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
+                    }
+                }
+                if (IsPressed(PlayerInputReader.Instance.firstAbilityValue) && _playerAbilityComponent.playerAbilities[0] != null)
+                {
+                    if (_playerAbilityComponent.playerAbilities[0].CanUseAbility())
+                    {
+                        ExecuteAbilityState(_playerAbilityComponent.playerAbilities[0]);
+                    }
+                }
                 break;
             }
             case PlayerJumpState:
@@ -88,5 +114,17 @@ public class PlayerController : MonoBehaviour
     private bool IsPressed(Vector2 value)
     {
         return value != Vector2.zero;
+    }
+
+    private void ExecuteAbilityState(PlayerAbility ability)
+    {
+        switch (ability)
+        {
+            case ShieldAbility:
+            {
+                _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.shieldAbilityState);
+                break;
+            }
+        }
     }
 }
