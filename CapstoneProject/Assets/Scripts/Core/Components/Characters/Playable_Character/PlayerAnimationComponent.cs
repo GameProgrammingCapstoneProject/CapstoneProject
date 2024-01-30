@@ -15,10 +15,12 @@ namespace Core.Animation
     {
         // Player reference
         private Player _player;
+        private PlayerAbilityComponent _playerAbilityComponent;
 
         private void Awake()
         {
             _player = GetComponentInParent<Player>();
+            _playerAbilityComponent = GetComponentInParent<PlayerAbilityComponent>();
         }
 
         /// <summary>
@@ -29,7 +31,11 @@ namespace Core.Animation
         {
             _player.EndAnimationTrigger();
         }
-        
+
+        private void TriggerShieldAbility()
+        {
+            _playerAbilityComponent.ShieldAbility.UseAbility();
+        }
     }
 }
 

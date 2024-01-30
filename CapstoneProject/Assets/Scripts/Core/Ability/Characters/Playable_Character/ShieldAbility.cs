@@ -11,14 +11,16 @@ public class ShieldAbility : PlayerAbility
     private GameObject _currentShield;
     [SerializeField]
     private float _existDuration = 5f;
+    private Player _player;
     public event System.Action OnShieldAbilityCoolDown;
     protected override void Activate()
     {
         if (_currentShield == null)
         {
-            _currentShield = Instantiate(_shieldPrefab, GetComponent<Player>().transform.position, GetComponent<Player>().transform.rotation);
+            _player = GetComponent<Player>();
+            _currentShield = Instantiate(_shieldPrefab, _player.transform.position, _player.transform.rotation);
             Shield shield = _currentShield.GetComponent<Shield>();
-            shield.Setup(_existDuration, GetComponent<Player>());
+            shield.Setup(_existDuration, _player);
             OnShieldAbilityCoolDown?.Invoke();
         }
     }
