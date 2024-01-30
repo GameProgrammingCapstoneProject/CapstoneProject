@@ -20,7 +20,6 @@ public class PlayerShieldAbilityState : PlayerState
         base.StateUpdate();
         if (AnimationEndTrigger)
             Player.States.stateMachine.ChangeState(Player.States.idleState);
-        Player.rb.ResetToZeroVelocity();
     }
 
     public override void StateEnd()
