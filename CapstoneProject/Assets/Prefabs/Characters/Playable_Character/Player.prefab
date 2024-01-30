@@ -94,7 +94,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1456303091
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -1219999816, guid: bdcd9f36c65e40343b91017ff298f1d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -150,6 +150,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6647276663347622956}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6822168009441714983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4872242686308043256}
+  m_Layer: 0
+  m_Name: BowShootingPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4872242686308043256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6822168009441714983}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.61, y: -0.07, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6647276663347622956}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8648401941361999589
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,6 +200,7 @@ GameObject:
   - component: {fileID: 163893606163044311}
   - component: {fileID: 2423513131252652633}
   - component: {fileID: 8114319610918587290}
+  - component: {fileID: 2300945110067139669}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -191,6 +223,7 @@ Transform:
   m_Children:
   - {fileID: 2660180870133810465}
   - {fileID: 7403235503465727123}
+  - {fileID: 4872242686308043256}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &4656393791759159963
@@ -339,6 +372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAbilities:
   - {fileID: 8114319610918587290}
+  - {fileID: 2300945110067139669}
 --- !u!114 &2423513131252652633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,3 +403,21 @@ MonoBehaviour:
   _baseDamage: 0
   _shieldPrefab: {fileID: 3227693646247740686, guid: 2723e0cb27cd3604aa4c3fb359f34906, type: 3}
   _existDuration: 3
+--- !u!114 &2300945110067139669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8648401941361999589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c63a00a1fd0eb94a85799271ff9ef1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cooldown: 3
+  _baseDamage: 0
+  _arrowPrefab: {fileID: 2912616069325603199, guid: af18c1761f353a8449d924bf3f4156fe, type: 3}
+  _bowShootingPosition: {fileID: 4872242686308043256}
+  _existDuration: 3
+  _target: {fileID: 0}
