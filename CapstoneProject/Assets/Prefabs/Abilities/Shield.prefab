@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5858576108825493869}
   - component: {fileID: 2598339585077727276}
   - component: {fileID: 4118970299318440648}
-  - component: {fileID: 2760805727451028344}
+  - component: {fileID: 311645483850425259}
   m_Layer: 9
   m_Name: Shield
   m_TagString: Untagged
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1498599173
-  m_SortingLayer: 2
+  m_SortingLayerID: 1132165347
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -1073704433, guid: cd0b0ea39cb0783419a97143281cc9f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -107,7 +107,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2760805727451028344
+--- !u!114 &311645483850425259
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -14,7 +14,7 @@ TagManager:
   - Ground
   - Background
   - Hazard
-  - 
+  - Vfx
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Hazard
     uniqueID: 938394091
+    locked: 0
+  - name: Vfx
+    uniqueID: 1132165347
     locked: 0
   - name: Checkpoint
     uniqueID: 972099065

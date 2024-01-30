@@ -12,6 +12,7 @@ namespace Core.Entity
     {
         public PlayerStateComponent States { get; private set; }
         public CollisionComponent CollisionComponent { get; private set; }
+        public PlayerAbilityComponent AbilityComponent { get; private set; }
         //TODO: The movement attributes needs to be made into one separate component
         [Header("Movement information")]
         [SerializeField]
@@ -26,6 +27,7 @@ namespace Core.Entity
             base.Start();
             States = GetComponent<PlayerStateComponent>();
             CollisionComponent = GetComponent<CollisionComponent>();
+            AbilityComponent = GetComponent<PlayerAbilityComponent>();
             canDoubleJump = true;
         }
         
