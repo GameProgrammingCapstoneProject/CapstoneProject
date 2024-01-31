@@ -37,22 +37,11 @@ public class PlayerController : MonoBehaviour
                 if (IsPressed(PlayerInputReader.Instance.attackValue))
                     _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.groundAttackState);
                 if (IsPressed(PlayerInputReader.Instance.dashValue))
-                {
                     if (_playerAbilityComponent.DashAbility.CanUseAbility())
-                    {
                         _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
-                    }
-                }
                 if (IsPressed(PlayerInputReader.Instance.interactValue) && _collisionComponent.CanInteract)
                     _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.interactState);
-                if (IsPressed(PlayerInputReader.Instance.firstAbilityValue) && _playerAbilityComponent.playerAbilities[0] != null)
-                {
-                    if (_playerAbilityComponent.playerAbilities[0].CanUseAbility())
-                    {
-                        ExecuteAbilityState(_playerAbilityComponent.playerAbilities[0]);
-                    }
-                }
-
+                
                 HandleAbilityState();
                 break;
             }
@@ -63,12 +52,8 @@ public class PlayerController : MonoBehaviour
                 if (IsPressed(PlayerInputReader.Instance.attackValue))
                     _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.groundAttackState);
                 if (IsPressed(PlayerInputReader.Instance.dashValue))
-                {
                     if (_playerAbilityComponent.DashAbility.CanUseAbility())
-                    {
                         _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
-                    }
-                }
                 HandleAbilityState();
                 break;
             }
