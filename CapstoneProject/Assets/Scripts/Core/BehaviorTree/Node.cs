@@ -11,9 +11,10 @@ public abstract class Node : ScriptableObject
         SUCCESS
     }
 
-    public State state = State.RUNNING;
-    public bool started = false;
-
+    [HideInInspector] public State state = State.RUNNING;
+    [HideInInspector] public bool started = false;
+    [HideInInspector] public string guid;
+    [HideInInspector] public Vector2 position;
     public State Update()
     {
         if(!started)
@@ -22,7 +23,7 @@ public abstract class Node : ScriptableObject
             started = true;
         }
 
-        state = State.RUNNING;
+        state = OnUpdate();
 
         if(state == State.FAILURE || state == State.SUCCESS)
         {
@@ -31,6 +32,11 @@ public abstract class Node : ScriptableObject
         }
 
         return state;
+    }
+
+    public virtual Node Clone()
+    {
+        return Instantiate(this);
     }
 
     protected abstract void OnStart();
