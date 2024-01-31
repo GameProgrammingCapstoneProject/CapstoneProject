@@ -6,21 +6,22 @@ using UnityEngine;
 
 public class ShieldAbility : PlayerAbility
 {
-    [SerializeField]
     private GameObject _shieldPrefab;
     private GameObject _currentShield;
-    [SerializeField]
-    private float _existDuration = 5f;
-    private Player _player;
+    private float _existDuration;
     public event System.Action OnShieldAbilityCoolDown;
+    public ShieldAbility(Player player, float cooldown, GameObject shieldPrefab, float existDuration) : base(player, cooldown)
+    {
+        _shieldPrefab = shieldPrefab;
+        _existDuration = existDuration;
+    }
     protected override void Activate()
     {
         if (_currentShield == null)
         {
-            _player = GetComponent<Player>();
-            _currentShield = Instantiate(_shieldPrefab, _player.transform.position, _player.transform.rotation);
+            _currentShield = GameObject.Instantiate(_shieldPrefab, Instigator.transform.position, Instigator.transform.rotation);
             Shield shield = _currentShield.GetComponent<Shield>();
-            shield.Setup(_existDuration, _player);
+            shield.Setup(_existDuration, Instigator);
             OnShieldAbilityCoolDown?.Invoke();
         }
     }

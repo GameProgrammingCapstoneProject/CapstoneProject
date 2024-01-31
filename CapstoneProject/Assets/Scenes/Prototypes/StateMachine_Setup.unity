@@ -3508,17 +3508,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &1381893749 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2300945110067139669, guid: 0c61ba37bc1c82341acebc4cb7825ab4, type: 3}
-  m_PrefabInstance: {fileID: 614805200116857927}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c63a00a1fd0eb94a85799271ff9ef1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1422034711
 GameObject:
   m_ObjectHideFlags: 0
@@ -4473,21 +4462,37 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 163893606163044311, guid: 0c61ba37bc1c82341acebc4cb7825ab4, type: 3}
-      propertyPath: playerAbilities.Array.size
-      value: 2
+      propertyPath: _arrowPrefab
+      value: 
+      objectReference: {fileID: 2912616069325603199, guid: af18c1761f353a8449d924bf3f4156fe, type: 3}
+    - target: {fileID: 163893606163044311, guid: 0c61ba37bc1c82341acebc4cb7825ab4, type: 3}
+      propertyPath: _dashCooldown
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 163893606163044311, guid: 0c61ba37bc1c82341acebc4cb7825ab4, type: 3}
-      propertyPath: playerAbilities.Array.data[1]
+      propertyPath: _shieldPrefab
       value: 
-      objectReference: {fileID: 1381893749}
-    - target: {fileID: 2300945110067139669, guid: 0c61ba37bc1c82341acebc4cb7825ab4, type: 3}
-      propertyPath: _target
-      value: 
-      objectReference: {fileID: 787761365}
-    - target: {fileID: 2300945110067139669, guid: 0c61ba37bc1c82341acebc4cb7825ab4, type: 3}
+      objectReference: {fileID: 3227693646247740686, guid: 2723e0cb27cd3604aa4c3fb359f34906, type: 3}
+    - target: {fileID: 163893606163044311, guid: 0c61ba37bc1c82341acebc4cb7825ab4, type: 3}
+      propertyPath: _shieldCooldown
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 163893606163044311, guid: 0c61ba37bc1c82341acebc4cb7825ab4, type: 3}
       propertyPath: _bowShootingPosition
       value: 
       objectReference: {fileID: 610586787}
+    - target: {fileID: 163893606163044311, guid: 0c61ba37bc1c82341acebc4cb7825ab4, type: 3}
+      propertyPath: _shieldExistDuration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 163893606163044311, guid: 0c61ba37bc1c82341acebc4cb7825ab4, type: 3}
+      propertyPath: _bowAbilityExistDuration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 163893606163044311, guid: 0c61ba37bc1c82341acebc4cb7825ab4, type: 3}
+      propertyPath: _bowShootingAbilityCooldown
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6647276663347622956, guid: 0c61ba37bc1c82341acebc4cb7825ab4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.29
