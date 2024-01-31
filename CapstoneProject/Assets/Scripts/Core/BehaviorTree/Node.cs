@@ -23,7 +23,7 @@ public abstract class Node : ScriptableObject
             started = true;
         }
 
-        state = State.RUNNING;
+        state = OnUpdate();
 
         if(state == State.FAILURE || state == State.SUCCESS)
         {
