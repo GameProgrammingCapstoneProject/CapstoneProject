@@ -35,8 +35,11 @@ namespace Core.PlayerInput
 
         private void Update()
         {
+            // TODO: Need to fix: There are bugs related to these values:
+            // - (immediate perform a double jump)
+            // - (when holding attack button, animation attack get stuck)
             jumpValue = 0;
-            dashValue = 0;
+            attackValue = 0;
         }
 
         private void SwitchPlayerInputSystem(GameState.States newgamestate)
