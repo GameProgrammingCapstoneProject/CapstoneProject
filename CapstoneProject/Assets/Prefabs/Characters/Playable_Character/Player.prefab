@@ -198,9 +198,6 @@ GameObject:
   - component: {fileID: 463776978811722927}
   - component: {fileID: 9071807513347634400}
   - component: {fileID: 163893606163044311}
-  - component: {fileID: 2423513131252652633}
-  - component: {fileID: 8114319610918587290}
-  - component: {fileID: 2300945110067139669}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -370,54 +367,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06b56076fa33b1e4c9ac3b98c4747d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAbilities:
-  - {fileID: 8114319610918587290}
-  - {fileID: 2300945110067139669}
---- !u!114 &2423513131252652633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8648401941361999589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f98ce8e2c068e404e83f44a1e0f19abe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cooldown: 5
-  _baseDamage: 0
---- !u!114 &8114319610918587290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8648401941361999589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74aecb0c875c82e47ba20c69e6820b88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cooldown: 5
-  _baseDamage: 0
+  _dashCooldown: 5
   _shieldPrefab: {fileID: 3227693646247740686, guid: 2723e0cb27cd3604aa4c3fb359f34906, type: 3}
-  _existDuration: 3
---- !u!114 &2300945110067139669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8648401941361999589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c63a00a1fd0eb94a85799271ff9ef1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cooldown: 3
-  _baseDamage: 0
+  _shieldCooldown: 10
+  _shieldExistDuration: 3
   _arrowPrefab: {fileID: 2912616069325603199, guid: af18c1761f353a8449d924bf3f4156fe, type: 3}
+  _bowShootingAbilityCooldown: 3
   _bowShootingPosition: {fileID: 4872242686308043256}
-  _existDuration: 3
-  _target: {fileID: 0}
+  _bowAbilityExistDuration: 3
