@@ -15,7 +15,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 637e4b3935b815842923a887cd5a39d2
-  position: {x: 58.00006, y: -90.533325}
+  position: {x: 52, y: -154.66675}
   child: {fileID: 8136865942906626463}
 --- !u!114 &-3689176163837321913
 MonoBehaviour:
@@ -32,8 +32,10 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 176981f63a8ac4b4494317f22b9314b2
-  position: {x: 0, y: 0}
-  children: []
+  position: {x: -113.15811, y: 255.32799}
+  children:
+  - {fileID: 6111804223023052258}
+  - {fileID: 8221610927638831031}
 --- !u!114 &-3126667548472949912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,7 +51,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: dbb3f10058bd9b9428508f40cdbfce12
-  position: {x: 455.88892, y: 510.66663}
+  position: {x: 457.91226, y: 416.6667}
   message: 
 --- !u!114 &-2470525623709141638
 MonoBehaviour:
@@ -67,7 +69,9 @@ MonoBehaviour:
   started: 0
   guid: bf9a1a20ebf334542ac32fe9c8b7efb6
   position: {x: 52, y: 77.33332}
-  children: []
+  children:
+  - {fileID: -3689176163837321913}
+  - {fileID: 7553926939900547965}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,7 +111,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 6222959f6d6a6d644b81b637f6c75d2b
-  position: {x: 247.21979, y: 510.66663}
+  position: {x: 268.33334, y: 416.6667}
   duration: 1
 --- !u!114 &6111804223023052258
 MonoBehaviour:
@@ -141,7 +145,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 3efb0a0f79240e04884d6106d5976113
-  position: {x: 343.50592, y: 273.1633}
+  position: {x: 356.66663, y: 206.05334}
   children:
   - {fileID: 694940081288309180}
   - {fileID: -3126667548472949912}
@@ -160,8 +164,8 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: df414182a5cb64d4cae3c030769f6061
-  position: {x: 51.999985, y: -24.666702}
-  child: {fileID: 0}
+  position: {x: 52, y: -28}
+  child: {fileID: -2470525623709141638}
 --- !u!114 &8221610927638831031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,5 +181,5 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: e0ef76fbd5e8c2b4fb64c9c93068b4f3
-  position: {x: -219.64818, y: 447.7282}
+  position: {x: -202.82275, y: 416.66666}
   duration: 1
