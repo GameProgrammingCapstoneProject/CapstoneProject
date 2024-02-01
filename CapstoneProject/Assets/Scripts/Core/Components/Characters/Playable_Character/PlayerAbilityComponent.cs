@@ -12,6 +12,7 @@ public class PlayerAbilityComponent : MonoBehaviour
     public DashAbility DashAbility;
     public ShieldAbility ShieldAbility;
     public BowShootingAbility BowShootingAbility;
+    public HealthRegenAbility HealthRegenAbility;
     
     public List<PlayerAbility> playerAbilities { get; private set; }
 
@@ -20,7 +21,7 @@ public class PlayerAbilityComponent : MonoBehaviour
         DashAbility.AbilityStart(_player);
         playerAbilities = new List<PlayerAbility>
         {
-            ShieldAbility,
+            HealthRegenAbility,
             BowShootingAbility
         };
         foreach (PlayerAbility ability in playerAbilities)

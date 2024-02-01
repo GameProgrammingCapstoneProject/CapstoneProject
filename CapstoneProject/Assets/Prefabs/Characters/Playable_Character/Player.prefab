@@ -372,4 +372,4 @@ MonoBehaviour:
   DashAbility: {fileID: 11400000, guid: 5fc29e80207b3aa4187d8821737c3286, type: 2}
   ShieldAbility: {fileID: 11400000, guid: 6fcc3f09fb24a2b49860e08c56d3676d, type: 2}
   BowShootingAbility: {fileID: 11400000, guid: 919751b52fd326348b1eaa91adde5b07, type: 2}
-  playerAbilities: []
+  HealthRegenAbility: {fileID: 11400000, guid: 76e81ea0c3a846946bb396f38441f667, type: 2}
