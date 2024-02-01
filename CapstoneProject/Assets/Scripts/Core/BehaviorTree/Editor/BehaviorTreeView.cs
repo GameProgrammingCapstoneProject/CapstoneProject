@@ -23,6 +23,14 @@ public class BehaviorTreeView : GraphView
 
         var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets\\Scripts\\Core\\BehaviorTree\\Editor\\BehaviorTreeEditor.uss");
         styleSheets.Add(styleSheet);
+
+        Undo.undoRedoPerformed += OnUndoRedo;
+    }
+
+    private void OnUndoRedo()
+    {
+        PopulateView(tree);
+        AssetDatabase.SaveAssets();
     }
 
     NodeView FindNodeView(Node node)
@@ -123,6 +131,13 @@ public class BehaviorTreeView : GraphView
         }
         {
             var types = TypeCache.GetTypesDerivedFrom<DecoratorNode>();
+            foreach (var type in types)
+            {
+                evt.menu.AppendAction($"[{type.BaseType.Name}]  {type.Name}", (a) => CreateNode(type));
+            }
+        }
+        {
+            var types = TypeCache.GetTypesDerivedFrom<ConditionNode>();
             foreach (var type in types)
             {
                 evt.menu.AppendAction($"[{type.BaseType.Name}]  {type.Name}", (a) => CreateNode(type));
