@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
+using UnityEditor;
+using System.Collections.Generic;
 
-public class DialogueObjectTemplate : MonoBehaviour
+[CreateAssetMenu(fileName = "ScriptData", menuName = "ScriptableObjects/SpawnManagerScriptableObject", order = 1)]
+public class DialogueExample : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int dialogueID = 0;
+    List<string> dialogueText = new List<string>();
+    short dialogueSize = 0;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
