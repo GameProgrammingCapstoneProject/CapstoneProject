@@ -40,6 +40,10 @@ namespace Core.Animation
         {
             _playerAbilityComponent.BowShootingAbility.UseAbility();
         }
+        private void TriggerHealthRegenAbility()
+        {
+            _playerAbilityComponent.HealthRegenAbility.UseAbility();
+        }
     }
 }
 
