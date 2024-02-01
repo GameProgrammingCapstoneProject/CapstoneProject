@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09997e9684434c429cff564b3d53651, type: 3}
+  m_Name: EmeliaPrototypeDialogue
+  m_EditorClassIdentifier: 
+  dialogueID: 2
+  dialogueSize: 75
+  dialogueCharacter: Emelia
+  dialogueText:
+  - "Ahem\u2026 Anyways\u2026"
+  - 
+  - "Good day to you. I am Emelia, historian, archeologist, philosopher\u2026"
+  - Actually, upon consideration, you do not seem learned. I will not bombard you
+    with titles as I normally would.
+  - I figured that the only interest in this place would be historical in nature,
+    no?
+  - Yet I seem to be surrounded purely by brutes, soldiers and monsters.
+  - "You\u2019ve listened longer than most of the others though. Do I see some amount
+    of curiosity?"
+  - Well, it is always a good day to learn. Sit and listen, if you care.
+  - I will take your silence and listening as consent to go over my notes, assuming
+    you are truly mute.
+  - 
+  - "I\u2019ve heard of a location similar to this before, a great tower in the lower
+    steppes."
+  - It seems to have been originally built as a religious site to a deity named Deesha.
+  - Supposedly, they are chained to rocks suspended in the air above the tower.
+  - Although all sources point to this, oddly, being a literal phenomenon, rather
+    than metaphor.
+  - This location seems similar, although I arrived here seeking the original tower.
+  - "Thank whatever lays above that I brought my scribing tools, I\u2019d be at such
+    a loss for what to do otherwise."
+  - As for this location, it bears some similarities to this place.
+  - Mostly, the same types of odd fauna seem to be present here as in the other location.
+  - As well, the basic mechanics of being driven upward and resurrection are both
+    intact.
+  - "With this information in mind, I have a working theory\u2026"
+  - 
+  - I would say that this area appears to be a precursor to the tower itself.
+  - "Think of it as a sort of \u201Cproto-tower\u201D which was formed earlier."
+  - Some of the dating on the chiseled stone here would indicate a very ancient tomb,
+    indeed.
+  - Perhaps, this is where Deesha was initially held, with his influence corrupting
+    the surroundings,
+  - Even after they were moved, their corruption remains in some forms.
+  - "In this sense, perhaps it\u2019s an even greater discovery than I anticipated."
+  - Although the tower might hold more relevance for my research.
+  - I still wish to be rid of this place as soon as I reasonably can.
+  - "Assuming a way out doesn\u2019t make itself known before my research concludes."
+  - That, of course, leads to the next step of confirming my theory.
+  - Why were they held here initially, and why were they moved?
+  - In addition, how could their latent influence still be felt for this long?
+  - "I\u2019m no theologen, but even I understand the power that deities hold here."
+  - "Even so, for the influence to be this present and forceful\u2026"
+  - I feel it a sign of deep anger, or spite. Perhaps towards us, or the world.
+  - More than usual, I would advise caution, moving forward.
+  - 
+  - My theory still has a great number of holes at this stage.
+  - Mainly, how this odd, red substance factors into my thoughts.
+  - "It seems to be a commonality with the more\u2026 depraved creatures here."
+  - It bears a striking resemblance to blood, but does not clot or dry.
+  - I almost feel subjected to some kind of cosmic riddle.
+  - My teachers did not equip me for asking myself questions like,
+  - "\u201CDid the chicken or the egg come first?\u201D"
+  - What is blood but does not clot, dry or run?
+  - 
+  - Perhaps if the question remains unanswered, another can follow up on my findings.
+  - I am assuming this area will soon be plundered by less spry researchers.
+  - For now, I will count myself lucky I made it first.
+  - Especially as I tire of learning purely from others. I must pull information,
+    with my own hands now.
+  - 
+  - "Well\u2026 That\u2019s quite intriguing, isn\u2019t it? I could swear I witnessed
+    your death."
+  - "Yet I don\u2019t even see a scratch on you from beforehand."
+  - "I wish that I had some practical medical expertise right now\u2026"
+  - No basis to form a hypothesis without doing something brutish.
+  - "Although, I suppose it wouldn\u2019t affect you in the long term anyways."
+  - 
+  - "\u2026Sorry, you seem to have caught me lost in thought."
+  - I could swear that you have killed me before.
+  - At first I assumed it was a hallucination, something from the cave.
+  - But I seem to be well in all other senses.
+  - Assuming that something happened, simply refrain from repeating it.
+  - "The distress of the experience is outweighed by the interesting research implications\u2026"
+  - 
+  - "\u2026I suppose something can be said about your resilience."
+  - Or at least, whatever force is returning you from the clutches of death.
+  - "Such miraculously low odds of survival\u2026 It must be the influence of this
+    strange location."
+  - Nothing that contradicts my existing theories. Although I must be thorough.
+  - It could, ultimately, just be luck.
+  - 
+  - "\u2026Alright, I am not sure of what exactly you\u2019re doing."
+  - But regardless, stop. I tire of having to reorganize my notes.
+  - "The last time you\u2026 \u201Ckilled\u2019 me, I lost a few pages of research,
+    too."
+  - "It\u2019s far too important to be lost to pointless sadism."
+  - 
