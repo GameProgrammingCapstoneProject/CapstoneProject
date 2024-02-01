@@ -128,6 +128,13 @@ public class BehaviorTreeView : GraphView
                 evt.menu.AppendAction($"[{type.BaseType.Name}]  {type.Name}", (a) => CreateNode(type));
             }
         }
+        {
+            var types = TypeCache.GetTypesDerivedFrom<ConditionNode>();
+            foreach (var type in types)
+            {
+                evt.menu.AppendAction($"[{type.BaseType.Name}]  {type.Name}", (a) => CreateNode(type));
+            }
+        }
     }
 
     void CreateNode(System.Type type)
