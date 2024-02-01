@@ -3,26 +3,20 @@ using System.Collections.Generic;
 using Core.Entity;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Abilities/Bow Shooting Ability", fileName = "BowShootingAbility", order = 2)]
 public class BowShootingAbility : PlayerAbility
 {
-    private GameObject _arrowPrefab;
-    private Transform _bowShootingPosition;
-    private GameObject _currentArrow;
+    [SerializeField]
+    private Arrow _arrowPrefab;
+    private Arrow _currentArrow;
+    [SerializeField]
     private float _existDuration;
     private Transform _target;
     public event System.Action OnBowShootingAbilityCoolDown;
-    public BowShootingAbility(Player player, float cooldown,
-        GameObject arrowPrefab, Transform bowShootingPosition,
-        float existDuration) : base(player, cooldown)
+    
+    public override void AbilityUpdate()
     {
-        _arrowPrefab = arrowPrefab;
-        _bowShootingPosition = bowShootingPosition;
-        _existDuration = existDuration;
-    }
-
-    public override void Update()
-    {
-        base.Update();
+        base.AbilityUpdate();
         //TODO: Implement function which is searching for the lowest health target
         if (_target == null)
             _target = GameObject.Find("Goblin_Melee").transform;
@@ -32,9 +26,8 @@ public class BowShootingAbility : PlayerAbility
     {
         if (_currentArrow == null)
         {
-            _currentArrow = GameObject.Instantiate(_arrowPrefab, _bowShootingPosition.position, Instigator.transform.rotation);
-            Arrow arrow = _currentArrow.GetComponent<Arrow>();
-            arrow.Setup(_existDuration, _bowShootingPosition.position, _target.position);
+            _currentArrow = GameObject.Instantiate(_arrowPrefab, Instigator.bowShootingPosition.transform.position, Instigator.transform.rotation);
+            _currentArrow.Setup(_existDuration, Instigator.bowShootingPosition.transform.position, _target.position);
             OnBowShootingAbilityCoolDown?.Invoke();
         }
     }
