@@ -6,58 +6,50 @@ using UnityEngine;
 
 public class PlayerAbilityComponent : MonoBehaviour
 {
-    public DashAbility DashAbility { get; private set; }
-    public ShieldAbility ShieldAbility { get; private set; }
-    public BowShootingAbility BowShootingAbility { get; private set; }
-
-    [Header("Dash Ability Information")]
     [SerializeField]
-    private float _dashCooldown;
-
-    [Header("Shield Ability Information")]
-    [SerializeField]
-    private GameObject _shieldPrefab;
-    [SerializeField]
-    private float _shieldCooldown;
-    [SerializeField]
-    private float _shieldExistDuration;
-
-    [Header("Bow Shooting Ability Information")]
-    [SerializeField]
-    private GameObject _arrowPrefab;
-    [SerializeField]
-    private float _bowShootingAbilityCooldown;
-    [SerializeField]
-    private Transform _bowShootingPosition;
-    [SerializeField]
-    private float _bowAbilityExistDuration;
-    
-    
     private Player _player;
-    public List<PlayerAbility> playerAbilities;
-    private void Awake()
-    {
-        _player = GetComponent<Player>();
-        DashAbility = new DashAbility(_player, _dashCooldown);
-        ShieldAbility = new ShieldAbility(_player, _shieldCooldown, _shieldPrefab, _shieldExistDuration);
-        BowShootingAbility = new BowShootingAbility(_player, _bowShootingAbilityCooldown, _arrowPrefab, _bowShootingPosition, _bowAbilityExistDuration);
-    }
+
+    public DashAbility DashAbility;
+    public ShieldAbility ShieldAbility;
+    public BowShootingAbility BowShootingAbility;
+    
+    public List<PlayerAbility> playerAbilities { get; private set; }
 
     private void Start()
     {
+        DashAbility.AbilityStart(_player);
         playerAbilities = new List<PlayerAbility>
         {
             ShieldAbility,
             BowShootingAbility
         };
+        foreach (PlayerAbility ability in playerAbilities)
+        {
+            ability.AbilityStart(_player);
+            ability.Unlock();
+        }
     }
 
     private void Update()
     {
-        DashAbility.Update();
+        DashAbility.AbilityUpdate();
         foreach (PlayerAbility ability in playerAbilities)
         {
-            ability.Update();
+            ability.AbilityUpdate();
         }
+    }
+
+    public void AddAbility(PlayerAbility ability, int slotNumber)
+    {
+        if (playerAbilities[slotNumber] != null)
+            playerAbilities[slotNumber] = ability;
+        else
+        {
+            playerAbilities.Insert(slotNumber, ability);
+        }
+    }
+    public void RemoveAbility(PlayerAbility ability)
+    {
+        playerAbilities.Remove(ability);
     }
 }

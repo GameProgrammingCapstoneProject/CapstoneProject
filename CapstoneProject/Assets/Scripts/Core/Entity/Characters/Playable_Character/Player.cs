@@ -13,6 +13,8 @@ namespace Core.Entity
         public PlayerStateComponent States { get; private set; }
         public CollisionComponent CollisionComponent { get; private set; }
         public PlayerAbilityComponent AbilityComponent { get; private set; }
+
+        public Transform bowShootingPosition;
         //TODO: The movement attributes needs to be made into one separate component
         [Header("Movement information")]
         [SerializeField]

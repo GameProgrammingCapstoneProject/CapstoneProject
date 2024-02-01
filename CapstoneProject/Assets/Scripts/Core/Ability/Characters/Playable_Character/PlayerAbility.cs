@@ -5,21 +5,20 @@ using Core.Entity;
 using Core.StateMachine;
 using UnityEngine;
 
-public abstract class PlayerAbility
+public abstract class PlayerAbility : ScriptableObject
 {
     protected Player Instigator;
+    [SerializeField]
     private float _cooldown;
+    [SerializeField]
     private bool _isUnlocked = true;
 
     private float _coolDownTimer;
-
-    public PlayerAbility(Player player, float cooldown)
+    public virtual void AbilityStart(Player player)
     {
         Instigator = player;
-        SetCooldown(cooldown);
     }
-
-    public virtual void Update()
+    public virtual void AbilityUpdate()
     {
         _coolDownTimer -= Time.deltaTime;
     }

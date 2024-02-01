@@ -328,6 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7024ea521d0304fb77d2281e6b67a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bowShootingPosition: {fileID: 4872242686308043256}
   _moveSpeed: 5
   _jumpForce: 8
   canDoubleJump: 0
@@ -367,11 +368,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06b56076fa33b1e4c9ac3b98c4747d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dashCooldown: 5
-  _shieldPrefab: {fileID: 3227693646247740686, guid: 2723e0cb27cd3604aa4c3fb359f34906, type: 3}
-  _shieldCooldown: 10
-  _shieldExistDuration: 3
-  _arrowPrefab: {fileID: 2912616069325603199, guid: af18c1761f353a8449d924bf3f4156fe, type: 3}
-  _bowShootingAbilityCooldown: 3
-  _bowShootingPosition: {fileID: 4872242686308043256}
-  _bowAbilityExistDuration: 3
+  _player: {fileID: 6673100716483926680}
+  DashAbility: {fileID: 11400000, guid: 5fc29e80207b3aa4187d8821737c3286, type: 2}
+  ShieldAbility: {fileID: 11400000, guid: 6fcc3f09fb24a2b49860e08c56d3676d, type: 2}
+  BowShootingAbility: {fileID: 11400000, guid: 919751b52fd326348b1eaa91adde5b07, type: 2}
+  playerAbilities: []
