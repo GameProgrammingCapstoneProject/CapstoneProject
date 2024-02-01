@@ -111,6 +111,11 @@ public class PlayerController : MonoBehaviour
                 _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.bowShootingState);
                 break;
             }
+            case HealthRegenAbility:
+            {
+                _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.healthRegenAbilityState);
+                break;
+            }
         }
     }
 
