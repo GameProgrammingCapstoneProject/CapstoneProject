@@ -22,6 +22,7 @@ public class PlayerStateComponent : MonoBehaviour
     public PlayerWallJumpState wallJumpState { get; private set; }
     public PlayerShieldAbilityState shieldAbilityState { get; private set; }
     public PlayerBowShootingState bowShootingState { get; private set; }
+    public PlayerHealthRegenAbilityState healthRegenAbilityState { get; private set; }
 
     private void Awake()
     {
@@ -41,6 +42,7 @@ public class PlayerStateComponent : MonoBehaviour
         wallJumpState = new PlayerWallJumpState(_player, "Jump");
         shieldAbilityState = new PlayerShieldAbilityState(_player, "ShieldAbility");
         bowShootingState = new PlayerBowShootingState(_player, "BowShootingAbility");
+        healthRegenAbilityState = new PlayerHealthRegenAbilityState(_player, "HealthRegenAbility");
     }
     private void Start()
     {
