@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
+    [SerializeField]
     private Animator _animator;
     private float _existTime;
     private Vector3 _targetPos;
@@ -21,7 +22,6 @@ public class Arrow : MonoBehaviour
     private int _numberOfParabolaPoints = 20;
     private void Start()
     {
-        _animator = GetComponent<Animator>();
         if (pathPoints.Count > 0)
         {
             transform.position = pathPoints[0];

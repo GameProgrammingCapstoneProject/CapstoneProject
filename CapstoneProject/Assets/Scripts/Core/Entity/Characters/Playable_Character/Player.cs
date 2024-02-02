@@ -15,6 +15,7 @@ namespace Core.Entity
         public PlayerAbilityComponent AbilityComponent { get; private set; }
 
         public Transform bowShootingPosition;
+        public Transform projectileShootingPosition;
         //TODO: The movement attributes needs to be made into one separate component
         [Header("Movement information")]
         [SerializeField]
