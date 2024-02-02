@@ -119,6 +119,7 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
         Undo.RecordObject(node, "Behavior Tree (Set Position)");
         node.position.x = newPos.xMin;
         node.position.y = newPos.yMin;
+        EditorUtility.SetDirty(node);
     }
 
     public override void OnSelected()
