@@ -116,6 +116,11 @@ public class PlayerController : MonoBehaviour
                 _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.healthRegenAbilityState);
                 break;
             }
+            case ProjectileShootingAbility:
+            {
+                _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.projectileShootingState);
+                break;
+            }
         }
     }
 
