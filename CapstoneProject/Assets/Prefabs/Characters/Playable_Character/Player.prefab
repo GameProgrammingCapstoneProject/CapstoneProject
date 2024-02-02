@@ -329,6 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bowShootingPosition: {fileID: 4872242686308043256}
+  projectileShootingPosition: {fileID: 0}
   _moveSpeed: 5
   _jumpForce: 8
   canDoubleJump: 0
@@ -373,3 +374,4 @@ MonoBehaviour:
   ShieldAbility: {fileID: 11400000, guid: 6fcc3f09fb24a2b49860e08c56d3676d, type: 2}
   BowShootingAbility: {fileID: 11400000, guid: 919751b52fd326348b1eaa91adde5b07, type: 2}
   HealthRegenAbility: {fileID: 11400000, guid: 76e81ea0c3a846946bb396f38441f667, type: 2}
+  ProjectileShootingAbility: {fileID: 11400000, guid: ec638402b2a15154bb81e2f748a45197, type: 2}
