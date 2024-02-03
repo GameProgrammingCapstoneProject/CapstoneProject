@@ -166,4 +166,13 @@ public class BehaviorTreeView : GraphView
         nodeView.OnNodeSelected = OneNodeSelected;
         AddElement(nodeView);
     }
+
+    public void UpdateNodeStates()
+    {
+        nodes.ForEach(n =>
+        {
+            NodeView view = n as NodeView;
+            view.UpdateState();
+        });
+    }
 }
