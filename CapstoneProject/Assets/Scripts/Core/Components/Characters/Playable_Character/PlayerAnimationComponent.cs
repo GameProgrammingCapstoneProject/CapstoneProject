@@ -44,6 +44,10 @@ namespace Core.Animation
         {
             _playerAbilityComponent.HealthRegenAbility.UseAbility();
         }
+        private void TriggerProjectileShootingAbility()
+        {
+            _playerAbilityComponent.ProjectileShootingAbility.UseAbility();
+        }
     }
 }
 
