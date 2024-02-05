@@ -3,6 +3,8 @@ using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor.Callbacks;
+using System;
+using Unity.Jobs.LowLevel.Unsafe;
 
 public class BehaviorTreeEditor : EditorWindow
 {
@@ -46,17 +48,72 @@ public class BehaviorTreeEditor : EditorWindow
         OnSelectionChange();
     }
 
+    private void OnEnable()
+    {
+        EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+        EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+    }
+
+    private void OnDisable()
+    {
+        EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+    }
+
+    private void OnPlayModeStateChanged(PlayModeStateChange obj)
+    {
+        switch (obj)
+        {
+            case PlayModeStateChange.EnteredEditMode:
+                OnSelectionChange();
+                break;
+            case PlayModeStateChange.ExitingEditMode:
+                break;
+            case PlayModeStateChange.EnteredPlayMode:
+                OnSelectionChange();
+                break;
+            case PlayModeStateChange.ExitingPlayMode:
+                break;
+        }
+    }
+
     private void OnSelectionChange()
     {
         BehaviorTree tree = Selection.activeObject as BehaviorTree;
-        if (tree && AssetDatabase.CanOpenAssetInEditor(tree.GetInstanceID()))
+        if(!tree)
         {
-            treeView.PopulateView(tree);
+            if(Selection.activeGameObject)
+            {
+                BehaviorTreeRunner runner = Selection.activeGameObject.GetComponent<BehaviorTreeRunner>();
+                if(runner)
+                {
+                    tree = runner.tree; 
+                }
+            }
+        }
+
+        if(Application.isPlaying)
+        {
+            if (tree)
+            {
+                treeView.PopulateView(tree);
+            }
+        }
+        else
+        {
+            if (tree && AssetDatabase.CanOpenAssetInEditor(tree.GetInstanceID()))
+            {
+                treeView.PopulateView(tree);
+            }
         }
     }
 
     void OnNodeSelectionChanged(NodeView node)
     {
         inspectorView.UpdateSelection(node);
+    }
+
+    private void OnInspectorUpdate()
+    {
+        treeView?.UpdateNodeStates();
     }
 }

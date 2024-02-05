@@ -119,6 +119,7 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
         Undo.RecordObject(node, "Behavior Tree (Set Position)");
         node.position.x = newPos.xMin;
         node.position.y = newPos.yMin;
+        EditorUtility.SetDirty(node);
     }
 
     public override void OnSelected()
@@ -127,6 +128,47 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
         if (OnNodeSelected != null)
         {
             OnNodeSelected.Invoke(this);
+        }
+    }
+
+    public void SortChildren()
+    {
+        CompositeNode composite = node as CompositeNode;
+        if(composite)
+        {
+            composite.children.Sort(SortByHorizontalPosition);
+        }
+
+    }
+
+    private int SortByHorizontalPosition(Node left, Node right)
+    {
+        return left.position.x < right.position.x ? -1 : 1;
+    }
+
+    public void UpdateState()
+    {
+        RemoveFromClassList("running");
+        RemoveFromClassList("failure");
+        RemoveFromClassList("success");
+
+        if (Application.isPlaying)
+        {
+            switch (node.state)
+            {
+                case Node.State.RUNNING:
+                    if(node.started)
+                    {
+                        AddToClassList("running");
+                    }
+                    break;
+                case Node.State.FAILURE:
+                    AddToClassList("failure");
+                    break;
+                case Node.State.SUCCESS:
+                    AddToClassList("success");
+                    break;
+            }
         }
     }
 }

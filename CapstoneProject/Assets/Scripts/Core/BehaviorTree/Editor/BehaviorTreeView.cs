@@ -109,6 +109,15 @@ public class BehaviorTreeView : GraphView
                 tree.AddChild(parentView.node, childView.node);
             });
         }
+
+        if(graphViewChange.movedElements != null)
+        {
+            nodes.ForEach((n) =>
+            {
+                NodeView view = n as NodeView;
+                view.SortChildren();
+            });
+        }
         return graphViewChange;
     }
 
@@ -156,5 +165,14 @@ public class BehaviorTreeView : GraphView
         NodeView nodeView = new NodeView(node);
         nodeView.OnNodeSelected = OneNodeSelected;
         AddElement(nodeView);
+    }
+
+    public void UpdateNodeStates()
+    {
+        nodes.ForEach(n =>
+        {
+            NodeView view = n as NodeView;
+            view.UpdateState();
+        });
     }
 }
