@@ -14,10 +14,13 @@ public abstract class PlayerAbility : ScriptableObject
     private bool _isUnlocked = true;
 
     private float _coolDownTimer;
-    public virtual void AbilityStart(Player player)
+    protected PlayerAbilityComponent AbilityHandler;
+    public virtual void AbilityStart(Player player, PlayerAbilityComponent handler)
     {
         Instigator = player;
+        AbilityHandler = handler;
     }
+
     public virtual void AbilityUpdate()
     {
         _coolDownTimer -= Time.deltaTime;
@@ -45,4 +48,9 @@ public abstract class PlayerAbility : ScriptableObject
     public bool IsAbilityUnlocked() => _isUnlocked;
     public void Unlock() => _isUnlocked = true;
     public void Lock() => _isUnlocked = false;
+
+    public virtual IEnumerator ActivateRoutine()
+    {
+        yield return 0;
+    }
 }

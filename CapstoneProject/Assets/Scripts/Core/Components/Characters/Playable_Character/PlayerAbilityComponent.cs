@@ -14,20 +14,23 @@ public class PlayerAbilityComponent : MonoBehaviour
     public BowShootingAbility BowShootingAbility;
     public HealthRegenAbility HealthRegenAbility;
     public ProjectileShootingAbility ProjectileShootingAbility;
+    public LightningStrikeAbility LightningStrikeAbility;
+    
+    private Coroutine _coroutine;
     
     public List<PlayerAbility> playerAbilities { get; private set; }
 
     private void Start()
     {
-        DashAbility.AbilityStart(_player);
+        DashAbility.AbilityStart(_player, this);
         playerAbilities = new List<PlayerAbility>
         {
-            ProjectileShootingAbility,
+            LightningStrikeAbility,
             BowShootingAbility
         };
         foreach (PlayerAbility ability in playerAbilities)
         {
-            ability.AbilityStart(_player);
+            ability.AbilityStart(_player, this);
             ability.Unlock();
         }
     }
@@ -53,5 +56,14 @@ public class PlayerAbilityComponent : MonoBehaviour
     public void RemoveAbility(PlayerAbility ability)
     {
         playerAbilities.Remove(ability);
+    }
+    public void StartRoutine(PlayerAbility ability)
+    {
+        if (_coroutine != null)
+        {
+            StopCoroutine(_coroutine);
+        }
+
+        _coroutine = StartCoroutine(ability.ActivateRoutine());
     }
 }

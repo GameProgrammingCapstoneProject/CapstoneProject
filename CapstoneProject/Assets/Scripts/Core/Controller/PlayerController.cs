@@ -121,6 +121,11 @@ public class PlayerController : MonoBehaviour
                 _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.projectileShootingState);
                 break;
             }
+            case LightningStrikeAbility:
+            {
+                _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.lightningStrikeState);
+                break;
+            }
         }
     }
 
