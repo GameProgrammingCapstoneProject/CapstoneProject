@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -41,15 +43,24 @@ public class DialogueManager : MonoBehaviour
 
     GameState gameState = new GameState();
 
+    //Loaded dialogue object
     List <string> loadedDialogue = new List<string> ();
-    string dialogueTransition = "";
+    string dialogueTransition;
 
-    TextMeshPro displayText;
-    Canvas displayBox;
-    Canvas displayPortrait;
+    //Referenced UI elements
+    public GameObject displayText;
+    public GameObject displayBox;
+    public GameObject displayPortrait;
+
+    //Use to get the relevant UI elements
+    //displayBox.GetComponent<Image>();
+    //displayPortrait.GetComponent<Image>();
+    //displayText.GetComponent<TextMeshPro>()
+
     //Game object with transparency over main cam
-    GameObject blurEffect;
+    public GameObject blurEffect;
 
+    //Referenced scriptable objects for dialogue
     public DialogueExample whirlDialogue;
     public DialogueExample emeliaDialogue;
 
@@ -58,21 +69,30 @@ public class DialogueManager : MonoBehaviour
         //Debug for game state
         gameState.currentNPC = "Whirl";
 
+        //Loads and checks the display box sprite
+        displayBox.GetComponent<Image>().sprite = Resources.Load<Sprite>("TextBox.png");
+        if (displayBox.GetComponent<Image>().sprite == null)
+        {
+            UnityEngine.Debug.Log("Error: Failed to load image text box.");
+        }
+
+        //Loads from the required managers, and checks for success
         if (LoadStateFromGameManager() || LoadStateFromSaveManager())
         {
+            //Loads from the scriptable objects
             if (LoadScriptObject())
             {
-                Debug.Log("Successfully loaded dialogue.");
+                UnityEngine.Debug.Log("Successfully loaded dialogue.");
             }
             else
             {
-                Debug.Log("Unexpected error when loading dialogue object in Dialogue Manager");
+                UnityEngine.Debug.Log("Unexpected error when loading dialogue object in Dialogue Manager");
                 Destroy(this);
             }
         }
         else
         {
-            Debug.Log("Unexpected error when loading state in Dialogue Manager");
+            UnityEngine.Debug.Log("Unexpected error when loading state in Dialogue Manager");
             Destroy(this);
         }
     }
@@ -102,17 +122,27 @@ public class DialogueManager : MonoBehaviour
         if (gameState.currentNPC == "Whirl")
         {
             MoveObjectToList(whirlDialogue);
+            displayPortrait.GetComponent<Image>().sprite = Resources.Load<Sprite>("WhirlPortrait.png");
         }
         else if (gameState.currentNPC == "Emelia")
         {
             MoveObjectToList(emeliaDialogue);
+            displayPortrait.GetComponent<Image>().sprite = Resources.Load<Sprite>("EmeliaPortrait.png");
         }
+
 
         //Check if the dialogue loaded successfully
         if (loadedDialogue == null)
         {
+            UnityEngine.Debug.Log("Error: Failed to load dialogue.");
             success = false;
         }
+        if (displayPortrait.GetComponent<Image>().sprite == null)
+        {
+            UnityEngine.Debug.Log("Error: Failed to load dialogue portrait.");
+            success = false;
+        }
+
 
         return success;
     }
@@ -122,12 +152,16 @@ public class DialogueManager : MonoBehaviour
         //The first dialogue element is always the transition line.
         dialogueTransition = dialogueObject.dialogueText[0];
 
+        //Moves the dialogue from the script to the list
         for (int i = 0; i < dialogueObject.dialogueText.Count - 1; i++)
         {
             loadedDialogue.Add(dialogueObject.dialogueText[i + 1]);
-            Debug.Log(loadedDialogue[i]);
+            //Debug.Log(loadedDialogue[i]);
         }
-        loadedDialogue.ForEach(Debug.Log);
+
+        //Prints out contents of both lists for debugging
+        dialogueObject.dialogueText.ForEach(UnityEngine.Debug.Log);
+        loadedDialogue.ForEach(UnityEngine.Debug.Log);
     }
 
     public void StartInteraction()
@@ -137,14 +171,15 @@ public class DialogueManager : MonoBehaviour
         BeginText();
     }
 
+    //Enables both UI elements
     private void DisplayDialogueBox()
     {
-
+        displayBox.GetComponent<Image>().SetEnabled(true);
     }
 
     private void DisplayDialoguePortrait()
     {
-
+        displayPortrait.GetComponent<Image>().SetEnabled(true);
     }
 
     private void BeginText()
