@@ -24,6 +24,7 @@ public class PlayerStateComponent : MonoBehaviour
     public PlayerBowShootingState bowShootingState { get; private set; }
     public PlayerHealthRegenAbilityState healthRegenAbilityState { get; private set; }
     public PlayerProjectileShootingState projectileShootingState { get; private set; }
+    public PlayerLightningStrikeState lightningStrikeState { get; private set; }
 
     private void Awake()
     {
@@ -45,6 +46,7 @@ public class PlayerStateComponent : MonoBehaviour
         bowShootingState = new PlayerBowShootingState(_player, "BowShootingAbility");
         healthRegenAbilityState = new PlayerHealthRegenAbilityState(_player, "HealthRegenAbility");
         projectileShootingState = new PlayerProjectileShootingState(_player, "ProjectileShootingAbility");
+        lightningStrikeState = new PlayerLightningStrikeState(_player, "LightningStrikeAbility");
     }
     private void Start()
     {

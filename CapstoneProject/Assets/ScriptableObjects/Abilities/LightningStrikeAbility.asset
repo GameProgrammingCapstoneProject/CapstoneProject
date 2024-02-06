@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6875a0535253614f9702833d28f7774, type: 3}
+  m_Name: LightningStrikeAbility
+  m_EditorClassIdentifier: 
+  _cooldown: 8
+  _isUnlocked: 1
+  _lightningStrikePrefab: {fileID: 54144638978017016, guid: 4784265f2bbb17c46b74e66d2962bc2f, type: 3}
+  _xOffset: 3
+  targets: []
+  _activateTime: 6

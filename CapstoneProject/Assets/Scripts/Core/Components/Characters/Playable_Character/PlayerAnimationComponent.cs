@@ -14,14 +14,11 @@ namespace Core.Animation
     public class PlayerAnimationComponent : MonoBehaviour
     {
         // Player reference
+        [SerializeField]
         private Player _player;
+        [SerializeField]
         private PlayerAbilityComponent _playerAbilityComponent;
-
-        private void Awake()
-        {
-            _player = GetComponentInParent<Player>();
-            _playerAbilityComponent = GetComponentInParent<PlayerAbilityComponent>();
-        }
+        
 
         /// <summary>
         ///     This is a function that triggers at the end of the animation.
@@ -47,6 +44,10 @@ namespace Core.Animation
         private void TriggerProjectileShootingAbility()
         {
             _playerAbilityComponent.ProjectileShootingAbility.UseAbility();
+        }
+        private void TriggerLightningStrikeAbility()
+        {
+            _playerAbilityComponent.LightningStrikeAbility.UseAbility();
         }
     }
 }
