@@ -30,7 +30,6 @@ public class FireBall : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log(col);
         if (col.gameObject.layer == LayerMask.NameToLayer("Ground") || 
             col.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {

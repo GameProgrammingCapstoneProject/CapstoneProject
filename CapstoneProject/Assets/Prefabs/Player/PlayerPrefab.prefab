@@ -212,6 +212,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a551497079da3843805dbbb50daad31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 8715239887589704790}
+  _playerAbilityComponent: {fileID: 448601522587322580}
 --- !u!1 &8219819163510740179
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,3 +409,4 @@ MonoBehaviour:
   BowShootingAbility: {fileID: 11400000, guid: 919751b52fd326348b1eaa91adde5b07, type: 2}
   HealthRegenAbility: {fileID: 11400000, guid: 76e81ea0c3a846946bb396f38441f667, type: 2}
   ProjectileShootingAbility: {fileID: 11400000, guid: ec638402b2a15154bb81e2f748a45197, type: 2}
+  LightningStrikeAbility: {fileID: 11400000, guid: 205730797f4d93745b3462f3cae60fcf, type: 2}
