@@ -5,48 +5,59 @@ using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
 {
-    struct GameState
+
+    public struct GameState
     {
         //Numbered by level: 1-5 for standard stages, 6 for a run completion, 0 for new game
-        short recentDeath;
+        public short recentDeath;
 
         //0 = default, no relation
         //1 = recently killed by player 
         //2 = completed sidequest 
-        short relationshipStatus;
+        public short relationshipStatus;
 
         //0 = none
         //1 = affiliated with Khai
         //2 = affiliated with Amaleth
-        short affiliation;
+        public short affiliation;
 
         //Tracks the number of completed runs
-        short runsCompleted;
+        public short runsCompleted;
 
         //Tracks the number of killed NPCs for Khai (negative), or 
         //NPC quests completed for Amaleth (positive)
-        short playerProgress;
+        public short playerProgress;
 
         //Tracks the progress of the current NPCs quest
-        short NPCQuestProgress;
+        public short NPCQuestProgress;
 
         //Tracks the current NPC loaded into the level
         //shopkeepers excluded; they are always loaded
-        string currentNPC;
+        public string currentNPC;
 
         //Tracks the current state of the dialogue box.
-        short dialogueStage;
+        public short dialogueStage;
     };
 
+    GameState gameState = new GameState();
+
     List <string> loadedDialogue = new List<string> ();
+    string dialogueTransition = "";
+
     TextMeshPro displayText;
     Canvas displayBox;
     Canvas displayPortrait;
     //Game object with transparency over main cam
     GameObject blurEffect;
 
+    public DialogueExample whirlDialogue;
+    public DialogueExample emeliaDialogue;
+
     void Start()
     {
+        //Debug for game state
+        gameState.currentNPC = "Whirl";
+
         if (LoadStateFromGameManager() || LoadStateFromSaveManager())
         {
             if (LoadScriptObject())
@@ -87,8 +98,36 @@ public class DialogueManager : MonoBehaviour
     {
         bool success = true;
 
+        //Loads the dialogue based on the current scene NPC
+        if (gameState.currentNPC == "Whirl")
+        {
+            MoveObjectToList(whirlDialogue);
+        }
+        else if (gameState.currentNPC == "Emelia")
+        {
+            MoveObjectToList(emeliaDialogue);
+        }
+
+        //Check if the dialogue loaded successfully
+        if (loadedDialogue == null)
+        {
+            success = false;
+        }
 
         return success;
+    }
+
+    public void MoveObjectToList(DialogueExample dialogueObject)
+    {
+        //The first dialogue element is always the transition line.
+        dialogueTransition = dialogueObject.dialogueText[0];
+
+        for (int i = 0; i < dialogueObject.dialogueText.Count - 1; i++)
+        {
+            loadedDialogue.Add(dialogueObject.dialogueText[i + 1]);
+            Debug.Log(loadedDialogue[i]);
+        }
+        loadedDialogue.ForEach(Debug.Log);
     }
 
     public void StartInteraction()

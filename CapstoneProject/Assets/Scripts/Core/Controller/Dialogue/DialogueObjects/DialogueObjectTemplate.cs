@@ -7,7 +7,7 @@ using System.Collections.Generic;
 public class DialogueExample : ScriptableObject
 {
     public int dialogueID = 0;
-    List<string> dialogueText = new List<string>();
-    short dialogueSize = 0;
+    public List<string> dialogueText = new List<string>();
+    public short dialogueSize = 0;
 
 }
