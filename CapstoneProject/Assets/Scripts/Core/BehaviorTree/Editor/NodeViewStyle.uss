@@ -103,3 +103,32 @@
 .condition #input {
     background-color: rgb(137, 6, 32);
 }
+
+#node-state {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: rgba(61, 61, 61, 0);
+}
+
+.running #node-state {
+    background-color: rgb(255, 236, 0);
+}
+
+.success #node-state {
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    background-color: rgba(47, 207, 0, 0.71);
+}
+
+.failure #node-state {
+    background-color: rgba(255, 0, 0, 0.73);
+}
