@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -48,14 +49,14 @@ public class DialogueManager : MonoBehaviour
     string dialogueTransition;
 
     //Referenced UI elements
-    public GameObject displayText;
-    public GameObject displayBox;
-    public GameObject displayPortrait;
+    public GameObject displayTextObject;
+    public GameObject displayBoxObject;
+    public GameObject displayPortraitObject;
 
     //Use to get the relevant UI elements
-    //displayBox.GetComponent<Image>();
-    //displayPortrait.GetComponent<Image>();
-    //displayText.GetComponent<TextMeshPro>()
+    //displayBoxObject.GetComponent<Image>();
+    //displayPortraitObject.GetComponent<Image>();
+    //displayTextObject.GetComponent<TextMeshPro>()
 
     //Game object with transparency over main cam
     public GameObject blurEffect;
@@ -64,14 +65,23 @@ public class DialogueManager : MonoBehaviour
     public DialogueExample whirlDialogue;
     public DialogueExample emeliaDialogue;
 
+    //Images for text and dialogue portrait
+    public Sprite textBoxImage;
+    public Sprite whirlPortraitImage;
+    public Sprite emeliaPortraitImage;
+
+    //Text scrolling variables
+    private float textScrollSpeed = 0.2f;
+    private bool textIsPlaying = false;
+
     void Start()
     {
         //Debug for game state
         gameState.currentNPC = "Whirl";
 
         //Loads and checks the display box sprite
-        displayBox.GetComponent<Image>().sprite = Resources.Load<Sprite>("TextBox.png");
-        if (displayBox.GetComponent<Image>().sprite == null)
+        displayBoxObject.GetComponent<UnityEngine.UI.Image>().sprite = textBoxImage;
+        if (displayBoxObject.GetComponent<UnityEngine.UI.Image>().sprite == null)
         {
             UnityEngine.Debug.Log("Error: Failed to load image text box.");
         }
@@ -83,6 +93,7 @@ public class DialogueManager : MonoBehaviour
             if (LoadScriptObject())
             {
                 UnityEngine.Debug.Log("Successfully loaded dialogue.");
+                StartInteraction();
             }
             else
             {
@@ -122,12 +133,12 @@ public class DialogueManager : MonoBehaviour
         if (gameState.currentNPC == "Whirl")
         {
             MoveObjectToList(whirlDialogue);
-            displayPortrait.GetComponent<Image>().sprite = Resources.Load<Sprite>("WhirlPortrait.png");
+            displayPortraitObject.GetComponent<UnityEngine.UI.Image>().sprite = whirlPortraitImage;
         }
         else if (gameState.currentNPC == "Emelia")
         {
             MoveObjectToList(emeliaDialogue);
-            displayPortrait.GetComponent<Image>().sprite = Resources.Load<Sprite>("EmeliaPortrait.png");
+            displayPortraitObject.GetComponent<UnityEngine.UI.Image>().sprite = emeliaPortraitImage;
         }
 
 
@@ -137,12 +148,12 @@ public class DialogueManager : MonoBehaviour
             UnityEngine.Debug.Log("Error: Failed to load dialogue.");
             success = false;
         }
-        if (displayPortrait.GetComponent<Image>().sprite == null)
+        if (displayPortraitObject.GetComponent<UnityEngine.UI.Image>().sprite == null)
         {
             UnityEngine.Debug.Log("Error: Failed to load dialogue portrait.");
             success = false;
         }
-
+        
 
         return success;
     }
@@ -160,8 +171,8 @@ public class DialogueManager : MonoBehaviour
         }
 
         //Prints out contents of both lists for debugging
-        dialogueObject.dialogueText.ForEach(UnityEngine.Debug.Log);
-        loadedDialogue.ForEach(UnityEngine.Debug.Log);
+        //dialogueObject.dialogueText.ForEach(UnityEngine.Debug.Log);
+        //loadedDialogue.ForEach(UnityEngine.Debug.Log);
     }
 
     public void StartInteraction()
@@ -174,24 +185,41 @@ public class DialogueManager : MonoBehaviour
     //Enables both UI elements
     private void DisplayDialogueBox()
     {
-        displayBox.GetComponent<Image>().SetEnabled(true);
+        displayBoxObject.GetComponent<UnityEngine.UI.Image>().enabled = true;
     }
 
     private void DisplayDialoguePortrait()
     {
-        displayPortrait.GetComponent<Image>().SetEnabled(true);
+        displayPortraitObject.GetComponent<UnityEngine.UI.Image>().enabled = true;
     }
 
     private void BeginText()
     {
+        displayTextObject.SetActive(true);
+        displayTextObject.GetComponent<TextMeshProUGUI>().enabled = true;
+        StartCoroutine(TextScroll("This is test dialogue. Wa ba ba go bo"));
 
-
-        Cleanup();
+        
     }
+
+    IEnumerator TextScroll(string displayText)
+    {
+        for (int i = 0; i < displayText.Length; i++)
+        {
+            displayTextObject.GetComponent<TextMeshProUGUI>().SetText(displayText.Substring(0, i+1));
+            yield return new WaitForSeconds(textScrollSpeed);
+        }
+        //Cleanup();
+
+    }
+
 
     private void Cleanup()
     {
-
+        displayPortraitObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
+        displayBoxObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
+        displayTextObject.GetComponent<TextMeshProUGUI>().enabled = false;
+        displayTextObject.SetActive(false);
     }
     private void OnDestroy()
     {
