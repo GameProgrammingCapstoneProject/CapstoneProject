@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7120a86a8bb0b12499d901f33560edbb
+guid: 887c072d8027ad74a839a9ffeae76a75
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Goblin_Melee_death_3
+      name: Goblin_Melee_Attack_3
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5e6051cae520c940b41a18718246229
-      internalID: 2071065609
+      spriteID: 8675a49e0edba4c428fe27c7db9178cf
+      internalID: 968375359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Melee_death_2
+      name: Goblin_Melee_Attack_2
       rect:
         serializedVersion: 2
         x: 42
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72037af6e2f65e74db821becf9a8676c
-      internalID: -757724189
+      spriteID: 597ddec7b6d97f547a138e693d8303cb
+      internalID: -530867006
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Melee_death_1
+      name: Goblin_Melee_Attack_1
       rect:
         serializedVersion: 2
         x: 84
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1ea46425635cad4888f00d8edbdf221
-      internalID: -1424461280
+      spriteID: 8ffd8b541d041a04e9c60405349d6ee4
+      internalID: 1863214188
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Melee_death_0
+      name: Goblin_Melee_Attack_0
       rect:
         serializedVersion: 2
         x: 126
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb899152deb4dfc4fb5c18008703d0cc
-      internalID: -835720099
+      spriteID: 239f2daf2ddd6a14481edf7da0ef2c52
+      internalID: 600831686
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Goblin_Melee_death_0: -835720099
-      Goblin_Melee_death_1: -1424461280
-      Goblin_Melee_death_2: -757724189
-      Goblin_Melee_death_3: 2071065609
+      Goblin_Melee_Attack_0: 600831686
+      Goblin_Melee_Attack_1: 1863214188
+      Goblin_Melee_Attack_2: -530867006
+      Goblin_Melee_Attack_3: 968375359
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
