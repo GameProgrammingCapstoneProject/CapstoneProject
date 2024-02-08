@@ -1,3 +1,8 @@
 tree("Root")
-	sequence
-		Roam
+	fallback
+		sequence
+			HasReachedObstacle
+			AnimStateUpdate
+			Wait 2.0
+			Turn
+		Move

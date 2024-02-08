@@ -10,7 +10,9 @@ public class AI : MonoBehaviour
     Enemy enemy;
     RigidbodyComponent _rb;
     Animator _anim;
-    float movementSpeed = 2.0f;
+    float initialSpeed = 2.0f;
+    float stopSpeed = 0f;
+    float movementSpeed;
 
     [SerializeField]
     Transform CastPos;
@@ -26,6 +28,7 @@ public class AI : MonoBehaviour
         _anim = enemy.animator;
         _rb = enemy.rb;
         currentFacingDirection = _rb.CurrentFacingDirection;
+        movementSpeed = initialSpeed;
     }
 
     // Update is called once per frame
@@ -34,14 +37,14 @@ public class AI : MonoBehaviour
         
     }
 
-    bool IsHittingWallOrEdge()
+    bool IsHittingWall()
     {
         bool result;
 
         currentFacingDirection = _rb.CurrentFacingDirection;
         // Define the cast distance for left and right
         float castingDistance = baseCastDistance;
-        if (currentFacingDirection == RigidbodyComponent.FacingDirections.LEFT )
+        if (currentFacingDirection == RigidbodyComponent.FacingDirections.LEFT)
         {
             castingDistance = -baseCastDistance;
         }
@@ -51,7 +54,6 @@ public class AI : MonoBehaviour
         targetPos.x += castingDistance;
 
         Debug.DrawLine(CastPos.position, targetPos, Color.red);
-        Debug.DrawRay(CastPos.position, Vector2.down, Color.red);
         if (Physics2D.Linecast(CastPos.position, targetPos, 1 << LayerMask.NameToLayer("Ground")))
         {
             result = true;
@@ -61,7 +63,22 @@ public class AI : MonoBehaviour
             result = false;
         }
 
-        if (Physics2D.Raycast(CastPos.position, -Vector2.up, baseCastDistance, 1 << LayerMask.NameToLayer("Ground")))
+        return result;
+    }
+
+    bool IsHittingEdge()
+    {
+        bool result;
+
+        // Define the cast distance for left and right
+        float castingDistance = baseCastDistance;
+
+        // determine the target destination based on the cast distance
+        Vector3 targetPos = CastPos.position;
+        targetPos.y -= castingDistance;
+
+        Debug.DrawLine(CastPos.position, targetPos, Color.red);
+        if (Physics2D.Linecast(CastPos.position, targetPos, 1 << LayerMask.NameToLayer("Ground")))
         {
             result = false;
         }
@@ -74,14 +91,47 @@ public class AI : MonoBehaviour
     }
 
     [Task]
-    public void Roam()
+    public bool HasReachedObstacle()
     {
-        movementSpeed = (IsHittingWallOrEdge() ? -movementSpeed : movementSpeed);
-        if(movementSpeed > 0.1f || movementSpeed < -0.1f)
+        bool result = false;
+
+        if(IsHittingWall() || IsHittingEdge())
+        {
+            initialSpeed = -movementSpeed;
+            movementSpeed = stopSpeed;
+            result = true;
+        }
+
+        return result;
+    }
+
+    [Task]
+    public void Turn()
+    {
+        movementSpeed = initialSpeed;
+        _rb.SetVelocity(movementSpeed, _rb.velocity.y);
+        Task.current.Succeed();
+    }
+
+    [Task]
+    public void Move()
+    {
+        AnimStateUpdate();
+        _rb.SetVelocity(movementSpeed, _rb.velocity.y);
+        Task.current.Succeed();
+    }
+
+    [Task]
+    void AnimStateUpdate()
+    {
+        if (movementSpeed > 0.1f || movementSpeed < -0.1f)
         {
             _anim.SetInteger("state", 1);
         }
-        _rb.SetVelocity(movementSpeed, _rb.velocity.y);
+        else
+        {
+            _anim.SetInteger("state", 0);
+        }
         Task.current.Succeed();
     }
 }
