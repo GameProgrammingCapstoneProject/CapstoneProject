@@ -18,14 +18,13 @@ public class BowShootingAbility : PlayerAbility
     {
         base.AbilityUpdate();
         //TODO: Implement function which is searching for the lowest health target
-        if (_target == null)
-            _target = GameObject.Find("Goblin_Melee").transform;
     }
 
     protected override void Activate()
     {
         if (_currentArrow == null)
         {
+            _target = Instigator.AbilityComponent.lowestHealthTarget.transform;
             _currentArrow = GameObject.Instantiate(_arrowPrefab, Instigator.bowShootingPosition.transform.position, Instigator.transform.rotation);
             _currentArrow.Setup(_existDuration, Instigator.bowShootingPosition.transform.position, _target.position);
             OnBowShootingAbilityCoolDown?.Invoke();

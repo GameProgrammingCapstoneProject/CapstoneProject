@@ -17,16 +17,22 @@ public class PlayerAbilityComponent : MonoBehaviour
     public LightningStrikeAbility LightningStrikeAbility;
     
     private Coroutine _coroutine;
-    
+    [SerializeField]
+    private float _scanRadius = 6f;
     public List<PlayerAbility> playerAbilities { get; private set; }
+    public GameObject lowestHealthTarget { get; private set; }
+    [SerializeField] private LayerMask _enemyLayerMask;
 
     private void Start()
     {
         DashAbility.AbilityStart(_player, this);
         playerAbilities = new List<PlayerAbility>
         {
-            LightningStrikeAbility,
-            BowShootingAbility
+            ShieldAbility,
+            BowShootingAbility,
+            HealthRegenAbility,
+            ProjectileShootingAbility,
+            LightningStrikeAbility
         };
         foreach (PlayerAbility ability in playerAbilities)
         {
@@ -65,5 +71,30 @@ public class PlayerAbilityComponent : MonoBehaviour
         }
 
         _coroutine = StartCoroutine(ability.ActivateRoutine());
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, _scanRadius);
+    }
+
+    public GameObject[] ScanForEnemiesInArea()
+    {
+        Collider2D[] allEnemiesCollider = Physics2D.OverlapCircleAll(this.transform.position, _scanRadius, _enemyLayerMask);
+        List<GameObject> allEnemies = new List<GameObject>();
+        foreach (Collider2D enemyCollider in allEnemiesCollider)
+        {
+            allEnemies.Add(enemyCollider.gameObject);
+        }
+        return allEnemies.ToArray();
+    }
+    public GameObject ScanForLowestHealthEnemy()
+    {
+        //TODO: Need to implement the this function
+        GameObject[] targets = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject lowestHealthEnemy = targets[0];
+        lowestHealthTarget = lowestHealthEnemy;
+        
+        return lowestHealthTarget;
     }
 }

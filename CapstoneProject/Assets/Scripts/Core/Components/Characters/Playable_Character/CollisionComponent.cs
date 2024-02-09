@@ -21,10 +21,6 @@ public class CollisionComponent : MonoBehaviour
     private readonly float _offsetWallCheck = 0.3f;
     public GameObject attackArea;
     public float attackRadius;
-    private void Awake()
-    {
-        _collider = GetComponent<CapsuleCollider2D>();
-    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
