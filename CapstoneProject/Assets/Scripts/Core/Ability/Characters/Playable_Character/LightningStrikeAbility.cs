@@ -31,7 +31,7 @@ public class LightningStrikeAbility : PlayerAbility
     {
         _isActivated = true;
         elapsedTime = 0;
-        targets = GameObject.FindGameObjectsWithTag("Enemy").ToList();
+        targets = AbilityHandler.ScanForEnemiesInArea().ToList();
         AbilityHandler.StartRoutine(this);
         OnLightningStrikeAbilityCoolDown?.Invoke();
     }
@@ -43,13 +43,13 @@ public class LightningStrikeAbility : PlayerAbility
             yield return new WaitForSeconds(Random.Range(0f, 1f));
             GameObject randomTarget = targets[Random.Range(0, targets.Count)];
             GenerateLightning(randomTarget.transform.position.x + Random.Range(-_xOffset, _xOffset), randomTarget.transform.position.y);
-            yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.0f));
             randomTarget = targets[Random.Range(0, targets.Count)];
             GenerateLightning(randomTarget.transform.position.x + Random.Range(-_xOffset, _xOffset), randomTarget.transform.position.y);
-            yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.0f));
             randomTarget = targets[Random.Range(0, targets.Count)];
             GenerateLightning(randomTarget.transform.position.x + Random.Range(-_xOffset, _xOffset), randomTarget.transform.position.y);
-            yield return new WaitForSeconds(Random.Range(0.5f, 1f));
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.0f));
             randomTarget = targets[Random.Range(0, targets.Count)];
             GenerateLightning(randomTarget.transform.position.x + Random.Range(-_xOffset, _xOffset), randomTarget.transform.position.y);
         }
