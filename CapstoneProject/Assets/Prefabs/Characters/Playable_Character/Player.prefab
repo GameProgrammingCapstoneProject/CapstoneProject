@@ -94,7 +94,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1456303091
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_Sprite: {fileID: -1219999816, guid: bdcd9f36c65e40343b91017ff298f1d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -119,6 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a551497079da3843805dbbb50daad31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 6673100716483926680}
+  _playerAbilityComponent: {fileID: 163893606163044311}
 --- !u!1 &2604287539150946102
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,3 +377,8 @@ MonoBehaviour:
   BowShootingAbility: {fileID: 11400000, guid: 919751b52fd326348b1eaa91adde5b07, type: 2}
   HealthRegenAbility: {fileID: 11400000, guid: 76e81ea0c3a846946bb396f38441f667, type: 2}
   ProjectileShootingAbility: {fileID: 11400000, guid: ec638402b2a15154bb81e2f748a45197, type: 2}
+  LightningStrikeAbility: {fileID: 11400000, guid: 205730797f4d93745b3462f3cae60fcf, type: 2}
+  _scanRadius: 6
+  _enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
