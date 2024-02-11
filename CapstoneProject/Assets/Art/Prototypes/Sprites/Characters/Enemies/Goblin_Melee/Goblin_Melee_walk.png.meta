@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Goblin_Melee_walk_0
+      name: Goblin_Melee_walk_5
       rect:
         serializedVersion: 2
         x: 0
@@ -118,7 +118,7 @@ TextureImporter:
         width: 42
         height: 42
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -131,7 +131,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Melee_walk_1
+      name: Goblin_Melee_walk_4
       rect:
         serializedVersion: 2
         x: 42
@@ -139,7 +139,7 @@ TextureImporter:
         width: 42
         height: 42
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,7 +152,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Melee_walk_2
+      name: Goblin_Melee_walk_3
       rect:
         serializedVersion: 2
         x: 84
@@ -160,7 +160,7 @@ TextureImporter:
         width: 42
         height: 42
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,7 +173,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Melee_walk_3
+      name: Goblin_Melee_walk_2
       rect:
         serializedVersion: 2
         x: 126
@@ -181,7 +181,7 @@ TextureImporter:
         width: 42
         height: 42
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,7 +194,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Melee_walk_4
+      name: Goblin_Melee_walk_1
       rect:
         serializedVersion: 2
         x: 168
@@ -202,7 +202,7 @@ TextureImporter:
         width: 42
         height: 42
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -215,7 +215,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Melee_walk_5
+      name: Goblin_Melee_walk_0
       rect:
         serializedVersion: 2
         x: 210
@@ -223,7 +223,7 @@ TextureImporter:
         width: 42
         height: 42
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -246,12 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Goblin_Melee_walk_0: -755220357
-      Goblin_Melee_walk_1: -4812068
-      Goblin_Melee_walk_2: -1766951833
-      Goblin_Melee_walk_3: 1029463711
-      Goblin_Melee_walk_4: 1650170560
-      Goblin_Melee_walk_5: -1398942359
+      Goblin_Melee_walk_0: -1398942359
+      Goblin_Melee_walk_1: 1650170560
+      Goblin_Melee_walk_2: 1029463711
+      Goblin_Melee_walk_3: -1766951833
+      Goblin_Melee_walk_4: -4812068
+      Goblin_Melee_walk_5: -755220357
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

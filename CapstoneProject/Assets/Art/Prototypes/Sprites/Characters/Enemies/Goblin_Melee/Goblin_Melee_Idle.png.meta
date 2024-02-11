@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Goblin_Melee_Idle_0
+      name: Goblin_Melee_Idle_3
       rect:
         serializedVersion: 2
         x: 0
@@ -118,7 +118,7 @@ TextureImporter:
         width: 42
         height: 42
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -131,7 +131,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Melee_Idle_1
+      name: Goblin_Melee_Idle_2
       rect:
         serializedVersion: 2
         x: 42
@@ -139,7 +139,7 @@ TextureImporter:
         width: 42
         height: 42
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,7 +152,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Melee_Idle_2
+      name: Goblin_Melee_Idle_1
       rect:
         serializedVersion: 2
         x: 84
@@ -160,7 +160,7 @@ TextureImporter:
         width: 42
         height: 42
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,7 +173,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Melee_Idle_3
+      name: Goblin_Melee_Idle_0
       rect:
         serializedVersion: 2
         x: 126
@@ -181,7 +181,7 @@ TextureImporter:
         width: 42
         height: 42
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Goblin_Melee_Idle_0: -874575501
-      Goblin_Melee_Idle_1: 1979507292
-      Goblin_Melee_Idle_2: 1315650811
-      Goblin_Melee_Idle_3: 419184106
+      Goblin_Melee_Idle_0: 419184106
+      Goblin_Melee_Idle_1: 1315650811
+      Goblin_Melee_Idle_2: 1979507292
+      Goblin_Melee_Idle_3: -874575501
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -17,7 +17,7 @@ TagManager:
   - Hazard
   - Vfx
   - Enemy
-  - 
+  - NPC
   - 
   - 
   - 
@@ -45,17 +45,20 @@ TagManager:
   - name: Background
     uniqueID: 2440320563
     locked: 0
+  - name: Vfx
+    uniqueID: 1132165347
+    locked: 0
   - name: Ground
     uniqueID: 2033761727
     locked: 0
   - name: Hazard
     uniqueID: 938394091
     locked: 0
-  - name: Vfx
-    uniqueID: 1132165347
-    locked: 0
   - name: Checkpoint
     uniqueID: 972099065
+    locked: 0
+  - name: NPC
+    uniqueID: 1452069215
     locked: 0
   - name: Item
     uniqueID: 761495559
