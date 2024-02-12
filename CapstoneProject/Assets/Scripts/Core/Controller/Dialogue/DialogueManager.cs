@@ -74,6 +74,14 @@ public class DialogueManager : MonoBehaviour
     private float textScrollSpeed = 0.2f;
     private bool textIsPlaying = false;
 
+    //Player input variables
+    private bool playerInput = false;
+    private bool dialogueIsplaying = false;
+    private short dialogueState = 0;
+
+    //Reference of the scrolling text coroutine to stop it
+    private IEnumerator scrollingCoroutine;
+
     void Start()
     {
         //Debug for game state
@@ -98,12 +106,14 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 UnityEngine.Debug.Log("Unexpected error when loading dialogue object in Dialogue Manager");
+                Cleanup();
                 Destroy(this);
             }
         }
         else
         {
             UnityEngine.Debug.Log("Unexpected error when loading state in Dialogue Manager");
+            Cleanup();
             Destroy(this);
         }
     }
@@ -124,6 +134,10 @@ public class DialogueManager : MonoBehaviour
         return success;
     }
 
+    public void PlayerInput()
+    {
+        playerInput = true;
+    }
 
     public bool LoadScriptObject()
     {
@@ -180,6 +194,7 @@ public class DialogueManager : MonoBehaviour
         DisplayDialogueBox();
         DisplayDialoguePortrait();
         BeginText();
+        //MainDialogueLoop();
     }
 
     //Enables both UI elements
@@ -197,29 +212,66 @@ public class DialogueManager : MonoBehaviour
     {
         displayTextObject.SetActive(true);
         displayTextObject.GetComponent<TextMeshProUGUI>().enabled = true;
-        StartCoroutine(TextScroll("This is test dialogue. Wa ba ba go bo"));
 
-        
+
+
+        scrollingCoroutine = TextScrollInput("This is test dialogue.");
+        StartCoroutine(scrollingCoroutine);
+
     }
 
-    IEnumerator TextScroll(string displayText)
+    private IEnumerator MainDialogueLoop()
+    {
+        dialogueIsplaying = true;
+
+
+        yield return null;
+    }
+
+    private IEnumerator TextScrollInput(string displayText)
+    {
+        IEnumerator textCoroutine = TextScroll(displayText);
+        StartCoroutine(textCoroutine);
+
+        bool input = false;
+        while (!input)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                input = true;
+            }
+            yield return null;
+        }
+        StopCoroutine(textCoroutine);
+    }
+
+    private IEnumerator TextScroll(string displayText)
     {
         for (int i = 0; i < displayText.Length; i++)
         {
             displayTextObject.GetComponent<TextMeshProUGUI>().SetText(displayText.Substring(0, i+1));
             yield return new WaitForSeconds(textScrollSpeed);
         }
-        //Cleanup();
-
     }
-
 
     private void Cleanup()
     {
-        displayPortraitObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
-        displayBoxObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
-        displayTextObject.GetComponent<TextMeshProUGUI>().enabled = false;
-        displayTextObject.SetActive(false);
+        if (displayPortraitObject != null)
+        {
+            displayPortraitObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
+        }
+        if (displayBoxObject != null)
+        {
+            displayBoxObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
+        }
+        if (displayTextObject != null)
+        {
+            displayTextObject.GetComponent<TextMeshProUGUI>().enabled = false;
+        }
+        if (displayTextObject != null)
+        {
+            displayTextObject.SetActive(false);
+        }
     }
     private void OnDestroy()
     {
