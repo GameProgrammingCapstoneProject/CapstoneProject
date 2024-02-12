@@ -1,0 +1,8 @@
+tree("Root")
+	fallback
+		sequence
+			HasReachedObstacle
+			AnimStateUpdate
+			Wait 2.0
+			Turn
+		Move
