@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c63a00a1fd0eb94a85799271ff9ef1a, type: 3}
   m_Name: BowShootingAbility
   m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 21300000, guid: 9ff0b235cbb3e5440a0acd1caaa9cba0, type: 3}
+  _abilityCost: 200
+  abilityDescription: This is a bow ability
   _cooldown: 5
-  _isUnlocked: 0
+  _isUnlocked: 1
   _arrowPrefab: {fileID: 8500567493354702259, guid: af18c1761f353a8449d924bf3f4156fe, type: 3}
   _existDuration: 3

@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     private PlayerStateComponent _playerStateComponent;
     private CollisionComponent _collisionComponent;
     private PlayerAbilityComponent _playerAbilityComponent;
+    [SerializeField]
+    private AbilityShopUI _abilityShopUI;
     private PlayerState _currentState => _playerStateComponent.stateMachine.currentState;
     private void Awake()
     {
@@ -25,65 +27,102 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (GameState.Instance.CurrentGameState != GameState.States.Gameplay) return;
-        switch (_currentState)
+        if (GameState.Instance.CurrentGameState == GameState.States.Gameplay)
         {
-            case PlayerIdleState:
+            switch (_currentState)
             {
-                if (IsPressed(PlayerInputReader.Instance.movementAxis))
-                    _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.runState);
-                if (IsPressed(PlayerInputReader.Instance.jumpValue))
-                    _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.jumpState);
-                if (IsPressed(PlayerInputReader.Instance.attackValue))
-                    _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.groundAttackState);
-                if (IsPressed(PlayerInputReader.Instance.dashValue))
-                    if (_playerAbilityComponent.DashAbility.CanUseAbility())
-                        _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
-                if (IsPressed(PlayerInputReader.Instance.interactValue) && _collisionComponent.CanInteract)
-                    _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.interactState);
-                
-                HandleAbilityState();
-                break;
+                case PlayerIdleState:
+                {
+                    if (IsPressed(PlayerInputReader.Instance.movementAxis))
+                        _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.runState);
+                    if (IsPressed(PlayerInputReader.Instance.jumpValue))
+                        _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.jumpState);
+                    if (IsPressed(PlayerInputReader.Instance.attackValue))
+                        _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.groundAttackState);
+                    if (IsPressed(PlayerInputReader.Instance.dashValue))
+                        if (_playerAbilityComponent.DashAbility.CanUseAbility())
+                            _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
+                    if (IsPressed(PlayerInputReader.Instance.interactValue) && _collisionComponent.CanInteract)
+                        _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.interactState);
+                    
+                    HandleAbilityState();
+                    break;
+                }
+                case PlayerRunState:
+                {
+                    if (IsPressed(PlayerInputReader.Instance.jumpValue))
+                        _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.jumpState);
+                    if (IsPressed(PlayerInputReader.Instance.attackValue))
+                        _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.groundAttackState);
+                    if (IsPressed(PlayerInputReader.Instance.dashValue))
+                        if (_playerAbilityComponent.DashAbility.CanUseAbility())
+                            _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
+                    HandleAbilityState();
+                    break;
+                }
+                case PlayerJumpState:
+                {
+                    if (IsPressed(PlayerInputReader.Instance.attackValue))
+                        _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.airAttackState);
+                    if (IsPressed(PlayerInputReader.Instance.jumpValue) && _player.canDoubleJump)
+                        _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.doubleJumpState);
+                    break;
+                }
+                case PlayerAirState:
+                {
+                    if (IsPressed(PlayerInputReader.Instance.attackValue))
+                        _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.airAttackState);
+                    if (IsPressed(PlayerInputReader.Instance.jumpValue) && _player.canDoubleJump)
+                        _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.doubleJumpState);
+                    break;
+                }
+                case PlayerDoubleJumpState:
+                {
+                    if (IsPressed(PlayerInputReader.Instance.attackValue))
+                        _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.airAttackState);
+                    break;
+                }
+                case PlayerWallSlideState:
+                {
+                    if (IsPressed(PlayerInputReader.Instance.jumpValue))
+                        _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.wallJumpState);
+                    break;
+                }
             }
-            case PlayerRunState:
+        }
+        else
+        {
+            if (PlayerInputReader.Instance.verticalAxis < 0)
             {
-                if (IsPressed(PlayerInputReader.Instance.jumpValue))
-                    _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.jumpState);
-                if (IsPressed(PlayerInputReader.Instance.attackValue))
-                    _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.groundAttackState);
-                if (IsPressed(PlayerInputReader.Instance.dashValue))
-                    if (_playerAbilityComponent.DashAbility.CanUseAbility())
-                        _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
-                HandleAbilityState();
-                break;
+                if (_abilityShopUI.CurrentSelectedAbility.index == _abilityShopUI.abilityInformation.Count - 1) return;
+                _abilityShopUI.CurrentSelectedAbility =
+                    _abilityShopUI.abilityInformation[_abilityShopUI.CurrentSelectedAbility.index + 1];
             }
-            case PlayerJumpState:
+            if (PlayerInputReader.Instance.verticalAxis > 0)
             {
-                if (IsPressed(PlayerInputReader.Instance.attackValue))
-                    _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.airAttackState);
-                if (IsPressed(PlayerInputReader.Instance.jumpValue) && _player.canDoubleJump)
-                    _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.doubleJumpState);
-                break;
+                if (_abilityShopUI.CurrentSelectedAbility.index == 0) return;
+                _abilityShopUI.CurrentSelectedAbility =
+                    _abilityShopUI.abilityInformation[_abilityShopUI.CurrentSelectedAbility.index - 1];
             }
-            case PlayerAirState:
+            if (IsPressed(PlayerInputReader.Instance.backValue))
             {
-                if (IsPressed(PlayerInputReader.Instance.attackValue))
-                    _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.airAttackState);
-                if (IsPressed(PlayerInputReader.Instance.jumpValue) && _player.canDoubleJump)
-                    _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.doubleJumpState);
-                break;
+                GameState.Instance.CurrentGameState = GameState.States.Gameplay;
+                _abilityShopUI.gameObject.SetActive(false);
             }
-            case PlayerDoubleJumpState:
+            if (IsPressed(PlayerInputReader.Instance.confirmValue))
             {
-                if (IsPressed(PlayerInputReader.Instance.attackValue))
-                    _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.airAttackState);
-                break;
+                //TODO: Need to implement coin component to unlock ability
+                _abilityShopUI.CurrentSelectedAbility.information.Unlock();
             }
-            case PlayerWallSlideState:
+            if (IsPressed(PlayerInputReader.Instance.firstAbilityValue))
             {
-                if (IsPressed(PlayerInputReader.Instance.jumpValue))
-                    _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.wallJumpState);
-                break;
+                if (_abilityShopUI.CurrentSelectedAbility.information.IsAbilityUnlocked())
+                    _playerAbilityComponent.SetupPlayerAbility(_abilityShopUI.CurrentSelectedAbility.information, 0);
+            }
+            if (IsPressed(PlayerInputReader.Instance.secondAbilityValue))
+            {
+                if (_abilityShopUI.CurrentSelectedAbility.information.IsAbilityUnlocked())
+                    _playerAbilityComponent.SetupPlayerAbility(_abilityShopUI.CurrentSelectedAbility.information, 1);
             }
         }
     }
