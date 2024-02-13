@@ -71,11 +71,11 @@ public class DialogueManager : MonoBehaviour
     public Sprite emeliaPortraitImage;
 
     //Text scrolling variables
-    private float textScrollSpeed = 0.2f;
+    private float textScrollSpeed = 0.1f;
     private bool textIsPlaying = false;
 
     //Player input variables
-    private bool playerInput = false;
+    private bool dialoguePriority = false;
     private bool dialogueIsplaying = false;
     private short dialogueState = 0;
 
@@ -134,11 +134,6 @@ public class DialogueManager : MonoBehaviour
         return success;
     }
 
-    public void PlayerInput()
-    {
-        playerInput = true;
-    }
-
     public bool LoadScriptObject()
     {
         bool success = true;
@@ -194,7 +189,9 @@ public class DialogueManager : MonoBehaviour
         DisplayDialogueBox();
         DisplayDialoguePortrait();
         BeginText();
-        //MainDialogueLoop();
+        //StartCoroutine(TextScrollInput("Wagagabobo"));
+
+        StartCoroutine(MainDialogueLoop());
     }
 
     //Enables both UI elements
@@ -212,18 +209,42 @@ public class DialogueManager : MonoBehaviour
     {
         displayTextObject.SetActive(true);
         displayTextObject.GetComponent<TextMeshProUGUI>().enabled = true;
-
-
-
-        scrollingCoroutine = TextScrollInput("This is test dialogue.");
-        StartCoroutine(scrollingCoroutine);
+        //scrollingCoroutine = TextScrollInput("This is test dialogue.");
+        //StartCoroutine(scrollingCoroutine);
 
     }
 
     private IEnumerator MainDialogueLoop()
     {
         dialogueIsplaying = true;
+        
+        IEnumerator textCoroutine;
+        
+        UnityEngine.Debug.Log("Main dialogue loop entered");
 
+        foreach(string dialogue in loadedDialogue)
+        {
+            
+            UnityEngine.Debug.Log("Looping");
+            if (dialogue == "maindialogue1" || dialogue == "maindialogue2" || dialogue == "maindialogue3" || dialogue == "maindialogue4")
+            {
+                dialogueState++;
+                UnityEngine.Debug.Log("Dialogue state increased");
+            }
+            else
+            {
+                UnityEngine.Debug.Log("Drawing text");
+                textCoroutine = TextScrollInput(dialogue);
+                dialoguePriority = true;
+                StartCoroutine(textCoroutine);
+                while (dialoguePriority)
+                {
+                    yield return new WaitForSeconds(0.25F);
+                }
+                UnityEngine.Debug.Log("Finished drawing text");
+                StopCoroutine(textCoroutine);
+            }
+        }
 
         yield return null;
     }
@@ -232,6 +253,7 @@ public class DialogueManager : MonoBehaviour
     {
         IEnumerator textCoroutine = TextScroll(displayText);
         StartCoroutine(textCoroutine);
+        UnityEngine.Debug.Log("In the input enumerator");
 
         bool input = false;
         while (!input)
@@ -239,6 +261,7 @@ public class DialogueManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 input = true;
+                dialoguePriority = false;
             }
             yield return null;
         }
@@ -247,8 +270,10 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator TextScroll(string displayText)
     {
+        UnityEngine.Debug.Log("Writing text");
         for (int i = 0; i < displayText.Length; i++)
         {
+            
             displayTextObject.GetComponent<TextMeshProUGUI>().SetText(displayText.Substring(0, i+1));
             yield return new WaitForSeconds(textScrollSpeed);
         }
