@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74aecb0c875c82e47ba20c69e6820b88, type: 3}
   m_Name: ShieldAbility
   m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 21300000, guid: c4182e0c63bf9f647846542d1517499b, type: 3}
+  _abilityCost: 100
+  abilityDescription: This is a shield ability
   _cooldown: 10
-  _isUnlocked: 0
+  _isUnlocked: 1
   _shieldPrefab: {fileID: 311645483850425259, guid: 2723e0cb27cd3604aa4c3fb359f34906, type: 3}
   _existDuration: 3

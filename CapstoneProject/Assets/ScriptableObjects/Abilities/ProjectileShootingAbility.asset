@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89ef775db617fb0419b0e6c35ac42098, type: 3}
   m_Name: ProjectileShootingAbility
   m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 21300000, guid: 9775c0a0ae525e642b9a2bc2de4c83d4, type: 3}
+  _abilityCost: 800
+  abilityDescription: This is a projectile shooting ability
   _cooldown: 5
   _isUnlocked: 1
   _projectilePrefab: {fileID: 1381322267468913895, guid: 28370168712eddb4787f9b7809d6d7e6, type: 3}

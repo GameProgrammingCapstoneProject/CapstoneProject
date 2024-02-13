@@ -270,6 +270,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "FirstAbilitySelect",
+                    "type": "Button",
+                    "id": "bf0a55b7-bae4-4170-a4ee-f4cb80cc3882",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SecondAbilitySelect",
+                    "type": "Button",
+                    "id": "d2bdde23-6fe6-4cac-a034-de46281a6508",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -360,6 +378,28 @@
                     "action": "VerticalSelection",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "3dbb55d8-7087-446e-a298-3ca2f6df898d",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FirstAbilitySelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "60634afc-6d7c-46cc-b5ae-933db851499d",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SecondAbilitySelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

@@ -22,23 +22,20 @@ public class PlayerAbilityComponent : MonoBehaviour
     public List<PlayerAbility> playerAbilities { get; private set; }
     public GameObject lowestHealthTarget { get; private set; }
     [SerializeField] private LayerMask _enemyLayerMask;
+    // Define a delegate for the event
+    public delegate void PlayerAbilityChangedHandler(PlayerAbility ability, int index);
+    
+    // Define the event using the delegate
+    public static event PlayerAbilityChangedHandler OnCurrentAbilitiesChanged;
 
     private void Start()
     {
         DashAbility.AbilityStart(_player, this);
         playerAbilities = new List<PlayerAbility>
         {
-            ShieldAbility,
-            BowShootingAbility,
-            HealthRegenAbility,
-            ProjectileShootingAbility,
-            LightningStrikeAbility
+            null,
+            null
         };
-        foreach (PlayerAbility ability in playerAbilities)
-        {
-            ability.AbilityStart(_player, this);
-            ability.Unlock();
-        }
     }
 
     private void Update()
@@ -46,22 +43,21 @@ public class PlayerAbilityComponent : MonoBehaviour
         DashAbility.AbilityUpdate();
         foreach (PlayerAbility ability in playerAbilities)
         {
-            ability.AbilityUpdate();
+            if (ability != null)
+                ability.AbilityUpdate();
         }
     }
 
-    public void AddAbility(PlayerAbility ability, int slotNumber)
+    public void SetupPlayerAbility(PlayerAbility ability, int slotNumber)
     {
-        if (playerAbilities[slotNumber] != null)
+        if (playerAbilities[slotNumber] == null)
             playerAbilities[slotNumber] = ability;
         else
         {
-            playerAbilities.Insert(slotNumber, ability);
+            playerAbilities[slotNumber] = ability;
         }
-    }
-    public void RemoveAbility(PlayerAbility ability)
-    {
-        playerAbilities.Remove(ability);
+        ability.AbilityStart(_player, this);
+        OnCurrentAbilitiesChanged?.Invoke(ability, slotNumber);
     }
     public void StartRoutine(PlayerAbility ability)
     {
