@@ -1,3 +1,4 @@
+using Panda.Examples.PlayTag;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,8 +16,9 @@ public class DialogueManager : MonoBehaviour
         public short recentDeath;
 
         //0 = default, no relation
-        //1 = recently killed by player 
-        //2 = completed sidequest 
+        //1 = recently killed by player
+        //2 = killed by player more than once
+        //3 = completed sidequest 
         public short relationshipStatus;
 
         //0 = none
@@ -78,6 +80,8 @@ public class DialogueManager : MonoBehaviour
     private bool dialoguePriority = false;
     private bool dialogueIsplaying = false;
     private short dialogueState = 0;
+    private short dialogueTicker = 0;
+    private bool dialogueSkipRepeat = false;
 
     //Reference of the scrolling text coroutine to stop it
     private IEnumerator scrollingCoroutine;
@@ -218,20 +222,67 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueIsplaying = true;
         
-        IEnumerator textCoroutine;
+        IEnumerator textCoroutine = null;
         
         UnityEngine.Debug.Log("Main dialogue loop entered");
 
+
+
+
         foreach(string dialogue in loadedDialogue)
         {
-            
+            dialogueTicker++;
             UnityEngine.Debug.Log("Looping");
-            if (dialogue == "maindialogue1" || dialogue == "maindialogue2" || dialogue == "maindialogue3" || dialogue == "maindialogue4")
+
+            if (gameState.relationshipStatus == 2)
+            {
+                StartCoroutine(SearchForState(textCoroutine, "playerkillrepeat", "break"));
+                dialogueSkipRepeat = true;
+            }
+            else if (gameState.relationshipStatus == 1)
+            {
+                StartCoroutine(SearchForState(textCoroutine, "playerkill", "playerdeathrepeat"));
+                dialogueSkipRepeat = true;
+            }
+            else if (gameState.recentDeath > 2)
+            {
+                StartCoroutine(SearchForState(textCoroutine, "playerkillrepeat", "break"));
+                dialogueSkipRepeat = true;
+            }
+            else if (gameState.recentDeath == 1)
+            {
+                StartCoroutine(SearchForState(textCoroutine, "playerdeathrepeat", "playerkillrepeat"));
+                dialogueSkipRepeat = true;
+            }
+            
+            if (dialogueSkipRepeat)
+            {
+                UnityEngine.Debug.Log("Drawing text");
+                textCoroutine = TextScrollInput(dialogueTransition);
+                dialoguePriority = true;
+                StartCoroutine(textCoroutine);
+                while (dialoguePriority)
+                {
+                    yield return new WaitForSeconds(0.25F);
+                }
+                UnityEngine.Debug.Log("Finished drawing text");
+                StopCoroutine(textCoroutine);
+            }
+
+            if (dialogue == "maindialogue1" && dialogueState != 1)
+            {
+
+            }
+
+            else if (dialogue == "maindialogue1" || dialogue == "maindialogue2" || dialogue == "maindialogue3" || dialogue == "maindialogue4" || dialogue == "playerdeath")
             {
                 dialogueState++;
                 UnityEngine.Debug.Log("Dialogue state increased");
             }
-            else
+
+            
+
+            else if (!dialogueSkipRepeat)
             {
                 UnityEngine.Debug.Log("Drawing text");
                 textCoroutine = TextScrollInput(dialogue);
@@ -266,6 +317,38 @@ public class DialogueManager : MonoBehaviour
             yield return null;
         }
         StopCoroutine(textCoroutine);
+    }
+
+    private IEnumerator SearchForState(IEnumerator textCoroutine, string searchText, string checkText) 
+    {
+        foreach (string dialogueStatus in loadedDialogue)
+        {
+            if (dialogueStatus == searchText)
+            {
+                int position = loadedDialogue.IndexOf(dialogueStatus);
+                foreach (string dialogueStatusConfirmed in loadedDialogue)
+                {
+                    if (dialogueStatusConfirmed == checkText)
+                    {
+                        break;
+                    }
+                    if (loadedDialogue.IndexOf(dialogueStatusConfirmed)! < position)
+                    {
+                        UnityEngine.Debug.Log("Drawing text");
+                        textCoroutine = TextScrollInput(dialogueStatusConfirmed);
+                        dialoguePriority = true;
+                        StartCoroutine(textCoroutine);
+                        while (dialoguePriority)
+                        {
+                            yield return new WaitForSeconds(0.25F);
+                        }
+                        UnityEngine.Debug.Log("Finished drawing text");
+                        StopCoroutine(textCoroutine);
+                    }
+                }
+            }
+            gameState.relationshipStatus = 0;
+        }
     }
 
     private IEnumerator TextScroll(string displayText)
