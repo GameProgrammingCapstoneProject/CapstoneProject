@@ -79,6 +79,8 @@ namespace Core.PlayerInput
                 _playerInputActions.Gameplay.FourthAbility.canceled += (context) => fourthAbilityValue = 0;
                 _playerInputActions.Gameplay.FifthAbility.started += (context) => fifthAbilityValue = context.ReadValue<float>();
                 _playerInputActions.Gameplay.FifthAbility.canceled += (context) => fifthAbilityValue = 0;
+                _playerInputActions.Gameplay.Pause.started += (context) => backValue = context.ReadValue<float>();
+                _playerInputActions.Gameplay.Pause.canceled += (context) => backValue = 0;
             }
             else
             {

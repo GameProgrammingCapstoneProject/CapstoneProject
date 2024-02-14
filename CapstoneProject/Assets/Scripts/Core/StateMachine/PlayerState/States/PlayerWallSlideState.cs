@@ -31,6 +31,8 @@ namespace Core.StateMachine
 
             if (Player.CollisionComponent.IsStandingOnGround())
                 Player.States.stateMachine.ChangeState(Player.States.idleState);
+            if (!Player.CollisionComponent.IsInteractingWithWall())
+                Player.States.stateMachine.ChangeState(Player.States.idleState);
         }
 
         public override void StateEnd()
