@@ -116,6 +116,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""6306187a-1a43-4535-b80c-bbdf8a5c4d63"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -248,6 +257,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""FifthAbility"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""16614aec-e775-4065-9ee9-76f78e2577af"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -440,6 +460,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Gameplay_ThirdAbility = m_Gameplay.FindAction("ThirdAbility", throwIfNotFound: true);
         m_Gameplay_FourthAbility = m_Gameplay.FindAction("FourthAbility", throwIfNotFound: true);
         m_Gameplay_FifthAbility = m_Gameplay.FindAction("FifthAbility", throwIfNotFound: true);
+        m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Confirm = m_UI.FindAction("Confirm", throwIfNotFound: true);
@@ -519,6 +540,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_ThirdAbility;
     private readonly InputAction m_Gameplay_FourthAbility;
     private readonly InputAction m_Gameplay_FifthAbility;
+    private readonly InputAction m_Gameplay_Pause;
     public struct GameplayActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -533,6 +555,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @ThirdAbility => m_Wrapper.m_Gameplay_ThirdAbility;
         public InputAction @FourthAbility => m_Wrapper.m_Gameplay_FourthAbility;
         public InputAction @FifthAbility => m_Wrapper.m_Gameplay_FifthAbility;
+        public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -572,6 +595,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @FifthAbility.started += instance.OnFifthAbility;
             @FifthAbility.performed += instance.OnFifthAbility;
             @FifthAbility.canceled += instance.OnFifthAbility;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -606,6 +632,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @FifthAbility.started -= instance.OnFifthAbility;
             @FifthAbility.performed -= instance.OnFifthAbility;
             @FifthAbility.canceled -= instance.OnFifthAbility;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -721,6 +750,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnThirdAbility(InputAction.CallbackContext context);
         void OnFourthAbility(InputAction.CallbackContext context);
         void OnFifthAbility(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
