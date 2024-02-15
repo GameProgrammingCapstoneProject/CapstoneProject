@@ -4,6 +4,7 @@ using UnityEngine;
 using Panda;
 using Core.Components;
 using Core.Entity;
+using Unity.VisualScripting;
 
 public class AI : MonoBehaviour
 {
@@ -13,13 +14,12 @@ public class AI : MonoBehaviour
     float initialSpeed = 2.0f;
     float stopSpeed = 0f;
     float movementSpeed;
+    float offsetY = 1.0f;
 
     [SerializeField]
-    Transform CastPos;
-    [SerializeField]
-    float baseCastDistance;
+    Transform playerPos;
+    RigidbodyComponent playerRB;
 
-    RigidbodyComponent.FacingDirections currentFacingDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +27,9 @@ public class AI : MonoBehaviour
         enemy = GetComponent<Enemy>();
         _anim = enemy.animator;
         _rb = enemy.rb;
-        currentFacingDirection = _rb.CurrentFacingDirection;
         movementSpeed = initialSpeed;
+        playerPos = GameObject.FindWithTag("Player").transform;
+        playerRB = GameObject.FindWithTag("Player").gameObject.GetComponent<RigidbodyComponent>();
     }
 
     // Update is called once per frame
@@ -37,68 +38,18 @@ public class AI : MonoBehaviour
         
     }
 
-    bool IsHittingWall()
-    {
-        bool result;
 
-        currentFacingDirection = _rb.CurrentFacingDirection;
-        // Define the cast distance for left and right
-        float castingDistance = baseCastDistance;
-        if (currentFacingDirection == RigidbodyComponent.FacingDirections.LEFT)
-        {
-            castingDistance = -baseCastDistance;
-        }
-
-        // determine the target destination based on the cast distance
-        Vector3 targetPos = CastPos.position;
-        targetPos.x += castingDistance;
-
-        Debug.DrawLine(CastPos.position, targetPos, Color.red);
-        if (Physics2D.Linecast(CastPos.position, targetPos, 1 << LayerMask.NameToLayer("Ground")))
-        {
-            result = true;
-        }
-        else
-        {
-            result = false;
-        }
-
-        return result;
-    }
-
-    bool IsHittingEdge()
-    {
-        bool result;
-
-        // Define the cast distance for left and right
-        float castingDistance = baseCastDistance;
-
-        // determine the target destination based on the cast distance
-        Vector3 targetPos = CastPos.position;
-        targetPos.y -= castingDistance;
-
-        Debug.DrawLine(CastPos.position, targetPos, Color.red);
-        if (Physics2D.Linecast(CastPos.position, targetPos, 1 << LayerMask.NameToLayer("Ground")))
-        {
-            result = false;
-        }
-        else
-        {
-            result = true;
-        }
-
-        return result;
-    }
 
     [Task]
     public bool HasReachedObstacle()
     {
         bool result = false;
 
-        if(IsHittingWall() || IsHittingEdge())
+        if(enemy.IsHittingWall() || enemy.IsHittingEdge())
         {
-            initialSpeed = -movementSpeed;
+            //initialSpeed = -movementSpeed;
             movementSpeed = stopSpeed;
+            AnimStateUpdate();
             result = true;
         }
 
@@ -109,6 +60,11 @@ public class AI : MonoBehaviour
     public void Turn()
     {
         movementSpeed = initialSpeed;
+        if(_rb.CurrentFacingDirection == RigidbodyComponent.FacingDirections.RIGHT)
+        {
+            movementSpeed = -initialSpeed;
+        }
+        Debug.Log(movementSpeed);
         _rb.SetVelocity(movementSpeed, _rb.velocity.y);
         Task.current.Succeed();
     }
@@ -116,12 +72,84 @@ public class AI : MonoBehaviour
     [Task]
     public void Move()
     {
+        if (_rb.CurrentFacingDirection == RigidbodyComponent.FacingDirections.RIGHT)
+        {
+            movementSpeed = initialSpeed;
+        }
+        else
+        {
+            movementSpeed = -initialSpeed;
+        }
         AnimStateUpdate();
         _rb.SetVelocity(movementSpeed, _rb.velocity.y);
         Task.current.Succeed();
     }
 
+    //[Task]
+    //public bool IsWithinView()
+    //{
+    //    RaycastHit2D hit;
+    //    hit = Physics2D.Raycast(transform.position, Vector2.right);
+    //    if(hit.collider.CompareTag("Player"))
+    //    {
+    //        return true;
+    //    }
+    //    return false;
+    //}
+
     [Task]
+    public bool IsWithinRange()
+    {
+        bool result = false;
+        float distanceToTarget = Vector2.Distance(playerPos.position, transform.position);
+        float attackRange = 1.5f;
+
+        if(distanceToTarget <= attackRange)
+        {
+            if(playerPos.position.x < transform.position.x )
+            {
+                if (_rb.CurrentFacingDirection == RigidbodyComponent.FacingDirections.RIGHT)
+                {
+                    Turn();
+                }
+            }
+            else
+            {
+                if (_rb.CurrentFacingDirection == RigidbodyComponent.FacingDirections.LEFT)
+                {
+                    Turn();
+                }
+
+            }
+            result = true;
+        }
+
+        return result;
+    }
+
+    [Task]
+    public bool IsOnSamePlatform()
+    {
+        bool result;
+        if((playerPos.position.y <= (transform.position.y + offsetY)) && (playerPos.position.y >= (transform.position.y - offsetY)))
+        {
+            result = true;
+        }
+        else
+        {
+            result = false;
+        }
+        return result;
+    }
+
+    [Task]
+    public void Attack()
+    {
+        movementSpeed = stopSpeed;
+        AnimStateUpdate();
+        Task.current.Succeed();
+    }
+
     void AnimStateUpdate()
     {
         if (movementSpeed > 0.1f || movementSpeed < -0.1f)
@@ -132,6 +160,10 @@ public class AI : MonoBehaviour
         {
             _anim.SetInteger("state", 0);
         }
-        Task.current.Succeed();
+
+        if(IsWithinRange() && movementSpeed == stopSpeed)
+        {
+            _anim.SetInteger("state", 2);
+        }
     }
 }

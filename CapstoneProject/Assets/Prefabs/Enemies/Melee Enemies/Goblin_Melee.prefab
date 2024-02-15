@@ -166,8 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880d379c85b4dc244a306a582d9277bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CastPos: {fileID: 3061640001568263112}
-  baseCastDistance: 0.5
+  playerPos: {fileID: 0}
 --- !u!114 &2428302149192947423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce53df4e670f894b8829329638d1c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseCastDistance: 0.5
+  CastPos: {fileID: 3061640001568263112}
 --- !u!1 &5042979827540391741
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,7 +296,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2139497935
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -874575501, guid: 657ebecc2b6a1544580dae69eccb329f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
