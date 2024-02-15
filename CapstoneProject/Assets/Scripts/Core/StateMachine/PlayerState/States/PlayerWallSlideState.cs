@@ -29,10 +29,10 @@ namespace Core.StateMachine
             
             Player.rb.SetVelocity(0, Player.rb.velocity.y * 0.9f);
 
-            if (Player.CollisionComponent.IsStandingOnGround())
+            if (Mathf.Approximately(0, Player.rb.velocity.y) || !Player.CollisionComponent.IsInteractingWithWall())
+            {
                 Player.States.stateMachine.ChangeState(Player.States.idleState);
-            if (!Player.CollisionComponent.IsInteractingWithWall())
-                Player.States.stateMachine.ChangeState(Player.States.idleState);
+            }
         }
 
         public override void StateEnd()
