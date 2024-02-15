@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth
+public class PlayerHealth : MonoBehaviour
 {
-    private int health;
-    private int healthMax = 100;
+    public int health;
+    public int healthMax = 100;
 
     public static event EventHandler OnHealthChanged;
     public PlayerHealth(int healthMax)
