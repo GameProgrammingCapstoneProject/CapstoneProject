@@ -314,6 +314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce53df4e670f894b8829329638d1c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseCastDistance: 0.5
+  CastPos: {fileID: 3061640001568263112}
 --- !u!114 &1620469190792416987
 MonoBehaviour:
   m_ObjectHideFlags: 0
