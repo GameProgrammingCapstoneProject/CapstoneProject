@@ -6,15 +6,21 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
     public int health;
-    private int healthMax = 20;
+    public int maxHealth = 20;
+    HealthBar healthBar;
 
     public static event EventHandler OnHealthChanged;
-    public EnemyHealth(int healthMax)
+  /*  public EnemyHealth(int healthMax)
     {
         this.health = healthMax;
         health = healthMax;
-    }
+    }*/
 
+
+    private void Awake()
+    {
+        healthBar = GetComponentInChildren<HealthBar>();
+    }
     public int GetHealth()
     {
         return health;
@@ -44,12 +50,15 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public void Damage(int damage)
     {
         this.health -= damage;
-        //if (health < 0) { health = 0; }
+        healthBar.UpdateHealthBar(health, maxHealth);
+        if (health < 0) { health = 0; }
+
     }
 
     private void Start()
     {
-        health = 20;
+        health = maxHealth;
+        healthBar.UpdateHealthBar(health, maxHealth);
     }
 
     private void Update()

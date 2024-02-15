@@ -38,7 +38,7 @@ public class HealthManager : MonoBehaviour
         HealthBar healthbar = healthBarTransform.GetComponent<HealthBar>();
         playerHealth = new PlayerHealth(100);
 
-        healthbar.Setup(enemyHealth);
+       // healthbar.Setup(enemyHealth);
 
         Debug.Log("Heath: " + playerHealth.GetHealth());
      //   playerHealth.TakeDamage(70);
