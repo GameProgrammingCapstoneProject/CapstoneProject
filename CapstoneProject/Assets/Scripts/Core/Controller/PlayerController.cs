@@ -29,6 +29,20 @@ public class PlayerController : MonoBehaviour
     {
         if (GameState.Instance.CurrentGameState == GameState.States.Gameplay)
         {
+            if (IsPressed(PlayerInputReader.Instance.backValue))
+            {
+                if (PauseMenu.isPaused == true)
+                {
+                    PauseMenu.isPaused = false;
+                    Debug.Log("Unpaused Game");
+                }
+                else
+                {
+                    PauseMenu.isPaused = true;
+                    Debug.Log("Paused Game");
+                }
+
+            }
             switch (_currentState)
             {
                 case PlayerIdleState:
