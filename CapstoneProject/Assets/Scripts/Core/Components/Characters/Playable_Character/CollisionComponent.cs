@@ -24,12 +24,22 @@ public class CollisionComponent : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.GetComponent<Item>()) return;
-        Item item = other.GetComponent<Item>();
-        IInteractable interactableItem = item.GetComponent<IInteractable>();
-        if (interactableItem == null || item.haveBeenInteracted) return;
-        CanInteract = true;
-        targetItem = interactableItem;
+        if (other.GetComponent<Item>())
+        {
+            Item item = other.GetComponent<Item>();
+            IInteractable interactableItem = item.GetComponent<IInteractable>();
+            if (interactableItem == null || item.haveBeenInteracted) return;
+            CanInteract = true;
+            targetItem = interactableItem;
+        }
+        else if (other.GetComponent<NPC>())
+        {
+            NPC npc = other.GetComponent<NPC>();
+            IInteractable interactableItem = npc.GetComponent<IInteractable>();
+            if (interactableItem == null) return;
+            CanInteract = true;
+            targetItem = interactableItem;
+        }
     }
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -40,11 +50,14 @@ public class CollisionComponent : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!other.GetComponent<Item>()) return;
-        IInteractable interactableItem = other.gameObject.GetComponent<IInteractable>();
-        if (interactableItem == null) return;
-        CanInteract = false;
-        targetItem = null;
+        if (other.GetComponent<Item>())
+        {
+            Item item = other.GetComponent<Item>();
+            IInteractable interactableItem = item.GetComponent<IInteractable>();
+            if (interactableItem == null || item.haveBeenInteracted) return;
+            CanInteract = false;
+            targetItem = null;
+        }
     }
 
     public bool IsStandingOnGround()

@@ -116,6 +116,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""6306187a-1a43-4535-b80c-bbdf8a5c4d63"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -250,6 +259,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""FifthAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""16614aec-e775-4065-9ee9-76f78e2577af"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -288,6 +308,24 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""name"": ""VerticalSelection"",
                     ""type"": ""Button"",
                     ""id"": ""a4f16a8a-ba9f-4f9b-8e57-55a2ba688cf6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FirstAbilitySelect"",
+                    ""type"": ""Button"",
+                    ""id"": ""bf0a55b7-bae4-4170-a4ee-f4cb80cc3882"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SecondAbilitySelect"",
+                    ""type"": ""Button"",
+                    ""id"": ""d2bdde23-6fe6-4cac-a034-de46281a6508"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -382,6 +420,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""VerticalSelection"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3dbb55d8-7087-446e-a298-3ca2f6df898d"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FirstAbilitySelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""60634afc-6d7c-46cc-b5ae-933db851499d"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondAbilitySelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -400,12 +460,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Gameplay_ThirdAbility = m_Gameplay.FindAction("ThirdAbility", throwIfNotFound: true);
         m_Gameplay_FourthAbility = m_Gameplay.FindAction("FourthAbility", throwIfNotFound: true);
         m_Gameplay_FifthAbility = m_Gameplay.FindAction("FifthAbility", throwIfNotFound: true);
+        m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Confirm = m_UI.FindAction("Confirm", throwIfNotFound: true);
         m_UI_Back = m_UI.FindAction("Back", throwIfNotFound: true);
         m_UI_HorizontalSelection = m_UI.FindAction("HorizontalSelection", throwIfNotFound: true);
         m_UI_VerticalSelection = m_UI.FindAction("VerticalSelection", throwIfNotFound: true);
+        m_UI_FirstAbilitySelect = m_UI.FindAction("FirstAbilitySelect", throwIfNotFound: true);
+        m_UI_SecondAbilitySelect = m_UI.FindAction("SecondAbilitySelect", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -477,6 +540,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_ThirdAbility;
     private readonly InputAction m_Gameplay_FourthAbility;
     private readonly InputAction m_Gameplay_FifthAbility;
+    private readonly InputAction m_Gameplay_Pause;
     public struct GameplayActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -491,6 +555,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @ThirdAbility => m_Wrapper.m_Gameplay_ThirdAbility;
         public InputAction @FourthAbility => m_Wrapper.m_Gameplay_FourthAbility;
         public InputAction @FifthAbility => m_Wrapper.m_Gameplay_FifthAbility;
+        public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -530,6 +595,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @FifthAbility.started += instance.OnFifthAbility;
             @FifthAbility.performed += instance.OnFifthAbility;
             @FifthAbility.canceled += instance.OnFifthAbility;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -564,6 +632,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @FifthAbility.started -= instance.OnFifthAbility;
             @FifthAbility.performed -= instance.OnFifthAbility;
             @FifthAbility.canceled -= instance.OnFifthAbility;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -589,6 +660,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_Back;
     private readonly InputAction m_UI_HorizontalSelection;
     private readonly InputAction m_UI_VerticalSelection;
+    private readonly InputAction m_UI_FirstAbilitySelect;
+    private readonly InputAction m_UI_SecondAbilitySelect;
     public struct UIActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -597,6 +670,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Back => m_Wrapper.m_UI_Back;
         public InputAction @HorizontalSelection => m_Wrapper.m_UI_HorizontalSelection;
         public InputAction @VerticalSelection => m_Wrapper.m_UI_VerticalSelection;
+        public InputAction @FirstAbilitySelect => m_Wrapper.m_UI_FirstAbilitySelect;
+        public InputAction @SecondAbilitySelect => m_Wrapper.m_UI_SecondAbilitySelect;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -618,6 +693,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @VerticalSelection.started += instance.OnVerticalSelection;
             @VerticalSelection.performed += instance.OnVerticalSelection;
             @VerticalSelection.canceled += instance.OnVerticalSelection;
+            @FirstAbilitySelect.started += instance.OnFirstAbilitySelect;
+            @FirstAbilitySelect.performed += instance.OnFirstAbilitySelect;
+            @FirstAbilitySelect.canceled += instance.OnFirstAbilitySelect;
+            @SecondAbilitySelect.started += instance.OnSecondAbilitySelect;
+            @SecondAbilitySelect.performed += instance.OnSecondAbilitySelect;
+            @SecondAbilitySelect.canceled += instance.OnSecondAbilitySelect;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -634,6 +715,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @VerticalSelection.started -= instance.OnVerticalSelection;
             @VerticalSelection.performed -= instance.OnVerticalSelection;
             @VerticalSelection.canceled -= instance.OnVerticalSelection;
+            @FirstAbilitySelect.started -= instance.OnFirstAbilitySelect;
+            @FirstAbilitySelect.performed -= instance.OnFirstAbilitySelect;
+            @FirstAbilitySelect.canceled -= instance.OnFirstAbilitySelect;
+            @SecondAbilitySelect.started -= instance.OnSecondAbilitySelect;
+            @SecondAbilitySelect.performed -= instance.OnSecondAbilitySelect;
+            @SecondAbilitySelect.canceled -= instance.OnSecondAbilitySelect;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -663,6 +750,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnThirdAbility(InputAction.CallbackContext context);
         void OnFourthAbility(InputAction.CallbackContext context);
         void OnFifthAbility(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
@@ -670,5 +758,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnBack(InputAction.CallbackContext context);
         void OnHorizontalSelection(InputAction.CallbackContext context);
         void OnVerticalSelection(InputAction.CallbackContext context);
+        void OnFirstAbilitySelect(InputAction.CallbackContext context);
+        void OnSecondAbilitySelect(InputAction.CallbackContext context);
     }
 }

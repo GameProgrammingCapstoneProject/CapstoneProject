@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c586180123da4947aec0309f2135165, type: 3}
   m_Name: HealthRegenAbility
   m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 21300000, guid: cccffc5ec9f2a1b47ba9a85fda7728b2, type: 3}
+  _abilityCost: 400
+  abilityDescription: This is a health regen ability
   _cooldown: 5
   _isUnlocked: 1
   _healthRegenPrefab: {fileID: 3883091892593726328, guid: b580b3ac2a0cf874ca47a7b1133be4b8, type: 3}

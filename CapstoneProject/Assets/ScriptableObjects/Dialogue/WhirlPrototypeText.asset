@@ -15,7 +15,7 @@ MonoBehaviour:
   dialogueID: 1
   dialogueText:
   - "Regardless\u2026"
-  - break
+  - maindialogue1
   - Ah, good day fellow explorer. What wonderful company granted to me in such an
     odd, dreary place.
   - "I feel as though my shield has cleaved through the same foes, many times already\u2026"
@@ -23,7 +23,7 @@ MonoBehaviour:
   - Ah, but I am no philosopher, and you seem the type for practicality more than
     flowery language.
   - I wish you well in your endeavors, whatever they may be.
-  - break
+  - maindialogue2
   - "Why do these caves feel familiar, yet so\u2026 incomplete?"
   - "Like a battlefield memory half remembered\u2026 I worry I am concussed from
     one of these monsters."
@@ -33,7 +33,7 @@ MonoBehaviour:
     dire need of help.
   - I feel the essence of a soldier, a trapped ally, safe but desperate to be relieved.
   - How would I go on without granting a hand to a desperate comrade?
-  - break
+  - maindialogue3
   - You must hear it too, this desire. Why else would one be here, otherwise?
   - The last of the treasures and worthwhile weapons have long since been looted.
   - "Although I suppose these monsters do drop these odd, thin trinkets\u2026 but
@@ -47,7 +47,7 @@ MonoBehaviour:
   - Odd for a soldier to feel such closeness to those not on their side of the conflict.
   - "Although\u2026 does this war we\u2019re fighting have sides? We all seem compelled
     upwards by the same force."
-  - break
+  - maindialogue4
   - "Come to think of it\u2026 I cannot even remember how I arrived at this place."
   - "I know my regiment was dissolved, and I moved on\u2026 beginning to wander as
     a mercenary."
@@ -62,19 +62,19 @@ MonoBehaviour:
   - After all, they seem to bleed red, same as you or I.
   - "Hmm\u2026 a true predicament, we seem to have fallen into."
   - But only one direction left to go. Upwards and over, whatever it entails.
-  - break
+  - playerdeath
   - Ah! It is good to see you well, friend.
   - I suppose count yourself lucky that this was a fate of no consequence.
   - "Reminds me of my training days, beating against the wood with my mentor\u2026"
   - "Just, be cautious\u2026 Such leniency towards the underworld is no way to conduct
     oneself."
   - Especially on a true battlefield.
-  - break
+  - playerkill
   - Have you little respect for yourself or others, sir?
   - Gah, no matter. Neither of us can truly perish here.
   - A flash of pain in the pan is of no matter in the future.
   - But I dare ask, refrain, as my armor wears thin on my back.
-  - break
+  - playerdeathrepeat
   - "Prone to taking falls, friend? Haha\u2026"
   - But outside of humor, I feel the need to impart some veterans advice.
   - It may be good to proceed a little more cautiously, rather than rushing headfirst
@@ -84,7 +84,7 @@ MonoBehaviour:
   - Nothing wrong with having a thinking partner, however. So please, be cautious?
   - I fear that our luck may run short if we rely on the immortal nature of this
     place for too long.
-  - break
+  - playerkillrepeat
   - I feel pained and targeted, friend!
   - You seem to have your wits about you enough to listen, so please, stay your blade!
   - "Goodness\u2026 I suppose I will be thankful the only lingering damage is emotional."

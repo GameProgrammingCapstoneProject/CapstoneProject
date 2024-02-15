@@ -8,7 +8,7 @@ public class HealthManager : MonoBehaviour
     public static HealthManager Instance { get; private set; }
 
     PlayerHealth playerHealth;
-
+    EnemyHealth enemyHealth;
     private void Awake()
     {
 
@@ -27,7 +27,7 @@ public class HealthManager : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.J))
         {
             Debug.Log("Heath: " + playerHealth.GetHealth());
-            playerHealth.TakeDamage(70);
+          //  playerHealth.TakeDamage(70);
         }
     }
     // Start is called before the first frame update
@@ -38,14 +38,14 @@ public class HealthManager : MonoBehaviour
         HealthBar healthbar = healthBarTransform.GetComponent<HealthBar>();
         playerHealth = new PlayerHealth(100);
 
-        healthbar.Setup(playerHealth);
+       // healthbar.Setup(enemyHealth);
 
-/*        Debug.Log("Heath: " + playerHealth.GetHealth());
-        playerHealth.TakeDamage(70);
         Debug.Log("Heath: " + playerHealth.GetHealth());
-        playerHealth.TakeHealing(30);
-        Debug.Log("Heath: " + playerHealth.GetHealth());*/
-
+     //   playerHealth.TakeDamage(70);
+        Debug.Log("Heath: " + playerHealth.GetHealth());
+     //   playerHealth.TakeHealing(30);
+        Debug.Log("Heath: " + playerHealth.GetHealth());
+        
        
     }
 

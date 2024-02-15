@@ -7,9 +7,65 @@ namespace Core.Entity
 {
     public class Enemy : Character
     {
+        [SerializeField]
+        float baseCastDistance = 0.5f;
+        [SerializeField]
+        Transform CastPos;
         protected override void Start()
         {
             base.Start();
+        }
+
+        public bool IsHittingWall()
+        {
+            bool result;
+
+            // Define the cast distance for left and right
+            float castingDistance = baseCastDistance;
+            if (rb.CurrentFacingDirection == RigidbodyComponent.FacingDirections.LEFT)
+            {
+                castingDistance = -baseCastDistance;
+            }
+
+            // determine the target destination based on the cast distance
+            Vector3 targetPos = CastPos.position;
+            targetPos.x += castingDistance;
+
+            Debug.DrawLine(CastPos.position, targetPos, Color.red);
+            if (Physics2D.Linecast(CastPos.position, targetPos, 1 << LayerMask.NameToLayer("Ground")))
+            {
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
+
+            return result;
+        }
+
+        public bool IsHittingEdge()
+        {
+            bool result;
+
+            // Define the cast distance for left and right
+            float castingDistance = baseCastDistance;
+
+            // determine the target destination based on the cast distance
+            Vector3 targetPos = CastPos.position;
+            targetPos.y -= castingDistance;
+
+            Debug.DrawLine(CastPos.position, targetPos, Color.red);
+            if (Physics2D.Linecast(CastPos.position, targetPos, 1 << LayerMask.NameToLayer("Ground")))
+            {
+                result = false;
+            }
+            else
+            {
+                result = true;
+            }
+
+            return result;
         }
     }
 
