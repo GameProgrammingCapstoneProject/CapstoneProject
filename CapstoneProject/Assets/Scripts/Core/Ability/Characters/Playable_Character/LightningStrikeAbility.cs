@@ -38,6 +38,7 @@ public class LightningStrikeAbility : PlayerAbility
 
     public override IEnumerator ActivateRoutine()
     {
+        if (targets.Count <= 0) yield break;
         while (elapsedTime < _activateTime && _isActivated)
         {
             yield return new WaitForSeconds(Random.Range(0f, 1f));
