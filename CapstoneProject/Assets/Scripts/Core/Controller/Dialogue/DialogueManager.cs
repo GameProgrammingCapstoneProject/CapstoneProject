@@ -1,3 +1,4 @@
+using Panda.Examples.PlayTag;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,8 +16,9 @@ public class DialogueManager : MonoBehaviour
         public short recentDeath;
 
         //0 = default, no relation
-        //1 = recently killed by player 
-        //2 = completed sidequest 
+        //1 = recently killed by player
+        //2 = killed by player more than once
+        //3 = completed sidequest 
         public short relationshipStatus;
 
         //0 = none
@@ -71,8 +73,18 @@ public class DialogueManager : MonoBehaviour
     public Sprite emeliaPortraitImage;
 
     //Text scrolling variables
-    private float textScrollSpeed = 0.2f;
+    private float textScrollSpeed = 0.1f;
     private bool textIsPlaying = false;
+
+    //Player input variables
+    private bool dialoguePriority = false;
+    private bool dialogueIsplaying = false;
+    private short dialogueState = 0;
+    private short dialogueTicker = 0;
+    private bool dialogueSkipRepeat = false;
+
+    //Reference of the scrolling text coroutine to stop it
+    private IEnumerator scrollingCoroutine;
 
     void Start()
     {
@@ -98,12 +110,14 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 UnityEngine.Debug.Log("Unexpected error when loading dialogue object in Dialogue Manager");
+                Cleanup();
                 Destroy(this);
             }
         }
         else
         {
             UnityEngine.Debug.Log("Unexpected error when loading state in Dialogue Manager");
+            Cleanup();
             Destroy(this);
         }
     }
@@ -123,7 +137,6 @@ public class DialogueManager : MonoBehaviour
 
         return success;
     }
-
 
     public bool LoadScriptObject()
     {
@@ -180,6 +193,9 @@ public class DialogueManager : MonoBehaviour
         DisplayDialogueBox();
         DisplayDialoguePortrait();
         BeginText();
+        //StartCoroutine(TextScrollInput("Wagagabobo"));
+
+        StartCoroutine(MainDialogueLoop());
     }
 
     //Enables both UI elements
@@ -197,29 +213,173 @@ public class DialogueManager : MonoBehaviour
     {
         displayTextObject.SetActive(true);
         displayTextObject.GetComponent<TextMeshProUGUI>().enabled = true;
-        StartCoroutine(TextScroll("This is test dialogue. Wa ba ba go bo"));
+        //scrollingCoroutine = TextScrollInput("This is test dialogue.");
+        //StartCoroutine(scrollingCoroutine);
 
-        
     }
 
-    IEnumerator TextScroll(string displayText)
+    private IEnumerator MainDialogueLoop()
     {
+        dialogueIsplaying = true;
+        
+        IEnumerator textCoroutine = null;
+        
+        UnityEngine.Debug.Log("Main dialogue loop entered");
+
+
+
+
+        foreach(string dialogue in loadedDialogue)
+        {
+            dialogueTicker++;
+            UnityEngine.Debug.Log("Looping");
+
+            if (gameState.relationshipStatus == 2)
+            {
+                StartCoroutine(SearchForState(textCoroutine, "playerkillrepeat", "break"));
+                dialogueSkipRepeat = true;
+            }
+            else if (gameState.relationshipStatus == 1)
+            {
+                StartCoroutine(SearchForState(textCoroutine, "playerkill", "playerdeathrepeat"));
+                dialogueSkipRepeat = true;
+            }
+            else if (gameState.recentDeath > 2)
+            {
+                StartCoroutine(SearchForState(textCoroutine, "playerkillrepeat", "break"));
+                dialogueSkipRepeat = true;
+            }
+            else if (gameState.recentDeath == 1)
+            {
+                StartCoroutine(SearchForState(textCoroutine, "playerdeathrepeat", "playerkillrepeat"));
+                dialogueSkipRepeat = true;
+            }
+            
+            if (dialogueSkipRepeat)
+            {
+                UnityEngine.Debug.Log("Drawing text");
+                textCoroutine = TextScrollInput(dialogueTransition);
+                dialoguePriority = true;
+                StartCoroutine(textCoroutine);
+                while (dialoguePriority)
+                {
+                    yield return new WaitForSeconds(0.25F);
+                }
+                UnityEngine.Debug.Log("Finished drawing text");
+                StopCoroutine(textCoroutine);
+            }
+
+            if (dialogue == "maindialogue1" && dialogueState != 1)
+            {
+
+            }
+
+            else if (dialogue == "maindialogue1" || dialogue == "maindialogue2" || dialogue == "maindialogue3" || dialogue == "maindialogue4" || dialogue == "playerdeath")
+            {
+                dialogueState++;
+                UnityEngine.Debug.Log("Dialogue state increased");
+            }
+
+            
+
+            else if (!dialogueSkipRepeat)
+            {
+                UnityEngine.Debug.Log("Drawing text");
+                textCoroutine = TextScrollInput(dialogue);
+                dialoguePriority = true;
+                StartCoroutine(textCoroutine);
+                while (dialoguePriority)
+                {
+                    yield return new WaitForSeconds(0.25F);
+                }
+                UnityEngine.Debug.Log("Finished drawing text");
+                StopCoroutine(textCoroutine);
+            }
+        }
+
+        yield return null;
+    }
+
+    private IEnumerator TextScrollInput(string displayText)
+    {
+        IEnumerator textCoroutine = TextScroll(displayText);
+        StartCoroutine(textCoroutine);
+        UnityEngine.Debug.Log("In the input enumerator");
+
+        bool input = false;
+        while (!input)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                input = true;
+                dialoguePriority = false;
+            }
+            yield return null;
+        }
+        StopCoroutine(textCoroutine);
+    }
+
+    private IEnumerator SearchForState(IEnumerator textCoroutine, string searchText, string checkText) 
+    {
+        foreach (string dialogueStatus in loadedDialogue)
+        {
+            if (dialogueStatus == searchText)
+            {
+                int position = loadedDialogue.IndexOf(dialogueStatus);
+                foreach (string dialogueStatusConfirmed in loadedDialogue)
+                {
+                    if (dialogueStatusConfirmed == checkText)
+                    {
+                        break;
+                    }
+                    if (loadedDialogue.IndexOf(dialogueStatusConfirmed)! < position)
+                    {
+                        UnityEngine.Debug.Log("Drawing text");
+                        textCoroutine = TextScrollInput(dialogueStatusConfirmed);
+                        dialoguePriority = true;
+                        StartCoroutine(textCoroutine);
+                        while (dialoguePriority)
+                        {
+                            yield return new WaitForSeconds(0.25F);
+                        }
+                        UnityEngine.Debug.Log("Finished drawing text");
+                        StopCoroutine(textCoroutine);
+                    }
+                }
+            }
+            gameState.relationshipStatus = 0;
+        }
+    }
+
+    private IEnumerator TextScroll(string displayText)
+    {
+        UnityEngine.Debug.Log("Writing text");
         for (int i = 0; i < displayText.Length; i++)
         {
+            
             displayTextObject.GetComponent<TextMeshProUGUI>().SetText(displayText.Substring(0, i+1));
             yield return new WaitForSeconds(textScrollSpeed);
         }
-        //Cleanup();
-
     }
-
 
     private void Cleanup()
     {
-        displayPortraitObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
-        displayBoxObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
-        displayTextObject.GetComponent<TextMeshProUGUI>().enabled = false;
-        displayTextObject.SetActive(false);
+        if (displayPortraitObject != null)
+        {
+            displayPortraitObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
+        }
+        if (displayBoxObject != null)
+        {
+            displayBoxObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
+        }
+        if (displayTextObject != null)
+        {
+            displayTextObject.GetComponent<TextMeshProUGUI>().enabled = false;
+        }
+        if (displayTextObject != null)
+        {
+            displayTextObject.SetActive(false);
+        }
     }
     private void OnDestroy()
     {
