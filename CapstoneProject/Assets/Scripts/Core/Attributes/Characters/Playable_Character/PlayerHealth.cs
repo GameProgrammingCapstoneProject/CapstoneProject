@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerHealth : MonoBehaviour
 {
     public int health;
@@ -11,8 +12,8 @@ public class PlayerHealth : MonoBehaviour
     public static event EventHandler OnHealthChanged;
     public PlayerHealth(int healthMax)
     {
-        this.health = healthMax;
-        health = healthMax;
+       this.health = healthMax;
+       health = healthMax;
     }
 
     public int GetHealth()
@@ -25,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
         return (float)health / healthMax;
     }
 
-    public void TakeDamage(int damageTaken)
+   /* public void TakeDamage(int damageTaken)
     {
         health -= damageTaken;   
         if (health < 0) { health = 0; }
@@ -37,5 +38,29 @@ public class PlayerHealth : MonoBehaviour
         health += healthHealed;
         if (health > healthMax) { health = healthMax; }
         if (OnHealthChanged != null) OnHealthChanged(this, EventArgs.Empty);
+    }*/
+
+    public void Damage (int damage)
+    {
+        health -= damage;
+        //if (health < 0) { health = 0; }
+    }
+
+    private void Start()
+    {
+        health = 100;
+    }
+
+    private void Update()
+    {
+
+        if (Input.GetKeyUp(KeyCode.J))
+        {
+            Debug.Log("Heath: " + GetHealth());
+            Damage(5);
+            Debug.Log("Heath: " + GetHealth());
+        }
+
+
     }
 }
