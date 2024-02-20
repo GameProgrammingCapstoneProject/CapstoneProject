@@ -8,11 +8,14 @@ using UnityEngine;
 
 namespace Core.Entity
 {
+    [RequireComponent(typeof(PlayerStateComponent))]
+    [RequireComponent(typeof(CollisionComponent))]
+    [RequireComponent(typeof(PlayerAbilityComponent))]
     public class Player : Character
     {
-        public PlayerStateComponent States { get; private set; }
-        public CollisionComponent CollisionComponent { get; private set; }
-        public PlayerAbilityComponent AbilityComponent { get; private set; }
+        public PlayerStateComponent States;
+        public CollisionComponent CollisionComponent;
+        public PlayerAbilityComponent AbilityComponent;
 
         public Transform bowShootingPosition;
         public Transform projectileShootingPosition;
@@ -28,9 +31,6 @@ namespace Core.Entity
         protected override void Start()
         {
             base.Start();
-            States = GetComponent<PlayerStateComponent>();
-            CollisionComponent = GetComponent<CollisionComponent>();
-            AbilityComponent = GetComponent<PlayerAbilityComponent>();
             canDoubleJump = true;
         }
         

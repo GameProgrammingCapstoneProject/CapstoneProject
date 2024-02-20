@@ -200,7 +200,8 @@ GameObject:
   - component: {fileID: 463776978811722927}
   - component: {fileID: 9071807513347634400}
   - component: {fileID: 163893606163044311}
-  m_Layer: 0
+  - component: {fileID: 29325562241796421}
+  m_Layer: 12
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -275,7 +276,7 @@ Rigidbody2D:
   m_Mass: 1.0790347
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.4
   m_Material: {fileID: 6200000, guid: d777c39ac3783f44d9a23324dfc5fa4c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -299,6 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f20b2a88b8018949b7df05230305893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rb: {fileID: 453122389967876568}
 --- !u!114 &8340991098743163367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,9 +332,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7024ea521d0304fb77d2281e6b67a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 237739804618613423}
+  animator: {fileID: 6211433536807098798}
+  States: {fileID: 9071807513347634400}
+  CollisionComponent: {fileID: 8340991098743163367}
+  AbilityComponent: {fileID: 163893606163044311}
   bowShootingPosition: {fileID: 4872242686308043256}
-  projectileShootingPosition: {fileID: 0}
-  _moveSpeed: 5
+  projectileShootingPosition: {fileID: 4872242686308043256}
+  _moveSpeed: 10
   _jumpForce: 8
   canDoubleJump: 0
 --- !u!114 &463776978811722927
@@ -347,6 +354,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf9a87ffc0d7e44abb8a3231a2813d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 6673100716483926680}
+  _playerStateComponent: {fileID: 9071807513347634400}
+  _collisionComponent: {fileID: 8340991098743163367}
+  _playerAbilityComponent: {fileID: 163893606163044311}
+  _abilityShopUI: {fileID: 0}
 --- !u!114 &9071807513347634400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c2f24f3b8a6584997a7f8c57e83208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 6673100716483926680}
 --- !u!114 &163893606163044311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,3 +395,15 @@ MonoBehaviour:
   _enemyLayerMask:
     serializedVersion: 2
     m_Bits: 1024
+--- !u!114 &29325562241796421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8648401941361999589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fb0e30b90c94a845811877f7afee599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
