@@ -7,23 +7,23 @@ using Core.PlayerInput;
 using Core.StateMachine;
 using UnityEngine;
 
+[RequireComponent(typeof(Player))]
+[RequireComponent(typeof(PlayerStateComponent))]
+[RequireComponent(typeof(CollisionComponent))]
+[RequireComponent(typeof(PlayerAbilityComponent))]
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
     private Player _player;
+    [SerializeField]
     private PlayerStateComponent _playerStateComponent;
+    [SerializeField]
     private CollisionComponent _collisionComponent;
+    [SerializeField]
     private PlayerAbilityComponent _playerAbilityComponent;
     [SerializeField]
     private AbilityShopUI _abilityShopUI;
     private PlayerState _currentState => _playerStateComponent.stateMachine.currentState;
-    private void Awake()
-    {
-        _playerStateComponent = GetComponent<PlayerStateComponent>();
-        _collisionComponent = GetComponent<CollisionComponent>();
-        _playerAbilityComponent = GetComponent<PlayerAbilityComponent>();
-        _player = GetComponent<Player>();
-    }
-
     // Update is called once per frame
     private void Update()
     {
@@ -125,15 +125,19 @@ public class PlayerController : MonoBehaviour
             }
             if (IsPressed(PlayerInputReader.Instance.confirmValue))
             {
+                
                 //TODO: Need to implement coin component to unlock ability
                 _abilityShopUI.CurrentSelectedAbility.information.Unlock();
             }
-            if (IsPressed(PlayerInputReader.Instance.firstAbilityValue))
+            if (IsPressed(PlayerInputReader.Instance.firstSelectionAbilityUIValue))
             {
                 if (_abilityShopUI.CurrentSelectedAbility.information.IsAbilityUnlocked())
+                {
                     _playerAbilityComponent.SetupPlayerAbility(_abilityShopUI.CurrentSelectedAbility.information, 0);
+                }
+                    
             }
-            if (IsPressed(PlayerInputReader.Instance.secondAbilityValue))
+            if (IsPressed(PlayerInputReader.Instance.secondSelectionAbilityUIValue))
             {
                 if (_abilityShopUI.CurrentSelectedAbility.information.IsAbilityUnlocked())
                     _playerAbilityComponent.SetupPlayerAbility(_abilityShopUI.CurrentSelectedAbility.information, 1);
@@ -152,6 +156,7 @@ public class PlayerController : MonoBehaviour
 
     private void ExecuteAbilityState(PlayerAbility ability)
     {
+        if (!ability.CanUseAbility()) return;
         switch (ability)
         {
             case ShieldAbility:
@@ -186,17 +191,17 @@ public class PlayerController : MonoBehaviour
     {
         if (IsPressed(PlayerInputReader.Instance.firstAbilityValue) && _playerAbilityComponent.playerAbilities[0] != null)
         {
-            if (_playerAbilityComponent.playerAbilities[0].CanUseAbility())
-            {
-                ExecuteAbilityState(_playerAbilityComponent.playerAbilities[0]);
-            }
+            ExecuteAbilityState(_playerAbilityComponent.playerAbilities[0]);
         }
         if (IsPressed(PlayerInputReader.Instance.secondAbilityValue) && _playerAbilityComponent.playerAbilities[1] != null)
         {
-            if (_playerAbilityComponent.playerAbilities[1].CanUseAbility())
-            {
-                ExecuteAbilityState(_playerAbilityComponent.playerAbilities[1]);
-            }
+            ExecuteAbilityState(_playerAbilityComponent.playerAbilities[1]);
         }
+    }
+
+    private void OnValidate()
+    {
+        if (_abilityShopUI == null)
+            Debug.Log("Ability Shop UI object is missing");
     }
 }
