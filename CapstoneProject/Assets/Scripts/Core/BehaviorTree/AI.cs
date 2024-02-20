@@ -64,7 +64,6 @@ public class AI : MonoBehaviour
         {
             movementSpeed = -initialSpeed;
         }
-        Debug.Log(movementSpeed);
         _rb.SetVelocity(movementSpeed, _rb.velocity.y);
         Task.current.Succeed();
     }
@@ -145,6 +144,7 @@ public class AI : MonoBehaviour
     [Task]
     public void Attack()
     {
+        this.GetComponent<EnemyHealthComponent>().DoDamage(5);
         movementSpeed = stopSpeed;
         AnimStateUpdate();
         Task.current.Succeed();
