@@ -16,6 +16,6 @@ MonoBehaviour:
   _abilityCost: 200
   abilityDescription: This is a bow ability
   _cooldown: 5
-  _isUnlocked: 1
+  _isUnlocked: 0
   _arrowPrefab: {fileID: 8500567493354702259, guid: af18c1761f353a8449d924bf3f4156fe, type: 3}
   _existDuration: 3
