@@ -12,7 +12,7 @@ public class BowShootingAbility : PlayerAbility
     [SerializeField]
     private float _existDuration;
     private Transform _target;
-    public event System.Action OnBowShootingAbilityCoolDown;
+    public event System.Action<BowShootingAbility> OnBowShootingAbilityCoolDown;
     
     public override void AbilityUpdate()
     {
@@ -27,7 +27,7 @@ public class BowShootingAbility : PlayerAbility
             _target = Instigator.AbilityComponent.lowestHealthTarget.transform;
             _currentArrow = GameObject.Instantiate(_arrowPrefab, Instigator.bowShootingPosition.transform.position, Instigator.transform.rotation);
             _currentArrow.Setup(_existDuration, Instigator.bowShootingPosition.transform.position, _target.position);
-            OnBowShootingAbilityCoolDown?.Invoke();
+            OnBowShootingAbilityCoolDown?.Invoke(this);
         }
     }
 }

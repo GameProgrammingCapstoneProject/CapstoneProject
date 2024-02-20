@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Core.Entity;
 using UnityEngine;
 
+[RequireComponent(typeof(Player))]
 public class PlayerAbilityComponent : MonoBehaviour
 {
     [SerializeField]
@@ -93,4 +94,14 @@ public class PlayerAbilityComponent : MonoBehaviour
         
         return lowestHealthTarget;
     }
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        if (DashAbility == null || ShieldAbility == null || BowShootingAbility == null ||
+            HealthRegenAbility == null || ProjectileShootingAbility == null || LightningStrikeAbility == null)
+        {
+            Debug.LogWarning("One or more Player Abilities are not assigned in the inspector!");
+        }
+    }
+#endif
 }

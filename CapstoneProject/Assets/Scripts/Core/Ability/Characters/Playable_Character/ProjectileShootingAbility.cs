@@ -12,7 +12,7 @@ public class ProjectileShootingAbility : PlayerAbility
     private float _existTime;
     [SerializeField]
     private float _moveSpeed;
-    public event System.Action OnProjectileShootingAbilityCoolDown;
+    public event System.Action<ProjectileShootingAbility> OnProjectileShootingAbilityCoolDown;
 
     protected override void Activate()
     {
@@ -20,7 +20,7 @@ public class ProjectileShootingAbility : PlayerAbility
         {
             _currentProjectile = GameObject.Instantiate(_projectilePrefab, Instigator.projectileShootingPosition.transform.position, Instigator.transform.rotation);
             _currentProjectile.Setup(_existTime, _moveSpeed);
-            OnProjectileShootingAbilityCoolDown?.Invoke();
+            OnProjectileShootingAbilityCoolDown?.Invoke(this);
         }
     }
 }

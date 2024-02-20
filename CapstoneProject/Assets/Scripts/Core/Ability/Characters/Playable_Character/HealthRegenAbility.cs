@@ -9,14 +9,14 @@ public class HealthRegenAbility : PlayerAbility
     private HealthRegen _healthRegenPrefab;
     private HealthRegen _currenthealthRegen;
     private readonly float _yOffset = 1f;
-    public event System.Action OnHealthRegenAbilityCoolDown;
+    public event System.Action<HealthRegenAbility> OnHealthRegenAbilityCoolDown;
     protected override void Activate()
     {
         if (_currenthealthRegen == null)
         {
             _currenthealthRegen = GameObject.Instantiate(_healthRegenPrefab, new Vector3(Instigator.transform.position.x, Instigator.transform.position.y + _yOffset, Instigator.transform.position.z), Instigator.transform.rotation);
             _currenthealthRegen.Setup(Instigator);
-            OnHealthRegenAbilityCoolDown?.Invoke();
+            OnHealthRegenAbilityCoolDown?.Invoke(this);
             Debug.Log("Health Regen Activated");
         }
     }
