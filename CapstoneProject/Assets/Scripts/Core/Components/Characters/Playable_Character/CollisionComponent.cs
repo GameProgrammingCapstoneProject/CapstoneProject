@@ -7,6 +7,7 @@ using Core.Gameplay;
 using UnityEngine;
 
 [RequireComponent(typeof(CapsuleCollider2D))]
+[RequireComponent(typeof(RigidbodyComponent))]
 public class CollisionComponent : MonoBehaviour
 {
     [SerializeField]

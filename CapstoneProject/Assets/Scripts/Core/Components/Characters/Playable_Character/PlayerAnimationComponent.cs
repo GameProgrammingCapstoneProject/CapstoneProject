@@ -49,6 +49,15 @@ namespace Core.Animation
         {
             _playerAbilityComponent.LightningStrikeAbility.UseAbility();
         }
+#if UNITY_EDITOR
+        private void OnValidate()
+        {
+            if (_player == null || _playerAbilityComponent == null)
+            {
+                Debug.LogWarning("Player or PlayerAbilityComponent is missing");
+            }
+        }
+#endif
     }
 }
 
