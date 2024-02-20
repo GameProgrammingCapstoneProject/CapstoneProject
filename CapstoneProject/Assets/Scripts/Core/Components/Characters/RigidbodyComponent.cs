@@ -15,6 +15,7 @@ namespace Core.Components
         }
         // The direction that the entity is facing
         public FacingDirections CurrentFacingDirection { get; private set; } = FacingDirections.RIGHT;
+        [SerializeField]
         private Rigidbody2D _rb;
 
         public Vector2 velocity => _rb.velocity;
@@ -59,19 +60,6 @@ namespace Core.Components
         {
             _rb.velocity = new Vector2(horizontalVelocity, verticalVelocity);
             ControlFlip(horizontalVelocity);
-        }
-        
-        /// <summary>
-        ///     Setup the entity's initial data when the game begins
-        /// </summary>
-        private void InitialSetup()
-        {
-            _rb = GetComponent<Rigidbody2D>();
-        }
-
-        private void Start()
-        {
-            InitialSetup();
         }
     }
 }
