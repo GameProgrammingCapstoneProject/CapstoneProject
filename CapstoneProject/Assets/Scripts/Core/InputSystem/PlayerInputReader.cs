@@ -22,6 +22,8 @@ namespace Core.PlayerInput
         public float verticalAxis { get; private set; } = 0;
         public float backValue { get; private set; } = 0;
         public float confirmValue { get; private set; } = 0;
+        public float firstSelectionAbilityUIValue { get; private set; } = 0;
+        public float secondSelectionAbilityUIValue { get; private set; } = 0;
         
         protected override void Awake()
         {
@@ -48,8 +50,6 @@ namespace Core.PlayerInput
             interactValue = 0;
             backValue = 0;
             confirmValue = 0;
-            firstAbilityValue = 0;
-            secondAbilityValue = 0;
         }
 
         private void SwitchPlayerInputSystem(GameState.States newgamestate)
@@ -93,10 +93,10 @@ namespace Core.PlayerInput
                 _playerInputActions.UI.Back.canceled += (context) => backValue = 0;
                 _playerInputActions.UI.Confirm.started += (context) => confirmValue = context.ReadValue<float>();
                 _playerInputActions.UI.Confirm.canceled += (context) => confirmValue = 0;
-                _playerInputActions.UI.FirstAbilitySelect.started += (context) => firstAbilityValue = context.ReadValue<float>();
-                _playerInputActions.UI.FirstAbilitySelect.canceled += (context) => firstAbilityValue = 0;
-                _playerInputActions.UI.SecondAbilitySelect.started += (context) => secondAbilityValue = context.ReadValue<float>();
-                _playerInputActions.UI.SecondAbilitySelect.canceled += (context) => secondAbilityValue = 0;
+                _playerInputActions.UI.FirstAbilitySelect.started += (context) => firstSelectionAbilityUIValue = context.ReadValue<float>();
+                _playerInputActions.UI.FirstAbilitySelect.canceled += (context) => firstSelectionAbilityUIValue = 0;
+                _playerInputActions.UI.SecondAbilitySelect.started += (context) => secondSelectionAbilityUIValue = context.ReadValue<float>();
+                _playerInputActions.UI.SecondAbilitySelect.canceled += (context) => secondSelectionAbilityUIValue = 0;
             }
         }
     }
