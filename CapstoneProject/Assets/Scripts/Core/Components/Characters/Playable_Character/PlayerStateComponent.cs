@@ -5,8 +5,10 @@ using Core.PlayerInput;
 using Core.StateMachine;
 using UnityEngine;
 
+[RequireComponent(typeof(Player))]
 public class PlayerStateComponent : MonoBehaviour
 {
+    [SerializeField]
     private Player _player;
     public PlayerStateMachine stateMachine { get; private set; }
     public PlayerIdleState idleState { get; private set; }
@@ -28,7 +30,6 @@ public class PlayerStateComponent : MonoBehaviour
 
     private void Awake()
     {
-        _player = GetComponent<Player>();
         stateMachine = new PlayerStateMachine();
         
         idleState = new PlayerIdleState(_player, "Idle");

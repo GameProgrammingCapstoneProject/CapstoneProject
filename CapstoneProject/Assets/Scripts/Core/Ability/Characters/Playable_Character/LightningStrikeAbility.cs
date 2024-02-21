@@ -11,7 +11,7 @@ public class LightningStrikeAbility : PlayerAbility
     private Lightning _lightningStrikePrefab;
     [SerializeField]
     private float _xOffset = 3f;
-    public event System.Action OnLightningStrikeAbilityCoolDown;
+    public event System.Action<LightningStrikeAbility> OnLightningStrikeAbilityCoolDown;
     [HideInInspector]
     public List<GameObject> targets;
     [SerializeField]
@@ -33,7 +33,7 @@ public class LightningStrikeAbility : PlayerAbility
         elapsedTime = 0;
         targets = AbilityHandler.ScanForEnemiesInArea().ToList();
         AbilityHandler.StartRoutine(this);
-        OnLightningStrikeAbilityCoolDown?.Invoke();
+        OnLightningStrikeAbilityCoolDown?.Invoke(this);
     }
 
     public override IEnumerator ActivateRoutine()

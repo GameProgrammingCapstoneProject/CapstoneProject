@@ -10,17 +10,15 @@ namespace Core.Entity
     public class Character : MonoBehaviour
     {
         // Reference Custom Rigidbody Component 
-        public RigidbodyComponent rb { get; private set; }
+        public RigidbodyComponent rb;
         // Reference animator
         //TODO: Need to implement this in the Custom AnimationComponent
-        public Animator animator { get; private set; }
+        public Animator animator;
         /// <summary>
         ///     Setup the entity's initial data when the game begins
         /// </summary>
         protected virtual void InitialSetup()
         {
-            rb = GetComponent<RigidbodyComponent>();
-            animator = GetComponentInChildren<Animator>();
         }
 
         protected virtual void Start()

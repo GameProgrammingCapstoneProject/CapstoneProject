@@ -36,6 +36,12 @@ namespace Core.GameStates
                 }
             }
         }
+
+        protected override void Awake()
+        {
+            base.Awake();
+            _currentGameState = States.Gameplay;
+        }
     }
 }
 

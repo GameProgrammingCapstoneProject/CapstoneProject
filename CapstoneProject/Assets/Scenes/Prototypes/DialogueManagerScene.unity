@@ -199,6 +199,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2042202790610155498, guid: 347a945fb88fc50499db728fff8c0a8e, type: 3}
+      propertyPath: blurEffect
+      value: 
+      objectReference: {fileID: 8140880566786786110}
+    - target: {fileID: 2042202790610155498, guid: 347a945fb88fc50499db728fff8c0a8e, type: 3}
       propertyPath: displayBox
       value: 
       objectReference: {fileID: 1330969801}
@@ -513,10 +517,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1596129547989992624, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4577728038241824272, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -597,22 +597,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5375277145048774179, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5375277145048774179, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
-      propertyPath: m_margin.w
-      value: -113.64896
-      objectReference: {fileID: 0}
-    - target: {fileID: 5375277145048774179, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
-      propertyPath: m_margin.z
-      value: -157.71695
-      objectReference: {fileID: 0}
-    - target: {fileID: 9084621314162043755, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9098622345982583324, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
       propertyPath: m_Name
       value: DialogueUI
@@ -622,6 +606,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
+--- !u!1 &8140880566786786110 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 252171009213634961, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
+  m_PrefabInstance: {fileID: 6280446282320265389}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

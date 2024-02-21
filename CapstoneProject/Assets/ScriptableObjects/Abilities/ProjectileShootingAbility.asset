@@ -16,7 +16,7 @@ MonoBehaviour:
   _abilityCost: 800
   abilityDescription: This is a projectile shooting ability
   _cooldown: 5
-  _isUnlocked: 1
+  _isUnlocked: 0
   _projectilePrefab: {fileID: 1381322267468913895, guid: 28370168712eddb4787f9b7809d6d7e6, type: 3}
   _existTime: 3
   _moveSpeed: 6
