@@ -80,7 +80,6 @@ public class DialogueManager : MonoBehaviour
     private bool dialoguePriority = false;
     private bool dialogueIsplaying = false;
     private short dialogueState = 0;
-    private short dialogueTicker = 0;
     private bool dialogueSkipRepeat = false;
 
     //Reference of the scrolling text coroutine to stop it
@@ -227,12 +226,10 @@ public class DialogueManager : MonoBehaviour
         UnityEngine.Debug.Log("Main dialogue loop entered");
 
 
-
-
         foreach(string dialogue in loadedDialogue)
         {
-            dialogueTicker++;
             UnityEngine.Debug.Log("Looping");
+            dialogueSkipRepeat = false;
 
             if (gameState.relationshipStatus == 2)
             {
@@ -269,20 +266,35 @@ public class DialogueManager : MonoBehaviour
                 StopCoroutine(textCoroutine);
             }
 
-            if (dialogue == "maindialogue1" && dialogueState != 1)
+            if (dialogue == "maindialogue1" && dialogueState == 0)
             {
 
-            }
-
-            else if (dialogue == "maindialogue1" || dialogue == "maindialogue2" || dialogue == "maindialogue3" || dialogue == "maindialogue4" || dialogue == "playerdeath")
-            {
+                UnityEngine.Debug.Log("Began sending dialogue 1");
+                StartCoroutine(SearchForState(textCoroutine, "maindialogue1", "maindialogue2"));
                 dialogueState++;
-                UnityEngine.Debug.Log("Dialogue state increased");
+                UnityEngine.Debug.Log("finished dialogue");
+                break;
+            }
+            else if (dialogue == "maindialogue2" && dialogueState == 1)
+            {
+                StartCoroutine(SearchForState(textCoroutine, "maindialogue2", "maindialogue3"));
+                dialogueState++;
+                break;
+            }
+            else if (dialogue == "maindialogue3" && dialogueState == 2)
+            {
+                StartCoroutine(SearchForState(textCoroutine, "maindialogue3", "maindialogue4"));
+                dialogueState++;
+                break;
+            }
+            else if (dialogue == "maindialogue4" && dialogueState == 3)
+            {
+                StartCoroutine(SearchForState(textCoroutine, "maindialogue4", "playerdeath"));
+                dialogueState++;
+                break;
             }
 
-            
-
-            else if (!dialogueSkipRepeat)
+            /*else if (!dialogueSkipRepeat)
             {
                 UnityEngine.Debug.Log("Drawing text");
                 textCoroutine = TextScrollInput(dialogue);
@@ -294,7 +306,7 @@ public class DialogueManager : MonoBehaviour
                 }
                 UnityEngine.Debug.Log("Finished drawing text");
                 StopCoroutine(textCoroutine);
-            }
+            }*/
         }
 
         yield return null;
@@ -325,15 +337,18 @@ public class DialogueManager : MonoBehaviour
         {
             if (dialogueStatus == searchText)
             {
+                UnityEngine.Debug.Log("found the text");
                 int position = loadedDialogue.IndexOf(dialogueStatus);
                 foreach (string dialogueStatusConfirmed in loadedDialogue)
                 {
                     if (dialogueStatusConfirmed == checkText)
                     {
+                        UnityEngine.Debug.Log("breaking");
                         break;
                     }
-                    if (loadedDialogue.IndexOf(dialogueStatusConfirmed)! < position)
+                    if (loadedDialogue.IndexOf(dialogueStatusConfirmed) > position)
                     {
+
                         UnityEngine.Debug.Log("Drawing text");
                         textCoroutine = TextScrollInput(dialogueStatusConfirmed);
                         dialoguePriority = true;
@@ -356,7 +371,6 @@ public class DialogueManager : MonoBehaviour
         UnityEngine.Debug.Log("Writing text");
         for (int i = 0; i < displayText.Length; i++)
         {
-            
             displayTextObject.GetComponent<TextMeshProUGUI>().SetText(displayText.Substring(0, i+1));
             yield return new WaitForSeconds(textScrollSpeed);
         }
