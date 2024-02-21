@@ -96,7 +96,7 @@ SpriteRenderer:
   m_SortingLayerID: 1456303091
   m_SortingLayer: 9
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1219999816, guid: bdcd9f36c65e40343b91017ff298f1d0, type: 3}
+  m_Sprite: {fileID: -1051919858, guid: 19b694f85e47ac74ba15b4a156fa532e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -331,7 +331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bowShootingPosition: {fileID: 4872242686308043256}
-  projectileShootingPosition: {fileID: 0}
+  projectileShootingPosition: {fileID: 4872242686308043256}
   _moveSpeed: 5
   _jumpForce: 8
   canDoubleJump: 0
@@ -347,6 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf9a87ffc0d7e44abb8a3231a2813d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _abilityShopUI: {fileID: 0}
 --- !u!114 &9071807513347634400
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ffad6b60c5c289b47b7f23d6ce3a6b2d
+guid: a9fec4b2e4db8e14a8afc8088143172d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerAnimCastLightning_0
+      name: PlayerAnimDash_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 640f63b01bf44404eafd09287a5615de
-      internalID: -303160738
+      spriteID: a3bba3b973b6df841a29aafeef9acd73
+      internalID: -213259682
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerAnimCastLightning_1
+      name: PlayerAnimDash_1
       rect:
         serializedVersion: 2
         x: 50
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c5b2a742fa678f41be006da6c7144f5
-      internalID: -1302052252
+      spriteID: 5f8fb4e2ac0071d4a964cbcd5fd61898
+      internalID: 764447444
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerAnimCastLightning_2
+      name: PlayerAnimDash_2
       rect:
         serializedVersion: 2
         x: 100
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05a2d9e03d7ef434d883125f1ed1389e
-      internalID: -536165373
+      spriteID: 5fea79c080b1ead49842ff90b63b8079
+      internalID: -159884841
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerAnimCastLightning_3
+      name: PlayerAnimDash_3
       rect:
         serializedVersion: 2
         x: 150
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5888ef4fb492aa4285047bc08b400fd
-      internalID: -855507249
+      spriteID: 678b626f511cda64189d4b9aff56f128
+      internalID: 858114793
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerAnimCastLightning_4
+      name: PlayerAnimDash_4
       rect:
         serializedVersion: 2
         x: 200
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 658beac9ac559f4448e384894e93ccb6
-      internalID: -272765212
+      spriteID: 43b9fcba28d1aa647be239472d31f49e
+      internalID: -2031484969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerAnimCastLightning_5
+      name: PlayerAnimDash_5
       rect:
         serializedVersion: 2
         x: 250
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 190f3097daca8ba468c018b88b323273
-      internalID: 173319942
+      spriteID: 2401f15e7b714b4449f3d704f41c7839
+      internalID: 2120102582
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerAnimCastLightning_6
+      name: PlayerAnimDash_6
       rect:
         serializedVersion: 2
         x: 300
@@ -250,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a596ac27d8d308429b9dbe23ffb7a7f
-      internalID: -1516406858
+      spriteID: fdcc2919e8f7d9e4c913b2ef9c590e07
+      internalID: 1417777960
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerAnimCastLightning_7
+      name: PlayerAnimDash_7
       rect:
         serializedVersion: 2
         x: 350
@@ -271,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58d530a4344c0a2448c28a882d9fc344
-      internalID: 509573844
+      spriteID: d442edd605b8fcf4f99c5fb47592e0d2
+      internalID: 392268261
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerAnimCastLightning_8
+      name: PlayerAnimDash_8
       rect:
         serializedVersion: 2
         x: 400
@@ -292,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e97d3c1fe9dc2d4fad5efccd63433c3
-      internalID: 947943380
+      spriteID: 40abe9af7329947448336c6bc0ec2e7b
+      internalID: -1803859637
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerAnimCastLightning_9
+      name: PlayerAnimDash_9
       rect:
         serializedVersion: 2
         x: 450
@@ -313,14 +313,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 779a1b00a8dabdf4a89f307acbba7a1f
-      internalID: 1892673895
+      spriteID: dcc8ff3f42a1d9c4e9213df81f6401e7
+      internalID: -1654247302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerAnimCastLightning_10
+      name: PlayerAnimDash_10
       rect:
         serializedVersion: 2
         x: 500
@@ -334,14 +334,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f447f7219b7720d4fba518e5a02a16ba
-      internalID: 1705326947
+      spriteID: c9767bac4dfcad74099b29a3ac8288b3
+      internalID: 2093460322
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerAnimCastLightning_11
+      name: PlayerAnimDash_11
       rect:
         serializedVersion: 2
         x: 550
@@ -355,14 +355,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 169f07e53915f684ba59bca6f1a8bc75
-      internalID: -1142171786
+      spriteID: 5ced4b44820b4eb41830688c506046f2
+      internalID: 2074876289
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerAnimCastLightning_12
+      name: PlayerAnimDash_12
       rect:
         serializedVersion: 2
         x: 600
@@ -376,176 +376,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8889671caa6431e40b3bc81d8aaa1338
-      internalID: 1997016394
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerAnimCastLightning_13
-      rect:
-        serializedVersion: 2
-        x: 650
-        y: 0
-        width: 50
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a2089259ca0e1de439b075d143152515
-      internalID: -1423750955
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerAnimCastLightning_14
-      rect:
-        serializedVersion: 2
-        x: 700
-        y: 0
-        width: 50
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0fb86ca313195b847b8f3b22e3d84de0
-      internalID: 1455676876
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerAnimCastLightning_15
-      rect:
-        serializedVersion: 2
-        x: 750
-        y: 0
-        width: 50
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 73d5411675a84e5448b84479c266ac53
-      internalID: 1549684196
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerAnimCastLightning_16
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 0
-        width: 50
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e738d41553743244dbd6142f127897d0
-      internalID: -1744444253
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerAnimCastLightning_17
-      rect:
-        serializedVersion: 2
-        x: 850
-        y: 0
-        width: 50
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6ff1d2eab88a4f54bba0950b36e0cfd9
-      internalID: -1635157599
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerAnimCastLightning_18
-      rect:
-        serializedVersion: 2
-        x: 900
-        y: 0
-        width: 50
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cc5ab978cb007094593a90a28655e8d3
-      internalID: 594465689
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerAnimCastLightning_19
-      rect:
-        serializedVersion: 2
-        x: 950
-        y: 0
-        width: 50
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4fbe86e7c542ebd429a5f86478bf7d70
-      internalID: -106895291
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerAnimCastLightning_20
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 0
-        width: 50
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0425a14d1fb4cf44096877a3d659fc68
-      internalID: -1110751004
+      spriteID: 8c6b6ea90d22e694a93973576f367093
+      internalID: -1078849556
       vertices: []
       indices: 
       edges: []
@@ -561,27 +393,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlayerAnimCastLightning_0: -303160738
-      PlayerAnimCastLightning_1: -1302052252
-      PlayerAnimCastLightning_10: 1705326947
-      PlayerAnimCastLightning_11: -1142171786
-      PlayerAnimCastLightning_12: 1997016394
-      PlayerAnimCastLightning_13: -1423750955
-      PlayerAnimCastLightning_14: 1455676876
-      PlayerAnimCastLightning_15: 1549684196
-      PlayerAnimCastLightning_16: -1744444253
-      PlayerAnimCastLightning_17: -1635157599
-      PlayerAnimCastLightning_18: 594465689
-      PlayerAnimCastLightning_19: -106895291
-      PlayerAnimCastLightning_2: -536165373
-      PlayerAnimCastLightning_20: -1110751004
-      PlayerAnimCastLightning_3: -855507249
-      PlayerAnimCastLightning_4: -272765212
-      PlayerAnimCastLightning_5: 173319942
-      PlayerAnimCastLightning_6: -1516406858
-      PlayerAnimCastLightning_7: 509573844
-      PlayerAnimCastLightning_8: 947943380
-      PlayerAnimCastLightning_9: 1892673895
+      PlayerAnimDash_0: -213259682
+      PlayerAnimDash_1: 764447444
+      PlayerAnimDash_10: 2093460322
+      PlayerAnimDash_11: 2074876289
+      PlayerAnimDash_12: -1078849556
+      PlayerAnimDash_2: -159884841
+      PlayerAnimDash_3: 858114793
+      PlayerAnimDash_4: -2031484969
+      PlayerAnimDash_5: 2120102582
+      PlayerAnimDash_6: 1417777960
+      PlayerAnimDash_7: 392268261
+      PlayerAnimDash_8: -1803859637
+      PlayerAnimDash_9: -1654247302
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
