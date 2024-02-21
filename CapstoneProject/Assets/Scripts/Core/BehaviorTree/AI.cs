@@ -144,7 +144,7 @@ public class AI : MonoBehaviour
     [Task]
     public void Attack()
     {
-        this.GetComponent<EnemyHealthComponent>().DoDamage(5);
+        //this.GetComponent<EnemyHealthComponent>().DoDamage(5);
         movementSpeed = stopSpeed;
         AnimStateUpdate();
         Task.current.Succeed();
