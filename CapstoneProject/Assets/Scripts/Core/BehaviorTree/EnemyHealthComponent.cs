@@ -1,3 +1,4 @@
+using Core.Entity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -65,7 +66,7 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
         }
     }
 
-    public void DoDamage(int damage)
+    public void DoDamage(int damage, Character target)
     {
         //StartCoroutine(Attack(damage));
         Collider2D player = Physics2D.OverlapCircle(transform.position, 1.5f, playerLayer);
