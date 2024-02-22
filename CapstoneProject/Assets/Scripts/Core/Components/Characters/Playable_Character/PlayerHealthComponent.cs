@@ -15,12 +15,14 @@ public class PlayerHealthComponent : MonoBehaviour, IDamageable
     private void Start()
     {
         currentHealth = _maxHealth;
+        Debug.Log("Player hp: " + currentHealth);
     }
 
     public void TakeDamage(int damage)
     {
         if (isDead || isInvincible) return;
         DecreaseHealthBy(damage);
+        Debug.Log("Player hp: " + currentHealth);
         if (currentHealth <= 0)
         {
             currentHealth = 0;
