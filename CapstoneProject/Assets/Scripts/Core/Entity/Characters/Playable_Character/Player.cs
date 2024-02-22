@@ -16,6 +16,7 @@ namespace Core.Entity
         public PlayerStateComponent States;
         public CollisionComponent CollisionComponent;
         public PlayerAbilityComponent AbilityComponent;
+        public PlayerHealthComponent HealthComponent;
 
         public Transform bowShootingPosition;
         public Transform projectileShootingPosition;

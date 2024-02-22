@@ -359,6 +359,7 @@ MonoBehaviour:
   _collisionComponent: {fileID: 8340991098743163367}
   _playerAbilityComponent: {fileID: 163893606163044311}
   _abilityShopUI: {fileID: 0}
+  _coinComponent: {fileID: 29325562241796421}
 --- !u!114 &9071807513347634400
 MonoBehaviour:
   m_ObjectHideFlags: 0
