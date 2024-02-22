@@ -10,11 +10,6 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
     public int maxHealth = 20;
     HealthBar healthBar;
 
-    [SerializeField] 
-    LayerMask playerLayer;
-
-
-
     //public static event EventHandler OnHealthChanged;
 
     private void Awake()
@@ -69,14 +64,21 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
     public void DoDamage(int damage, Character target)
     {
         //StartCoroutine(Attack(damage));
-        Collider2D player = Physics2D.OverlapCircle(transform.position, 1.5f, playerLayer);
-        player.GetComponent<IDamageable>().TakeDamage(damage);
+        if (target.GetComponent<PlayerHealthComponent>() != null)
+        {
+            PlayerHealthComponent playerHealthComponent = target.GetComponent<PlayerHealthComponent>();
+            if(playerHealthComponent.GetComponent<IDamageable>() != null)
+            {
+                IDamageable playerDamageable = playerHealthComponent.GetComponent<IDamageable>();
+                playerDamageable.TakeDamage(damage);
+            }
+        }
     }
 
-    IEnumerator Attack(int damage)
-    {
-        yield return new WaitForSeconds(1.0f);
-        Collider2D player = Physics2D.OverlapCircle(transform.position, 1.5f, playerLayer);
-        player.GetComponent<IDamageable>().TakeDamage(damage);
-    }
+    //IEnumerator Attack(int damage)
+    //{
+    //    yield return new WaitForSeconds(1.0f);
+    //    Collider2D player = Physics2D.OverlapCircle(transform.position, 1.5f, playerLayer);
+    //    player.GetComponent<IDamageable>().TakeDamage(damage);
+    //}
 }
