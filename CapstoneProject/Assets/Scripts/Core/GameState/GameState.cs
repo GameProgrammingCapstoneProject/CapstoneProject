@@ -14,6 +14,57 @@ namespace Core.GameStates
             UI
         }
 
+
+        public short recentDeath;
+        public short relationshipStatus;
+
+        public short affiliation;
+        public short runsCompleted;
+        public short playerProgress;
+        public short NPCQuestProgress;
+        public string currentNPC;
+        public short dialogueStage;
+
+        public short ReturnRecentDeaths()
+        {
+            return recentDeath;
+        }
+
+        public short ReturnrelationshipStatus()
+        {
+            return relationshipStatus;
+        }
+        
+        public short ReturnAffiliation()
+        {
+            return affiliation;
+        }
+
+        public short ReturnRunsCompleted()
+        {
+            return runsCompleted;
+        }
+
+        public short ReturnPlayerProgress()
+        {
+            return playerProgress;
+        }
+
+        public short ReturnNPCQuestProgress()
+        {
+            return NPCQuestProgress;
+        }
+
+        public string ReturnCurrentNPC()
+        {
+            return currentNPC;
+        }
+
+        public short ReturnDialogueStage()
+        {
+            return dialogueStage;
+        }
+
         // Define a delegate for the event
         public delegate void GameStateChangedHandler(States newGameState);
     
