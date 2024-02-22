@@ -157,7 +157,6 @@ GameObject:
   - component: {fileID: 5998539548685193445}
   - component: {fileID: 2428302149192947423}
   - component: {fileID: 8549509271685829595}
-  - component: {fileID: 1620469190792416987}
   m_Layer: 10
   m_Name: Goblin_Melee
   m_TagString: Enemy
@@ -267,6 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f20b2a88b8018949b7df05230305893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rb: {fileID: 593372469214085847}
 --- !u!114 &5998539548685193445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,7 +293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scripts:
-  - {fileID: 4900000, guid: 2b71b2d57ed5f8449b8e719f95f289b6, type: 3}
+  - {fileID: 4900000, guid: 1fe0155c79149d7449b66bc97c6d94f5, type: 3}
   autoReset: 1
   tickOn: 0
   sourceInfos:
@@ -314,22 +314,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce53df4e670f894b8829329638d1c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 3331378900574945071}
+  animator: {fileID: 5774040205199454047}
   baseCastDistance: 0.5
   CastPos: {fileID: 3061640001568263112}
---- !u!114 &1620469190792416987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3875758161908205466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a70f1558e175584cbad5444b47fbc04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 20
-  maxHealth: 20
 --- !u!1 &5042979827540391741
 GameObject:
   m_ObjectHideFlags: 0
