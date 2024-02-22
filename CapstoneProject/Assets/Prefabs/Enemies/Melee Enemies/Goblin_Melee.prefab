@@ -333,9 +333,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 4096
 --- !u!1 &5042979827540391741
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,6 +344,7 @@ GameObject:
   - component: {fileID: 6608176274921836625}
   - component: {fileID: 5774040205199454047}
   - component: {fileID: 711060949099907224}
+  - component: {fileID: 2196445132679093026}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -442,6 +440,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2196445132679093026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042979827540391741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36e4a69aa4491041935ff5fa1ca7ac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemy: {fileID: 8549509271685829595}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!1 &5395016959340501063
 GameObject:
   m_ObjectHideFlags: 0
