@@ -30,7 +30,7 @@ namespace Core.StateMachine
                 Player.States.stateMachine.ChangeState(Player.States.idleState);
             }
         
-            if (Player.CollisionComponent.IsInteractingWithWall() && Player.rb.velocity.y < 0)
+            if (Player.CollisionComponent.IsInteractingWithWall() && Player.rb.velocity.y < 0 && PlayerInputReader.Instance.movementAxis != 0)
                 Player.States.stateMachine.ChangeState(Player.States.wallSlideState);
         
             if (PlayerInputReader.Instance.movementAxis != 0)
