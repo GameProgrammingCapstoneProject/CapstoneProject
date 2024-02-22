@@ -20,19 +20,21 @@ namespace Core.StateMachine
         public override void StateUpdate()
         {
             base.StateUpdate();
-            
+
             // For testing
             /*if (Input.GetKey(KeyCode.A))
                 Player.States.stateMachine.ChangeState(Player.States.airAttackState);*/
-            
-            if (Player.CollisionComponent.IsInteractingWithWall())
+
+            if (Player.CollisionComponent.IsInteractingWithWall() && PlayerInputReader.Instance.movementAxis != 0)
                 Player.States.stateMachine.ChangeState(Player.States.wallSlideState);
+            
             
             if (Mathf.Approximately(0, Player.rb.velocity.y))
             {
                 Player.States.stateMachine.ChangeState(Player.States.idleState);
             }
 
+      
             if (PlayerInputReader.Instance.movementAxis != 0)
                 Player.rb.SetVelocity(Player.GetMoveSpeed() * _moveSpeedWhileOnAir * PlayerInputReader.Instance.movementAxis, Player.rb.velocity.y);
         }
