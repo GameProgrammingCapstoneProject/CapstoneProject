@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     private PlayerAbilityComponent _playerAbilityComponent;
     [SerializeField]
     private AbilityShopUI _abilityShopUI;
+    [SerializeField] 
+    private CoinComponent _coinComponent;
     private PlayerState _currentState => _playerStateComponent.stateMachine.currentState;
     // Update is called once per frame
     private void Update()
@@ -125,9 +127,12 @@ public class PlayerController : MonoBehaviour
             }
             if (IsPressed(PlayerInputReader.Instance.confirmValue))
             {
-                
+                bool canUnlocked =
+                    _coinComponent.TryToConsumeCoins(_abilityShopUI.CurrentSelectedAbility.information
+                        .GetAbilityCost());
                 //TODO: Need to implement coin component to unlock ability
-                _abilityShopUI.CurrentSelectedAbility.information.Unlock();
+                if (canUnlocked)
+                    _abilityShopUI.CurrentSelectedAbility.information.Unlock();
             }
             if (IsPressed(PlayerInputReader.Instance.firstSelectionAbilityUIValue))
             {

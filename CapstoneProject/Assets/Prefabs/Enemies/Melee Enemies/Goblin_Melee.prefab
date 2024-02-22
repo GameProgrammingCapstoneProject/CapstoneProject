@@ -157,6 +157,7 @@ GameObject:
   - component: {fileID: 5998539548685193445}
   - component: {fileID: 2428302149192947423}
   - component: {fileID: 8549509271685829595}
+  - component: {fileID: 2612723145386479429}
   m_Layer: 10
   m_Name: Goblin_Melee
   m_TagString: Enemy
@@ -318,6 +319,23 @@ MonoBehaviour:
   animator: {fileID: 5774040205199454047}
   baseCastDistance: 0.5
   CastPos: {fileID: 3061640001568263112}
+--- !u!114 &2612723145386479429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3875758161908205466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f15947118350df439ca3ce67e22d9fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!1 &5042979827540391741
 GameObject:
   m_ObjectHideFlags: 0

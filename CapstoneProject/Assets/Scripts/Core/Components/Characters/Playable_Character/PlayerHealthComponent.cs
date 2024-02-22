@@ -30,12 +30,13 @@ public class PlayerHealthComponent : MonoBehaviour, IDamageable
 
     public void DoDamage(int damage, Character target)
     {
-        /*if (target.GetComponent<EnemyHealthComponent>())
+        if (target.GetComponent<EnemyHealthComponent>())
         {
-            enemyHealthComponent = target.GetComponent<EnemyHealthComponent>();
-            if (enemyHealthComponent.GetComponent<IDamageable>())
+            EnemyHealthComponent enemyHealthComponent = target.GetComponent<EnemyHealthComponent>();
+            if (enemyHealthComponent.GetComponent<IDamageable>() != null)
             {
-                enemyHealthComponent.GetComponent<IDamageable>().
+                IDamageable enemyDamageable = enemyHealthComponent.GetComponent<IDamageable>();
+                enemyDamageable.TakeDamage(damage);
             }
             else
             {
@@ -45,7 +46,7 @@ public class PlayerHealthComponent : MonoBehaviour, IDamageable
         else
         {
             Debug.Assert(true, "Target has no health component");
-        }*/
+        }
     }
 
     private void Die()

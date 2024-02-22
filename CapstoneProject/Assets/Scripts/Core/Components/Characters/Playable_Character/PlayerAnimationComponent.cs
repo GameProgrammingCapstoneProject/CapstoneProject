@@ -49,6 +49,19 @@ namespace Core.Animation
         {
             _playerAbilityComponent.LightningStrikeAbility.UseAbility();
         }
+        private void TriggerPhysicalAttack()
+        {
+            Collider2D[] colliders =
+                Physics2D.OverlapCircleAll(_player.CollisionComponent.attackArea.transform.position, _player.CollisionComponent.attackRadius);
+            foreach (Collider2D hitObj in colliders)
+            {
+                if (hitObj.GetComponent<Enemy>() != null)
+                {
+                    Enemy target = hitObj.GetComponent<Enemy>();
+                    _player.HealthComponent.DoDamage(10, target);
+                }
+            }
+        }
 #if UNITY_EDITOR
         private void OnValidate()
         {
