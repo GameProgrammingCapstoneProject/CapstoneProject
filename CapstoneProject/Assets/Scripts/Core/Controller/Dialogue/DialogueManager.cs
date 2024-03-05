@@ -189,6 +189,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartInteraction()
     {
+        UnityEngine.Debug.Log("GOd");
         DisplayDialogueBox();
         DisplayDialoguePortrait();
         BeginText();

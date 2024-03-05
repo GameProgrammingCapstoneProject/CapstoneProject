@@ -41,6 +41,15 @@ public class CollisionComponent : MonoBehaviour
             CanInteract = true;
             targetItem = interactableItem;
         }
+        else if (other.GetComponent<NPCDialogue>())
+        {
+            NPCDialogue dialogue = other.GetComponent<NPCDialogue>();
+            IInteractable interactableItem = dialogue.GetComponent<IInteractable>();
+            if (interactableItem == null) return;
+            CanInteract = true;
+            targetItem = interactableItem;
+            //TODO: Add pause functionality to dialogue
+        }
     }
     private void OnTriggerStay2D(Collider2D other)
     {
