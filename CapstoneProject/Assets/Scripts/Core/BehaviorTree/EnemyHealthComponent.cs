@@ -9,6 +9,7 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
     public int health;
     public int maxHealth = 20;
     HealthBar healthBar;
+    private Player _player;
 
     //public static event EventHandler OnHealthChanged;
 
@@ -31,6 +32,7 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
 
     private void Start()
     {
+        _player = GameObject.FindWithTag("Player").GetComponent<Player>();
         health = maxHealth;
         healthBar.UpdateHealthBar(health, maxHealth);
     }
@@ -47,7 +49,8 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            _player.CoinComponent.CollectCoins(GetComponent<CoinComponent>().GetCoins());
+            Destroy(this.gameObject);
         }
     }
 

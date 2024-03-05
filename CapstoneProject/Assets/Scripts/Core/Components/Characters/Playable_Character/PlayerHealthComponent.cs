@@ -10,7 +10,8 @@ public class PlayerHealthComponent : MonoBehaviour, IDamageable
     public bool isDead { get; private set; }
     public bool isInvincible { get; private set; }
     public event System.Action OnHealthChanged;
-    private int _maxHealth = 10;
+    [SerializeField]
+    private int _maxHealth = 6;
 
     private void Start()
     {
