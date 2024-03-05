@@ -319,6 +319,7 @@ MonoBehaviour:
   animator: {fileID: 5774040205199454047}
   baseCastDistance: 0.5
   CastPos: {fileID: 3061640001568263112}
+  healthComponent: {fileID: 0}
 --- !u!114 &2612723145386479429
 MonoBehaviour:
   m_ObjectHideFlags: 0
