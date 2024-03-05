@@ -127,12 +127,14 @@ public class PlayerController : MonoBehaviour
             }
             if (IsPressed(PlayerInputReader.Instance.confirmValue))
             {
-                bool canUnlocked =
-                    _coinComponent.TryToConsumeCoins(_abilityShopUI.CurrentSelectedAbility.information
-                        .GetAbilityCost());
-                //TODO: Need to implement coin component to unlock ability
-                if (canUnlocked)
-                    _abilityShopUI.CurrentSelectedAbility.information.Unlock();
+                if (!_abilityShopUI.CurrentSelectedAbility.information.IsAbilityUnlocked())
+                {
+                    bool canUnlocked =
+                        _coinComponent.TryToConsumeCoins(_abilityShopUI.CurrentSelectedAbility.information
+                            .GetAbilityCost());
+                    if (canUnlocked)
+                        _abilityShopUI.CurrentSelectedAbility.information.Unlock();
+                }
             }
             if (IsPressed(PlayerInputReader.Instance.firstSelectionAbilityUIValue))
             {

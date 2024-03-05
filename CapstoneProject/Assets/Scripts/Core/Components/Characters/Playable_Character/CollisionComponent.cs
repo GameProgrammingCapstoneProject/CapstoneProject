@@ -36,10 +36,10 @@ public class CollisionComponent : MonoBehaviour
         else if (other.GetComponent<NPC>())
         {
             NPC npc = other.GetComponent<NPC>();
-            IInteractable interactableItem = npc.GetComponent<IInteractable>();
-            if (interactableItem == null) return;
+            IInteractable interactableNPC = npc.GetComponent<IInteractable>();
+            if (interactableNPC == null) return;
             CanInteract = true;
-            targetItem = interactableItem;
+            targetItem = interactableNPC;
         }
     }
     private void OnTriggerStay2D(Collider2D other)
@@ -56,6 +56,14 @@ public class CollisionComponent : MonoBehaviour
             Item item = other.GetComponent<Item>();
             IInteractable interactableItem = item.GetComponent<IInteractable>();
             if (interactableItem == null || item.haveBeenInteracted) return;
+            CanInteract = false;
+            targetItem = null;
+        }
+        else if (other.GetComponent<NPC>())
+        {
+            NPC npc = other.GetComponent<NPC>();
+            IInteractable interactableNPC = npc.GetComponent<IInteractable>();
+            if (interactableNPC == null) return;
             CanInteract = false;
             targetItem = null;
         }

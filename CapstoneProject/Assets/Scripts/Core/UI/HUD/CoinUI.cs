@@ -10,13 +10,13 @@ public class CoinUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _coinText;
     void Start()
     {
-        UpdateCoinText(0);
+        UpdateCoinText();
         _playerCoinComponent.OnCoinsChanged += UpdateCoinText;
     }
 
-    private void UpdateCoinText(int collectedCoins)
+    private void UpdateCoinText()
     {
-        int totalCoins = _playerCoinComponent.GetCoins() + collectedCoins;
-        _coinText.text = totalCoins.ToString();
+        string totalCoins = _playerCoinComponent.GetCoins().ToString();
+        _coinText.text = totalCoins;
     }
 }
