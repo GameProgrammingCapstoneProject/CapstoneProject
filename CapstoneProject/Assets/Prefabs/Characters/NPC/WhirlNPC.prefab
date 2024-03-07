@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5595890771175148034}
   - component: {fileID: 5304267686494182738}
   - component: {fileID: 466233869129086956}
+  - component: {fileID: 33866623895857349}
   - component: {fileID: 8816491243424092422}
   m_Layer: 0
   m_Name: WhirlNPC
@@ -72,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1452069215
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 70763144ac3612e4197cc57b0f38dd34, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -101,12 +102,24 @@ MonoBehaviour:
   displayTextObject: {fileID: 0}
   displayBoxObject: {fileID: 0}
   displayPortraitObject: {fileID: 0}
-  blurEffect: {fileID: 0}
+  vignetteEffect: {fileID: 0}
   whirlDialogue: {fileID: 11400000, guid: 4bd9232f02d683047a5532139282aefc, type: 2}
-  emeliaDialogue: {fileID: 0}
+  emeliaDialogue: {fileID: 11400000, guid: 5d795a194dc8dd24d8362ee545bbe9c0, type: 2}
   textBoxImage: {fileID: 21300000, guid: 050a329890c6a034299e6d032acdbf0a, type: 3}
   whirlPortraitImage: {fileID: 21300000, guid: 70763144ac3612e4197cc57b0f38dd34, type: 3}
-  emeliaPortraitImage: {fileID: 0}
+  emeliaPortraitImage: {fileID: 21300000, guid: b1f5f5e414a7b1e4cb90a361dae4c022, type: 3}
+--- !u!114 &33866623895857349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7149314252760429822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf965869f6bc8841bf1cf49e71be1c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &8816491243424092422
 BoxCollider2D:
   m_ObjectHideFlags: 0

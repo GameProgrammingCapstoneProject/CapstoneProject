@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 7345431171599536157}
   - component: {fileID: 4286151466239487127}
   - component: {fileID: 5375277145048774179}
+  - component: {fileID: 4659111995164827553}
   m_Layer: 5
   m_Name: DialogueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7345431171599536157
 RectTransform:
   m_ObjectHideFlags: 0
@@ -52,7 +53,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596129547989992624}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -128,12 +129,35 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -157.71695, w: -113.64896}
+  m_margin: {x: -306.07693, y: 89.73985, z: -305.14658, w: -392.4835}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!223 &4659111995164827553
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596129547989992624}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 8
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 2
+  m_TargetDisplay: 0
 --- !u!1 &6444418819381728328
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,6 +169,7 @@ GameObject:
   - component: {fileID: 561061418088081506}
   - component: {fileID: 4249189033600929962}
   - component: {fileID: 9084621314162043755}
+  - component: {fileID: 2125332256433136591}
   m_Layer: 5
   m_Name: DialogueTextBox
   m_TagString: Untagged
@@ -168,8 +193,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 124.380005}
-  m_SizeDelta: {x: 400, y: 200}
+  m_AnchoredPosition: {x: 0.012177, y: 296}
+  m_SizeDelta: {x: 939.222, y: 469.61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4249189033600929962
 CanvasRenderer:
@@ -209,6 +234,29 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!223 &2125332256433136591
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444418819381728328}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 8
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 1
+  m_TargetDisplay: 0
 --- !u!1 &7153236286422711457
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,6 +268,7 @@ GameObject:
   - component: {fileID: 2454135674760662055}
   - component: {fileID: 900723593599298451}
   - component: {fileID: 6462076854327644047}
+  - component: {fileID: 3407588297553872309}
   m_Layer: 5
   m_Name: DialoguePortrait
   m_TagString: Untagged
@@ -284,6 +333,29 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!223 &3407588297553872309
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7153236286422711457}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 8
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 1
+  m_TargetDisplay: 0
 --- !u!1 &9098622345982583324
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,11 +495,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4199274571631033490, guid: 0ff5aa2fd300e814f9e85f5ada6ff4c6, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 522
+      value: 2451.1
       objectReference: {fileID: 0}
     - target: {fileID: 4199274571631033490, guid: 0ff5aa2fd300e814f9e85f5ada6ff4c6, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 491
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 4199274571631033490, guid: 0ff5aa2fd300e814f9e85f5ada6ff4c6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -459,11 +531,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4199274571631033490, guid: 0ff5aa2fd300e814f9e85f5ada6ff4c6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.012177
       objectReference: {fileID: 0}
     - target: {fileID: 4199274571631033490, guid: 0ff5aa2fd300e814f9e85f5ada6ff4c6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.000030518
       objectReference: {fileID: 0}
     - target: {fileID: 4199274571631033490, guid: 0ff5aa2fd300e814f9e85f5ada6ff4c6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -480,6 +552,22 @@ PrefabInstance:
     - target: {fileID: 5336667300599882195, guid: 0ff5aa2fd300e814f9e85f5ada6ff4c6, type: 3}
       propertyPath: m_Name
       value: VignetteEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 5336667300599882195, guid: 0ff5aa2fd300e814f9e85f5ada6ff4c6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347376959858446155, guid: 0ff5aa2fd300e814f9e85f5ada6ff4c6, type: 3}
+      propertyPath: m_Color.a
+      value: 0.27058825
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347376959858446155, guid: 0ff5aa2fd300e814f9e85f5ada6ff4c6, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6839622
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347376959858446155, guid: 0ff5aa2fd300e814f9e85f5ada6ff4c6, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6839622
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -11,10 +11,17 @@ public class NPCDialogue : MonoBehaviour, IInteractable
     {
         if (!triggered)
         {
+            Debug.Log("Interacted!");
             GetComponent<DialogueManager>().StartInteraction();
             triggered = true;
         }
         //TODO: Trigger checkpoint save
         
     }
+
+    public void ResetTriggerFlag()
+    {
+        triggered = false;
+    }
+
 }
