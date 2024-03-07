@@ -16,6 +16,7 @@ namespace Core.StateMachine
         {
             base.StateBegin();
             Interact();
+            Object.FindObjectOfType<SoundManager>().Play("PlayerInteractSuccess");
         }
 
         public override void StateUpdate()
@@ -28,6 +29,7 @@ namespace Core.StateMachine
         public override void StateEnd()
         {
             base.StateEnd();
+          //  Object.FindObjectOfType<SoundManager>().Play("PlayerInteractFail");
         }
 
         public void Interact()

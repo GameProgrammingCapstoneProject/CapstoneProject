@@ -67,7 +67,7 @@ public class PlayerHealthComponent : MonoBehaviour, IDamageable
     public virtual void DecreaseHealthBy(int inputDamage)
     {
         currentHealth -= inputDamage;
-        if (inputDamage > 0)
+        if (inputDamage > 0 && currentHealth > 0)
          UnityEngine.Object.FindObjectOfType<SoundManager>().Play("PlayerHurt");
         OnHealthChanged?.Invoke();
     }

@@ -124,6 +124,7 @@ public class PlayerController : MonoBehaviour
             {
                 GameState.Instance.CurrentGameState = GameState.States.Gameplay;
                 _abilityShopUI.gameObject.SetActive(false);
+                UnityEngine.Object.FindObjectOfType<SoundManager>().Play("PlayerInteractFail");
             }
             if (IsPressed(PlayerInputReader.Instance.confirmValue))
             {

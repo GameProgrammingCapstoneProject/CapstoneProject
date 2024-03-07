@@ -80,6 +80,7 @@ public class AbilityShopUI : MonoBehaviour
 
     private void OnDestroy()
     {
+       
         PlayerAbilityComponent.OnCurrentAbilitiesChanged -= UpdateCurrentSetupAbilityUI;
         foreach (PlayerAbility ability in _allPlayerAbilities)
         {

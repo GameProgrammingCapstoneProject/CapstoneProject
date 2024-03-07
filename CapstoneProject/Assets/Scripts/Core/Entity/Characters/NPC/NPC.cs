@@ -11,6 +11,7 @@ public class NPC : MonoBehaviour, IInteractable
     public void Interact()
     {
         //TODO: Trigger checkpoint save
+      //  Object.FindObjectOfType<SoundManager>().Play("PlayerInteractSuccess");
         _abilityShopUI.SetActive(true);
         GameState.Instance.CurrentGameState = GameState.States.UI;
     }
