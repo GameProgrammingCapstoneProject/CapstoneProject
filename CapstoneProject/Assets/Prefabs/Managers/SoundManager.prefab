@@ -65,3 +65,63 @@ MonoBehaviour:
     volume: 1
     pitch: 0.75
     source: {fileID: 0}
+  - name: PlayerAirAttack
+    clip: {fileID: 8300000, guid: 1e2606d9e5598024da75a351c513abed, type: 3}
+    volume: 1
+    pitch: 1.25
+    source: {fileID: 0}
+  - name: PlayerGroundAttack
+    clip: {fileID: 8300000, guid: 1e2606d9e5598024da75a351c513abed, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: PlayerHeavyAttack
+    clip: {fileID: 8300000, guid: 5c8e4441e1704bb4b88e15db33cb7e26, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: PlayerHurt
+    clip: {fileID: 8300000, guid: 7a376410ba3a1b240a3cb5b462b0c650, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: PlayerInteractSuccess
+    clip: {fileID: 8300000, guid: d22bb9e16cf7af847867191b5055bdba, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: PlayerInteractFail
+    clip: {fileID: 8300000, guid: 38f88e601d1be154b86d21e0df8674da, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: FireballCast
+    clip: {fileID: 8300000, guid: 63d5c9884d048f840955d2f5c677eadb, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: FireballExplode
+    clip: {fileID: 8300000, guid: 97bd8060b49950141b5dc732b508d8a6, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: BowDraw
+    clip: {fileID: 8300000, guid: a5b6c2961670e45409d03c03ffad2ae7, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: BowFire
+    clip: {fileID: 8300000, guid: 11e752b0039784540bee226365b3d46f, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: BowHit
+    clip: {fileID: 8300000, guid: c74c538edfa58bd4a8222d0d0b469a47, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Dash
+    clip: {fileID: 8300000, guid: 6cc72aa3045837042a705e8c5a2c4dc8, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
