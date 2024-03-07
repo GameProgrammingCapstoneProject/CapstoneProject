@@ -33,15 +33,13 @@ If you need any more help, please contact Joshua.
 public class SoundManager : MonoBehaviour{
 
     public Sound[] sounds;
-    public float soundMod;
-    public float musicMod;
+    private float soundMod = 1f;
+    private float musicMod = 1f;
     private void Awake()
     {
-        if (soundMod < 0 || soundMod > 1)
-            soundMod = 1;
 
-        if (musicMod < 0 || musicMod > 1)
-            musicMod = 1;
+
+
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -55,8 +53,10 @@ public class SoundManager : MonoBehaviour{
 
     public void Play (string name)
     {
+
+
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        s.source.volume = (s.volume * soundMod);
+        s.source.volume = s.volume * soundMod;
         s.source.Play();
  
     }
@@ -65,7 +65,7 @@ public class SoundManager : MonoBehaviour{
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.loop = true;
-        s.source.volume = (s.volume * soundMod);
+        s.source.volume = s.volume * soundMod;
         s.source.Play();
     }
 
@@ -97,6 +97,16 @@ public class SoundManager : MonoBehaviour{
         s.source.volume = (s.volume * musicMod);
         s.source.loop = false;
 
+    }
+
+    public void ChangeSoundVolume(float soundValue)
+    {
+        soundMod = soundValue;
+    }
+
+    public void ChangeMusicVolume(float musicValue)
+    {
+        musicMod = musicValue;
     }
 
 }
