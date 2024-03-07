@@ -73,7 +73,7 @@ public class DialogueManager : MonoBehaviour
     public Sprite emeliaPortraitImage;
 
     //Text scrolling variables
-    private float textScrollSpeed = 0.1f;
+    private float textScrollSpeed = 0.3f;
     private bool textIsPlaying = false;
 
     //Player input variables
@@ -81,6 +81,8 @@ public class DialogueManager : MonoBehaviour
     private bool dialogueIsplaying = false;
     private short dialogueState = 0;
     private bool dialogueSkipRepeat = false;
+
+    private bool dialoguePlaying = false;
 
     //Reference of the scrolling text coroutine to stop it
     private IEnumerator scrollingCoroutine;
@@ -104,7 +106,7 @@ public class DialogueManager : MonoBehaviour
             if (LoadScriptObject())
             {
                 UnityEngine.Debug.Log("Successfully loaded dialogue.");
-                StartInteraction();
+                //StartInteraction();
             }
             else
             {
@@ -189,13 +191,20 @@ public class DialogueManager : MonoBehaviour
 
     public void StartInteraction()
     {
-        UnityEngine.Debug.Log("GOd");
-        DisplayDialogueBox();
-        DisplayDialoguePortrait();
-        BeginText();
-        //StartCoroutine(TextScrollInput("Wagagabobo"));
+        if (!dialogueIsplaying)
+        {
+            dialogueIsplaying = true;
+            UnityEngine.Debug.Log("Starting interaction...");
+            DisplayDialogueBox();
+            DisplayDialoguePortrait();
+            BeginText();
+            //StartCoroutine(TextScrollInput("Wagagabobo"));
 
-        StartCoroutine(MainDialogueLoop());
+            StartCoroutine(MainDialogueLoop());
+
+        }
+
+
     }
 
     //Enables both UI elements
@@ -220,7 +229,6 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator MainDialogueLoop()
     {
-        dialogueIsplaying = true;
         
         IEnumerator textCoroutine = null;
         
@@ -309,7 +317,8 @@ public class DialogueManager : MonoBehaviour
                 StopCoroutine(textCoroutine);
             }*/
         }
-
+        UnityEngine.Debug.Log(dialogueIsplaying);
+       dialogueIsplaying = false;
         yield return null;
     }
 
