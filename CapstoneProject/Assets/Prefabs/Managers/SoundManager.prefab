@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5778426567880408068
 Transform:
@@ -54,4 +54,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: ac15fcd0970a9d74ea593441be714b9e, type: 3}
     volume: 1
     pitch: 1
+    source: {fileID: 0}
+  - name: PlayerDoubleJump
+    clip: {fileID: 8300000, guid: 6d04f271f6054ae4a94a77792b4d270a, type: 3}
+    volume: 1
+    pitch: 1.25
+    source: {fileID: 0}
+  - name: PlayerWallJump
+    clip: {fileID: 8300000, guid: 6d04f271f6054ae4a94a77792b4d270a, type: 3}
+    volume: 1
+    pitch: 0.75
     source: {fileID: 0}

@@ -202,7 +202,6 @@ GameObject:
   - component: {fileID: 163893606163044311}
   - component: {fileID: 29325562241796421}
   - component: {fileID: 7302558216791557394}
-  - component: {fileID: 3356054097696893980}
   m_Layer: 12
   m_Name: Player
   m_TagString: Player
@@ -339,7 +338,8 @@ MonoBehaviour:
   States: {fileID: 9071807513347634400}
   CollisionComponent: {fileID: 8340991098743163367}
   AbilityComponent: {fileID: 163893606163044311}
-  HealthComponent: {fileID: 3356054097696893980}
+  HealthComponent: {fileID: 0}
+  CoinComponent: {fileID: 0}
   bowShootingPosition: {fileID: 4872242686308043256}
   projectileShootingPosition: {fileID: 4872242686308043256}
   _moveSpeed: 10
@@ -411,6 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fb0e30b90c94a845811877f7afee599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _coins: 0
 --- !u!114 &7302558216791557394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,15 +424,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c65a1c7d0961fa4a9709dd80ba53de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3356054097696893980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8648401941361999589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c65a1c7d0961fa4a9709dd80ba53de2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _maxHealth: 6
