@@ -45,12 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Player Jump
+  - name: PlayerJump
     clip: {fileID: 8300000, guid: 6d04f271f6054ae4a94a77792b4d270a, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
-  - name: Player Death
+  - name: PlayerDeath
     clip: {fileID: 8300000, guid: ac15fcd0970a9d74ea593441be714b9e, type: 3}
     volume: 1
     pitch: 1
