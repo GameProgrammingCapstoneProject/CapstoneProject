@@ -23,29 +23,50 @@ If you need any more help, please contact Joshua.
 public class SoundManager : MonoBehaviour{
 
     public Sound[] sounds;
+    public float soundMod;
     private void Awake()
     {
+        if (soundMod < 0 || soundMod > 1)
+            soundMod = 1;
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
 
-            s.source.volume = s.volume;
+            s.source.volume = (s.volume * soundMod);
             s.source.pitch = s.pitch;
         }
+       
     }
 
     public void Play (string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
+        s.source.volume = (s.volume * soundMod);
         s.source.Play();
+ 
     }
 
     public void PlayLooped(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.loop = true;
+        s.source.volume = (s.volume * soundMod);
         s.source.Play();
+    }
+
+    public void Stop(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        s.source.loop = true;
+        s.source.Stop();
+    }
+
+    public void StopLooping(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        s.source.loop = false;
+     
     }
 
 }

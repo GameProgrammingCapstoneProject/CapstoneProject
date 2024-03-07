@@ -66,6 +66,7 @@ public class AbilityShopUI : MonoBehaviour
 
     private void UpdateCurrentSetupAbilityUI(PlayerAbility ability, int index)
     {
+        
         if (index == 0)
         {
             _firstAbilitySetupImage.enabled = true;

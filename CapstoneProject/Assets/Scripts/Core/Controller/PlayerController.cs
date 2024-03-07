@@ -113,12 +113,14 @@ public class PlayerController : MonoBehaviour
                 if (_abilityShopUI.CurrentSelectedAbility.index == _abilityShopUI.abilityInformation.Count - 1) return;
                 _abilityShopUI.CurrentSelectedAbility =
                     _abilityShopUI.abilityInformation[_abilityShopUI.CurrentSelectedAbility.index + 1];
+                UnityEngine.Object.FindObjectOfType<SoundManager>().Play("PlayerInteractSuccess");
             }
             if (PlayerInputReader.Instance.verticalAxis > 0)
             {
                 if (_abilityShopUI.CurrentSelectedAbility.index == 0) return;
                 _abilityShopUI.CurrentSelectedAbility =
                     _abilityShopUI.abilityInformation[_abilityShopUI.CurrentSelectedAbility.index - 1];
+                UnityEngine.Object.FindObjectOfType<SoundManager>().Play("PlayerInteractSuccess");
             }
             if (IsPressed(PlayerInputReader.Instance.backValue))
             {
