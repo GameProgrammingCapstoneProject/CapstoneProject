@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CoinComponent : MonoBehaviour
 {
+    [SerializeField]
     private int _coins;
     public event System.Action<int> OnCoinsChanged;
 

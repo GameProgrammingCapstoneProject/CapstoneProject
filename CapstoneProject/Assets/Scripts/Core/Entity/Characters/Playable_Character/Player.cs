@@ -11,12 +11,14 @@ namespace Core.Entity
     [RequireComponent(typeof(PlayerStateComponent))]
     [RequireComponent(typeof(CollisionComponent))]
     [RequireComponent(typeof(PlayerAbilityComponent))]
+    [RequireComponent(typeof(CoinComponent))]
     public class Player : Character
     {
         public PlayerStateComponent States;
         public CollisionComponent CollisionComponent;
         public PlayerAbilityComponent AbilityComponent;
         public PlayerHealthComponent HealthComponent;
+        public CoinComponent CoinComponent;
 
         public Transform bowShootingPosition;
         public Transform projectileShootingPosition;
