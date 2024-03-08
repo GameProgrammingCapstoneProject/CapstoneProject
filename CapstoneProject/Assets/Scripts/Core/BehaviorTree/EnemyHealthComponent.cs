@@ -40,12 +40,12 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
     private void Update()
     {
 
-        if (Input.GetKeyUp(KeyCode.B))
-        {
-            Debug.Log("Heath: " + GetHealth());
-            TakeDamage(5);
-            Debug.Log("Heath: " + GetHealth());
-        }
+        //if (Input.GetKeyUp(KeyCode.B))
+        //{
+        //    Debug.Log("Heath: " + GetHealth());
+        //    TakeDamage(5);
+        //    Debug.Log("Heath: " + GetHealth());
+        //}
 
         if (health <= 0)
         {
@@ -66,7 +66,6 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
 
     public void DoDamage(int damage, Character target)
     {
-        //StartCoroutine(Attack(damage));
         if (target.GetComponent<PlayerHealthComponent>() != null)
         {
             PlayerHealthComponent playerHealthComponent = target.GetComponent<PlayerHealthComponent>();
@@ -77,11 +76,4 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
             }
         }
     }
-
-    //IEnumerator Attack(int damage)
-    //{
-    //    yield return new WaitForSeconds(1.0f);
-    //    Collider2D player = Physics2D.OverlapCircle(transform.position, 1.5f, playerLayer);
-    //    player.GetComponent<IDamageable>().TakeDamage(damage);
-    //}
 }
