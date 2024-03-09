@@ -1,11 +1,14 @@
 using Panda.Examples.PlayTag;
+using Panda.Examples.Shooter;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Xml.Linq;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static Unity.Burst.Intrinsics.X86;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -55,13 +58,21 @@ public class DialogueManager : MonoBehaviour
     public GameObject displayBoxObject;
     public GameObject displayPortraitObject;
 
+    //Needed UI components
+    private UnityEngine.UI.Image displayBoxImage;
+    private UnityEngine.UI.Image displayPortraitImage;
+    private TextMeshProUGUI displayTextMeshPro;
+
+   
+   
+   
     //Use to get the relevant UI elements
     //displayBoxObject.GetComponent<Image>();
     //displayPortraitObject.GetComponent<Image>();
     //displayTextObject.GetComponent<TextMeshPro>()
 
     //Game object with transparency over main cam
-    public GameObject blurEffect;
+    public GameObject vignetteEffect;
 
     //Referenced scriptable objects for dialogue
     public DialogueExample whirlDialogue;
@@ -81,6 +92,8 @@ public class DialogueManager : MonoBehaviour
     private bool dialogueIsplaying = false;
     private short dialogueState = 0;
     private bool dialogueSkipRepeat = false;
+
+    private bool dialoguePlaying = false;
 
     //Reference of the scrolling text coroutine to stop it
     private IEnumerator scrollingCoroutine;
@@ -103,8 +116,13 @@ public class DialogueManager : MonoBehaviour
             //Loads from the scriptable objects
             if (LoadScriptObject())
             {
+                //Gets the required components of each object
+                displayBoxImage = displayBoxObject.GetComponent<UnityEngine.UI.Image>();
+                displayPortraitImage = displayPortraitObject.GetComponent<UnityEngine.UI.Image>();
+                displayTextMeshPro = displayTextObject.GetComponent<TextMeshProUGUI>();
+                
                 UnityEngine.Debug.Log("Successfully loaded dialogue.");
-                StartInteraction();
+                //StartInteraction();
             }
             else
             {
@@ -189,29 +207,43 @@ public class DialogueManager : MonoBehaviour
 
     public void StartInteraction()
     {
-        DisplayDialogueBox();
-        DisplayDialoguePortrait();
-        BeginText();
-        //StartCoroutine(TextScrollInput("Wagagabobo"));
+        if (!dialogueIsplaying)
+        {
+            dialogueIsplaying = true;
+            UnityEngine.Debug.Log("Starting interaction...");
+            DisplayDialogueBox();
+            DisplayDialoguePortrait();
+            BeginText();
+            vignetteEffect.GetComponent<VignetteController>().SetActiveBlack();
+            //StartCoroutine(TextScrollInput("Wagagabobo"));
 
-        StartCoroutine(MainDialogueLoop());
+            StartCoroutine(MainDialogueLoop());
+        }
+
+
     }
+
 
     //Enables both UI elements
     private void DisplayDialogueBox()
     {
-        displayBoxObject.GetComponent<UnityEngine.UI.Image>().enabled = true;
+
+
+        displayBoxImage.enabled = true;
+
     }
 
     private void DisplayDialoguePortrait()
     {
-        displayPortraitObject.GetComponent<UnityEngine.UI.Image>().enabled = true;
+
+        displayPortraitImage.enabled = true;
+
     }
 
     private void BeginText()
     {
-        displayTextObject.SetActive(true);
-        displayTextObject.GetComponent<TextMeshProUGUI>().enabled = true;
+        displayTextMeshPro.enabled = true;
+
         //scrollingCoroutine = TextScrollInput("This is test dialogue.");
         //StartCoroutine(scrollingCoroutine);
 
@@ -219,8 +251,6 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator MainDialogueLoop()
     {
-        dialogueIsplaying = true;
-        
         IEnumerator textCoroutine = null;
         
         UnityEngine.Debug.Log("Main dialogue loop entered");
@@ -252,23 +282,24 @@ public class DialogueManager : MonoBehaviour
                 dialogueSkipRepeat = true;
             }
             
-            if (dialogueSkipRepeat)
-            {
-                UnityEngine.Debug.Log("Drawing text");
+            if (dialogueSkipRepeat || dialogueState == 4)
+            {                                                       
+                UnityEngine.Debug.Log("Drawing text 2");                
                 textCoroutine = TextScrollInput(dialogueTransition);
                 dialoguePriority = true;
                 StartCoroutine(textCoroutine);
                 while (dialoguePriority)
                 {
-                    yield return new WaitForSeconds(0.25F);
+                    yield return new WaitForSeconds(0.2F);
                 }
-                UnityEngine.Debug.Log("Finished drawing text");
+                UnityEngine.Debug.Log("Finished drawing text 2");
                 StopCoroutine(textCoroutine);
+                Cleanup();
+                break;
             }
 
             if (dialogue == "maindialogue1" && dialogueState == 0)
             {
-
                 UnityEngine.Debug.Log("Began sending dialogue 1");
                 StartCoroutine(SearchForState(textCoroutine, "maindialogue1", "maindialogue2"));
                 dialogueState++;
@@ -308,7 +339,8 @@ public class DialogueManager : MonoBehaviour
                 StopCoroutine(textCoroutine);
             }*/
         }
-
+        UnityEngine.Debug.Log(dialogueIsplaying);
+        dialogueIsplaying = false;
         yield return null;
     }
 
@@ -321,7 +353,7 @@ public class DialogueManager : MonoBehaviour
         bool input = false;
         while (!input)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyUp(KeyCode.E))
             {
                 input = true;
                 dialoguePriority = false;
@@ -349,26 +381,27 @@ public class DialogueManager : MonoBehaviour
                     if (loadedDialogue.IndexOf(dialogueStatusConfirmed) > position)
                     {
 
-                        UnityEngine.Debug.Log("Drawing text");
+                        UnityEngine.Debug.Log("Drawing text 1");
                         textCoroutine = TextScrollInput(dialogueStatusConfirmed);
                         dialoguePriority = true;
                         StartCoroutine(textCoroutine);
                         while (dialoguePriority)
                         {
-                            yield return new WaitForSeconds(0.25F);
+                            yield return new WaitForSeconds(0.2F);
                         }
-                        UnityEngine.Debug.Log("Finished drawing text");
+                        UnityEngine.Debug.Log("Finished drawing text 1");
                         StopCoroutine(textCoroutine);
                     }
                 }
             }
-            gameState.relationshipStatus = 0;
+            //gameState.relationshipStatus = 0;
         }
+        Cleanup();
     }
 
     private IEnumerator TextScroll(string displayText)
     {
-        UnityEngine.Debug.Log("Writing text");
+        UnityEngine.Debug.Log("Writing text with length of" + displayText.Length);
         for (int i = 0; i < displayText.Length; i++)
         {
             displayTextObject.GetComponent<TextMeshProUGUI>().SetText(displayText.Substring(0, i+1));
@@ -380,20 +413,21 @@ public class DialogueManager : MonoBehaviour
     {
         if (displayPortraitObject != null)
         {
-            displayPortraitObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
+            displayPortraitImage.enabled = false;
         }
         if (displayBoxObject != null)
         {
-            displayBoxObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
+            displayBoxImage.enabled = false;
         }
         if (displayTextObject != null)
         {
-            displayTextObject.GetComponent<TextMeshProUGUI>().enabled = false;
+            displayTextMeshPro.enabled = false;
         }
-        if (displayTextObject != null)
+        if (vignetteEffect != null)
         {
-            displayTextObject.SetActive(false);
+            vignetteEffect.GetComponent<VignetteController>().DisableVignette();
         }
+        GetComponent<NPCDialogue>().ResetTriggerFlag();
     }
     private void OnDestroy()
     {
