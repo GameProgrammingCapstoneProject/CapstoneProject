@@ -14,9 +14,9 @@ public class EnemyAnimationComponent : MonoBehaviour
     private void TriggerMeleeAttack()
     {
         Collider2D[] hitObj = Physics2D.OverlapCircleAll(transform.position, 1.5f);
-        foreach(Collider2D obj in hitObj)
+        foreach (Collider2D obj in hitObj)
         {
-            if(obj.GetComponent<Player>() != null)
+            if (obj.GetComponent<Player>() != null)
             {
                 Player player = obj.GetComponent<Player>();
                 _enemy.GetComponent<EnemyHealthComponent>().DoDamage(1, player);
