@@ -1,0 +1,22 @@
+tree("Root")
+	fallback
+		tree("Attack")
+		tree("Roam")
+
+tree "Roam"
+	fallback
+		sequence
+			HasReachedObstacle
+			Wait 2.0
+			Turn
+		Move
+
+tree "Attack"
+	sequence
+		IsOnSamePlatform
+		fallback
+			sequence
+				IsWithinRange
+				Attack
+			tree("Roam")
+
