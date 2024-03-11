@@ -24,9 +24,14 @@ namespace Core.StateMachine
         public override void StateBegin()
         {
             base.StateBegin();
+          
             if (_comboAttack > _numberOfAttacks || Time.time >= _lastTimeAttacked + _comboCooldown)
                 _comboAttack = 0;
-        
+            if (_comboAttack !=2)
+                Object.FindObjectOfType<SoundManager>().Play("PlayerGroundAttack");
+            else
+                Object.FindObjectOfType<SoundManager>().Play("PlayerHeavyAttack");
+
             Player.animator.SetInteger("GroundComboAttack", _comboAttack);
 
             float attackDirection = (Player.rb.CurrentFacingDirection == RigidbodyComponent.FacingDirections.RIGHT) ? 1 : -1;
