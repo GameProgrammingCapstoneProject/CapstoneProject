@@ -5,6 +5,7 @@ using Panda;
 using Core.Components;
 using Core.Entity;
 using Unity.VisualScripting;
+using Panda.Examples.Shooter;
 
 public class AI : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class AI : MonoBehaviour
     float stopSpeed = 0f;
     float movementSpeed;
     float offsetY = 1.0f;
+
+    [SerializeField]
+    Transform bulletPos;
+    [SerializeField]
+    GameObject bullet;
 
     [SerializeField]
     Transform playerPos;
@@ -88,13 +94,25 @@ public class AI : MonoBehaviour
     //public bool IsWithinView()
     //{
     //    RaycastHit2D hit;
-    //    hit = Physics2D.Raycast(transform.position, Vector2.right);
-    //    if(hit.collider.CompareTag("Player"))
+    //    hit = Physics2D.Raycast(transform.position, Vector2.right * 5.0f);
+    //    Debug.DrawRay(transform.position, Vector2.right * 5.0f);
+    //    if (hit.collider.CompareTag("Player"))
     //    {
     //        return true;
     //    }
     //    return false;
     //}
+
+    [Task]
+    public bool IsWithinView()
+    {
+        Debug.DrawRay(transform.position, Vector2.right * 5.0f);
+        if (Physics2D.Raycast(transform.position, Vector2.right, 1 << LayerMask.NameToLayer("Player")))
+        {
+            return true;
+        }
+        return false;
+    }
 
     [Task]
     public bool IsWithinRange()
@@ -142,11 +160,19 @@ public class AI : MonoBehaviour
     }
 
     [Task]
-    public void Attack()
+    public void MeleeAttack()
     {
         //this.GetComponent<EnemyHealthComponent>().DoDamage(5);
         movementSpeed = stopSpeed;
         AnimStateUpdate();
+        Task.current.Succeed();
+    }
+
+    [Task]
+    public void RangedAttack()
+    {
+        Instantiate(bullet,bulletPos.position, Quaternion.identity);
+        //AnimStateUpdate();
         Task.current.Succeed();
     }
 

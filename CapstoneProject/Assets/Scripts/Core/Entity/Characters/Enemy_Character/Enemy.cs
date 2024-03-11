@@ -11,6 +11,7 @@ namespace Core.Entity
         float baseCastDistance = 0.5f;
         [SerializeField]
         Transform CastPos;
+
         protected override void Start()
         {
             base.Start();

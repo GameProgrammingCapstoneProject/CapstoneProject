@@ -17,6 +17,6 @@ tree "Attack"
 		fallback
 			sequence
 				IsWithinRange
-				Attack
+				MeleeAttack
 			tree("Roam")
 
