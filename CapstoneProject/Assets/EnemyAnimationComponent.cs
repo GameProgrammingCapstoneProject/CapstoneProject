@@ -13,6 +13,7 @@ public class EnemyAnimationComponent : MonoBehaviour
 
     private void TriggerMeleeAttack()
     {
+        UnityEngine.Object.FindObjectOfType<SoundManager>().Play("EnemyAttack");
         Collider2D[] hitObj = Physics2D.OverlapCircleAll(transform.position, 1.5f);
         foreach(Collider2D obj in hitObj)
         {

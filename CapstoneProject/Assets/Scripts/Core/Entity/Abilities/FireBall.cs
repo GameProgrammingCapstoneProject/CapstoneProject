@@ -18,6 +18,7 @@ public class FireBall : MonoBehaviour
     {
         _existTime = existTime;
         _moveSpeed = moveSpeed;
+        UnityEngine.Object.FindObjectOfType<SoundManager>().Play("FireballCast");
     }
 
     private void Update()
@@ -38,6 +39,7 @@ public class FireBall : MonoBehaviour
     }
     private void HitCollision()
     {
+        UnityEngine.Object.FindObjectOfType<SoundManager>().Play("FireballExplode");
         _fireBallCollider.enabled = false;
         _explosionCollider.enabled = true;
         _animator.SetTrigger("Explode");
