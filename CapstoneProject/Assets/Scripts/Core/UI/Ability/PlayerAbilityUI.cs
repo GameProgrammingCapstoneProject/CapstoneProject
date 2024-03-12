@@ -13,6 +13,10 @@ public class PlayerAbilityUI : MonoBehaviour
     public ProjectileShootingAbility ProjectileShootingAbility;
     public LightningStrikeAbility LightningStrikeAbility;
     [SerializeField]
+    private Image _dashAbilitySlot;
+    [SerializeField]
+    private Image _dashAbilityCooldownImage;
+    [SerializeField]
     private Image _firstAbilitySlot;
     [SerializeField]
     private Image _secondAbilitySlot;
@@ -41,6 +45,8 @@ public class PlayerAbilityUI : MonoBehaviour
             CheckCoolDownOf(_firstAbilityCooldownImage, _firstPlayerAbility.GetCooldown());
         if (_secondPlayerAbility != null)
             CheckCoolDownOf(_secondAbilityCooldownImage, _secondPlayerAbility.GetCooldown());
+        if (DashAbility != null)
+            CheckCoolDownOf(_dashAbilityCooldownImage, DashAbility.GetCooldown());
     }
 
     private void UpdateCurrentSetupAbilityUI(PlayerAbility ability, int index)
@@ -69,7 +75,11 @@ public class PlayerAbilityUI : MonoBehaviour
     }
     private void SetCoolDownOfDashAbility(DashAbility ability)
     {
-        SetCoolDownOfAbility(ability);
+        if (_dashAbilityCooldownImage.fillAmount <= 0)
+        {
+            _dashAbilityCooldownImage.enabled = true;
+            _dashAbilityCooldownImage.fillAmount = 1;
+        }
     }
     private void SetCoolDownOfShieldAbility(ShieldAbility ability)
     {
