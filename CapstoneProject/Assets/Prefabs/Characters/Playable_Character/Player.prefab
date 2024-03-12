@@ -338,7 +338,8 @@ MonoBehaviour:
   States: {fileID: 9071807513347634400}
   CollisionComponent: {fileID: 8340991098743163367}
   AbilityComponent: {fileID: 163893606163044311}
-  HealthComponent: {fileID: 0}
+  HealthComponent: {fileID: 7302558216791557394}
+  CoinComponent: {fileID: 29325562241796421}
   bowShootingPosition: {fileID: 4872242686308043256}
   projectileShootingPosition: {fileID: 4872242686308043256}
   _moveSpeed: 10
