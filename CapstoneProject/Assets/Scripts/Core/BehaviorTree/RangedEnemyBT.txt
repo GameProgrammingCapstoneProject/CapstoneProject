@@ -1,0 +1,11 @@
+tree("Root")
+	fallback
+		tree("Attack")
+
+tree "Attack"
+	sequence
+		IsOnSamePlatform
+		sequence
+			IsWithinView
+			RangedAttack
+			Wait 2.0
