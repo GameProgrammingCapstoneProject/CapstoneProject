@@ -85,4 +85,9 @@ public class PlayerHealthComponent : MonoBehaviour, IDamageable
     }
 
     public int GetMaxHealthValue() => _maxHealth;
+
+    public void ChangeHealth(int health)
+    {
+        currentHealth= health;
+    }
 }

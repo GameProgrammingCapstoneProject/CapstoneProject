@@ -30,4 +30,9 @@ public class KeyItemComponent : MonoBehaviour
         return keysDropped;
     }
     public int GetKeys() => _keys;
+
+    public void ChangeKeys(int keys)
+    {
+        _keys = keys;
+    }
 }

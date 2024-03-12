@@ -12,6 +12,7 @@ namespace Core.Entity
     [RequireComponent(typeof(CollisionComponent))]
     [RequireComponent(typeof(PlayerAbilityComponent))]
     [RequireComponent(typeof(CoinComponent))]
+    [RequireComponent(typeof(KeyItemComponent))]
     public class Player : Character
     {
         public PlayerStateComponent States;
@@ -19,6 +20,7 @@ namespace Core.Entity
         public PlayerAbilityComponent AbilityComponent;
         public PlayerHealthComponent HealthComponent;
         public CoinComponent CoinComponent;
+        public KeyItemComponent KeyComponent;
 
         public Transform bowShootingPosition;
         public Transform projectileShootingPosition;
@@ -34,10 +36,24 @@ namespace Core.Entity
         protected override void Start()
         {
             base.Start();
-            LoadPlayer(); 
+           // LoadPlayer(); 
             canDoubleJump = true;
         }
-        
+
+        public void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                SavePlayer();
+                Debug.Log("Player saved");
+            }
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                LoadPlayer();
+                Debug.Log("Player Loaded");
+            }
+        }
+
         public bool IsBusy() => _isBusy;
         public IEnumerator BusyFor(float seconds)
         {
@@ -61,7 +77,10 @@ namespace Core.Entity
 
         public void SavePlayer()
         {
-            SaveSystem.SavePlayer(this);
+            int health = HealthComponent.currentHealth;
+            int coins = CoinComponent.GetCoins();
+          //  int keys = KeyComponent.GetKeys();
+            SaveSystem.SavePlayer(this, health, coins);
         }
 
         public void LoadPlayer()
@@ -72,12 +91,17 @@ namespace Core.Entity
             {
                 Vector3 position;
 
-                Debug.Log(data.position[0]);
+                CoinComponent.ChangeCoins(data.playerCoins);
+                //KeyComponent.ChangeKeys(data.playerKeys);
+                HealthComponent.ChangeHealth(data.playerHealth);
+                Debug.Log(data.playerPosition[0]);
 
-                position.x = data.position[0];
-                position.y = data.position[1];
-                position.z = data.position[2];
+                position.x = data.playerPosition[0];
+                position.y = data.playerPosition[1];
+                position.z = data.playerPosition[2];
                 transform.position = position;
+
+
             }
             else
             {

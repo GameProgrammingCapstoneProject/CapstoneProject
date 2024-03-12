@@ -5,15 +5,16 @@ using Core.Entity;
 
 public static class SaveSystem 
 {
-    public static void SavePlayer (Player player)
+    public static void SavePlayer(Player player, int health, int coins)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/player.STH";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        PlayerSaveData data = new PlayerSaveData(player);
+        PlayerSaveData data = new PlayerSaveData(player, health, coins);
 
         formatter.Serialize(stream, data);
+
         stream.Close();
 
         Debug.Log("Game Saved!");
