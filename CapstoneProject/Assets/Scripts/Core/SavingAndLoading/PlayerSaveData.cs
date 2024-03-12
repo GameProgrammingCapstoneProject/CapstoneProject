@@ -7,15 +7,15 @@ using UnityEngine;
 public class PlayerSaveData
 {
     //public int health;
-    public float[] position;
+    public float[] Playerposition;
 
-    public PlayerSaveData(Player player) 
+    public PlayerSaveData(Player player, Enemy[] enemies) 
     {
     
 
-        position = new float[3];
-        position[0] = player.transform.position.x;
-        position[1] = player.transform.position.y;
-        position[2] = player.transform.position.z;
+        Playerposition = new float[3];
+        Playerposition[0] = player.transform.position.x;
+        Playerposition[1] = player.transform.position.y;
+        Playerposition[2] = player.transform.position.z; 
     }
 }
