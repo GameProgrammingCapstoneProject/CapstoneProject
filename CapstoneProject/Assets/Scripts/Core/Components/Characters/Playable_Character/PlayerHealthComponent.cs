@@ -58,6 +58,7 @@ public class PlayerHealthComponent : MonoBehaviour, IDamageable
     private void Die()
     {
         isDead = true;
+        UnityEngine.Object.FindObjectOfType<SoundManager>().Play("PlayerDeath");
     }
     
     public void KillPlayer()
@@ -69,6 +70,8 @@ public class PlayerHealthComponent : MonoBehaviour, IDamageable
     public virtual void DecreaseHealthBy(int inputDamage)
     {
         currentHealth -= inputDamage;
+        if (inputDamage > 0 && currentHealth > 0)
+         UnityEngine.Object.FindObjectOfType<SoundManager>().Play("PlayerHurt");
         OnHealthChanged?.Invoke();
     }
     public void MakeInvincible(bool inputIsInvincible) => isInvincible = inputIsInvincible;
