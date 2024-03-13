@@ -19,7 +19,7 @@ TagManager:
   - Enemy
   - NPC
   - Player
-  - 
+  - Bullet
   - 
   - 
   - 
@@ -68,4 +68,7 @@ TagManager:
     locked: 0
   - name: Vfx
     uniqueID: 1132165347
+    locked: 0
+  - name: Bullet
+    uniqueID: 339629575
     locked: 0

@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         if (GameState.Instance.CurrentGameState == GameState.States.Gameplay)
         {
-            if (IsPressed(PlayerInputReader.Instance.backValue))
+            if (IsPressed(PlayerInputReader.Instance.backValueGameplay))
             {
                 if (PauseMenu.isPaused == true)
                 {
@@ -43,7 +43,6 @@ public class PlayerController : MonoBehaviour
                     PauseMenu.isPaused = true;
                     Debug.Log("Paused Game");
                 }
-
             }
             switch (_currentState)
             {
@@ -122,13 +121,13 @@ public class PlayerController : MonoBehaviour
                     _abilityShopUI.abilityInformation[_abilityShopUI.CurrentSelectedAbility.index - 1];
                 UnityEngine.Object.FindObjectOfType<SoundManager>().Play("PlayerInteractSuccess");
             }
-            if (IsPressed(PlayerInputReader.Instance.backValue))
+            if (IsPressed(PlayerInputReader.Instance.backValueUI))
             {
                 GameState.Instance.CurrentGameState = GameState.States.Gameplay;
                 _abilityShopUI.gameObject.SetActive(false);
                 UnityEngine.Object.FindObjectOfType<SoundManager>().Play("PlayerInteractFail");
             }
-            if (IsPressed(PlayerInputReader.Instance.confirmValue))
+            if (IsPressed(PlayerInputReader.Instance.confirmValueUI))
             {
                 if (!_abilityShopUI.CurrentSelectedAbility.information.IsAbilityUnlocked())
                 {
