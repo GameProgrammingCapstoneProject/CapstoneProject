@@ -14,7 +14,7 @@ namespace Core.StateMachine
         {
             base.StateBegin();
             Player.rb.SetVelocity(Player.rb.velocity.x, Player.GetJumpForce());
-            Object.FindObjectOfType<SoundManager> ().Play("PlayerJump"); //Example of using the sound manager to play a jump sound when the player jumps.
+            SoundManager.Instance.Play("PlayerJump"); //Example of using the sound manager to play a jump sound when the player jumps.
 
         }
 

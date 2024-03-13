@@ -112,20 +112,20 @@ public class PlayerController : MonoBehaviour
                 if (_abilityShopUI.CurrentSelectedAbility.index == _abilityShopUI.abilityInformation.Count - 1) return;
                 _abilityShopUI.CurrentSelectedAbility =
                     _abilityShopUI.abilityInformation[_abilityShopUI.CurrentSelectedAbility.index + 1];
-                UnityEngine.Object.FindObjectOfType<SoundManager>().Play("PlayerInteractSuccess");
+                SoundManager.Instance.Play("PlayerInteractSuccess");
             }
             if (PlayerInputReader.Instance.verticalAxis > 0)
             {
                 if (_abilityShopUI.CurrentSelectedAbility.index == 0) return;
                 _abilityShopUI.CurrentSelectedAbility =
                     _abilityShopUI.abilityInformation[_abilityShopUI.CurrentSelectedAbility.index - 1];
-                UnityEngine.Object.FindObjectOfType<SoundManager>().Play("PlayerInteractSuccess");
+                SoundManager.Instance.Play("PlayerInteractSuccess");
             }
             if (IsPressed(PlayerInputReader.Instance.backValueUI))
             {
                 GameState.Instance.CurrentGameState = GameState.States.Gameplay;
                 _abilityShopUI.gameObject.SetActive(false);
-                UnityEngine.Object.FindObjectOfType<SoundManager>().Play("PlayerInteractFail");
+                SoundManager.Instance.Play("PlayerInteractFail");
             }
             if (IsPressed(PlayerInputReader.Instance.confirmValueUI))
             {

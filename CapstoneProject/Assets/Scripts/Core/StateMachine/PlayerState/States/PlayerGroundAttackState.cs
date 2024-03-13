@@ -28,9 +28,9 @@ namespace Core.StateMachine
             if (_comboAttack > _numberOfAttacks || Time.time >= _lastTimeAttacked + _comboCooldown)
                 _comboAttack = 0;
             if (_comboAttack !=2)
-                Object.FindObjectOfType<SoundManager>().Play("PlayerGroundAttack");
+                SoundManager.Instance.Play("PlayerGroundAttack");
             else
-                Object.FindObjectOfType<SoundManager>().Play("PlayerHeavyAttack");
+                SoundManager.Instance.Play("PlayerHeavyAttack");
 
             Player.animator.SetInteger("GroundComboAttack", _comboAttack);
 

@@ -57,12 +57,12 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
-        UnityEngine.Object.FindObjectOfType<SoundManager>().Play("EnemyHurt");
+        SoundManager.Instance.Play("EnemyHurt");
         this.health -= damage;
         healthBar.UpdateHealthBar(health, maxHealth);
         if (health < 0)
         {
-            UnityEngine.Object.FindObjectOfType<SoundManager>().Play("EnemyDeath");
+            SoundManager.Instance.Play("EnemyDeath");
             health = 0;
         }
     }
