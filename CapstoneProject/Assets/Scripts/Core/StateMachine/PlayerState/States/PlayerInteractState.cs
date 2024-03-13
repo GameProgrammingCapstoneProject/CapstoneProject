@@ -16,7 +16,7 @@ namespace Core.StateMachine
         {
             base.StateBegin();
             Interact();
-            Object.FindObjectOfType<SoundManager>().Play("PlayerInteractSuccess");
+            SoundManager.Instance.Play("PlayerInteractSuccess");
         }
 
         public override void StateUpdate()
