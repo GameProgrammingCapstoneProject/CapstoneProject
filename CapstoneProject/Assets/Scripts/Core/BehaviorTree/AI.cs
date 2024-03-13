@@ -18,11 +18,6 @@ public class AI : MonoBehaviour
     float offsetY = 1.0f;
 
     [SerializeField]
-    Transform bulletPos;
-    [SerializeField]
-    GameObject bullet;
-
-    [SerializeField]
     Transform playerPos;
     RigidbodyComponent playerRB;
 
@@ -171,8 +166,9 @@ public class AI : MonoBehaviour
     [Task]
     public void RangedAttack()
     {
-        Instantiate(bullet,bulletPos.position, Quaternion.identity);
-        //AnimStateUpdate();
+        //Instantiate(bullet,bulletPos.position, Quaternion.identity);
+        movementSpeed = stopSpeed;
+        AnimStateUpdate();
         Task.current.Succeed();
     }
 
@@ -188,6 +184,11 @@ public class AI : MonoBehaviour
         }
 
         if(IsWithinRange() && movementSpeed == stopSpeed)
+        {
+            _anim.SetInteger("state", 2);
+        }
+
+        if (IsWithinView() && movementSpeed == stopSpeed)
         {
             _anim.SetInteger("state", 2);
         }

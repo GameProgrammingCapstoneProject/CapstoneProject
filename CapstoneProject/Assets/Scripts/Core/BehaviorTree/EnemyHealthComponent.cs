@@ -10,6 +10,7 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
     public int maxHealth = 20;
     HealthBar healthBar;
     private Player _player;
+    public bool isDead = false;
 
     //public static event EventHandler OnHealthChanged;
 
@@ -50,7 +51,7 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
         if (health <= 0)
         {
             _player.CoinComponent.CollectCoins(GetComponent<CoinComponent>().GetCoins());
-            Destroy(this.gameObject);
+            isDead = true;
         }
     }
 
