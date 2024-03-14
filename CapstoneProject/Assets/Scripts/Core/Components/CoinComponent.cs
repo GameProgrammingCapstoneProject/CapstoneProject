@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CoinComponent : MonoBehaviour
 {
@@ -30,4 +31,10 @@ public class CoinComponent : MonoBehaviour
         return coinsDropped;
     }
     public int GetCoins() => _coins;
+
+    public void ChangeCoins(int coins)
+    {
+        _coins = coins;
+        OnCoinsChanged?.Invoke();
+    }
 }

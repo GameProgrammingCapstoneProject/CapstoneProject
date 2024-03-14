@@ -51,6 +51,7 @@ public class PlayerAbilityUI : MonoBehaviour
 
     private void UpdateCurrentSetupAbilityUI(PlayerAbility ability, int index)
     {
+        if (ability == null) return;
         if (index == 0)
         {
             _firstPlayerAbility = ability;
