@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bc665f325ddf21d4cb0f8c7b6625e9e7
+guid: 8dc37c0a4995baf468360aaa91a7ad3b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BasicRangedEnemyAttack_0
+      name: BasicRangedEnemyDeath_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7cb7950edb736644f9b38c7dc0f1c120
-      internalID: -1102618831
+      spriteID: 759abad814d414b428175f86a2bd8653
+      internalID: -1509003638
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BasicRangedEnemyAttack_1
+      name: BasicRangedEnemyDeath_1
       rect:
         serializedVersion: 2
         x: 42
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c91196df166cb954396809eefaef2bde
-      internalID: 1411461981
+      spriteID: d5c6d985b886af6448cc2eea9f1ddeba
+      internalID: -502619697
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BasicRangedEnemyAttack_2
+      name: BasicRangedEnemyDeath_2
       rect:
         serializedVersion: 2
         x: 84
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22751312957ea794582f51b6dc55183b
-      internalID: -1285874089
+      spriteID: 072b0d910c00f9a47a92d915a5141ed6
+      internalID: 690651633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BasicRangedEnemyAttack_3
+      name: BasicRangedEnemyDeath_3
       rect:
         serializedVersion: 2
         x: 126
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54e360795df4bad4c8bf5831998249de
-      internalID: -35862479
+      spriteID: 80cf48a871413a64c9b82649e5178832
+      internalID: -1209947523
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BasicRangedEnemyAttack_4
+      name: BasicRangedEnemyDeath_4
       rect:
         serializedVersion: 2
         x: 168
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee153eb0557c56046acc0ca2a40f7df4
-      internalID: 1835140231
+      spriteID: 526c0948dad5cc2448ed90111145dd90
+      internalID: 1015220969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BasicRangedEnemyAttack_5
+      name: BasicRangedEnemyDeath_5
       rect:
         serializedVersion: 2
         x: 210
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f061b563b99d79e4c8071abca2d7ff83
-      internalID: -676734770
+      spriteID: c45826af405b857418bd6b2356f70ae4
+      internalID: 485453504
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BasicRangedEnemyAttack_6
+      name: BasicRangedEnemyDeath_6
       rect:
         serializedVersion: 2
         x: 252
@@ -250,8 +250,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcc50db8be0075b49baffc61cec7f4ef
-      internalID: -1327972123
+      spriteID: ff0e2178b2c345447b05639e3b993e36
+      internalID: -1586982480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicRangedEnemyDeath_7
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 0
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92ab8bbedc3903f4f9a182c5c2d6a323
+      internalID: 1061204759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicRangedEnemyDeath_8
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bb916c105de97348b0bca3b27baa6fb
+      internalID: 351937187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicRangedEnemyDeath_9
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 0
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12cde367517a9b04599658256f1ae408
+      internalID: 1374319519
       vertices: []
       indices: 
       edges: []
@@ -267,13 +330,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BasicRangedEnemyAttack_0: -1102618831
-      BasicRangedEnemyAttack_1: 1411461981
-      BasicRangedEnemyAttack_2: -1285874089
-      BasicRangedEnemyAttack_3: -35862479
-      BasicRangedEnemyAttack_4: 1835140231
-      BasicRangedEnemyAttack_5: -676734770
-      BasicRangedEnemyAttack_6: -1327972123
+      BasicRangedEnemyDeath_0: -1509003638
+      BasicRangedEnemyDeath_1: -502619697
+      BasicRangedEnemyDeath_2: 690651633
+      BasicRangedEnemyDeath_3: -1209947523
+      BasicRangedEnemyDeath_4: 1015220969
+      BasicRangedEnemyDeath_5: 485453504
+      BasicRangedEnemyDeath_6: -1586982480
+      BasicRangedEnemyDeath_7: 1061204759
+      BasicRangedEnemyDeath_8: 351937187
+      BasicRangedEnemyDeath_9: 1374319519
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

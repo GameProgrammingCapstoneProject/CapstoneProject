@@ -20,7 +20,7 @@ namespace Core.StateMachine
             StateTimer = 0.4f;
             float jumpDirection = (Player.rb.CurrentFacingDirection == RigidbodyComponent.FacingDirections.RIGHT) ? 1 : -1;
             Player.rb.SetVelocity(Player.GetMoveSpeed() * -jumpDirection, Player.GetJumpForce());
-            Object.FindObjectOfType<SoundManager>().Play("PlayerWallJump");
+            SoundManager.Instance.Play("PlayerWallJump");
         }
 
         public override void StateUpdate()
