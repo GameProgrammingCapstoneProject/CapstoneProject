@@ -11,6 +11,8 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
     HealthBar healthBar;
     private Player _player;
     public bool isDead = false;
+    [SerializeField]
+    private CharacterEffect _effect;
 
     //public static event EventHandler OnHealthChanged;
 
@@ -60,6 +62,7 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
         SoundManager.Instance.Play("EnemyHurt");
         this.health -= damage;
         healthBar.UpdateHealthBar(health, maxHealth);
+        _effect.StartCoroutine(nameof(_effect.FlashFX));
         if (health < 0)
         {
             SoundManager.Instance.Play("EnemyDeath");
