@@ -35,16 +35,23 @@ namespace Core.Entity
         private bool _isBusy = false;
         protected override void Start()
         {
+            Debug.Log(Application.persistentDataPath);
             base.Start();
-            LoadPlayer(); 
+            
+            if (LoadPlayer() == false)
+            {
+                SavePlayer();
+            }
+             
+
             canDoubleJump = true;
         }
 
         public void Update()
         {
-/*            if (Input.GetKeyDown(KeyCode.J))
+         /*   if (Input.GetKeyDown(KeyCode.J))
             {
-                SavePlayer();
+                SaveBlank();
                 Debug.Log("Player saved");
             }
             if (Input.GetKeyDown(KeyCode.M))
@@ -107,7 +114,7 @@ namespace Core.Entity
                     abilityone = 0;
                     break;
                 default:
-                    Debug.Log(ability[0]);
+                   // Debug.Log(ability[0]);
                     Debug.Log("Ability one not found");
                     abilityone = 0;
                     break;
@@ -133,15 +140,18 @@ namespace Core.Entity
                     abilitytwo = 0;
                     break;
                 default:
-                    Debug.Log(ability[1]);
+                   // Debug.Log(ability[1]);
                     Debug.Log("Ability two not found");
                     abilitytwo = 0;
                     break;
             }
             SaveSystem.SavePlayer(this, health, coins, keys, abilityone, abilitytwo);
+
         }
 
-        public void LoadPlayer()
+
+
+        public bool LoadPlayer()
         {
             PlayerSaveData data = SaveSystem.LoadPlayer();
 
@@ -179,7 +189,7 @@ namespace Core.Entity
                         ability[0] = null;
                         break;
                     default:
-                        Debug.Log(ability[0]);
+                      // Debug.Log(ability[0]);
                         Debug.Log("Ability one not found");
                         ability[0] = null;
                         break;
@@ -205,7 +215,7 @@ namespace Core.Entity
                         ability[1] = null;
                         break;
                     default:
-                        Debug.Log(ability[1]);
+                     //   Debug.Log(ability[1]);
                         Debug.Log("Ability two not found");
                         ability[1] = null;
                         break;
@@ -220,12 +230,13 @@ namespace Core.Entity
                 position.y = data.playerPosition[1];
                 position.z = data.playerPosition[2];
                 transform.position = position;
-
+                return true;
 
             }
             else
             {
                 Debug.Log("Player Load attempted but no save data was found.");
+                return false;
             }
 
         }
