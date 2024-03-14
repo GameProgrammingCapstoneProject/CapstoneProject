@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Core.Components;
@@ -5,6 +6,7 @@ using Core.Entity;
 using Core.PlayerInput;
 using Core.StateMachine;
 using UnityEngine;
+using System.IO;
 
 namespace Core.Entity
 {
@@ -49,10 +51,11 @@ namespace Core.Entity
 
         public void Update()
         {
-         /*   if (Input.GetKeyDown(KeyCode.J))
+          /*  if (Input.GetKeyDown(KeyCode.J))
             {
-                SaveBlank();
-                Debug.Log("Player saved");
+                //SavePlayer();
+                DeleteSave();
+                Debug.Log("Player DELETED!!!!!!!!!!");
             }
             if (Input.GetKeyDown(KeyCode.M))
             {
@@ -150,7 +153,6 @@ namespace Core.Entity
         }
 
 
-
         public bool LoadPlayer()
         {
             PlayerSaveData data = SaveSystem.LoadPlayer();
@@ -242,6 +244,20 @@ namespace Core.Entity
         }
 
 
-
+        private string SavePath
+        {
+            get { return Application.persistentDataPath + "/player.STH"; }
         }
+        public void DeleteSave()
+        {
+            try
+            {
+                File.Delete(SavePath);
+            }
+            catch (Exception ex)
+            {
+                Debug.LogException(ex);
+            }
+        }
+    }
 }
