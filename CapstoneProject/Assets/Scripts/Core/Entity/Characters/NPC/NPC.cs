@@ -7,12 +7,14 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour, IInteractable
 {
-    public Player player;
+
     [SerializeField]
     private GameObject _abilityShopUI;
+
+ 
     public void Interact()
     {
-        player.SavePlayer();
+     //   player.SavePlayer();
 
         _abilityShopUI.SetActive(true);
         GameState.Instance.CurrentGameState = GameState.States.UI;
