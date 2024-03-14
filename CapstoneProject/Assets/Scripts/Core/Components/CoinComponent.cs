@@ -35,5 +35,6 @@ public class CoinComponent : MonoBehaviour
     public void ChangeCoins(int coins)
     {
         _coins = coins;
+        OnCoinsChanged?.Invoke();
     }
 }

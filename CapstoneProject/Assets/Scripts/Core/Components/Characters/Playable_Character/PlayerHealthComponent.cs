@@ -89,5 +89,6 @@ public class PlayerHealthComponent : MonoBehaviour, IDamageable
     public void ChangeHealth(int health)
     {
         currentHealth= health;
+        OnHealthChanged?.Invoke();
     }
 }

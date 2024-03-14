@@ -10,18 +10,28 @@ public class PlayerSaveData
     public float[] playerPosition;
     public int playerHealth;
     public int playerCoins;
-   // public int playerKeys;
+    public int playerKeys;
+  //  public List<PlayerAbility> playerAbility;
+    public int playerAbilityOne;
+    public int playerAbilityTwo;
 
-    public PlayerSaveData(Player player, int health, int coins) 
+    public PlayerSaveData(Player player, int health, int coins, int keys, int abilityone, int abilitytwo)
     {
         playerHealth = health;
         playerCoins = coins;
-       // playerKeys = keys;
+        playerKeys = keys;
+        playerAbilityOne = abilityone;
+        playerAbilityTwo = abilitytwo;
         
+
+
+
         playerPosition = new float[3];
 
         playerPosition[0] = player.transform.position.x;
         playerPosition[1] = player.transform.position.y;
         playerPosition[2] = player.transform.position.z; 
     }
+
+ 
 }

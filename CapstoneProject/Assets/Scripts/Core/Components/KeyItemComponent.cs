@@ -34,5 +34,6 @@ public class KeyItemComponent : MonoBehaviour
     public void ChangeKeys(int keys)
     {
         _keys = keys;
+        OnKeysChanged?.Invoke();
     }
 }
