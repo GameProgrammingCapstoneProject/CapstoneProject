@@ -12,6 +12,7 @@ namespace Core.Entity
     [RequireComponent(typeof(CollisionComponent))]
     [RequireComponent(typeof(PlayerAbilityComponent))]
     [RequireComponent(typeof(CoinComponent))]
+    [RequireComponent(typeof(KeyItemComponent))]
     public class Player : Character
     {
         public PlayerStateComponent States;
@@ -19,6 +20,7 @@ namespace Core.Entity
         public PlayerAbilityComponent AbilityComponent;
         public PlayerHealthComponent HealthComponent;
         public CoinComponent CoinComponent;
+        public KeyItemComponent KeyItemComponent;
 
         public Transform bowShootingPosition;
         public Transform projectileShootingPosition;

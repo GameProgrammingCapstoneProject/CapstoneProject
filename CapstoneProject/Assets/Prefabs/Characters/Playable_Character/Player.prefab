@@ -202,6 +202,9 @@ GameObject:
   - component: {fileID: 163893606163044311}
   - component: {fileID: 29325562241796421}
   - component: {fileID: 7302558216791557394}
+  - component: {fileID: 965212922198389418}
+  - component: {fileID: 7131096087416463620}
+  - component: {fileID: 578591530977137137}
   m_Layer: 12
   m_Name: Player
   m_TagString: Player
@@ -340,6 +343,7 @@ MonoBehaviour:
   AbilityComponent: {fileID: 163893606163044311}
   HealthComponent: {fileID: 7302558216791557394}
   CoinComponent: {fileID: 29325562241796421}
+  KeyItemComponent: {fileID: 578591530977137137}
   bowShootingPosition: {fileID: 4872242686308043256}
   projectileShootingPosition: {fileID: 4872242686308043256}
   _moveSpeed: 10
@@ -411,6 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fb0e30b90c94a845811877f7afee599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _coins: 3000
 --- !u!114 &7302558216791557394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -499,3 +504,16 @@ MonoBehaviour:
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
   m_DefaultVelocity: {x: 0.1, y: 0.04, z: 0}
+--- !u!114 &578591530977137137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8648401941361999589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5c641eb207f7a84f84a05d8088446ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _keys: 0
