@@ -10,6 +10,9 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
     public int maxHealth = 20;
     HealthBar healthBar;
     private Player _player;
+    public bool isDead = false;
+    [SerializeField]
+    private CharacterEffect _effect;
 
     //public static event EventHandler OnHealthChanged;
 
@@ -50,18 +53,19 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
         if (health <= 0)
         {
             _player.CoinComponent.CollectCoins(GetComponent<CoinComponent>().GetCoins());
-            Destroy(this.gameObject);
+            isDead = true;
         }
     }
 
     public void TakeDamage(int damage)
     {
-        UnityEngine.Object.FindObjectOfType<SoundManager>().Play("EnemyHurt");
+        SoundManager.Instance.Play("EnemyHurt");
         this.health -= damage;
         healthBar.UpdateHealthBar(health, maxHealth);
+        _effect.StartCoroutine(nameof(_effect.FlashFX));
         if (health < 0)
         {
-            UnityEngine.Object.FindObjectOfType<SoundManager>().Play("EnemyDeath");
+            SoundManager.Instance.Play("EnemyDeath");
             health = 0;
         }
     }

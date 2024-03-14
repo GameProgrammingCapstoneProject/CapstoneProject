@@ -11,6 +11,11 @@ public class EnemyAnimationComponent : MonoBehaviour
     [SerializeField]
     LayerMask playerLayer;
 
+    [SerializeField]
+    Transform bulletPos;
+    [SerializeField]
+    GameObject bullet;
+
     private void TriggerMeleeAttack()
     {
         Collider2D[] hitObj = Physics2D.OverlapCircleAll(transform.position, 1.5f);
@@ -22,5 +27,15 @@ public class EnemyAnimationComponent : MonoBehaviour
                 _enemy.GetComponent<EnemyHealthComponent>().DoDamage(1, player);
             }
         }
+    }
+
+    private void TriggerRangedAttack()
+    {
+        Instantiate(bullet, bulletPos.position, Quaternion.identity);
+    }
+
+    private void Death()
+    {
+        Destroy(this.gameObject);
     }
 }

@@ -158,6 +158,8 @@ GameObject:
   - component: {fileID: 2428302149192947423}
   - component: {fileID: 8549509271685829595}
   - component: {fileID: 2612723145386479429}
+  - component: {fileID: 8955413412566779722}
+  - component: {fileID: 8726626241646948715}
   m_Layer: 10
   m_Name: Goblin_Melee
   m_TagString: Enemy
@@ -319,7 +321,6 @@ MonoBehaviour:
   animator: {fileID: 5774040205199454047}
   baseCastDistance: 0.5
   CastPos: {fileID: 3061640001568263112}
-  healthComponent: {fileID: 0}
 --- !u!114 &2612723145386479429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,6 +335,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
+  isDead: 0
+  _effect: {fileID: 8955413412566779722}
+--- !u!114 &8955413412566779722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3875758161908205466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3010eb196e7740e45882c5b0cc402d33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 711060949099907224}
+  flashDuration: 0.2
+  _hitMat: {fileID: 2100000, guid: 81f3674a6161afa41a34fb039b42011e, type: 2}
+  _screenShake: {fileID: 0}
+  _shakeMultiplier: 0
+  _shakePower: {x: 0, y: 0, z: 0}
+  _hitFX01Prefab: {fileID: 0}
+  _hitFX02Prefab: {fileID: 0}
+  _rb: {fileID: 0}
+--- !u!114 &8726626241646948715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3875758161908205466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fb0e30b90c94a845811877f7afee599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coins: 10
 --- !u!1 &5042979827540391741
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,7 +465,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2139497935
-  m_SortingLayer: 8
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -874575501, guid: 657ebecc2b6a1544580dae69eccb329f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -457,6 +494,8 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 4096
+  bulletPos: {fileID: 0}
+  bullet: {fileID: 0}
 --- !u!1 &5395016959340501063
 GameObject:
   m_ObjectHideFlags: 0

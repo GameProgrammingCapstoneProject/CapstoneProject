@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject optionMenu;
+    private bool isOpeningOptionsMenu = false;
     public static bool isPaused = false;
     // Start is called before the first frame update
     void Start()
@@ -13,48 +15,78 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
     }
 
+
     // Update is called once per frame
     void Update()
     {
-       // if (Input.GetKeyDown(KeyCode.Escape))
-      //  {
-            if (isPaused && !pauseMenu.activeSelf)
+        //  if (Input.GetKeyDown(KeyCode.Escape))
+        //  { 
+        if (isPaused)
+        {
+            PauseGame();
+            if (isOpeningOptionsMenu == false)
             {
-                PauseGame();
-                Debug.Log("Paused Game-Update Function");
+                OpenPauseMenu();
+                CloseOptionMenu();
             }
-            else if (!isPaused && pauseMenu.activeSelf)
+            else
             {
-                ResumeGame();
-                Debug.Log("Unpaused Game-UpdateFunction");
+                OpenOptionsMenu();
+                ClosePauseMenu();
             }
-        //}
-        
+        }
+        else
+        {
+            CloseOptionMenu();
+            ClosePauseMenu();
+            ResumeGame();
+        }
+        //  }
+
     }
 
-    public void PauseGame()
+    public static void PauseGame()
     {
-        isPaused = true;
-        pauseMenu.SetActive(true);
         Time.timeScale= 0.0f;
-       
-       
     }
 
-    public void ResumeGame()
+    public static void ResumeGame()
     {
-        isPaused = false;
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1.0f;
-       
+        Time.timeScale = 1.0f;  
     }
 
+    public void OpenPauseMenu()
+    {
+        pauseMenu.SetActive(true);
+    }
+
+    public void ClosePauseMenu()
+    {
+        pauseMenu.SetActive(false);
+    }
     public void GoToMainMenu()
     {
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1.0f;
-        SceneManager.LoadScene("MainMenu");
+        ClosePauseMenu();
+        ResumeGame();
         isPaused = false;
+        SceneManager.LoadScene("MainMenu");
+        
+    }
+    public void ContinueButton()
+    {
+        ClosePauseMenu();
+        ResumeGame();
+        isPaused = false;
+    }
+    public void OpenOptionsMenu()
+    {
+        isOpeningOptionsMenu = true;
+        optionMenu.SetActive(true);
+    }
+    public void CloseOptionMenu()
+    {
+        isOpeningOptionsMenu = false;
+        optionMenu.SetActive(false);
     }
 
     public void QuitGame()
