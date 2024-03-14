@@ -1,11 +1,22 @@
 tree("Root")
 	fallback
 		tree("Attack")
+		tree("Roam")
+
+tree "Roam"
+	fallback
+		sequence
+			HasReachedObstacle
+			Wait 2.0
+			Turn
+		Move
 
 tree "Attack"
 	sequence
 		IsOnSamePlatform
-		sequence
-			IsWithinView
-			RangedAttack
-			Wait 2.0
+		fallback
+			sequence
+				IsWithinView
+				RangedAttack
+			tree("Roam")
+
