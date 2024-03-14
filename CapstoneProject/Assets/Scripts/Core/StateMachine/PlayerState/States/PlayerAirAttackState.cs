@@ -25,7 +25,7 @@ namespace Core.StateMachine
         {
             base.StateBegin();
 
-            Object.FindObjectOfType<SoundManager>().Play("PlayerAirAttack");
+            SoundManager.Instance.Play("PlayerAirAttack");
             if (_comboAttack > _numberOfAttacks || Time.time >= _lastTimeAttacked + _comboCooldown)
                 _comboAttack = 0;
         
