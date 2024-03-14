@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 87.81, y: 21.9, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.4636724, y: 3.4636724, z: 3.4636724}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,9 +74,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1452069215
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 70763144ac3612e4197cc57b0f38dd34, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ded8fda03dbb920428bd6dcf09d1d7be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   whirlDialogue: {fileID: 11400000, guid: 4bd9232f02d683047a5532139282aefc, type: 2}
   emeliaDialogue: {fileID: 11400000, guid: 5d795a194dc8dd24d8362ee545bbe9c0, type: 2}
   textBoxImage: {fileID: 21300000, guid: 050a329890c6a034299e6d032acdbf0a, type: 3}
-  whirlPortraitImage: {fileID: 21300000, guid: 70763144ac3612e4197cc57b0f38dd34, type: 3}
+  whirlPortraitImage: {fileID: 21300000, guid: ded8fda03dbb920428bd6dcf09d1d7be, type: 3}
   emeliaPortraitImage: {fileID: 21300000, guid: b1f5f5e414a7b1e4cb90a361dae4c022, type: 3}
 --- !u!114 &33866623895857349
 MonoBehaviour:
@@ -156,12 +156,12 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.3333334, y: 2}
+    oldSize: {x: 0.32, y: 0.48}
     newSize: {x: 0.32, y: 0.48}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.38, y: 2}
+  m_Size: {x: 1.34, y: 0.49}
   m_EdgeRadius: 0

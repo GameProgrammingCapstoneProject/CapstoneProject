@@ -282,7 +282,7 @@ public class DialogueManager : MonoBehaviour
                 dialogueSkipRepeat = true;
             }
             
-            if (dialogueSkipRepeat || dialogueState == 4)
+            if (dialogueSkipRepeat || dialogueState == 6)
             {                                                       
                 UnityEngine.Debug.Log("Drawing text 2");                
                 textCoroutine = TextScrollInput(dialogueTransition);
@@ -320,7 +320,19 @@ public class DialogueManager : MonoBehaviour
             }
             else if (dialogue == "maindialogue4" && dialogueState == 3)
             {
-                StartCoroutine(SearchForState(textCoroutine, "maindialogue4", "playerdeath"));
+                StartCoroutine(SearchForState(textCoroutine, "maindialogue4", "maindialogue5"));
+                dialogueState++;
+                break;
+            }
+            else if (dialogue == "maindialogue5" && dialogueState == 4)
+            {
+                StartCoroutine(SearchForState(textCoroutine, "maindialogue5", "maindialogue6"));
+                dialogueState++;
+                break;
+            }
+            else if (dialogue == "maindialogue6" && dialogueState == 5)
+            {
+                StartCoroutine(SearchForState(textCoroutine, "maindialogue6", "playerdeath"));
                 dialogueState++;
                 break;
             }
