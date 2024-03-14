@@ -9,6 +9,7 @@ public class KeyUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _keyText;
     void Start()
     {
+        _playerKeyItemComponent = GameObject.FindWithTag("Player").GetComponent<KeyItemComponent>();
         UpdateKeyText();
         _playerKeyItemComponent.OnKeysChanged += UpdateKeyText;
     }
