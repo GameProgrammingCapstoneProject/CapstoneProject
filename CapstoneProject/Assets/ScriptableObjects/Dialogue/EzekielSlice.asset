@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09997e9684434c429cff564b3d53651, type: 3}
+  m_Name: EzekielSlice
+  m_EditorClassIdentifier: 
+  dialogueID: 93
+  dialogueText:
+  - "But yeah\u2026 "
+  - maindialogue1
+  - Ah, hello there friend.
+  - You seem to have kept your mind somewhat intact for the time being.
+  - Can I offer you a pipe? No?
+  - "That\u2019s quite alright, strong and silent type I suppose. "
+  - "Well, I\u2019m very willing to talk your ear off despite your quietness. "
+  - Just keep sitting there if you wanna hear.
+  - maindialogue2
+  - Have you seen those monsters around? Seems that most of them are tinted red.
+  - After I slew one, I decided to poke around in its carcass, mostly out of curiosity.
+  - Seemed to have been made out of stone, but after it was slain, the red tint faded
+    from the stone.
+  - If I had to guess, it might be some sort of influence by Deesha, blessed be them.
+  - Although they seem more hostile than the scriptures would have you believe.
+  - "Maybe they\u2019ve been corrupted? It\u2019s hard to tell. "
+  - "I\u2019d certainly stay far away from that red liquid; it tends to pool around
+    in the area. "
+  - "Most of the people I\u2019ve seen who tried it seem to not be themselves anymore.  "
+  - maindialogue3
+  - "From what I\u2019ve seen so far, if the red tint inhabits something small enough,
+    like a shield or a chair,"
+  - It will sprawl out from it, and move itself along the ground with tendrils.
+  - "I\u2019ve seen most of them grab haphazard weapons, so be wary. "
+  - "If the object is large instead, it\u2019ll start firing small bits of\u2026
+    energy? Of some kind. "
+  - "Those ones are probably the most dangerous, keep your shield up when you\u2019re
+    approaching them. "
+  - "I\u2019ve also seen a few that just sort of, formed into these floating spheres. "
+  - "They aren\u2019t too dangerous, they just seem to lunge and flail about. "
+  - "Lure them to the ground and gut them I suppose. Although that\u2019s almost
+    certainly not the right word. "
+  - Reminds me of the ducks around my home, they get way too friendly with people.
+  - maindialogue4
+  - I used to be far more religious, especially in my youth. Although, many would
+    say the same.
+  - "The worship of Deesha is long and storied, but fading fast from what I\u2019ve
+    seen. "
+  - "I\u2019m no scholar, just a merchant by trade, but in my customer base I see
+    fewer and fewer believers. "
+  - "A few have even tried to pawn off their idols, even after I mentioned I\u2019d
+    just smelt them down for metal."
+  - Perhaps Deesha lashes out at their followers, scorned and hurt by their fading
+    beliefs.
+  - Not that I would respond well to that. Who serves a king that scorns their subjects
+    with such hostility?
+  - "I hope that it\u2019s some form of outward influence corrupting these poor things. "
+  - And that I leave here without one slashing at me more than necessary.
+  - maindialogue5
+  - Most people here seem to be in the same boat that I am, in some way.
+  - "Lots of people lured here by this\u2026 influence, over the area. "
+  - I remember an odd sort of scholar who came by, this massive hulking backpack
+    of hers on her back.
+  - She seemed to be here for academic purposes, rather than hearing this influence.
+  - "I was intrigued, but not being a scholar I couldn\u2019t hold her attention
+    for very long. "
+  - "I hope she\u2019s doing alright here, she didn\u2019t seem very well armed. "
+  - Personally I barely go anywhere without a sword and buckler, plus a hunting bow.
+  - Seems the bare minimum for a merchant, with how animals can be on the road.
+  - "I\u2019ve lost enough to robbery to know that it only takes a few dangerous
+    people to overwhelm someone poorly armed. "
+  - "Certainly I haven't regretted it before, and I\u2019m not regretting it now. "
+  - maindialogue6
+  - "Gods above, if I hate one thing about being trapped in this place, it\u2019s
+    the pure tedium. "
+  - "Why doesn\u2019t anything seem to happen? It\u2019s just monsters and the occasional
+    bright face. "
+  - I miss the hustle and bustle of the trade ports, or the tense unexpectedness
+    of the road.
+  - "Dearly, I hope that I\u2019ll be back there soon. "
+  - "The only way forward is hardship, and between you and me I\u2019m just hoping
+    somebody else comes along and frees us. "
+  - "I\u2019m not the most experienced combattant, and my age is showing for those
+    longer leaps. "
+  - "Maybe it\u2019ll be you. Best fortune to yourself. "
+  - playerdeath
+  - Took a bit of a tumble there, didn't you?
+  - Well, you seemed to have recovered well.
+  - "I\u2019m not entirely sure how, but it might be the influence over this area."
+  - "Hope it wasn\u2019t too painful of a return. "
+  - playerkill
+  - Hey, what was that for?
+  - "You\u2019re lucky I need the conversation more than vengeance. "
+  - "All my stuff remains, all is forgiven. Just don\u2019t do it again. "
+  - playerdeathrepeat
+  - You seem to be struggling quite a bit friend.
+  - Maybe try the shopkeep? They sell some helpful things, might be of assistance.
+  - "Or try looking before leaping. I\u2019m not sure what it could help, but people
+    love to suggest it. "
+  - playerkillrepeat
+  - "Come on now, you don\u2019t seem of bad a sort. "
+  - Why are you doing this? I admit defeat, you are superior.
+  - "Just please quit it with the stabbing. It\u2019s pure pointlessness. "
+  - break
+  dialogueSize: 73

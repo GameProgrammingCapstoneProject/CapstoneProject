@@ -22,8 +22,6 @@ namespace Core.Entity
         public CoinComponent CoinComponent;
         public KeyItemComponent KeyItemComponent;
 
-
-
         public Transform bowShootingPosition;
         public Transform projectileShootingPosition;
         //TODO: The movement attributes needs to be made into one separate component
