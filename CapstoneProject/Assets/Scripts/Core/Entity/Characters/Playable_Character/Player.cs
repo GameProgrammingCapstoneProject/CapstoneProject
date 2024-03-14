@@ -39,19 +39,19 @@ namespace Core.Entity
         {
             Debug.Log(Application.persistentDataPath);
             base.Start();
-            
+
             if (LoadPlayer() == false)
             {
                 SavePlayer();
             }
-             
+
 
             canDoubleJump = true;
         }
 
-        public void Update()
+        /*public void Update()
         {
-          /*  if (Input.GetKeyDown(KeyCode.J))
+          if (Input.GetKeyDown(KeyCode.J))
             {
                 //SavePlayer();
                 DeleteSave();
@@ -61,8 +61,8 @@ namespace Core.Entity
             {
                 LoadPlayer();
                 Debug.Log("Player Loaded");
-            }*/
-        }
+            }
+        }*/
 
         public bool IsBusy() => _isBusy;
         public IEnumerator BusyFor(float seconds)
@@ -117,7 +117,7 @@ namespace Core.Entity
                     abilityone = 0;
                     break;
                 default:
-                   // Debug.Log(ability[0]);
+                    // Debug.Log(ability[0]);
                     Debug.Log("Ability one not found");
                     abilityone = 0;
                     break;
@@ -143,7 +143,7 @@ namespace Core.Entity
                     abilitytwo = 0;
                     break;
                 default:
-                   // Debug.Log(ability[1]);
+                    // Debug.Log(ability[1]);
                     Debug.Log("Ability two not found");
                     abilitytwo = 0;
                     break;
@@ -165,11 +165,11 @@ namespace Core.Entity
                 KeyItemComponent.ChangeKeys(data.playerKeys);
                 HealthComponent.ChangeHealth(data.playerHealth);
                 var ability = AbilityComponent.playerAbilities;
-/*                List<PlayerAbility> ability = new List<PlayerAbility>()
-                {
-                    null,
-                    null
-                };*/
+                /*                List<PlayerAbility> ability = new List<PlayerAbility>()
+                                {
+                                    null,
+                                    null
+                                };*/
                 switch (data.playerAbilityOne)
                 {
                     case 1:
@@ -191,7 +191,7 @@ namespace Core.Entity
                         ability[0] = null;
                         break;
                     default:
-                      // Debug.Log(ability[0]);
+                        // Debug.Log(ability[0]);
                         Debug.Log("Ability one not found");
                         ability[0] = null;
                         break;
@@ -217,12 +217,12 @@ namespace Core.Entity
                         ability[1] = null;
                         break;
                     default:
-                     //   Debug.Log(ability[1]);
+                        //   Debug.Log(ability[1]);
                         Debug.Log("Ability two not found");
                         ability[1] = null;
                         break;
                 }
-                
+
                 AbilityComponent.SetupPlayerAbility(ability[0], 0);
                 AbilityComponent.SetupPlayerAbility(ability[1], 1);
                 //AbilityComponent.ChangeAbilties(data.playerAbilityOne, data.playerAbilityTwo);
