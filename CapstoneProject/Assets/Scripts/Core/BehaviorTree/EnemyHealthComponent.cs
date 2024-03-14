@@ -64,6 +64,7 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
             if (GetComponent<KeyItemComponent>())
                 _player.KeyItemComponent.PickupKey();
             health = 0;
+            Destroy(this.gameObject);
         }
     }
 
