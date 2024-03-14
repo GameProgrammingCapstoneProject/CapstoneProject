@@ -10,7 +10,6 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
     public int maxHealth = 20;
     HealthBar healthBar;
     private Player _player;
-    public bool isDead = false;
     [SerializeField]
     private CharacterEffect _effect;
 
@@ -49,12 +48,7 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
         //    TakeDamage(5);
         //    Debug.Log("Heath: " + GetHealth());
         //}
-
-        if (health <= 0)
-        {
-            _player.CoinComponent.CollectCoins(GetComponent<CoinComponent>().GetCoins());
-            isDead = true;
-        }
+        
     }
 
     public void TakeDamage(int damage)
@@ -63,10 +57,14 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
         this.health -= damage;
         healthBar.UpdateHealthBar(health, maxHealth);
         _effect.StartCoroutine(nameof(_effect.FlashFX));
-        if (health < 0)
+        if (health <= 0)
         {
             SoundManager.Instance.Play("EnemyDeath");
+            _player.CoinComponent.CollectCoins(GetComponent<CoinComponent>().GetCoins());
+            if (GetComponent<KeyItemComponent>())
+                _player.KeyItemComponent.PickupKey();
             health = 0;
+            Destroy(this.gameObject);
         }
     }
 
