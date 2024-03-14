@@ -44,7 +44,8 @@ public class FireBall : MonoBehaviour
             HitCollision();
             if (col.GetComponent<EnemyHealthComponent>())
             {
-                _enemyList.Add(col.GetComponent<EnemyHealthComponent>());
+                if (!_enemyList.Contains(col.GetComponent<EnemyHealthComponent>()))
+                    _enemyList.Add(col.GetComponent<EnemyHealthComponent>());
             }
         }
     }
