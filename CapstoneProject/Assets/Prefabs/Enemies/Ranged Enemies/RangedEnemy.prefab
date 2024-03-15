@@ -141,6 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
+  isDead: 0
 --- !u!114 &3473589240848130184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 3159522099069994371}
   animator: {fileID: 4181755194323767118}
+  enemyType: 1
   baseCastDistance: 0.5
   CastPos: {fileID: 7662601010576386789}
 --- !u!1 &1519648896790312083

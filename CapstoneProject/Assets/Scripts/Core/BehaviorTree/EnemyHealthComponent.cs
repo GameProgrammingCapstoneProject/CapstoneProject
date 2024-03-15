@@ -48,7 +48,11 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
         //    TakeDamage(5);
         //    Debug.Log("Heath: " + GetHealth());
         //}
-        
+        if (health <= 0)
+        {
+            //_player.CoinComponent.CollectCoins(GetComponent<CoinComponent>().GetCoins());
+            isDead = true;
+        }
     }
 
     public void TakeDamage(int damage)
