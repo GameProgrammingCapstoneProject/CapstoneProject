@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverUIHolder: {fileID: 71044366859197874}
-  level1Scene: Assets/Scenes/Prototypes/HUD_Setup.unity
+  level1Scene: Assets/Scenes/Vertical_Slice/Vertical_Slice.unity
   mainMenuScene: Assets/Scenes/Prototypes/MainMenu.unity
 --- !u!1 &4424997118554130852
 GameObject:

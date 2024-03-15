@@ -11,7 +11,7 @@ public class GameOverUI : MonoBehaviour
     [SceneName] public string mainMenuScene;
     private void Start()
     {
-        //PlayerHealthComponent.OnDead += ShowUI;
+        PlayerHealthComponent.OnDead += ShowUI;
     }
 
     private void ShowUI()
@@ -32,5 +32,10 @@ public class GameOverUI : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    private void OnDestroy()
+    {
+        PlayerHealthComponent.OnDead -= ShowUI;
     }
 }

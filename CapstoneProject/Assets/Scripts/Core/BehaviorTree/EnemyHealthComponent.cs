@@ -13,6 +13,8 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
     [SerializeField]
     private CharacterEffect _effect;
 
+    public bool isDead = false;
+
     //public static event EventHandler OnHealthChanged;
 
     private void Awake()
@@ -48,11 +50,11 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
         //    TakeDamage(5);
         //    Debug.Log("Heath: " + GetHealth());
         //}
-        if (health <= 0)
-        {
+        //if (health <= 0)
+        //{
             //_player.CoinComponent.CollectCoins(GetComponent<CoinComponent>().GetCoins());
-            isDead = true;
-        }
+            //isDead = true;
+        //}
     }
 
     public void TakeDamage(int damage)
@@ -68,7 +70,7 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
             if (GetComponent<KeyItemComponent>())
                 _player.KeyItemComponent.PickupKey();
             health = 0;
-            Destroy(this.gameObject);
+            isDead = true;
         }
     }
 
@@ -84,4 +86,10 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
             }
         }
     }
+
+    public void DestroySelf()
+    {
+        Destroy(this.gameObject);
+    }
+    
 }
