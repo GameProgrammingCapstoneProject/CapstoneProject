@@ -12,6 +12,7 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
     private Player _player;
     [SerializeField]
     private CharacterEffect _effect;
+    public bool isDead = false;
 
     //public static event EventHandler OnHealthChanged;
 
