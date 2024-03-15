@@ -12,15 +12,15 @@ public class AI : MonoBehaviour
     Enemy enemy;
     RigidbodyComponent _rb;
     Animator _anim;
-    float initialSpeed = 2.0f;
     float stopSpeed = 0f;
     float movementSpeed;
     float offsetY = 1.0f;
 
     [SerializeField]
+    float initialSpeed;
+    [SerializeField]
     Transform playerPos;
     RigidbodyComponent playerRB;
-
 
     // Start is called before the first frame update
     void Start()
@@ -101,12 +101,24 @@ public class AI : MonoBehaviour
     [Task]
     public bool IsWithinView()
     {
-        Debug.DrawRay(transform.position, Vector2.right * 5.0f);
-        if (Physics2D.Raycast(transform.position, Vector2.right, 1 << LayerMask.NameToLayer("Player")))
+        bool result = false;
+        Vector2 direction = Vector2.zero;
+
+        if (_rb.CurrentFacingDirection == RigidbodyComponent.FacingDirections.RIGHT)
         {
-            return true;
+            direction = Vector2.right;
         }
-        return false;
+        else
+        {
+            direction = Vector2.left;
+        }
+        Debug.DrawRay(transform.position, direction * 15, Color.green);
+        if (Physics2D.Raycast(transform.position, direction, 15.0f, 1 << LayerMask.NameToLayer("Player")))
+        {
+            result = true;
+        }
+
+        return result;
     }
 
     [Task]
@@ -166,7 +178,6 @@ public class AI : MonoBehaviour
     [Task]
     public void RangedAttack()
     {
-        //Instantiate(bullet,bulletPos.position, Quaternion.identity);
         movementSpeed = stopSpeed;
         AnimStateUpdate();
         Task.current.Succeed();
@@ -174,23 +185,45 @@ public class AI : MonoBehaviour
 
     void AnimStateUpdate()
     {
-        if (movementSpeed > 0.1f || movementSpeed < -0.1f)
+        switch (enemy.enemyType)
         {
-            _anim.SetInteger("state", 1);
-        }
-        else
-        {
-            _anim.SetInteger("state", 0);
-        }
+            case (int)Enemy.EnemyType.MELEE_ENEMY:
+                if (movementSpeed > 0.1f || movementSpeed < -0.1f)
+                {
+                    _anim.SetInteger("state", (int)Enemy.AnimationState.WALK);
+                }
+                else
+                {
+                    _anim.SetInteger("state", (int)Enemy.AnimationState.IDLE);
+                }
 
-        if(IsWithinRange() && movementSpeed == stopSpeed)
-        {
-            _anim.SetInteger("state", 2);
-        }
+                if (IsWithinRange() && movementSpeed == stopSpeed)
+                {
+                    _anim.SetInteger("state", (int)Enemy.AnimationState.ATTACK);
+                }
 
-        if (IsWithinView() && movementSpeed == stopSpeed)
-        {
-            _anim.SetInteger("state", 2);
+                if (enemy.GetComponent<EnemyHealthComponent>().isDead == true)
+                {
+                    _anim.SetTrigger("death");
+                }
+                break;
+
+            case (int)Enemy.EnemyType.RANGED_ENEMY:
+
+                if (IsWithinView())
+                {
+                    _anim.SetInteger("state", (int)Enemy.AnimationState.ATTACK);
+                }
+                else
+                {
+                    _anim.SetInteger("state", (int)Enemy.AnimationState.IDLE);
+                }
+
+                if (enemy.GetComponent<EnemyHealthComponent>().isDead == true)
+                {
+                    _anim.SetTrigger("death");
+                }
+                break;
         }
     }
 }
