@@ -42,11 +42,22 @@ public class PauseMenu : MonoBehaviour
             ResumeGame();
         }
         //  }
-
     }
 
     public static void PauseGame()
     {
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0.0f;
+        isPaused = true;
+
+    }
+
+    public void ContinueGame()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1.0f;
+        isPaused = false;
+
         Time.timeScale= 0.0f;
     }
 
