@@ -9,7 +9,7 @@ public class VignetteController : MonoBehaviour
     void Start()
     {
         DisableVignette();
-        StartCoroutine(TestVignette());
+        //StartCoroutine(TestVignette());
     }
 
     IEnumerator TestVignette()

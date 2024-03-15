@@ -15,7 +15,7 @@ MonoBehaviour:
   dialogueID: 2
   dialogueText:
   - "Ahem\u2026 Anyways\u2026"
-  - break
+  - maindialogue1
   - "Good day to you. I am Emelia, historian, archeologist, philosopher\u2026"
   - Actually, upon consideration, you do not seem learned. I will not bombard you
     with titles as I normally would.
@@ -27,7 +27,7 @@ MonoBehaviour:
   - Well, it is always a good day to learn. Sit and listen, if you care.
   - I will take your silence and listening as consent to go over my notes, assuming
     you are truly mute.
-  - break
+  - maindialogue2
   - "I\u2019ve heard of a location similar to this before, a great tower in the lower
     steppes."
   - It seems to have been originally built as a religious site to a deity named Deesha.
@@ -42,7 +42,7 @@ MonoBehaviour:
   - As well, the basic mechanics of being driven upward and resurrection are both
     intact.
   - "With this information in mind, I have a working theory\u2026"
-  - break
+  - maindialogue3
   - I would say that this area appears to be a precursor to the tower itself.
   - "Think of it as a sort of \u201Cproto-tower\u201D which was formed earlier."
   - Some of the dating on the chiseled stone here would indicate a very ancient tomb,
@@ -61,7 +61,7 @@ MonoBehaviour:
   - "Even so, for the influence to be this present and forceful\u2026"
   - I feel it a sign of deep anger, or spite. Perhaps towards us, or the world.
   - More than usual, I would advise caution, moving forward.
-  - break
+  - maindialogue4
   - My theory still has a great number of holes at this stage.
   - Mainly, how this odd, red substance factors into my thoughts.
   - "It seems to be a commonality with the more\u2026 depraved creatures here."
@@ -70,38 +70,63 @@ MonoBehaviour:
   - My teachers did not equip me for asking myself questions like,
   - "\u201CDid the chicken or the egg come first?\u201D"
   - What is blood but does not clot, dry or run?
-  - break
   - Perhaps if the question remains unanswered, another can follow up on my findings.
   - I am assuming this area will soon be plundered by less spry researchers.
   - For now, I will count myself lucky I made it first.
   - Especially as I tire of learning purely from others. I must pull information,
     with my own hands now.
-  - break
-  - "Well\u2026 That\u2019s quite intriguing, isn\u2019t it? I could swear I witnessed
-    your death."
+  - maindialogue5
+  - You know, my prior learning was purely theoretical, and I only just got away
+    from dusty scrolls and rote hypotheses.
+  - Naturally, the first location I receive permission to investigate in person,
+    is a death trap.
+  - My crossbow has served me well in self defense, but it was purely of my own doing
+    that I brought it.
+  - "I\u2019ve had to survive by the skin of my teeth and with the little knowledge
+    of survival granted by my notes. "
+  - Truly, my circumstances have utterly ruined my future prospects, unless someone
+    fulfills Deeshas request.
+  - I desperately hope someone does so; I long for a new venture, less killing and
+    more research.
+  - maindialogue6
+  - Nothing to be done but to continue onwards and upwards, I suppose.
+  - "Perhaps I\u2019ll find a compatriot that can join me, slow as I am to move and
+    progress. "
+  - I lack your dexterity, and would merely slow your ascent. As such, I dare not
+    chain myself to your legs.
+  - I doubt I am capable of freeing a deity without any measure of assistance, especially
+    considering my lack of arms.
+  - If you have any suggestions, feel free to write them, listener.
+  - "Although\u2026 potentially you may be illiterate as well as mute. Would just
+    be my luck. "
+  - No matter, we will prevail eventually. I cannot be lost here, lest my studies
+    go unfinished.
+  - playerdeath
+  - "Well\u2026 That\u2019s quite intriguing, isn\u2019t it? I could swear I witnessed 
+    dialogueSize: 97 your death."
   - "Yet I don\u2019t even see a scratch on you from beforehand."
   - "I wish that I had some practical medical expertise right now\u2026"
   - No basis to form a hypothesis without doing something brutish.
   - "Although, I suppose it wouldn\u2019t affect you in the long term anyways."
-  - break
+  - playerkill
   - "\u2026Sorry, you seem to have caught me lost in thought."
   - I could swear that you have killed me before.
   - At first I assumed it was a hallucination, something from the cave.
   - But I seem to be well in all other senses.
   - Assuming that something happened, simply refrain from repeating it.
   - "The distress of the experience is outweighed by the interesting research implications\u2026"
-  - break
+  - playerdeathrepeat
   - "\u2026I suppose something can be said about your resilience."
   - Or at least, whatever force is returning you from the clutches of death.
   - "Such miraculously low odds of survival\u2026 It must be the influence of this
     strange location."
   - Nothing that contradicts my existing theories. Although I must be thorough.
   - It could, ultimately, just be luck.
-  - break
+  - playerkillrepeat
   - "\u2026Alright, I am not sure of what exactly you\u2019re doing."
   - But regardless, stop. I tire of having to reorganize my notes.
   - "The last time you\u2026 \u201Ckilled\u2019 me, I lost a few pages of research,
     too."
   - "It\u2019s far too important to be lost to pointless sadism."
   - break
-  dialogueSize: 76
+  dialogueSize: 90

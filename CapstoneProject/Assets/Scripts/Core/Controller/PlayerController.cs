@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         if (GameState.Instance.CurrentGameState == GameState.States.Gameplay)
         {
-            if (IsPressed(PlayerInputReader.Instance.backValue))
+            if (IsPressed(PlayerInputReader.Instance.backValueGameplay))
             {
                 if (PauseMenu.isPaused == true)
                 {
@@ -43,7 +43,6 @@ public class PlayerController : MonoBehaviour
                     PauseMenu.isPaused = true;
                     Debug.Log("Paused Game");
                 }
-
             }
             switch (_currentState)
             {
@@ -113,19 +112,27 @@ public class PlayerController : MonoBehaviour
                 if (_abilityShopUI.CurrentSelectedAbility.index == _abilityShopUI.abilityInformation.Count - 1) return;
                 _abilityShopUI.CurrentSelectedAbility =
                     _abilityShopUI.abilityInformation[_abilityShopUI.CurrentSelectedAbility.index + 1];
+                SoundManager.Instance.Play("PlayerInteractSuccess");
             }
             if (PlayerInputReader.Instance.verticalAxis > 0)
             {
                 if (_abilityShopUI.CurrentSelectedAbility.index == 0) return;
                 _abilityShopUI.CurrentSelectedAbility =
                     _abilityShopUI.abilityInformation[_abilityShopUI.CurrentSelectedAbility.index - 1];
+                SoundManager.Instance.Play("PlayerInteractSuccess");
             }
-            if (IsPressed(PlayerInputReader.Instance.backValue))
+            if (IsPressed(PlayerInputReader.Instance.backValueUI))
             {
                 GameState.Instance.CurrentGameState = GameState.States.Gameplay;
                 _abilityShopUI.gameObject.SetActive(false);
+
+                _player.SavePlayer();
+                UnityEngine.Object.FindObjectOfType<SoundManager>().Play("PlayerInteractFail");
+
+                SoundManager.Instance.Play("PlayerInteractFail");
+
             }
-            if (IsPressed(PlayerInputReader.Instance.confirmValue))
+            if (IsPressed(PlayerInputReader.Instance.confirmValueUI))
             {
                 if (!_abilityShopUI.CurrentSelectedAbility.information.IsAbilityUnlocked())
                 {

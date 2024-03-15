@@ -1,0 +1,192 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9026115510705516181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5778426567880408068}
+  - component: {fileID: 9166735686194617023}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &5778426567880408068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9026115510705516181}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 64.44253, y: 11.801678, z: -2.977932}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9166735686194617023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9026115510705516181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f71a6bdf762ac634b8294a046b22cd48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: PlayerJump
+    clip: {fileID: 8300000, guid: 6d04f271f6054ae4a94a77792b4d270a, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Dash
+    clip: {fileID: 8300000, guid: 6cc72aa3045837042a705e8c5a2c4dc8, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: PlayerDoubleJump
+    clip: {fileID: 8300000, guid: 6d04f271f6054ae4a94a77792b4d270a, type: 3}
+    volume: 1
+    pitch: 1.25
+    source: {fileID: 0}
+  - name: PlayerWallJump
+    clip: {fileID: 8300000, guid: 6d04f271f6054ae4a94a77792b4d270a, type: 3}
+    volume: 1
+    pitch: 0.75
+    source: {fileID: 0}
+  - name: PlayerAirAttack
+    clip: {fileID: 8300000, guid: 1e2606d9e5598024da75a351c513abed, type: 3}
+    volume: 1
+    pitch: 1.25
+    source: {fileID: 0}
+  - name: PlayerGroundAttack
+    clip: {fileID: 8300000, guid: 1e2606d9e5598024da75a351c513abed, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: PlayerHeavyAttack
+    clip: {fileID: 8300000, guid: 5c8e4441e1704bb4b88e15db33cb7e26, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: PlayerInteractSuccess
+    clip: {fileID: 8300000, guid: d22bb9e16cf7af847867191b5055bdba, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: PlayerInteractFail
+    clip: {fileID: 8300000, guid: 38f88e601d1be154b86d21e0df8674da, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: PlayerPickup
+    clip: {fileID: 8300000, guid: c63f67a83dc47294eb32a9fcfaf588eb, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: PlayerHurt
+    clip: {fileID: 8300000, guid: 7a376410ba3a1b240a3cb5b462b0c650, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: ac15fcd0970a9d74ea593441be714b9e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: EnemyAttack
+    clip: {fileID: 8300000, guid: 5c8e4441e1704bb4b88e15db33cb7e26, type: 3}
+    volume: 1
+    pitch: 0.75
+    source: {fileID: 0}
+  - name: EnemyHurt
+    clip: {fileID: 8300000, guid: 7a376410ba3a1b240a3cb5b462b0c650, type: 3}
+    volume: 1
+    pitch: 2
+    source: {fileID: 0}
+  - name: EnemyDeath
+    clip: {fileID: 8300000, guid: ac15fcd0970a9d74ea593441be714b9e, type: 3}
+    volume: 1
+    pitch: 3
+    source: {fileID: 0}
+  - name: FireballCast
+    clip: {fileID: 8300000, guid: 63d5c9884d048f840955d2f5c677eadb, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: FireballExplode
+    clip: {fileID: 8300000, guid: 97bd8060b49950141b5dc732b508d8a6, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: BowDraw
+    clip: {fileID: 8300000, guid: a5b6c2961670e45409d03c03ffad2ae7, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: BowFire
+    clip: {fileID: 8300000, guid: 11e752b0039784540bee226365b3d46f, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: BowHit
+    clip: {fileID: 8300000, guid: c74c538edfa58bd4a8222d0d0b469a47, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: RegenActivate
+    clip: {fileID: 8300000, guid: 212e8b15c0bd1a74fa31527a3bc60042, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: ShieldActivate
+    clip: {fileID: 8300000, guid: e1d8f09ec3b6ea546a24a3d408109b99, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: ShieldHit
+    clip: {fileID: 8300000, guid: dac90c70abadd1d40a705f877a783da2, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: ObjectDestroy
+    clip: {fileID: 8300000, guid: 3cde94bd34c67bb4cacb4a32eb1f53c2, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: ObjectPlink
+    clip: {fileID: 8300000, guid: 4c60123b8f7d39443a9beab95cf768a1, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: PuzzleComplete
+    clip: {fileID: 8300000, guid: d73988deafe8ff04e8061a829f1856b9, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Select
+    clip: {fileID: 8300000, guid: 194791a40f230d64e80cb8bed5c96c44, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: TextCrawl
+    clip: {fileID: 8300000, guid: b88cd26bafd348b4487d7cd5318b2785, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: ExampleSong
+    clip: {fileID: 8300000, guid: 9b2de5d4edc44f74fab2f09f6ab115b9, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}

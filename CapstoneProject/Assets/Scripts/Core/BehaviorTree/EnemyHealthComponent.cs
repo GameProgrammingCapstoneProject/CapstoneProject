@@ -10,6 +10,8 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
     public int maxHealth = 20;
     HealthBar healthBar;
     private Player _player;
+    [SerializeField]
+    private CharacterEffect _effect;
 
     //public static event EventHandler OnHealthChanged;
 
@@ -40,33 +42,38 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
     private void Update()
     {
 
-        if (Input.GetKeyUp(KeyCode.B))
-        {
-            Debug.Log("Heath: " + GetHealth());
-            TakeDamage(5);
-            Debug.Log("Heath: " + GetHealth());
-        }
-
+        //if (Input.GetKeyUp(KeyCode.B))
+        //{
+        //    Debug.Log("Heath: " + GetHealth());
+        //    TakeDamage(5);
+        //    Debug.Log("Heath: " + GetHealth());
+        //}
         if (health <= 0)
         {
-            _player.CoinComponent.CollectCoins(GetComponent<CoinComponent>().GetCoins());
-            Destroy(this.gameObject);
+            //_player.CoinComponent.CollectCoins(GetComponent<CoinComponent>().GetCoins());
+            isDead = true;
         }
     }
 
     public void TakeDamage(int damage)
     {
+        SoundManager.Instance.Play("EnemyHurt");
         this.health -= damage;
         healthBar.UpdateHealthBar(health, maxHealth);
-        if (health < 0)
+        _effect.StartCoroutine(nameof(_effect.FlashFX));
+        if (health <= 0)
         {
+            SoundManager.Instance.Play("EnemyDeath");
+            _player.CoinComponent.CollectCoins(GetComponent<CoinComponent>().GetCoins());
+            if (GetComponent<KeyItemComponent>())
+                _player.KeyItemComponent.PickupKey();
             health = 0;
+            Destroy(this.gameObject);
         }
     }
 
     public void DoDamage(int damage, Character target)
     {
-        //StartCoroutine(Attack(damage));
         if (target.GetComponent<PlayerHealthComponent>() != null)
         {
             PlayerHealthComponent playerHealthComponent = target.GetComponent<PlayerHealthComponent>();
@@ -77,11 +84,4 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
             }
         }
     }
-
-    //IEnumerator Attack(int damage)
-    //{
-    //    yield return new WaitForSeconds(1.0f);
-    //    Collider2D player = Physics2D.OverlapCircle(transform.position, 1.5f, playerLayer);
-    //    player.GetComponent<IDamageable>().TakeDamage(damage);
-    //}
 }

@@ -19,6 +19,7 @@ namespace Core.StateMachine
             base.StateBegin();
             Player.canDoubleJump = false;
             Player.rb.SetVelocity(Player.rb.velocity.x * _doubleJumpForce, Player.GetJumpForce() * _doubleJumpForce);
+            SoundManager.Instance.Play("PlayerDoubleJump");
         }
 
         public override void StateUpdate()

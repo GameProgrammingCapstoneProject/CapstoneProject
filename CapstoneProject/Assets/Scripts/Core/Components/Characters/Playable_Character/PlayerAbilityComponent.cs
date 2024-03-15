@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Core.Entity;
+using UnityEditor.Playables;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Player))]
 public class PlayerAbilityComponent : MonoBehaviour
@@ -51,14 +53,20 @@ public class PlayerAbilityComponent : MonoBehaviour
 
     public void SetupPlayerAbility(PlayerAbility ability, int slotNumber)
     {
-        if (playerAbilities[slotNumber] == null)
-            playerAbilities[slotNumber] = ability;
+        if (ability == null)
+        {
+            playerAbilities[slotNumber] = null;
+            OnCurrentAbilitiesChanged?.Invoke(null, -1);
+        }
         else
         {
             playerAbilities[slotNumber] = ability;
+            ability.AbilityStart(_player, this);
+            Debug.Log(_player);
+            Debug.Log(this);
+            OnCurrentAbilitiesChanged?.Invoke(ability, slotNumber);
         }
-        ability.AbilityStart(_player, this);
-        OnCurrentAbilitiesChanged?.Invoke(ability, slotNumber);
+        
     }
     public void StartRoutine(PlayerAbility ability)
     {
@@ -94,6 +102,69 @@ public class PlayerAbilityComponent : MonoBehaviour
         
         return lowestHealthTarget;
     }
+
+    public List<PlayerAbility> GetAbilities() => playerAbilities;
+
+    public void ChangeAbilties(int abilityone, int abilitytwo)
+    {
+        List<PlayerAbility> ability = new List<PlayerAbility>();
+        switch (abilityone)
+        {
+            case 1:
+                ability[0] = DashAbility;
+                break;
+            case 2:
+                ability[0] = ShieldAbility;
+                break;
+            case 3:
+                ability[0] = BowShootingAbility;
+                break;
+            case 4:
+                ability[0] = ProjectileShootingAbility;
+                break;
+            case 5 :
+                ability[0] = LightningStrikeAbility;
+                break;
+            case 0:
+               ability[0] = null;
+                break;
+            default:
+                Debug.Log(ability[0]);
+                Debug.Log("Ability one not found");
+                ability[0] = null;
+                break;
+        }
+        switch (abilitytwo)
+        {
+            case 1:
+                ability[1] = DashAbility;
+                break;
+            case 2:
+                ability[1] = ShieldAbility;
+                break;
+            case 3:
+                ability[1] = BowShootingAbility;
+                break;
+            case 4:
+                ability[1] = ProjectileShootingAbility;
+                break;
+            case 5:
+                ability[1] = LightningStrikeAbility;
+                break;
+            case 0:
+                ability[1] = null;
+                break;
+            default:
+                Debug.Log(ability[1]);
+                Debug.Log("Ability two not found");
+                ability[1] = null ;
+                break;
+        }
+        SetupPlayerAbility(ability[0], 0);
+        SetupPlayerAbility(ability[1], 1);
+    }
+
+
 #if UNITY_EDITOR
     private void OnValidate()
     {

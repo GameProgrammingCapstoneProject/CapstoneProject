@@ -66,6 +66,7 @@ public class AbilityShopUI : MonoBehaviour
 
     private void UpdateCurrentSetupAbilityUI(PlayerAbility ability, int index)
     {
+        if (ability == null) return;
         if (index == 0)
         {
             _firstAbilitySetupImage.enabled = true;
@@ -80,6 +81,7 @@ public class AbilityShopUI : MonoBehaviour
 
     private void OnDestroy()
     {
+       
         PlayerAbilityComponent.OnCurrentAbilitiesChanged -= UpdateCurrentSetupAbilityUI;
         foreach (PlayerAbility ability in _allPlayerAbilities)
         {

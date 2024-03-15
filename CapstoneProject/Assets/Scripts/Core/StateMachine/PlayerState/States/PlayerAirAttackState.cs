@@ -24,8 +24,8 @@ namespace Core.StateMachine
         public override void StateBegin()
         {
             base.StateBegin();
-            
 
+            SoundManager.Instance.Play("PlayerAirAttack");
             if (_comboAttack > _numberOfAttacks || Time.time >= _lastTimeAttacked + _comboCooldown)
                 _comboAttack = 0;
         

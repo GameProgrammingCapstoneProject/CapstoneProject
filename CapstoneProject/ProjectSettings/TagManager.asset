@@ -19,7 +19,7 @@ TagManager:
   - Enemy
   - NPC
   - Player
-  - 
+  - Bullet
   - 
   - 
   - 
@@ -45,9 +45,6 @@ TagManager:
   - name: Background
     uniqueID: 2440320563
     locked: 0
-  - name: Vfx
-    uniqueID: 1132165347
-    locked: 0
   - name: Ground
     uniqueID: 2033761727
     locked: 0
@@ -68,4 +65,10 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1456303091
+    locked: 0
+  - name: Vfx
+    uniqueID: 1132165347
+    locked: 0
+  - name: Bullet
+    uniqueID: 339629575
     locked: 0

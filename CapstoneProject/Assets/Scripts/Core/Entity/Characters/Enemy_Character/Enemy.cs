@@ -7,10 +7,32 @@ namespace Core.Entity
 {
     public class Enemy : Character
     {
+        public int enemyType;
+
         [SerializeField]
         float baseCastDistance = 0.5f;
         [SerializeField]
         Transform CastPos;
+        
+        public enum EnemyType
+        {
+            MELEE_ENEMY,
+            RANGED_ENEMY,
+            FLYING_ENEMY,
+            CHASING_ENEMY,
+
+            NUM_ENEMIES
+        }
+
+        public enum AnimationState
+        {
+            IDLE,
+            WALK,
+            ATTACK,
+
+            NUM_ANIMATION_STATES
+        }
+
         protected override void Start()
         {
             base.Start();

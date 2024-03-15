@@ -6,31 +6,45 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
-    public static bool isPaused;
+    public GameObject optionMenu;
+    private bool isOpeningOptionsMenu = false;
+    public static bool isPaused = false;
     // Start is called before the first frame update
     void Start()
     {
         pauseMenu.SetActive(false);
     }
 
+
     // Update is called once per frame
     void Update()
     {
-       if (Input.GetKeyDown(KeyCode.Escape))
-       {
-            if (isPaused)
+        //  if (Input.GetKeyDown(KeyCode.Escape))
+        //  { 
+        if (isPaused)
+        {
+            PauseGame();
+            if (isOpeningOptionsMenu == false)
             {
-                ContinueGame();
+                OpenPauseMenu();
+                CloseOptionMenu();
             }
             else
             {
-                PauseGame();
+                OpenOptionsMenu();
+                ClosePauseMenu();
             }
         }
-        
+        else
+        {
+            CloseOptionMenu();
+            ClosePauseMenu();
+            ResumeGame();
+        }
+        //  }
     }
 
-    public void PauseGame()
+    public static void PauseGame()
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0.0f;
@@ -44,18 +58,46 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1.0f;
         isPaused = false;
 
+        Time.timeScale= 0.0f;
     }
 
-    public void GoToMainMenu()
+    public static void ResumeGame()
+    {
+        Time.timeScale = 1.0f;  
+    }
+
+    public void OpenPauseMenu()
+    {
+        pauseMenu.SetActive(true);
+    }
+
+    public void ClosePauseMenu()
     {
         pauseMenu.SetActive(false);
-        Time.timeScale = 1.0f;
+    }
+    public void GoToMainMenu()
+    {
+        ClosePauseMenu();
+        ResumeGame();
+        isPaused = false;
         SceneManager.LoadScene("MainMenu");
+        
+    }
+    public void ContinueButton()
+    {
+        ClosePauseMenu();
+        ResumeGame();
         isPaused = false;
     }
-    public void Option()
+    public void OpenOptionsMenu()
     {
-
+        isOpeningOptionsMenu = true;
+        optionMenu.SetActive(true);
+    }
+    public void CloseOptionMenu()
+    {
+        isOpeningOptionsMenu = false;
+        optionMenu.SetActive(false);
     }
 
     public void QuitGame()

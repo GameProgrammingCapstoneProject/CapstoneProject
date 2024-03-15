@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class PlayerHealthComponent : MonoBehaviour, IDamageable
 {
+    [SerializeField]
+    private CharacterEffect _effect;
     public int currentHealth { get; private set; }
     public bool isDead { get; private set; }
     public bool isInvincible { get; private set; }
@@ -16,14 +18,14 @@ public class PlayerHealthComponent : MonoBehaviour, IDamageable
     private void Start()
     {
         currentHealth = _maxHealth;
-        Debug.Log("Player hp: " + currentHealth);
     }
 
     public void TakeDamage(int damage)
     {
         if (isDead || isInvincible) return;
         DecreaseHealthBy(damage);
-        Debug.Log("Player hp: " + currentHealth);
+        _effect.ShakeScreen();
+        _effect.StartCoroutine(nameof(_effect.FlashFX));
         if (currentHealth <= 0)
         {
             currentHealth = 0;
@@ -40,6 +42,7 @@ public class PlayerHealthComponent : MonoBehaviour, IDamageable
             {
                 IDamageable enemyDamageable = enemyHealthComponent.GetComponent<IDamageable>();
                 enemyDamageable.TakeDamage(damage);
+                _effect.GenerateHitFX(target.transform);
             }
             else
             {
@@ -55,6 +58,7 @@ public class PlayerHealthComponent : MonoBehaviour, IDamageable
     private void Die()
     {
         isDead = true;
+        SoundManager.Instance.Play("PlayerDeath");
     }
     
     public void KillPlayer()
@@ -66,6 +70,8 @@ public class PlayerHealthComponent : MonoBehaviour, IDamageable
     public virtual void DecreaseHealthBy(int inputDamage)
     {
         currentHealth -= inputDamage;
+        if (inputDamage > 0 && currentHealth > 0)
+            SoundManager.Instance.Play("PlayerHurt");
         OnHealthChanged?.Invoke();
     }
     public void MakeInvincible(bool inputIsInvincible) => isInvincible = inputIsInvincible;
@@ -79,4 +85,10 @@ public class PlayerHealthComponent : MonoBehaviour, IDamageable
     }
 
     public int GetMaxHealthValue() => _maxHealth;
+
+    public void ChangeHealth(int health)
+    {
+        currentHealth= health;
+        OnHealthChanged?.Invoke();
+    }
 }
