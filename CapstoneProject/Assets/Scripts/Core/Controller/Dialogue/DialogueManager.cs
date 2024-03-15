@@ -63,7 +63,7 @@ public class DialogueManager : MonoBehaviour
     private UnityEngine.UI.Image displayPortraitImage;
     private TextMeshProUGUI displayTextMeshPro;
 
-   
+    public int npcID = 0;
    
    
     //Use to get the relevant UI elements
@@ -77,11 +77,13 @@ public class DialogueManager : MonoBehaviour
     //Referenced scriptable objects for dialogue
     public DialogueExample whirlDialogue;
     public DialogueExample emeliaDialogue;
+    public DialogueExample ezekielDialogue;
 
     //Images for text and dialogue portrait
     public Sprite textBoxImage;
     public Sprite whirlPortraitImage;
     public Sprite emeliaPortraitImage;
+    public Sprite ezekielPortraitImage;
 
     //Text scrolling variables
     private float textScrollSpeed = 0.1f;
@@ -101,7 +103,20 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         //Debug for game state
-        gameState.currentNPC = "Whirl";
+        //gameState.currentNPC = "Whirl";
+
+        if (npcID == 0)
+        {
+            gameState.currentNPC = "Whirl";
+        }
+        else if (npcID == 1)
+        {
+            gameState.currentNPC = "Emelia";
+        }
+        else if (npcID == 2)
+        {
+            gameState.currentNPC = "Ezekiel";
+        }
 
         //Loads and checks the display box sprite
         displayBoxObject.GetComponent<UnityEngine.UI.Image>().sprite = textBoxImage;
@@ -169,6 +184,11 @@ public class DialogueManager : MonoBehaviour
         {
             MoveObjectToList(emeliaDialogue);
             displayPortraitObject.GetComponent<UnityEngine.UI.Image>().sprite = emeliaPortraitImage;
+        }
+        else if (gameState.currentNPC == "Ezekiel")
+        {
+            MoveObjectToList(ezekielDialogue);
+            displayPortraitObject.GetComponent<UnityEngine.UI.Image>().sprite = ezekielPortraitImage;
         }
 
 
