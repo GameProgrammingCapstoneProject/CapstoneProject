@@ -10,7 +10,7 @@ namespace Core.StateMachine
     public class PlayerDashState : PlayerState
     {
         private float _dashDuration = 0.5f;
-        private float _dashSpeed = 10f;
+        private float _dashSpeed = 20f;
         public PlayerDashState(Player inputPlayer, string inputAnimName) : base(inputPlayer, inputAnimName)
         {
         }
