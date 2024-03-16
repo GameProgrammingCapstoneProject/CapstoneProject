@@ -21,7 +21,7 @@ namespace Core.StateMachine
         public override void StateUpdate()
         {
             base.StateUpdate();
-            if (Player.rb.velocity.y < 0)
+            if (Player.rb.velocity.y < 0 && Player.isSteppingOnElevator == false)
                 Player.States.stateMachine.ChangeState(Player.States.airState);
         }
 

@@ -11,7 +11,8 @@ namespace Core.GameStates
         public enum States
         {
             Gameplay,
-            UI
+            UI,
+            CutScene
         }
 
 
