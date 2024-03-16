@@ -337,8 +337,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
-  isDead: 0
   _effect: {fileID: 8955413412566779722}
+  isDead: 0
 --- !u!114 &8955413412566779722
 MonoBehaviour:
   m_ObjectHideFlags: 0

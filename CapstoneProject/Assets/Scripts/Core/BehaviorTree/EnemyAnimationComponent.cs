@@ -36,6 +36,7 @@ public class EnemyAnimationComponent : MonoBehaviour
 
     private void Death()
     {
+        this.GetComponentInParent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         Destroy(transform.parent.gameObject);
     }
 }
