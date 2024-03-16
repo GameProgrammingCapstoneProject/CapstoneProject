@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Core.Components;
@@ -5,6 +6,7 @@ using Core.Entity;
 using Core.PlayerInput;
 using Core.StateMachine;
 using UnityEngine;
+using System.IO;
 
 namespace Core.Entity
 {
@@ -35,11 +37,33 @@ namespace Core.Entity
         private bool _isBusy = false;
         protected override void Start()
         {
+            Debug.Log(Application.persistentDataPath);
             base.Start();
-            LoadPlayer(); 
+
+            if (LoadPlayer() == false)
+            {
+                SavePlayer();
+            }
+
+
             canDoubleJump = true;
         }
-        
+
+        /*public void Update()
+        {
+          if (Input.GetKeyDown(KeyCode.J))
+            {
+                //SavePlayer();
+                DeleteSave();
+                Debug.Log("Player DELETED!!!!!!!!!!");
+            }
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                LoadPlayer();
+                Debug.Log("Player Loaded");
+            }
+        }*/
+
         public bool IsBusy() => _isBusy;
         public IEnumerator BusyFor(float seconds)
         {
@@ -63,10 +87,73 @@ namespace Core.Entity
 
         public void SavePlayer()
         {
-            SaveSystem.SavePlayer(this);
+            int health = HealthComponent.currentHealth;
+            int keys = KeyItemComponent.GetKeys();
+            int coins = CoinComponent.GetCoins();
+
+
+
+            List<PlayerAbility> ability = AbilityComponent.GetAbilities();
+            int abilityone;
+            int abilitytwo;
+            switch (ability[0])
+            {
+                case DashAbility:
+                    abilityone = 1;
+                    break;
+                case ShieldAbility:
+                    abilityone = 2;
+                    break;
+                case BowShootingAbility:
+                    abilityone = 3;
+                    break;
+                case ProjectileShootingAbility:
+                    abilityone = 4;
+                    break;
+                case LightningStrikeAbility:
+                    abilityone = 5;
+                    break;
+                case null:
+                    abilityone = 0;
+                    break;
+                default:
+                    // Debug.Log(ability[0]);
+                    Debug.Log("Ability one not found");
+                    abilityone = 0;
+                    break;
+            }
+            switch (ability[1])
+            {
+                case DashAbility:
+                    abilitytwo = 1;
+                    break;
+                case ShieldAbility:
+                    abilitytwo = 2;
+                    break;
+                case BowShootingAbility:
+                    abilitytwo = 3;
+                    break;
+                case ProjectileShootingAbility:
+                    abilitytwo = 4;
+                    break;
+                case LightningStrikeAbility:
+                    abilitytwo = 5;
+                    break;
+                case null:
+                    abilitytwo = 0;
+                    break;
+                default:
+                    // Debug.Log(ability[1]);
+                    Debug.Log("Ability two not found");
+                    abilitytwo = 0;
+                    break;
+            }
+            SaveSystem.SavePlayer(this, health, coins, keys, abilityone, abilitytwo);
+
         }
 
-        public void LoadPlayer()
+
+        public bool LoadPlayer()
         {
             PlayerSaveData data = SaveSystem.LoadPlayer();
 
@@ -74,21 +161,103 @@ namespace Core.Entity
             {
                 Vector3 position;
 
-                Debug.Log(data.position[0]);
+                CoinComponent.ChangeCoins(data.playerCoins);
+                KeyItemComponent.ChangeKeys(data.playerKeys);
+                HealthComponent.ChangeHealth(data.playerHealth);
+                var ability = AbilityComponent.playerAbilities;
+                /*                List<PlayerAbility> ability = new List<PlayerAbility>()
+                                {
+                                    null,
+                                    null
+                                };*/
+                switch (data.playerAbilityOne)
+                {
+                    case 1:
+                        ability[0] = AbilityComponent.DashAbility;
+                        break;
+                    case 2:
+                        ability[0] = AbilityComponent.ShieldAbility;
+                        break;
+                    case 3:
+                        ability[0] = AbilityComponent.BowShootingAbility;
+                        break;
+                    case 4:
+                        ability[0] = AbilityComponent.ProjectileShootingAbility;
+                        break;
+                    case 5:
+                        ability[0] = AbilityComponent.LightningStrikeAbility;
+                        break;
+                    case 0:
+                        ability[0] = null;
+                        break;
+                    default:
+                        // Debug.Log(ability[0]);
+                        Debug.Log("Ability one not found");
+                        ability[0] = null;
+                        break;
+                }
+                switch (data.playerAbilityTwo)
+                {
+                    case 1:
+                        ability[1] = AbilityComponent.DashAbility;
+                        break;
+                    case 2:
+                        ability[1] = AbilityComponent.ShieldAbility;
+                        break;
+                    case 3:
+                        ability[1] = AbilityComponent.BowShootingAbility;
+                        break;
+                    case 4:
+                        ability[1] = AbilityComponent.ProjectileShootingAbility;
+                        break;
+                    case 5:
+                        ability[1] = AbilityComponent.LightningStrikeAbility;
+                        break;
+                    case 0:
+                        ability[1] = null;
+                        break;
+                    default:
+                        //   Debug.Log(ability[1]);
+                        Debug.Log("Ability two not found");
+                        ability[1] = null;
+                        break;
+                }
 
-                position.x = data.position[0];
-                position.y = data.position[1];
-                position.z = data.position[2];
+                AbilityComponent.SetupPlayerAbility(ability[0], 0);
+                AbilityComponent.SetupPlayerAbility(ability[1], 1);
+                //AbilityComponent.ChangeAbilties(data.playerAbilityOne, data.playerAbilityTwo);
+                Debug.Log(data.playerPosition[0]);
+
+                position.x = data.playerPosition[0];
+                position.y = data.playerPosition[1];
+                position.z = data.playerPosition[2];
                 transform.position = position;
+                return true;
+
             }
             else
             {
                 Debug.Log("Player Load attempted but no save data was found.");
+                return false;
             }
 
         }
 
 
-
+        private string SavePath
+        {
+            get { return Application.persistentDataPath + "/player.STH"; }
         }
+        public void DeleteSave()
+        {
+            try
+            {
+                File.Delete(SavePath);
+            }
+            catch (Exception ex)
+            {
+                Debug.LogException(ex);
+            }
+        }
+    }
 }

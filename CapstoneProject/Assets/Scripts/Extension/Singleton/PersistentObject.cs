@@ -63,8 +63,8 @@ namespace Core.Extension
         protected virtual void Start()
         {
             // If another Singleton already exists, destroy this one.
-            if (_instance != null && _instance != this)
-                Destroy(this);
+            /*if (_instance != null && _instance != this)
+                Destroy(this);*/
         }
 
         protected virtual void OnApplicationQuit()

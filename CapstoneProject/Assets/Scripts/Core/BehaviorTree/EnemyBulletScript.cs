@@ -7,7 +7,7 @@ public class EnemyBulletScript : MonoBehaviour, IDamageable
 {
     private GameObject player;
     private Rigidbody2D rb;
-    float force = 5;
+    float force = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +23,7 @@ public class EnemyBulletScript : MonoBehaviour, IDamageable
         {
             rb.AddForce(-transform.right * force, ForceMode2D.Impulse);
         }
+        Destroy(this.gameObject, 4.0f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

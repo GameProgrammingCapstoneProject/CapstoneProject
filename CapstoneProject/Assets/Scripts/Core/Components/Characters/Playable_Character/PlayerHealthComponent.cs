@@ -12,6 +12,7 @@ public class PlayerHealthComponent : MonoBehaviour, IDamageable
     public bool isDead { get; private set; }
     public bool isInvincible { get; private set; }
     public event System.Action OnHealthChanged;
+    public static event System.Action OnDead;
     [SerializeField]
     private int _maxHealth = 6;
 
@@ -58,6 +59,7 @@ public class PlayerHealthComponent : MonoBehaviour, IDamageable
     private void Die()
     {
         isDead = true;
+        OnDead?.Invoke();
         SoundManager.Instance.Play("PlayerDeath");
     }
     
@@ -85,4 +87,10 @@ public class PlayerHealthComponent : MonoBehaviour, IDamageable
     }
 
     public int GetMaxHealthValue() => _maxHealth;
+
+    public void ChangeHealth(int health)
+    {
+        currentHealth= health;
+        OnHealthChanged?.Invoke();
+    }
 }

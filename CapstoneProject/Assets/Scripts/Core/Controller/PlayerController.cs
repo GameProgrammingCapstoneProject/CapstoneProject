@@ -81,6 +81,9 @@ public class PlayerController : MonoBehaviour
                         _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.airAttackState);
                     if (IsPressed(PlayerInputReader.Instance.jumpValue) && _player.canDoubleJump)
                         _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.doubleJumpState);
+                    if (IsPressed(PlayerInputReader.Instance.dashValue))
+                        if (_playerAbilityComponent.DashAbility.CanUseAbility())
+                            _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
                     break;
                 }
                 case PlayerAirState:
@@ -95,12 +98,22 @@ public class PlayerController : MonoBehaviour
                 {
                     if (IsPressed(PlayerInputReader.Instance.attackValue))
                         _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.airAttackState);
+                    if (IsPressed(PlayerInputReader.Instance.dashValue))
+                        if (_playerAbilityComponent.DashAbility.CanUseAbility())
+                            _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
                     break;
                 }
                 case PlayerWallSlideState:
                 {
                     if (IsPressed(PlayerInputReader.Instance.jumpValue))
                         _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.wallJumpState);
+                    break;
+                }
+                case PlayerWallJumpState:
+                {
+                    if (IsPressed(PlayerInputReader.Instance.dashValue))
+                        if (_playerAbilityComponent.DashAbility.CanUseAbility())
+                            _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
                     break;
                 }
             }
@@ -125,7 +138,12 @@ public class PlayerController : MonoBehaviour
             {
                 GameState.Instance.CurrentGameState = GameState.States.Gameplay;
                 _abilityShopUI.gameObject.SetActive(false);
+
+                _player.SavePlayer();
+                UnityEngine.Object.FindObjectOfType<SoundManager>().Play("PlayerInteractFail");
+
                 SoundManager.Instance.Play("PlayerInteractFail");
+
             }
             if (IsPressed(PlayerInputReader.Instance.confirmValueUI))
             {

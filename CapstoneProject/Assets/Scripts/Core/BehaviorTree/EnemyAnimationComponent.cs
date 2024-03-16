@@ -36,6 +36,6 @@ public class EnemyAnimationComponent : MonoBehaviour
 
     private void Death()
     {
-        Destroy(this.gameObject);
+        Destroy(transform.parent.gameObject);
     }
 }
