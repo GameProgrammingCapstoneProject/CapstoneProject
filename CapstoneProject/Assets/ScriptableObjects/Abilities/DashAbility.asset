@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f98ce8e2c068e404e83f44a1e0f19abe, type: 3}
   m_Name: DashAbility
   m_EditorClassIdentifier: 
-  _cooldown: 5
+  abilityIcon: {fileID: 0}
+  _abilityCost: 0
+  abilityDescription: 
+  _cooldown: 2.5
   _isUnlocked: 1
+  _invincibleTime: 2
