@@ -49,8 +49,6 @@ public class SoundManager : PersistentObject<SoundManager>
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
         }
-        Stop("ExampleSong");
-        PlayLooped("ExampleSong");
     }
 
     public void Play (string name)
