@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 8955413412566779722}
   - component: {fileID: 8726626241646948715}
   m_Layer: 10
-  m_Name: Goblin_Melee
+  m_Name: BasicMeleeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -217,7 +217,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.5579186, y: -0.4060384}
+  m_Offset: {x: 0.07, y: -0.21}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -228,7 +228,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.74474466, y: 1.8120768}
+  m_Size: {x: 1.16, y: 2.19}
   m_EdgeRadius: 0
 --- !u!50 &593372469214085847
 Rigidbody2D:
@@ -242,7 +242,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 1.3495345
+  m_Mass: 2.5404
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
@@ -337,8 +337,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
-  isDead: 0
   _effect: {fileID: 8955413412566779722}
+  isDead: 0
 --- !u!114 &8955413412566779722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,7 +469,7 @@ SpriteRenderer:
   m_SortingLayerID: -2139497935
   m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: -874575501, guid: 657ebecc2b6a1544580dae69eccb329f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c7f780e07e411143a29d0d47989398f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -659,7 +659,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.49
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

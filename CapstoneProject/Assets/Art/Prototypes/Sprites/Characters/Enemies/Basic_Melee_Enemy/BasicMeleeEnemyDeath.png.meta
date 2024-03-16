@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e1512e3c5957f1c4b9ad1fa0f560bde1
+guid: b01c7ec0f80938f4eafa36f9964c8c03
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BasicMeleeEnemyWalk_0
+      name: BasicMeleeEnemyDeath_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1db16132e681e6049849604fc62c9a20
-      internalID: -1531446486
+      spriteID: 1e2921a5223ee9f4cb135efeab2a4500
+      internalID: -1178747511
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BasicMeleeEnemyWalk_1
+      name: BasicMeleeEnemyDeath_1
       rect:
         serializedVersion: 2
         x: 42
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff416749893ff6c44a7be098431d254e
-      internalID: -283464453
+      spriteID: c814e3e2bec9ddb428a3ff455f14cacb
+      internalID: -743480704
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BasicMeleeEnemyWalk_2
+      name: BasicMeleeEnemyDeath_2
       rect:
         serializedVersion: 2
         x: 84
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a4ab5b907f3ebe4bb3679d58337e615
-      internalID: 1464636808
+      spriteID: 356d6d8a1aa590b4a90e07be17295986
+      internalID: -1574856507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BasicMeleeEnemyWalk_3
+      name: BasicMeleeEnemyDeath_3
       rect:
         serializedVersion: 2
         x: 126
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77b8cd7638e577c4a99cfbfdd1f9638d
-      internalID: 154546263
+      spriteID: b52e43b99301e96408f0a191c878589c
+      internalID: -977532134
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BasicMeleeEnemyWalk_4
+      name: BasicMeleeEnemyDeath_4
       rect:
         serializedVersion: 2
         x: 168
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3ff9da95447fe542bf381b0c2c67faf
-      internalID: 347008887
+      spriteID: e511052650e0ae24192e5a9d410c3a2c
+      internalID: -13747862
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BasicMeleeEnemyWalk_5
+      name: BasicMeleeEnemyDeath_5
       rect:
         serializedVersion: 2
         x: 210
@@ -229,50 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 004e5bc8edaaa6c44a182f2f024f97c7
-      internalID: 593634650
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BasicMeleeEnemyWalk_6
-      rect:
-        serializedVersion: 2
-        x: 252
-        y: 0
-        width: 42
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c4cba6f7eb1582242b3a16126bf85571
-      internalID: -884462562
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BasicMeleeEnemyWalk_7
-      rect:
-        serializedVersion: 2
-        x: 294
-        y: 0
-        width: 42
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0916051dbcffb8845801a8a718cc1a7b
-      internalID: 809677203
+      spriteID: 4e62b7001f557864b98e00ec3921a1c0
+      internalID: 1576514913
       vertices: []
       indices: 
       edges: []
@@ -288,14 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BasicMeleeEnemyWalk_0: -1531446486
-      BasicMeleeEnemyWalk_1: -283464453
-      BasicMeleeEnemyWalk_2: 1464636808
-      BasicMeleeEnemyWalk_3: 154546263
-      BasicMeleeEnemyWalk_4: 347008887
-      BasicMeleeEnemyWalk_5: 593634650
-      BasicMeleeEnemyWalk_6: -884462562
-      BasicMeleeEnemyWalk_7: 809677203
+      BasicMeleeEnemyDeath_0: -1178747511
+      BasicMeleeEnemyDeath_1: -743480704
+      BasicMeleeEnemyDeath_2: -1574856507
+      BasicMeleeEnemyDeath_3: -977532134
+      BasicMeleeEnemyDeath_4: -13747862
+      BasicMeleeEnemyDeath_5: 1576514913
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
