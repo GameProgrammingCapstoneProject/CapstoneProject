@@ -282,6 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880d379c85b4dc244a306a582d9277bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _anim: {fileID: 5774040205199454047}
   initialSpeed: 2
   playerPos: {fileID: 0}
 --- !u!114 &2428302149192947423
@@ -659,7 +660,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.49
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

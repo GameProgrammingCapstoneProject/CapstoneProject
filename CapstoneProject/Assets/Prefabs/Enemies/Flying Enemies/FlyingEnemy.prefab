@@ -231,6 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880d379c85b4dc244a306a582d9277bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _anim: {fileID: 1596466188744565456}
   initialSpeed: 3
   playerPos: {fileID: 0}
 --- !u!114 &3051476983319788348
@@ -264,7 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   maxHealth: 20
-  _effect: {fileID: 0}
+  _effect: {fileID: 3916804398182774511}
   isDead: 0
 --- !u!114 &1062114949588360358
 MonoBehaviour:
@@ -291,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3010eb196e7740e45882c5b0cc402d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 0}
+  _spriteRenderer: {fileID: 3551497180036800154}
   flashDuration: 0.2
   _hitMat: {fileID: 2100000, guid: 81f3674a6161afa41a34fb039b42011e, type: 2}
   _screenShake: {fileID: 0}

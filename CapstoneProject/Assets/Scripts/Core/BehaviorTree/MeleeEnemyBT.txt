@@ -1,5 +1,6 @@
 tree("Root")
 	fallback
+		IsDead
 		tree("Attack")
 		tree("Roam")
 
