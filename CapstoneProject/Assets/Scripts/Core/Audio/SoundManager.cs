@@ -34,6 +34,7 @@ If you need any more help, please contact Joshua.
 public class SoundManager : PersistentObject<SoundManager>
 {
 
+    public SoundList SoundList;
     public Sound[] sounds;
     public float soundMod = 1f;
     public float musicMod = 1f;
@@ -41,6 +42,14 @@ public class SoundManager : PersistentObject<SoundManager>
     protected override void Awake()
     {
         base.Awake();
+        
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        SoundList = FindObjectOfType<SoundList>();
+        sounds = SoundList.sounds;
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -49,7 +58,6 @@ public class SoundManager : PersistentObject<SoundManager>
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
         }
-        
     }
 
     public void Play (string name)
