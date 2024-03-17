@@ -1,0 +1,17 @@
+tree("Root")
+	fallback
+		IsDead
+		tree("Attack")
+		tree("Roam")
+
+tree "Roam"
+	sequence
+		ReturnToSpawnPoint
+		Idle
+
+tree "Attack"
+	fallback
+		sequence
+			IsWithinRange(7.0)
+			Chase
+		tree("Roam")
