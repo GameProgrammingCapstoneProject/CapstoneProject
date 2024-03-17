@@ -128,18 +128,24 @@ public class AI : MonoBehaviour
     public bool IsWithinView()
     {
         bool result = false;
-        Vector2 direction = Vector2.zero;
+        Vector2 directionR = Vector2.zero;
+        Vector2 directionL = Vector2.zero;
 
-        if (_rb.CurrentFacingDirection == RigidbodyComponent.FacingDirections.RIGHT)
-        {
-            direction = Vector2.right;
-        }
-        else
-        {
-            direction = Vector2.left;
-        }
-        Debug.DrawRay(transform.position, direction * 15, Color.green);
-        if (Physics2D.Raycast(transform.position, direction, 15.0f, 1 << LayerMask.NameToLayer("Player")))
+        directionR = Vector2.right;
+        directionL = Vector2.left;
+
+        /* if (_rb.CurrentFacingDirection == RigidbodyComponent.FacingDirections.RIGHT)
+         {
+             direction = Vector2.right;
+         }
+         else
+         {
+             direction = Vector2.left;
+         }*/
+
+        Debug.DrawRay(transform.position, directionR * 15, Color.green);
+        Debug.DrawRay(transform.position, directionL * 15, Color.green);
+        if (Physics2D.Raycast(transform.position, directionR, 15.0f, 1 << LayerMask.NameToLayer("Player")) || Physics2D.Raycast(transform.position, directionL, 15.0f, 1 << LayerMask.NameToLayer("Player")))
         {
             result = true;
         }
