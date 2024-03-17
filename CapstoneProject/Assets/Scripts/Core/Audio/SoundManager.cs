@@ -35,10 +35,8 @@ public class SoundManager : PersistentObject<SoundManager>
 {
 
     public Sound[] sounds;
-    private float soundMod = 1f;
-    private float musicMod = 1f;
-
-    public static SoundManager Instance;
+    public float soundMod = 1f;
+    public float musicMod = 1f;
 
     protected override void Awake()
     {
@@ -51,16 +49,7 @@ public class SoundManager : PersistentObject<SoundManager>
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
         }
-
-
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
+        
     }
 
     public void Play (string name)
