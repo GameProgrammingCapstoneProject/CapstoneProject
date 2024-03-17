@@ -12,6 +12,6 @@ tree "Roam"
 tree "Attack"
 	fallback
 		sequence
-			IsWithinRange(7.0)
+			IsWithinRange(10.0)
 			Chase
 		tree("Roam")
