@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 1062114949588360358}
   - component: {fileID: 3916804398182774511}
   - component: {fileID: 1611554755055532948}
+  - component: {fileID: 462600290255130902}
   m_Layer: 0
   m_Name: FlyingEnemy
   m_TagString: Untagged
@@ -173,7 +174,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.019220829, y: -0.0096104145}
@@ -187,7 +188,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2680007655756638374}
-  m_BodyType: 2
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -323,6 +324,20 @@ MonoBehaviour:
     breakPointStatuses: 
     collapsedLines: 
     btScript: 
+--- !u!114 &462600290255130902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2680007655756638374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a82edf373e6bf409cb8a5f3acf7973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageInterval: 2.5
+  _damageAmount: 1
 --- !u!1 &4876872096124091967
 GameObject:
   m_ObjectHideFlags: 0
