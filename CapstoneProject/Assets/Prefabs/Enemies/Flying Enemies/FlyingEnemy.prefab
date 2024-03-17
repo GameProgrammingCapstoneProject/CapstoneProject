@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 2564955643756476401}
   - component: {fileID: 1062114949588360358}
   - component: {fileID: 3916804398182774511}
+  - component: {fileID: 1611554755055532948}
   m_Layer: 0
   m_Name: FlyingEnemy
   m_TagString: Untagged
@@ -186,7 +187,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2680007655756638374}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -230,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880d379c85b4dc244a306a582d9277bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpeed: 0
+  initialSpeed: 3
   playerPos: {fileID: 0}
 --- !u!114 &3051476983319788348
 MonoBehaviour:
@@ -299,6 +300,28 @@ MonoBehaviour:
   _hitFX01Prefab: {fileID: 0}
   _hitFX02Prefab: {fileID: 0}
   _rb: {fileID: 0}
+--- !u!114 &1611554755055532948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2680007655756638374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e43e7170fb45b4b81dcd16d0ff55d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scripts:
+  - {fileID: 4900000, guid: f86bd346cba5978419b5e07012b51674, type: 3}
+  autoReset: 1
+  tickOn: 0
+  sourceInfos:
+  - isFoldout: 1
+    breakPoints: 
+    breakPointStatuses: 
+    collapsedLines: 
+    btScript: 
 --- !u!1 &4876872096124091967
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,7 +712,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.625, y: 2.625}
+  m_Size: {x: 1.3125, y: 1.3125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
