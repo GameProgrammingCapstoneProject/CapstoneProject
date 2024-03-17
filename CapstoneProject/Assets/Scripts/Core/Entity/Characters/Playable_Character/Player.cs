@@ -7,6 +7,7 @@ using Core.PlayerInput;
 using Core.StateMachine;
 using UnityEngine;
 using System.IO;
+using Core.GameStates;
 
 namespace Core.Entity
 {
@@ -35,6 +36,10 @@ namespace Core.Entity
         [HideInInspector]
         public bool canDoubleJump = false;
         private bool _isBusy = false;
+        [HideInInspector]
+        public bool isSteppingOnElevator = false;
+
+        private Transform _elevator;
         protected override void Start()
         {
             Debug.Log(Application.persistentDataPath);
@@ -257,6 +262,27 @@ namespace Core.Entity
             catch (Exception ex)
             {
                 Debug.LogException(ex);
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.GetComponent<Elevator>())
+            {
+                isSteppingOnElevator = true;
+                _elevator = other.transform;
+                transform.parent = _elevator.transform;
+                GameState.Instance.CurrentGameState = GameState.States.CutScene;
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.GetComponent<Elevator>())
+            {
+                isSteppingOnElevator = false;
+                _elevator = null;
+                transform.parent = null;
             }
         }
     }
