@@ -9,8 +9,10 @@ using Panda.Examples.Shooter;
 
 public class AI : MonoBehaviour
 {
+    
     Enemy enemy;
     RigidbodyComponent _rb;
+    [SerializeField]
     Animator _anim;
     float stopSpeed = 0f;
     float movementSpeed;
@@ -28,7 +30,7 @@ public class AI : MonoBehaviour
     void Start()
     {
         enemy = GetComponent<Enemy>();
-        _anim = enemy.animator;
+        //_anim = enemy.animator;
         _rb = enemy.rb;
         movementSpeed = initialSpeed;
         playerPos = GameObject.FindWithTag("Player").transform;
@@ -114,7 +116,7 @@ public class AI : MonoBehaviour
         if(enemy.GetComponent<EnemyHealthComponent>().isDead)
         {
             movementSpeed = stopSpeed;
-            _anim.SetTrigger("death");
+            AnimStateUpdate();
             return true;
         }
 
@@ -274,6 +276,7 @@ public class AI : MonoBehaviour
 
                 if (enemy.GetComponent<EnemyHealthComponent>().isDead == true)
                 {
+                    _anim.SetInteger("state", -1);
                     _anim.SetTrigger("death");
                 }
                 break;
@@ -291,6 +294,7 @@ public class AI : MonoBehaviour
 
                 if (enemy.GetComponent<EnemyHealthComponent>().isDead == true)
                 {
+                    _anim.SetInteger("state", -1);
                     _anim.SetTrigger("death");
                 }
                 break;
@@ -308,6 +312,7 @@ public class AI : MonoBehaviour
 
                 if (enemy.GetComponent<EnemyHealthComponent>().isDead == true)
                 {
+                    _anim.SetInteger("state", -1);
                     _anim.SetTrigger("death");
                 }
                 break;
