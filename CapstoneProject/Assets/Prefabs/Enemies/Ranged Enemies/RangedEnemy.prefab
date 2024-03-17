@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 3473589240848130184}
   - component: {fileID: 7724632241159618913}
   - component: {fileID: 2921991046152739296}
+  - component: {fileID: 5543081922546403874}
+  - component: {fileID: 7008569504369381206}
   m_Layer: 10
   m_Name: RangedEnemy
   m_TagString: Enemy
@@ -141,6 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
+  _effect: {fileID: 7008569504369381206}
   isDead: 0
 --- !u!114 &3473589240848130184
 MonoBehaviour:
@@ -154,6 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880d379c85b4dc244a306a582d9277bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _anim: {fileID: 4181755194323767118}
+  initialSpeed: 0
   playerPos: {fileID: 0}
 --- !u!114 &7724632241159618913
 MonoBehaviour:
@@ -194,6 +199,40 @@ MonoBehaviour:
   enemyType: 1
   baseCastDistance: 0.5
   CastPos: {fileID: 7662601010576386789}
+--- !u!114 &5543081922546403874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297576976415879222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fb0e30b90c94a845811877f7afee599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coins: 10
+--- !u!114 &7008569504369381206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297576976415879222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3010eb196e7740e45882c5b0cc402d33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 1442757716157603815}
+  flashDuration: 0.2
+  _hitMat: {fileID: 2100000, guid: 81f3674a6161afa41a34fb039b42011e, type: 2}
+  _screenShake: {fileID: 0}
+  _shakeMultiplier: 0
+  _shakePower: {x: 0, y: 0, z: 0}
+  _hitFX01Prefab: {fileID: 0}
+  _hitFX02Prefab: {fileID: 0}
+  _rb: {fileID: 0}
 --- !u!1 &1519648896790312083
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,7 +585,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.625, y: 2.625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

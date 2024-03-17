@@ -9,12 +9,16 @@ using Panda.Examples.Shooter;
 
 public class AI : MonoBehaviour
 {
+    
     Enemy enemy;
     RigidbodyComponent _rb;
+    [SerializeField]
     Animator _anim;
     float stopSpeed = 0f;
     float movementSpeed;
     float offsetY = 1.0f;
+
+    Vector2 SpawnPoint = Vector2.zero;
 
     [SerializeField]
     float initialSpeed;
@@ -26,11 +30,12 @@ public class AI : MonoBehaviour
     void Start()
     {
         enemy = GetComponent<Enemy>();
-        _anim = enemy.animator;
+        //_anim = enemy.animator;
         _rb = enemy.rb;
         movementSpeed = initialSpeed;
         playerPos = GameObject.FindWithTag("Player").transform;
         playerRB = GameObject.FindWithTag("Player").gameObject.GetComponent<RigidbodyComponent>();
+        SpawnPoint = transform.position;
     }
 
     // Update is called once per frame
@@ -85,6 +90,14 @@ public class AI : MonoBehaviour
         Task.current.Succeed();
     }
 
+    [Task]
+    public void Idle()
+    {
+        movementSpeed = stopSpeed;
+        AnimStateUpdate();
+        Task.current.Succeed();
+    }
+
     //[Task]
     //public bool IsWithinView()
     //{
@@ -97,6 +110,19 @@ public class AI : MonoBehaviour
     //    }
     //    return false;
     //}
+    [Task]
+    public bool IsDead()
+    {
+        if(enemy.GetComponent<EnemyHealthComponent>().isDead)
+        {
+            movementSpeed = stopSpeed;
+            AnimStateUpdate();
+            return true;
+        }
+
+        return false;
+
+    }
 
     [Task]
     public bool IsWithinView()
@@ -152,6 +178,52 @@ public class AI : MonoBehaviour
     }
 
     [Task]
+    public bool IsWithinRange(float range)
+    {
+        bool result = false;
+        float distanceToTarget = Vector2.Distance(playerPos.position, transform.position);
+        float attackRange = range;
+
+        if (distanceToTarget <= attackRange)
+        {
+            if (playerPos.position.x < transform.position.x)
+            {
+                if (_rb.CurrentFacingDirection == RigidbodyComponent.FacingDirections.RIGHT)
+                {
+                    Turn();
+                }
+            }
+            else
+            {
+                if (_rb.CurrentFacingDirection == RigidbodyComponent.FacingDirections.LEFT)
+                {
+                    Turn();
+                }
+
+            }
+            result = true;
+        }
+        return result;
+    }
+
+    [Task]
+    public void Chase()
+    {
+        movementSpeed = initialSpeed;
+        AnimStateUpdate();
+        transform.position = Vector2.MoveTowards(transform.position, playerPos.position, movementSpeed * Time.deltaTime);
+        Task.current.Succeed();
+    }
+    [Task]
+    public void ReturnToSpawnPoint()
+    {
+        movementSpeed = initialSpeed;
+        AnimStateUpdate();
+        transform.position = Vector2.MoveTowards(transform.position, SpawnPoint, movementSpeed * Time.deltaTime);
+        Task.current.Succeed();
+    }
+
+    [Task]
     public bool IsOnSamePlatform()
     {
         bool result;
@@ -204,6 +276,7 @@ public class AI : MonoBehaviour
 
                 if (enemy.GetComponent<EnemyHealthComponent>().isDead == true)
                 {
+                    _anim.SetInteger("state", -1);
                     _anim.SetTrigger("death");
                 }
                 break;
@@ -221,6 +294,25 @@ public class AI : MonoBehaviour
 
                 if (enemy.GetComponent<EnemyHealthComponent>().isDead == true)
                 {
+                    _anim.SetInteger("state", -1);
+                    _anim.SetTrigger("death");
+                }
+                break;
+
+            case (int)Enemy.EnemyType.FLYING_ENEMY:
+
+                if (IsWithinRange(10.0f))
+                {
+                    _anim.SetInteger("state", (int)Enemy.AnimationState.ATTACK);
+                }
+                else
+                {
+                    _anim.SetInteger("state", (int)Enemy.AnimationState.IDLE);
+                }
+
+                if (enemy.GetComponent<EnemyHealthComponent>().isDead == true)
+                {
+                    _anim.SetInteger("state", -1);
                     _anim.SetTrigger("death");
                 }
                 break;

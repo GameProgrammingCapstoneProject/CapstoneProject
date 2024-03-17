@@ -58,11 +58,15 @@ namespace Core.PlayerInput
                 _playerInputActions.UI.Disable();
                 _playerInputActions.Gameplay.Enable();
             }
-            else
+            else if (newgamestate == GameState.States.UI)
             {
                 _playerInputActions.Gameplay.Disable();
                 _playerInputActions.UI.Enable();
-
+            }
+            else if (newgamestate == GameState.States.CutScene)
+            {
+                _playerInputActions.Gameplay.Disable();
+                _playerInputActions.UI.Disable();
             }
         }
         private void StartAttackCooldown()
