@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using System;
+using Core.Extension;
 
 /* GUIDE TO USING SOUND MANAGER
    BY JOSHUA MULLER
@@ -30,18 +31,16 @@ Object.FindObjectOfType<SoundManager> ().PlayLoopedMusic("Sound Name");
 
 If you need any more help, please contact Joshua.
 */
-public class SoundManager : MonoBehaviour{
-
+public class SoundManager : PersistentObject<SoundManager>
+{
     public static SoundManager Instance;
-
     public Sound[] sounds;
     private float soundMod = 1f;
     private float musicMod = 1f;
-    private void Awake()
+
+    protected override void Awake()
     {
-
-
-
+        base.Awake();
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -50,17 +49,23 @@ public class SoundManager : MonoBehaviour{
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
         }
-       
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 
-    public void Play (string name)
+
+    public void Play(string name)
     {
-
-
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.volume = s.volume * soundMod;
         s.source.Play();
- 
     }
 
     public void PlayLooped(string name)
@@ -82,7 +87,6 @@ public class SoundManager : MonoBehaviour{
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.loop = false;
-     
     }
 
     public void PlayMusic(string name)
@@ -90,7 +94,6 @@ public class SoundManager : MonoBehaviour{
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.volume = (s.volume * musicMod);
         s.source.loop = false;
-
     }
 
     public void PlayLoopedMusic(string name)
@@ -98,7 +101,6 @@ public class SoundManager : MonoBehaviour{
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.volume = (s.volume * musicMod);
         s.source.loop = false;
-
     }
 
     public void ChangeSoundVolume(float soundValue)
