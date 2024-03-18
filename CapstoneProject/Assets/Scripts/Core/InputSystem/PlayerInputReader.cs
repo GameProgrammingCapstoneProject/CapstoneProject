@@ -10,7 +10,7 @@ namespace Core.PlayerInput
     {
         private PlayerInputActions _playerInputActions;
         private bool _isAttackingCooldown = false;
-        private float _attackCooldownTime = 0.4f;
+        private float _attackCooldownTime = 0.5f;
         public float movementAxis { get; private set; } = 0;
         public float jumpValue { get; private set; } = 0;
         public float attackValue { get; private set; } = 0;
