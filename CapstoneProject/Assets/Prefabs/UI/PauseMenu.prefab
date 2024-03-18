@@ -371,7 +371,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1446,7 +1446,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1502,6 +1502,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 7981841074100974307}
   optionMenu: {fileID: 2715750100865573776}
+  musicSlider: {fileID: 3482455970902062883}
+  soundSlider: {fileID: 4407237020416546928}
 --- !u!1 &7981841074100974307
 GameObject:
   m_ObjectHideFlags: 0

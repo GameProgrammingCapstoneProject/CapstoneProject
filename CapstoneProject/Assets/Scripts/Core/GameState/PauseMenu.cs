@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -9,10 +10,18 @@ public class PauseMenu : MonoBehaviour
     public GameObject optionMenu;
     private bool isOpeningOptionsMenu = false;
     public static bool isPaused = false;
+    public Slider musicSlider;
+    public Slider soundSlider;
     // Start is called before the first frame update
     void Start()
     {
         pauseMenu.SetActive(false);
+        musicSlider.value = SoundManager.Instance.musicMod;
+        soundSlider.value = SoundManager.Instance.soundMod;
+        OnSoundSliderValueChanged(SoundManager.Instance.soundMod);
+        OnMusicSliderValueChanged(SoundManager.Instance.musicMod);
+        musicSlider.onValueChanged.AddListener(OnMusicSliderValueChanged);
+        soundSlider.onValueChanged.AddListener(OnSoundSliderValueChanged);
     }
 
 
@@ -103,5 +112,13 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit(); //(intentionally) Doesn't work in the editor, only in an acutal build.
+    }
+    private void OnSoundSliderValueChanged(float value)
+    {
+        SoundManager.Instance.ChangeSoundVolume(value);
+    }
+    private void OnMusicSliderValueChanged(float value)
+    {
+        SoundManager.Instance.ChangeMusicVolume(value);
     }
 }

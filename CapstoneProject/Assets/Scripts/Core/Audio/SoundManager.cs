@@ -34,15 +34,22 @@ If you need any more help, please contact Joshua.
 public class SoundManager : PersistentObject<SoundManager>
 {
 
+    public SoundList SoundList;
     public Sound[] sounds;
-    private float soundMod = 1f;
-    private float musicMod = 1f;
-
-    public static SoundManager Instance;
+    public float soundMod = 1f;
+    public float musicMod = 1f;
 
     protected override void Awake()
     {
         base.Awake();
+        
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        SoundList = FindObjectOfType<SoundList>();
+        sounds = SoundList.sounds;
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -51,16 +58,8 @@ public class SoundManager : PersistentObject<SoundManager>
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
         }
-
-
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
+        Stop("ExampleSong");
+        PlayLooped("ExampleSong");
     }
 
     public void Play (string name)
