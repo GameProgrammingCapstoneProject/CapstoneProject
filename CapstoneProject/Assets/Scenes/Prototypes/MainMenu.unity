@@ -2141,8 +2141,8 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - name: ExampleSong
-    clip: {fileID: 8300000, guid: 9b2de5d4edc44f74fab2f09f6ab115b9, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: baa04d96c448a584cbd7822a1f134ddc, type: 3}
+    volume: 0.596
     pitch: 1
     source: {fileID: 0}
 --- !u!1 &1292767912

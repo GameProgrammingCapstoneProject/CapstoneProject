@@ -124,7 +124,7 @@ GameObject:
   m_Layer: 0
   m_Name: FlyingEnemy
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: a6fbd5a181bc51e42a61a73fe8d727c8, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a82edf373e6bf409cb8a5f3acf7973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageInterval: 2.5
+  _damageInterval: 3.5
   _damageAmount: 1
 --- !u!1 &4876872096124091967
 GameObject:
