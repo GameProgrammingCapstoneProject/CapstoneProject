@@ -42699,10 +42699,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1753819684}
     m_Modifications:
-    - target: {fileID: 462600290255130902, guid: 20f0179edf7284941ba366116b1077cb, type: 3}
-      propertyPath: _damageInterval
-      value: 3.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1220296112298096028, guid: 20f0179edf7284941ba366116b1077cb, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -42712,16 +42708,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2680007655756638374, guid: 20f0179edf7284941ba366116b1077cb, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 2800000, guid: a6fbd5a181bc51e42a61a73fe8d727c8, type: 3}
-    - target: {fileID: 2680007655756638374, guid: 20f0179edf7284941ba366116b1077cb, type: 3}
       propertyPath: m_Name
       value: FlyingEnemy (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2680007655756638374, guid: 20f0179edf7284941ba366116b1077cb, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3266952283701380807, guid: 20f0179edf7284941ba366116b1077cb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -44127,10 +44115,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1753819684}
     m_Modifications:
-    - target: {fileID: 462600290255130902, guid: 20f0179edf7284941ba366116b1077cb, type: 3}
-      propertyPath: _damageInterval
-      value: 3.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1220296112298096028, guid: 20f0179edf7284941ba366116b1077cb, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -44140,16 +44124,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2680007655756638374, guid: 20f0179edf7284941ba366116b1077cb, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 2800000, guid: a6fbd5a181bc51e42a61a73fe8d727c8, type: 3}
-    - target: {fileID: 2680007655756638374, guid: 20f0179edf7284941ba366116b1077cb, type: 3}
       propertyPath: m_Name
       value: FlyingEnemy (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2680007655756638374, guid: 20f0179edf7284941ba366116b1077cb, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3266952283701380807, guid: 20f0179edf7284941ba366116b1077cb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -44322,7 +44298,7 @@ Transform:
   m_GameObject: {fileID: 602985465}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.399277, y: -9.929829, z: -1.3254291}
+  m_LocalPosition: {x: 30.399277, y: -10, z: -1.3254291}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -44407,10 +44383,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1753819684}
     m_Modifications:
-    - target: {fileID: 462600290255130902, guid: 20f0179edf7284941ba366116b1077cb, type: 3}
-      propertyPath: _damageInterval
-      value: 3.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1220296112298096028, guid: 20f0179edf7284941ba366116b1077cb, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -45083,10 +45055,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1753819684}
     m_Modifications:
-    - target: {fileID: 462600290255130902, guid: 20f0179edf7284941ba366116b1077cb, type: 3}
-      propertyPath: _damageInterval
-      value: 3.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1220296112298096028, guid: 20f0179edf7284941ba366116b1077cb, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -45096,16 +45064,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2680007655756638374, guid: 20f0179edf7284941ba366116b1077cb, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 2800000, guid: a6fbd5a181bc51e42a61a73fe8d727c8, type: 3}
-    - target: {fileID: 2680007655756638374, guid: 20f0179edf7284941ba366116b1077cb, type: 3}
       propertyPath: m_Name
       value: FlyingEnemy (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2680007655756638374, guid: 20f0179edf7284941ba366116b1077cb, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3266952283701380807, guid: 20f0179edf7284941ba366116b1077cb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -50030,10 +49990,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RangedEnemy (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 297576976415879222, guid: 32fc5c2d943af184b9603d667380f926, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3301546530538971502, guid: 32fc5c2d943af184b9603d667380f926, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -50108,10 +50064,6 @@ PrefabInstance:
     - target: {fileID: 297576976415879222, guid: 32fc5c2d943af184b9603d667380f926, type: 3}
       propertyPath: m_Name
       value: RangedEnemy (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 297576976415879222, guid: 32fc5c2d943af184b9603d667380f926, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3301546530538971502, guid: 32fc5c2d943af184b9603d667380f926, type: 3}
       propertyPath: m_AnchorMax.x
@@ -50260,10 +50212,6 @@ PrefabInstance:
     - target: {fileID: 297576976415879222, guid: 32fc5c2d943af184b9603d667380f926, type: 3}
       propertyPath: m_Name
       value: RangedEnemy (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 297576976415879222, guid: 32fc5c2d943af184b9603d667380f926, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3301546530538971502, guid: 32fc5c2d943af184b9603d667380f926, type: 3}
       propertyPath: m_AnchorMax.x
@@ -52081,10 +52029,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RangedEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 297576976415879222, guid: 32fc5c2d943af184b9603d667380f926, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3301546530538971502, guid: 32fc5c2d943af184b9603d667380f926, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -52449,10 +52393,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RangedEnemy (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 297576976415879222, guid: 32fc5c2d943af184b9603d667380f926, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3301546530538971502, guid: 32fc5c2d943af184b9603d667380f926, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -52551,10 +52491,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 29325562241796421, guid: 0c61ba37bc1c82341acebc4cb7825ab4, type: 3}
-      propertyPath: _coins
-      value: 3000
-      objectReference: {fileID: 0}
     - target: {fileID: 463776978811722927, guid: 0c61ba37bc1c82341acebc4cb7825ab4, type: 3}
       propertyPath: _abilityShopUI
       value: 
