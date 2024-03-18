@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9026115510705516181
+--- !u!1 &6493329853814503771
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,43 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5778426567880408068}
-  - component: {fileID: 9166735686194617023}
+  - component: {fileID: 4904960117635371120}
+  - component: {fileID: 8373586385399614479}
   m_Layer: 0
-  m_Name: SoundManager
+  m_Name: SoundList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5778426567880408068
+--- !u!4 &4904960117635371120
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9026115510705516181}
+  m_GameObject: {fileID: 6493329853814503771}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 64.44253, y: 11.801678, z: -2.977932}
+  m_LocalPosition: {x: 227.5418, y: 138.40466, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9166735686194617023
+--- !u!114 &8373586385399614479
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9026115510705516181}
+  m_GameObject: {fileID: 6493329853814503771}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f71a6bdf762ac634b8294a046b22cd48, type: 3}
+  m_Script: {fileID: 11500000, guid: e6fbfe9b261e23641998db38c1749cc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoundList: {fileID: 0}
   sounds:
   - name: PlayerJump
     clip: {fileID: 8300000, guid: 6d04f271f6054ae4a94a77792b4d270a, type: 3}
@@ -188,8 +187,6 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: ExampleSong
     clip: {fileID: 8300000, guid: baa04d96c448a584cbd7822a1f134ddc, type: 3}
-    volume: 0.726
+    volume: 1
     pitch: 1
     source: {fileID: 0}
-  soundMod: 1
-  musicMod: 1

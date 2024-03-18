@@ -62,6 +62,11 @@ public class SoundManager : PersistentObject<SoundManager>
         PlayLooped("ExampleSong");
     }
 
+    private void OnDestroy()
+    {
+        Stop("ExampleSong");
+    }
+
     public void Play (string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);

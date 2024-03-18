@@ -25,15 +25,22 @@ public class MainMenu : MonoBehaviour
 
     public void Continue()
     {
+#if UNITY_EDITOR
         SceneManager.LoadScene(EditorBuildSettings.scenes[1].path);
+#else
+        SceneManager.LoadScene("Vertical_Slice");
+#endif
 
-
-   //   SceneManager.LoadScene("Final_Prototype");
+        //   SceneManager.LoadScene("Final_Prototype");
     }
 
     public void NewGame()
     {
+#if UNITY_EDITOR
         SceneManager.LoadScene(EditorBuildSettings.scenes[1].path);
+#else
+        SceneManager.LoadScene("Vertical_Slice");
+#endif
         DeleteSave();
     }
 
