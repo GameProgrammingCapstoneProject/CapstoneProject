@@ -92,7 +92,7 @@ namespace Core.Entity
 
         public void SavePlayer()
         {
-            int health = HealthComponent.currentHealth;
+            int health = HealthComponent.GetHealth();
             int keys = KeyItemComponent.GetKeys();
             int coins = CoinComponent.GetCoins();
 
@@ -169,6 +169,7 @@ namespace Core.Entity
                 CoinComponent.ChangeCoins(data.playerCoins);
                 KeyItemComponent.ChangeKeys(data.playerKeys);
                 HealthComponent.ChangeHealth(data.playerHealth);
+                
                 var ability = AbilityComponent.playerAbilities;
                 /*                List<PlayerAbility> ability = new List<PlayerAbility>()
                                 {

@@ -18,7 +18,8 @@ public class PlayerHealthComponent : MonoBehaviour, IDamageable
 
     private void Start()
     {
-        currentHealth = _maxHealth;
+      if (currentHealth == 0)
+            currentHealth = _maxHealth;
     }
 
     public void TakeDamage(int damage)
@@ -90,9 +91,16 @@ public class PlayerHealthComponent : MonoBehaviour, IDamageable
 
     public void ChangeHealth(int health)
     {
-        if (health <= 0)
-            health = 6;
-        currentHealth= health;
+         if (health == 0)
+          {
+              Debug.Log("Weird that the health is" + health);
+              health = 6;
+          }
+             Debug.Log("Good thing that the health is" + health);
+      
+        currentHealth = health;
         OnHealthChanged?.Invoke();
     }
+
+    public int GetHealth() => currentHealth;
 }

@@ -52553,7 +52553,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 29325562241796421, guid: 0c61ba37bc1c82341acebc4cb7825ab4, type: 3}
       propertyPath: _coins
-      value: 3000
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 463776978811722927, guid: 0c61ba37bc1c82341acebc4cb7825ab4, type: 3}
       propertyPath: _abilityShopUI
