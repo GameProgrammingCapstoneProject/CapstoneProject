@@ -34,7 +34,6 @@ namespace Core.Extension
                     {
                         GameObject obj = new GameObject();
                         _instance = obj.AddComponent<T>();
-
                         // Setting name for better management
                         string[] typeName = obj.GetComponent<T>().ToString().Split('.', ')');
                         _instance.name = typeName[typeName.Length - 2];
@@ -63,8 +62,8 @@ namespace Core.Extension
         protected virtual void Start()
         {
             // If another Singleton already exists, destroy this one.
-            /*if (_instance != null && _instance != this)
-                Destroy(this);*/
+            if (_instance != null && _instance != this)
+                Destroy(this);
         }
 
         protected virtual void OnApplicationQuit()
