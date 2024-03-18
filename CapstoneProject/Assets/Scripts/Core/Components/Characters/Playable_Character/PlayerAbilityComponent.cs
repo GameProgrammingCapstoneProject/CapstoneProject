@@ -2,8 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Core.Entity;
-using UnityEditor.Playables;
 using UnityEngine;
+//using UnityEditor.Playables;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Player))]
