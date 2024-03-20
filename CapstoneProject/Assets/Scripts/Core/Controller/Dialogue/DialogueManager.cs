@@ -11,21 +11,18 @@ using static Unity.Burst.Intrinsics.X86;
 public class DialogueManager : MonoBehaviour
 {
 
+    //Handles the current player actions against the NPC
+    public enum relationshipStatus { defaultState, killedByPlayer, killedByPlayerRepeat, sidequestFinished };
+    //Handles the players affiliation for ending purposes
+    public enum playerAffiliation { none, khai, amaleth }
+    //Tracks the recent deaths of the player
+    public enum recentDeaths { newGame, died, diedRepeat, runComplete }
+
     public struct GameState
     {
-        //Numbered by level: 1-5 for standard stages, 6 for a run completion, 0 for new game
-        public short recentDeath;
-
-        //0 = default, no relation
-        //1 = recently killed by player
-        //2 = killed by player more than once
-        //3 = completed sidequest 
-        public short relationshipStatus;
-
-        //0 = none
-        //1 = affiliated with Khai
-        //2 = affiliated with Amaleth
-        public short affiliation;
+        public recentDeaths deathStatus;
+        public relationshipStatus status;
+        public playerAffiliation affiliation;
 
         //Tracks the number of completed runs
         public short runsCompleted;
@@ -37,18 +34,15 @@ public class DialogueManager : MonoBehaviour
         //Tracks the progress of the current NPCs quest
         public short NPCQuestProgress;
 
-        //Tracks the current NPC loaded into the level
-        //shopkeepers excluded; they are always loaded
+        //Tracks the current NPC associated with the dialogue manager
+        //shopkeepers excluded
         public string currentNPC;
-
-        //Tracks the current state of the dialogue box.
-        public short dialogueStage;
     };
 
     GameState gameState = new GameState();
 
-    //Loaded dialogue object
-    List <string> loadedDialogue = new List<string> ();
+    //Loaded dialogue objects
+    List<string> loadedDialogue = new List<string> ();
     string dialogueTransition;
 
     //Referenced UI elements
@@ -61,8 +55,9 @@ public class DialogueManager : MonoBehaviour
     private UnityEngine.UI.Image displayPortraitImage;
     private TextMeshProUGUI displayTextMeshPro;
 
-    public int npcID = 0;
-   
+    //Sets the NPC in the inspector to the desired type
+    public enum npcID { Whirl, Emelia, Ezekiel };
+    public npcID currentID;
    
     //Use to get the relevant UI elements
     //displayBoxObject.GetComponent<Image>();
@@ -85,15 +80,12 @@ public class DialogueManager : MonoBehaviour
 
     //Text scrolling variables
     private float textScrollSpeed = 0.06f;
-    private bool textIsPlaying = false;
 
     //Player input variables
     private bool dialoguePriority = false;
     private bool dialogueIsplaying = false;
     private short dialogueState = 0;
     private bool dialogueSkipRepeat = false;
-
-    private bool dialoguePlaying = false;
 
     //Reference of the scrolling text coroutine to stop it
     private IEnumerator scrollingCoroutine;
@@ -103,15 +95,20 @@ public class DialogueManager : MonoBehaviour
         //Debug for game state
         //gameState.currentNPC = "Whirl";
 
-        if (npcID == 0)
+        //Default values for the game state
+        gameState.deathStatus = recentDeaths.newGame;
+        gameState.status = relationshipStatus.defaultState;
+        gameState.affiliation = playerAffiliation.none;
+
+        if (currentID == npcID.Whirl)
         {
             gameState.currentNPC = "Whirl";
         }
-        else if (npcID == 1)
+        else if (currentID == npcID.Emelia)
         {
             gameState.currentNPC = "Emelia";
         }
-        else if (npcID == 2)
+        else if (currentID == npcID.Ezekiel)
         {
             gameState.currentNPC = "Ezekiel";
         }
@@ -140,14 +137,12 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 UnityEngine.Debug.Log("Unexpected error when loading dialogue object in Dialogue Manager");
-                Cleanup();
                 Destroy(this);
             }
         }
         else
         {
             UnityEngine.Debug.Log("Unexpected error when loading state in Dialogue Manager");
-            Cleanup();
             Destroy(this);
         }
     }
@@ -279,22 +274,22 @@ public class DialogueManager : MonoBehaviour
             UnityEngine.Debug.Log("Looping");
             dialogueSkipRepeat = false;
 
-            if (gameState.relationshipStatus == 2)
+            if (gameState.status == relationshipStatus.killedByPlayerRepeat)
             {
                 StartCoroutine(SearchForState(textCoroutine, "playerkillrepeat", "break"));
                 dialogueSkipRepeat = true;
             }
-            else if (gameState.relationshipStatus == 1)
+            else if (gameState.status == relationshipStatus.killedByPlayer)
             {
                 StartCoroutine(SearchForState(textCoroutine, "playerkill", "playerdeathrepeat"));
                 dialogueSkipRepeat = true;
             }
-            else if (gameState.recentDeath > 2)
+            else if (gameState.deathStatus == recentDeaths.died)
             {
-                StartCoroutine(SearchForState(textCoroutine, "playerkillrepeat", "break"));
+                StartCoroutine(SearchForState(textCoroutine, "playerdeath", "playerkill"));
                 dialogueSkipRepeat = true;
             }
-            else if (gameState.recentDeath == 1)
+            else if (gameState.deathStatus == recentDeaths.diedRepeat)
             {
                 StartCoroutine(SearchForState(textCoroutine, "playerdeathrepeat", "playerkillrepeat"));
                 dialogueSkipRepeat = true;
@@ -311,7 +306,6 @@ public class DialogueManager : MonoBehaviour
                     yield return new WaitForSeconds(0.2F);
                 }
                 UnityEngine.Debug.Log("Finished drawing text 2");
-                StopCoroutine(textCoroutine);
                 Cleanup();
                 break;
             }
@@ -370,7 +364,6 @@ public class DialogueManager : MonoBehaviour
             }*/
         }
         UnityEngine.Debug.Log(dialogueIsplaying);
-        yield return null;
     }
 
     private IEnumerator TextScrollInput(string displayText)
