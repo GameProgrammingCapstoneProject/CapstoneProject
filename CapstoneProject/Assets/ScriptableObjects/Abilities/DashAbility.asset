@@ -17,4 +17,4 @@ MonoBehaviour:
   abilityDescription: 
   _cooldown: 2.5
   _isUnlocked: 1
-  _invincibleTime: 2
+  _invincibleTime: 1

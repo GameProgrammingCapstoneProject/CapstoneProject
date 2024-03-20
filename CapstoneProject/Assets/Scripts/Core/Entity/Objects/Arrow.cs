@@ -20,6 +20,8 @@ public class Arrow : MonoBehaviour
     private const float _permissibleDistance = 0.1f;
     private float _height = 0f;
     private int _numberOfParabolaPoints = 20;
+    [SerializeField]
+    private int _damage = 20;
     private void Start()
     {
         if (pathPoints.Count > 0)
@@ -87,14 +89,18 @@ public class Arrow : MonoBehaviour
         if (col.gameObject.layer == LayerMask.NameToLayer("Ground") || 
             col.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            HitCollision();
+            HitCollision(col.gameObject);
         }
     }
 
-    private void HitCollision()
+    private void HitCollision(GameObject target)
     {
         GetComponent<BoxCollider2D>().enabled = false;
         _animator.SetTrigger("Impact");
+        if (target.GetComponent<EnemyHealthComponent>() != null)
+        {
+            target.GetComponent<EnemyHealthComponent>().TakeDamage(_damage);
+        }
         _isImpact = true;
     }
 

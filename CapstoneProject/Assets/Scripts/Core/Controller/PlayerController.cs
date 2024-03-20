@@ -36,12 +36,10 @@ public class PlayerController : MonoBehaviour
                 if (PauseMenu.isPaused == true)
                 {
                     PauseMenu.isPaused = false;
-                    Debug.Log("Unpaused Game");
                 }
                 else
                 {
                     PauseMenu.isPaused = true;
-                    Debug.Log("Paused Game");
                 }
             }
             switch (_currentState)
@@ -138,10 +136,7 @@ public class PlayerController : MonoBehaviour
             {
                 GameState.Instance.CurrentGameState = GameState.States.Gameplay;
                 _abilityShopUI.gameObject.SetActive(false);
-
                 _player.SavePlayer();
-                UnityEngine.Object.FindObjectOfType<SoundManager>().Play("PlayerInteractFail");
-
                 SoundManager.Instance.Play("PlayerInteractFail");
 
             }
