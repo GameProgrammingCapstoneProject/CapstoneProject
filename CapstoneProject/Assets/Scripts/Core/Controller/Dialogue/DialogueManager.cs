@@ -117,7 +117,7 @@ public class DialogueManager : MonoBehaviour
         displayBoxObject.GetComponent<UnityEngine.UI.Image>().sprite = textBoxImage;
         if (displayBoxObject.GetComponent<UnityEngine.UI.Image>().sprite == null)
         {
-            UnityEngine.Debug.Log("Error: Failed to load image text box.");
+            UnityEngine.Debug.LogError("Error: Failed to load image text box.");
         }
 
         //Loads from the required managers, and checks for success
@@ -131,18 +131,17 @@ public class DialogueManager : MonoBehaviour
                 displayPortraitImage = displayPortraitObject.GetComponent<UnityEngine.UI.Image>();
                 displayTextMeshPro = displayTextObject.GetComponent<TextMeshProUGUI>();
                 
-                UnityEngine.Debug.Log("Successfully loaded dialogue.");
                 //StartInteraction();
             }
             else
             {
-                UnityEngine.Debug.Log("Unexpected error when loading dialogue object in Dialogue Manager");
+                UnityEngine.Debug.LogError("Unexpected error when loading dialogue object in Dialogue Manager");
                 Destroy(this);
             }
         }
         else
         {
-            UnityEngine.Debug.Log("Unexpected error when loading state in Dialogue Manager");
+            UnityEngine.Debug.LogError("Unexpected error when loading state in Dialogue Manager");
             Destroy(this);
         }
     }
@@ -187,12 +186,12 @@ public class DialogueManager : MonoBehaviour
         //Check if the dialogue loaded successfully
         if (loadedDialogue == null)
         {
-            UnityEngine.Debug.Log("Error: Failed to load dialogue.");
+            UnityEngine.Debug.LogError("Error: Failed to load dialogue.");
             success = false;
         }
         if (displayPortraitObject.GetComponent<UnityEngine.UI.Image>().sprite == null)
         {
-            UnityEngine.Debug.Log("Error: Failed to load dialogue portrait.");
+            UnityEngine.Debug.LogError("Error: Failed to load dialogue portrait.");
             success = false;
         }
         
@@ -222,7 +221,6 @@ public class DialogueManager : MonoBehaviour
         if (!dialogueIsplaying)
         {
             dialogueIsplaying = true;
-            UnityEngine.Debug.Log("Starting interaction...");
             LoadScriptObject();
             DisplayDialogueBox();
             DisplayDialoguePortrait();
@@ -265,13 +263,9 @@ public class DialogueManager : MonoBehaviour
     private IEnumerator MainDialogueLoop()
     {
         IEnumerator textCoroutine = null;
-        
-        UnityEngine.Debug.Log("Main dialogue loop entered");
-
 
         foreach(string dialogue in loadedDialogue)
         {
-            UnityEngine.Debug.Log("Looping");
             dialogueSkipRepeat = false;
 
             if (gameState.status == relationshipStatus.killedByPlayerRepeat)
@@ -296,8 +290,7 @@ public class DialogueManager : MonoBehaviour
             }
             
             if (dialogueSkipRepeat || dialogueState == 6)
-            {                                                       
-                UnityEngine.Debug.Log("Drawing text 2");                
+            {                                                                    
                 textCoroutine = TextScrollInput(dialogueTransition);
                 dialoguePriority = true;
                 StartCoroutine(textCoroutine);
@@ -305,17 +298,14 @@ public class DialogueManager : MonoBehaviour
                 {
                     yield return new WaitForSeconds(0.2F);
                 }
-                UnityEngine.Debug.Log("Finished drawing text 2");
                 Cleanup();
                 break;
             }
 
             if (dialogue == "maindialogue1" && dialogueState == 0)
             {
-                UnityEngine.Debug.Log("Began sending dialogue 1");
                 StartCoroutine(SearchForState(textCoroutine, "maindialogue1", "maindialogue2"));
                 dialogueState++;
-                UnityEngine.Debug.Log("finished dialogue");
                 break;
             }
             else if (dialogue == "maindialogue2" && dialogueState == 1)
@@ -363,14 +353,12 @@ public class DialogueManager : MonoBehaviour
                 StopCoroutine(textCoroutine);
             }*/
         }
-        UnityEngine.Debug.Log(dialogueIsplaying);
     }
 
     private IEnumerator TextScrollInput(string displayText)
     {
         IEnumerator textCoroutine = TextScroll(displayText);
         StartCoroutine(textCoroutine);
-        UnityEngine.Debug.Log("In the input enumerator");
 
         bool input = false;
         while (!input)
@@ -392,20 +380,16 @@ public class DialogueManager : MonoBehaviour
         {
             if (dialogueStatus == searchText)
             {
-                UnityEngine.Debug.Log("found the text");
                 int position = loadedDialogue.IndexOf(dialogueStatus);
                 foreach (string dialogueStatusConfirmed in loadedDialogue)
                 {
                     if (dialogueStatusConfirmed == checkText)
                     {
-                        UnityEngine.Debug.Log("breaking");
                         breakText = true;
                         break;
                     }
                     if (loadedDialogue.IndexOf(dialogueStatusConfirmed) > position)
                     {
-
-                        UnityEngine.Debug.Log("Drawing text 1");
                         textCoroutine = TextScrollInput(dialogueStatusConfirmed);
                         dialoguePriority = true;
                         StartCoroutine(textCoroutine);
@@ -413,7 +397,6 @@ public class DialogueManager : MonoBehaviour
                         {
                             yield return new WaitForSeconds(0.2F);
                         }
-                        UnityEngine.Debug.Log("Finished drawing text 1");
                         StopCoroutine(textCoroutine);
                     }
                 }
@@ -429,7 +412,6 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator TextScroll(string displayText)
     {
-        UnityEngine.Debug.Log("Writing text with length of" + displayText.Length);
         for (int i = 0; i < displayText.Length; i++)
         {
             displayTextObject.GetComponent<TextMeshProUGUI>().SetText(displayText.Substring(0, i+1));

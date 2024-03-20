@@ -23,7 +23,6 @@ public class NPCDialogue : MonoBehaviour, IInteractable
     {
         if (!triggered)
         {
-            Debug.Log("Interacted!");
             manager.StartInteraction();
             triggered = true;
         }
