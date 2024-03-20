@@ -7,7 +7,7 @@ using UnityEngine;
 public class DashAbility : PlayerAbility
 {
     [SerializeField]
-    private float _invincibleTime = 2.0f;
+    private float _invincibleTime = 1.0f;
     public event System.Action<DashAbility> OnDashAbilityCoolDown;
     protected override void Activate()
     {

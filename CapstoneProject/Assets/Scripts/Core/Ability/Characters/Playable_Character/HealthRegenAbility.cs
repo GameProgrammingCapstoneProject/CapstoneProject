@@ -17,7 +17,7 @@ public class HealthRegenAbility : PlayerAbility
             _currenthealthRegen = GameObject.Instantiate(_healthRegenPrefab, new Vector3(Instigator.transform.position.x, Instigator.transform.position.y + _yOffset, Instigator.transform.position.z), Instigator.transform.rotation);
             _currenthealthRegen.Setup(Instigator);
             OnHealthRegenAbilityCoolDown?.Invoke(this);
-            Debug.Log("Health Regen Activated");
+            Instigator.HealthComponent.IncreaseHealthBy(1);
         }
     }
 }
