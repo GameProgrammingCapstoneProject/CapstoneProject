@@ -109,3 +109,4 @@ MonoBehaviour:
   - As good of a reason to forgive you as anything else, yes?
   - break
   dialogueSize: 62
+  displayPortraitImage: {fileID: 21300000, guid: ded8fda03dbb920428bd6dcf09d1d7be, type: 3}

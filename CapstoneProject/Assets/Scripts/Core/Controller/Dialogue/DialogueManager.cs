@@ -74,12 +74,10 @@ public class DialogueManager : MonoBehaviour
 
     //Images for text and dialogue portrait
     public Sprite textBoxImage;
-    public Sprite whirlPortraitImage;
-    public Sprite emeliaPortraitImage;
-    public Sprite ezekielPortraitImage;
 
     //Text scrolling variables
     private float textScrollSpeed = 0.06f;
+    private float textInputCheckSpeed = 0.2f;
 
     //Player input variables
     private bool dialoguePriority = false;
@@ -112,6 +110,7 @@ public class DialogueManager : MonoBehaviour
         {
             gameState.currentNPC = "Ezekiel";
         }
+        
 
         //Loads and checks the display box sprite
         displayBoxObject.GetComponent<UnityEngine.UI.Image>().sprite = textBoxImage;
@@ -170,17 +169,17 @@ public class DialogueManager : MonoBehaviour
         if (gameState.currentNPC == "Whirl")
         {
             MoveObjectToList(whirlDialogue);
-            displayPortraitObject.GetComponent<UnityEngine.UI.Image>().sprite = whirlPortraitImage;
+            displayPortraitObject.GetComponent<UnityEngine.UI.Image>().sprite = whirlDialogue.displayPortraitImage;
         }
         else if (gameState.currentNPC == "Emelia")
         {
             MoveObjectToList(emeliaDialogue);
-            displayPortraitObject.GetComponent<UnityEngine.UI.Image>().sprite = emeliaPortraitImage;
+            displayPortraitObject.GetComponent<UnityEngine.UI.Image>().sprite = emeliaDialogue.displayPortraitImage;
         }
         else if (gameState.currentNPC == "Ezekiel")
         {
             MoveObjectToList(ezekielDialogue);
-            displayPortraitObject.GetComponent<UnityEngine.UI.Image>().sprite = ezekielPortraitImage;
+            displayPortraitObject.GetComponent<UnityEngine.UI.Image>().sprite = ezekielDialogue.displayPortraitImage;
         }
 
         //Check if the dialogue loaded successfully
@@ -296,7 +295,7 @@ public class DialogueManager : MonoBehaviour
                 StartCoroutine(textCoroutine);
                 while (dialoguePriority)
                 {
-                    yield return new WaitForSeconds(0.2F);
+                    yield return new WaitForSeconds(textInputCheckSpeed);
                 }
                 Cleanup();
                 break;
@@ -395,7 +394,7 @@ public class DialogueManager : MonoBehaviour
                         StartCoroutine(textCoroutine);
                         while (dialoguePriority)
                         {
-                            yield return new WaitForSeconds(0.2F);
+                            yield return new WaitForSeconds(textInputCheckSpeed);
                         }
                         StopCoroutine(textCoroutine);
                     }
@@ -412,9 +411,14 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator TextScroll(string displayText)
     {
+        TextMeshProUGUI scrollingTextMesh = displayTextObject.GetComponent<TextMeshProUGUI>();
+        scrollingTextMesh.SetText(displayText);
+        scrollingTextMesh.maxVisibleCharacters = 0;
+
         for (int i = 0; i < displayText.Length; i++)
         {
-            displayTextObject.GetComponent<TextMeshProUGUI>().SetText(displayText.Substring(0, i+1));
+            scrollingTextMesh.maxVisibleCharacters = i+1;
+            //displayTextObject.GetComponent<TextMeshProUGUI>().SetText(displayText.Substring(0, i+1));
             yield return new WaitForSeconds(textScrollSpeed);
         }
     }

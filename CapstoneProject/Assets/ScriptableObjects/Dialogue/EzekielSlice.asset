@@ -109,3 +109,4 @@ MonoBehaviour:
   - "Just please quit it with the stabbing. It\u2019s pure pointlessness. "
   - break
   dialogueSize: 73
+  displayPortraitImage: {fileID: 21300000, guid: 063648d3d53663540b976aa11550ca18, type: 3}
