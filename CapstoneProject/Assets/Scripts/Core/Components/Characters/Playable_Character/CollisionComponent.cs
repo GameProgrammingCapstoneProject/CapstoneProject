@@ -76,6 +76,14 @@ public class CollisionComponent : MonoBehaviour
             CanInteract = false;
             targetItem = null;
         }
+        else if (other.GetComponent<NPCDialogue>())
+        {
+            NPCDialogue dialogue = other.GetComponent<NPCDialogue>();
+            IInteractable interactableItem = dialogue.GetComponent<IInteractable>();
+            if (interactableItem == null) return;
+            CanInteract = false;
+            targetItem = null;
+        }
     }
 
     public bool IsStandingOnGround()

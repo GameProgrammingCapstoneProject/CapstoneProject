@@ -448,6 +448,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Cleanup()
     {
+        StopAllCoroutines();
         if (displayPortraitObject != null)
         {
             displayPortraitImage.enabled = false;

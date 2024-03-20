@@ -15,7 +15,6 @@ public class NPCDialogue : MonoBehaviour, IInteractable
             GetComponent<DialogueManager>().StartInteraction();
             triggered = true;
         }
-        //TODO: Trigger checkpoint save
         
     }
 
