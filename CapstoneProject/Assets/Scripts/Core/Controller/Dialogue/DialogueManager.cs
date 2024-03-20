@@ -1,5 +1,3 @@
-using Panda.Examples.PlayTag;
-using Panda.Examples.Shooter;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
