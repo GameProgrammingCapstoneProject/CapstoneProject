@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        else
+        else if (GameState.Instance.CurrentGameState == GameState.States.UI)
         {
             if (PlayerInputReader.Instance.verticalAxis < 0)
             {
@@ -138,7 +138,6 @@ public class PlayerController : MonoBehaviour
                 _abilityShopUI.gameObject.SetActive(false);
                 _player.SavePlayer();
                 SoundManager.Instance.Play("PlayerInteractFail");
-
             }
             if (IsPressed(PlayerInputReader.Instance.confirmValueUI))
             {

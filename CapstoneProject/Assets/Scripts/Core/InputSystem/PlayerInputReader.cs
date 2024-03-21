@@ -28,6 +28,7 @@ namespace Core.PlayerInput
         {
             base.Awake();
             _playerInputActions = new PlayerInputActions();
+            Application.targetFrameRate = 60;
         }
 
         protected override void Start()

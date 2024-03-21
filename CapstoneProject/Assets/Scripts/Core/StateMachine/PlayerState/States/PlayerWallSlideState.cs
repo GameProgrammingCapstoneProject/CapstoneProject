@@ -27,7 +27,7 @@ namespace Core.StateMachine
             }*/
 
             
-            Player.rb.SetVelocity(0, Player.rb.velocity.y * 0.9f);
+            Player.rb.SetVelocity(0, Player.rb.velocity.y * 0.3f);
 
             if (Mathf.Approximately(0, Player.rb.velocity.y) || !Player.CollisionComponent.IsInteractingWithWall() || PlayerInputReader.Instance.movementAxis == 0)
             {
