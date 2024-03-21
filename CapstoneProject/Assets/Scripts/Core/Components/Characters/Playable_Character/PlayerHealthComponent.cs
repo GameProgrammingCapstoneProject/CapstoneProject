@@ -35,6 +35,19 @@ public class PlayerHealthComponent : MonoBehaviour, IDamageable
         }
     }
 
+    public void TakeBrainDamage(int damage)
+    {
+        if (isDead) return;
+        DecreaseHealthBy(damage);
+        _effect.ShakeScreen();
+        _effect.StartCoroutine(nameof(_effect.FlashFX));
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            Die();
+        }
+    }
+
     public void DoDamage(int damage, Character target)
     {
         if (target.GetComponent<EnemyHealthComponent>())
