@@ -29,6 +29,19 @@ public class EnemyAnimationComponent : MonoBehaviour
         }
     }
 
+    private void TriggerFlyingAttack()
+    {
+        Collider2D[] hitObj = Physics2D.OverlapCircleAll(transform.position, 1.0f);
+        foreach (Collider2D obj in hitObj)
+        {
+            if (obj.GetComponent<Player>() != null)
+            {
+                Player player = obj.GetComponent<Player>();
+                _enemy.GetComponent<EnemyHealthComponent>().DoDamage(1, player);
+            }
+        }
+    }
+
     private void TriggerRangedAttack()
     {
         Instantiate(bullet, bulletPos.position, Quaternion.identity);
