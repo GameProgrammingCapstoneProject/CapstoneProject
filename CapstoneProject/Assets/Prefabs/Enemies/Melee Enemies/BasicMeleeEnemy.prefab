@@ -336,8 +336,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f15947118350df439ca3ce67e22d9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
+  health: 30
+  maxHealth: 30
   _effect: {fileID: 8955413412566779722}
   isDead: 0
 --- !u!114 &8955413412566779722
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fb0e30b90c94a845811877f7afee599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coins: 200
+  _coins: 250
 --- !u!1 &5042979827540391741
 GameObject:
   m_ObjectHideFlags: 0

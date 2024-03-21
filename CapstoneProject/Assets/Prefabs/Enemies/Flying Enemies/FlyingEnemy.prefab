@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _anim: {fileID: 1596466188744565456}
-  initialSpeed: 3
+  initialSpeed: 1.5
   playerPos: {fileID: 0}
 --- !u!114 &3051476983319788348
 MonoBehaviour:
@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fb0e30b90c94a845811877f7afee599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coins: 100
+  _coins: 150
 --- !u!114 &3916804398182774511
 MonoBehaviour:
   m_ObjectHideFlags: 0
