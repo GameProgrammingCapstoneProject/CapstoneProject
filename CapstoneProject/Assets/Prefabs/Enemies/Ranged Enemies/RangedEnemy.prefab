@@ -141,8 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f15947118350df439ca3ce67e22d9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
+  health: 20
+  maxHealth: 20
   _effect: {fileID: 7008569504369381206}
   isDead: 0
 --- !u!114 &3473589240848130184
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fb0e30b90c94a845811877f7afee599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coins: 100
+  _coins: 150
 --- !u!114 &7008569504369381206
 MonoBehaviour:
   m_ObjectHideFlags: 0
