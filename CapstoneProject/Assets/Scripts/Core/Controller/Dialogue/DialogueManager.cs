@@ -1,5 +1,3 @@
-using Panda.Examples.PlayTag;
-using Panda.Examples.Shooter;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,21 +11,18 @@ using static Unity.Burst.Intrinsics.X86;
 public class DialogueManager : MonoBehaviour
 {
 
+    //Handles the current player actions against the NPC
+    public enum relationshipStatus { defaultState, killedByPlayer, killedByPlayerRepeat, sidequestFinished };
+    //Handles the players affiliation for ending purposes
+    public enum playerAffiliation { none, khai, amaleth }
+    //Tracks the recent deaths of the player
+    public enum recentDeaths { newGame, died, diedRepeat, runComplete }
+
     public struct GameState
     {
-        //Numbered by level: 1-5 for standard stages, 6 for a run completion, 0 for new game
-        public short recentDeath;
-
-        //0 = default, no relation
-        //1 = recently killed by player
-        //2 = killed by player more than once
-        //3 = completed sidequest 
-        public short relationshipStatus;
-
-        //0 = none
-        //1 = affiliated with Khai
-        //2 = affiliated with Amaleth
-        public short affiliation;
+        public recentDeaths deathStatus;
+        public relationshipStatus status;
+        public playerAffiliation affiliation;
 
         //Tracks the number of completed runs
         public short runsCompleted;
@@ -39,18 +34,15 @@ public class DialogueManager : MonoBehaviour
         //Tracks the progress of the current NPCs quest
         public short NPCQuestProgress;
 
-        //Tracks the current NPC loaded into the level
-        //shopkeepers excluded; they are always loaded
+        //Tracks the current NPC associated with the dialogue manager
+        //shopkeepers excluded
         public string currentNPC;
-
-        //Tracks the current state of the dialogue box.
-        public short dialogueStage;
     };
 
     GameState gameState = new GameState();
 
-    //Loaded dialogue object
-    List <string> loadedDialogue = new List<string> ();
+    //Loaded dialogue objects
+    List<string> loadedDialogue = new List<string> ();
     string dialogueTransition;
 
     //Referenced UI elements
@@ -63,8 +55,9 @@ public class DialogueManager : MonoBehaviour
     private UnityEngine.UI.Image displayPortraitImage;
     private TextMeshProUGUI displayTextMeshPro;
 
-    public int npcID = 0;
-   
+    //Sets the NPC in the inspector to the desired type
+    public enum npcID { Whirl, Emelia, Ezekiel };
+    public npcID currentID;
    
     //Use to get the relevant UI elements
     //displayBoxObject.GetComponent<Image>();
@@ -81,21 +74,16 @@ public class DialogueManager : MonoBehaviour
 
     //Images for text and dialogue portrait
     public Sprite textBoxImage;
-    public Sprite whirlPortraitImage;
-    public Sprite emeliaPortraitImage;
-    public Sprite ezekielPortraitImage;
 
     //Text scrolling variables
     private float textScrollSpeed = 0.06f;
-    private bool textIsPlaying = false;
+    private float textInputCheckSpeed = 0.2f;
 
     //Player input variables
     private bool dialoguePriority = false;
     private bool dialogueIsplaying = false;
     private short dialogueState = 0;
     private bool dialogueSkipRepeat = false;
-
-    private bool dialoguePlaying = false;
 
     //Reference of the scrolling text coroutine to stop it
     private IEnumerator scrollingCoroutine;
@@ -105,24 +93,30 @@ public class DialogueManager : MonoBehaviour
         //Debug for game state
         //gameState.currentNPC = "Whirl";
 
-        if (npcID == 0)
+        //Default values for the game state
+        gameState.deathStatus = recentDeaths.newGame;
+        gameState.status = relationshipStatus.defaultState;
+        gameState.affiliation = playerAffiliation.none;
+
+        if (currentID == npcID.Whirl)
         {
             gameState.currentNPC = "Whirl";
         }
-        else if (npcID == 1)
+        else if (currentID == npcID.Emelia)
         {
             gameState.currentNPC = "Emelia";
         }
-        else if (npcID == 2)
+        else if (currentID == npcID.Ezekiel)
         {
             gameState.currentNPC = "Ezekiel";
         }
+        
 
         //Loads and checks the display box sprite
         displayBoxObject.GetComponent<UnityEngine.UI.Image>().sprite = textBoxImage;
         if (displayBoxObject.GetComponent<UnityEngine.UI.Image>().sprite == null)
         {
-            UnityEngine.Debug.Log("Error: Failed to load image text box.");
+            UnityEngine.Debug.LogError("Error: Failed to load image text box.");
         }
 
         //Loads from the required managers, and checks for success
@@ -136,20 +130,17 @@ public class DialogueManager : MonoBehaviour
                 displayPortraitImage = displayPortraitObject.GetComponent<UnityEngine.UI.Image>();
                 displayTextMeshPro = displayTextObject.GetComponent<TextMeshProUGUI>();
                 
-                UnityEngine.Debug.Log("Successfully loaded dialogue.");
                 //StartInteraction();
             }
             else
             {
-                UnityEngine.Debug.Log("Unexpected error when loading dialogue object in Dialogue Manager");
-                Cleanup();
+                UnityEngine.Debug.LogError("Unexpected error when loading dialogue object in Dialogue Manager");
                 Destroy(this);
             }
         }
         else
         {
-            UnityEngine.Debug.Log("Unexpected error when loading state in Dialogue Manager");
-            Cleanup();
+            UnityEngine.Debug.LogError("Unexpected error when loading state in Dialogue Manager");
             Destroy(this);
         }
     }
@@ -178,28 +169,28 @@ public class DialogueManager : MonoBehaviour
         if (gameState.currentNPC == "Whirl")
         {
             MoveObjectToList(whirlDialogue);
-            displayPortraitObject.GetComponent<UnityEngine.UI.Image>().sprite = whirlPortraitImage;
+            displayPortraitObject.GetComponent<UnityEngine.UI.Image>().sprite = whirlDialogue.displayPortraitImage;
         }
         else if (gameState.currentNPC == "Emelia")
         {
             MoveObjectToList(emeliaDialogue);
-            displayPortraitObject.GetComponent<UnityEngine.UI.Image>().sprite = emeliaPortraitImage;
+            displayPortraitObject.GetComponent<UnityEngine.UI.Image>().sprite = emeliaDialogue.displayPortraitImage;
         }
         else if (gameState.currentNPC == "Ezekiel")
         {
             MoveObjectToList(ezekielDialogue);
-            displayPortraitObject.GetComponent<UnityEngine.UI.Image>().sprite = ezekielPortraitImage;
+            displayPortraitObject.GetComponent<UnityEngine.UI.Image>().sprite = ezekielDialogue.displayPortraitImage;
         }
 
         //Check if the dialogue loaded successfully
         if (loadedDialogue == null)
         {
-            UnityEngine.Debug.Log("Error: Failed to load dialogue.");
+            UnityEngine.Debug.LogError("Error: Failed to load dialogue.");
             success = false;
         }
         if (displayPortraitObject.GetComponent<UnityEngine.UI.Image>().sprite == null)
         {
-            UnityEngine.Debug.Log("Error: Failed to load dialogue portrait.");
+            UnityEngine.Debug.LogError("Error: Failed to load dialogue portrait.");
             success = false;
         }
         
@@ -229,7 +220,6 @@ public class DialogueManager : MonoBehaviour
         if (!dialogueIsplaying)
         {
             dialogueIsplaying = true;
-            UnityEngine.Debug.Log("Starting interaction...");
             LoadScriptObject();
             DisplayDialogueBox();
             DisplayDialoguePortrait();
@@ -272,58 +262,49 @@ public class DialogueManager : MonoBehaviour
     private IEnumerator MainDialogueLoop()
     {
         IEnumerator textCoroutine = null;
-        
-        UnityEngine.Debug.Log("Main dialogue loop entered");
-
 
         foreach(string dialogue in loadedDialogue)
         {
-            UnityEngine.Debug.Log("Looping");
             dialogueSkipRepeat = false;
 
-            if (gameState.relationshipStatus == 2)
+            if (gameState.status == relationshipStatus.killedByPlayerRepeat)
             {
                 StartCoroutine(SearchForState(textCoroutine, "playerkillrepeat", "break"));
                 dialogueSkipRepeat = true;
             }
-            else if (gameState.relationshipStatus == 1)
+            else if (gameState.status == relationshipStatus.killedByPlayer)
             {
                 StartCoroutine(SearchForState(textCoroutine, "playerkill", "playerdeathrepeat"));
                 dialogueSkipRepeat = true;
             }
-            else if (gameState.recentDeath > 2)
+            else if (gameState.deathStatus == recentDeaths.died)
             {
-                StartCoroutine(SearchForState(textCoroutine, "playerkillrepeat", "break"));
+                StartCoroutine(SearchForState(textCoroutine, "playerdeath", "playerkill"));
                 dialogueSkipRepeat = true;
             }
-            else if (gameState.recentDeath == 1)
+            else if (gameState.deathStatus == recentDeaths.diedRepeat)
             {
                 StartCoroutine(SearchForState(textCoroutine, "playerdeathrepeat", "playerkillrepeat"));
                 dialogueSkipRepeat = true;
             }
             
             if (dialogueSkipRepeat || dialogueState == 6)
-            {                                                       
-                UnityEngine.Debug.Log("Drawing text 2");                
+            {                                                                    
                 textCoroutine = TextScrollInput(dialogueTransition);
                 dialoguePriority = true;
                 StartCoroutine(textCoroutine);
                 while (dialoguePriority)
                 {
-                    yield return new WaitForSeconds(0.2F);
+                    yield return new WaitForSeconds(textInputCheckSpeed);
                 }
-                UnityEngine.Debug.Log("Finished drawing text 2");
-                StopCoroutine(textCoroutine);
                 Cleanup();
                 break;
             }
 
             if (dialogue == "maindialogue1" && dialogueState == 0)
             {
-                UnityEngine.Debug.Log("Began sending dialogue 1");
                 StartCoroutine(SearchForState(textCoroutine, "maindialogue1", "maindialogue2"));
                 dialogueState++;
-                UnityEngine.Debug.Log("finished dialogue");
                 break;
             }
             else if (dialogue == "maindialogue2" && dialogueState == 1)
@@ -371,15 +352,12 @@ public class DialogueManager : MonoBehaviour
                 StopCoroutine(textCoroutine);
             }*/
         }
-        UnityEngine.Debug.Log(dialogueIsplaying);
-        yield return null;
     }
 
     private IEnumerator TextScrollInput(string displayText)
     {
         IEnumerator textCoroutine = TextScroll(displayText);
         StartCoroutine(textCoroutine);
-        UnityEngine.Debug.Log("In the input enumerator");
 
         bool input = false;
         while (!input)
@@ -401,28 +379,23 @@ public class DialogueManager : MonoBehaviour
         {
             if (dialogueStatus == searchText)
             {
-                UnityEngine.Debug.Log("found the text");
                 int position = loadedDialogue.IndexOf(dialogueStatus);
                 foreach (string dialogueStatusConfirmed in loadedDialogue)
                 {
                     if (dialogueStatusConfirmed == checkText)
                     {
-                        UnityEngine.Debug.Log("breaking");
                         breakText = true;
                         break;
                     }
                     if (loadedDialogue.IndexOf(dialogueStatusConfirmed) > position)
                     {
-
-                        UnityEngine.Debug.Log("Drawing text 1");
                         textCoroutine = TextScrollInput(dialogueStatusConfirmed);
                         dialoguePriority = true;
                         StartCoroutine(textCoroutine);
                         while (dialoguePriority)
                         {
-                            yield return new WaitForSeconds(0.2F);
+                            yield return new WaitForSeconds(textInputCheckSpeed);
                         }
-                        UnityEngine.Debug.Log("Finished drawing text 1");
                         StopCoroutine(textCoroutine);
                     }
                 }
@@ -438,16 +411,21 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator TextScroll(string displayText)
     {
-        UnityEngine.Debug.Log("Writing text with length of" + displayText.Length);
+        TextMeshProUGUI scrollingTextMesh = displayTextObject.GetComponent<TextMeshProUGUI>();
+        scrollingTextMesh.SetText(displayText);
+        scrollingTextMesh.maxVisibleCharacters = 0;
+
         for (int i = 0; i < displayText.Length; i++)
         {
-            displayTextObject.GetComponent<TextMeshProUGUI>().SetText(displayText.Substring(0, i+1));
+            scrollingTextMesh.maxVisibleCharacters = i+1;
+            //displayTextObject.GetComponent<TextMeshProUGUI>().SetText(displayText.Substring(0, i+1));
             yield return new WaitForSeconds(textScrollSpeed);
         }
     }
 
     private void Cleanup()
     {
+        StopAllCoroutines();
         if (displayPortraitObject != null)
         {
             displayPortraitImage.enabled = false;
