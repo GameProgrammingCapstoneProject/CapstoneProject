@@ -6,6 +6,7 @@ using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Core.GameStates;
 using static Unity.Burst.Intrinsics.X86;
 
 public class DialogueManager : MonoBehaviour
@@ -18,7 +19,7 @@ public class DialogueManager : MonoBehaviour
     //Tracks the recent deaths of the player
     public enum recentDeaths { newGame, died, diedRepeat, runComplete }
 
-    public struct GameState
+    public struct DialogueGameState
     {
         public recentDeaths deathStatus;
         public relationshipStatus status;
@@ -39,7 +40,7 @@ public class DialogueManager : MonoBehaviour
         public string currentNPC;
     };
 
-    GameState gameState = new GameState();
+    DialogueGameState gameState = new DialogueGameState();
 
     //Loaded dialogue objects
     List<string> loadedDialogue = new List<string> ();
@@ -94,6 +95,7 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
+        
         //Debug for game state
         //gameState.currentNPC = "Whirl";
 
@@ -226,6 +228,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (!dialogueIsplaying)
         {
+            GameState.Instance.CurrentGameState = GameState.States.CutScene;
             dialogueIsplaying = true;
             LoadScriptObject();
             DisplayDialogueBox();
@@ -451,6 +454,7 @@ public class DialogueManager : MonoBehaviour
         }
         dialogueIsplaying = false;
         GetComponent<NPCDialogue>().ResetTriggerFlag();
+        GameState.Instance.CurrentGameState = GameState.States.Gameplay;
     }
     private void OnDestroy()
     {
