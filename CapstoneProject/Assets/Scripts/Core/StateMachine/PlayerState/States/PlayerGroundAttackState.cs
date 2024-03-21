@@ -16,7 +16,8 @@ namespace Core.StateMachine
         private const float _busyTime = 0.15f;
         private Vector2[] _attackOffsetMovement = { new Vector2(2, 0f), new Vector2(1, 0.5f), new Vector2(3, 0) };
         private const float _groundAttackTimer = 0.1f;
-        
+        private const float _timer = 0.4f;
+        private float _stateChangeTimer;
         public PlayerGroundAttackState(Player inputPlayer, string inputAnimName) : base(inputPlayer, inputAnimName)
         {
         }
@@ -24,7 +25,7 @@ namespace Core.StateMachine
         public override void StateBegin()
         {
             base.StateBegin();
-          
+            _stateChangeTimer = _timer;
             if (_comboAttack > _numberOfAttacks || Time.time >= _lastTimeAttacked + _comboCooldown)
                 _comboAttack = 0;
             if (_comboAttack !=2)
@@ -47,7 +48,9 @@ namespace Core.StateMachine
             base.StateUpdate();
             if (StateTimer < 0)
                 Player.rb.ResetToZeroVelocity();
-            if (AnimationEndTrigger)
+            // Fix the stuck animation at the last frame
+            _stateChangeTimer -= Time.deltaTime;
+            if (AnimationEndTrigger || _stateChangeTimer < 0)
                 Player.States.stateMachine.ChangeState(Player.States.idleState);
         }
 

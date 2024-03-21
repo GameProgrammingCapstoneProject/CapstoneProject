@@ -16,7 +16,6 @@ namespace Core.StateMachine
 
         public void ChangeState(PlayerState newState)
         {
-            if (currentState == newState) return;
             currentState.StateEnd();
             currentState = newState;
             currentState.StateBegin();
