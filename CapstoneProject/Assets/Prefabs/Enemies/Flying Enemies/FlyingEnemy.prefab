@@ -120,7 +120,6 @@ GameObject:
   - component: {fileID: 1062114949588360358}
   - component: {fileID: 3916804398182774511}
   - component: {fileID: 1611554755055532948}
-  - component: {fileID: 462600290255130902}
   m_Layer: 0
   m_Name: FlyingEnemy
   m_TagString: Untagged
@@ -324,20 +323,6 @@ MonoBehaviour:
     breakPointStatuses: 
     collapsedLines: 
     btScript: 
---- !u!114 &462600290255130902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2680007655756638374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37a82edf373e6bf409cb8a5f3acf7973, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damageInterval: 3.5
-  _damageAmount: 1
 --- !u!1 &4876872096124091967
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,7 +640,7 @@ Transform:
   m_GameObject: {fileID: 8703204157685173776}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -746,7 +731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36e4a69aa4491041935ff5fa1ca7ac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemy: {fileID: 0}
+  _enemy: {fileID: 3051476983319788348}
   playerLayer:
     serializedVersion: 2
     m_Bits: 4096
