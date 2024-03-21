@@ -85,6 +85,10 @@ public class DialogueManager : MonoBehaviour
     private short dialogueState = 0;
     private bool dialogueSkipRepeat = false;
 
+    //Yields for WaitForSeconds
+    private WaitForSeconds DialogueScrollYield;
+    private WaitForSeconds DialogueTextScroll;
+
     //Reference of the scrolling text coroutine to stop it
     private IEnumerator scrollingCoroutine;
 
@@ -92,6 +96,9 @@ public class DialogueManager : MonoBehaviour
     {
         //Debug for game state
         //gameState.currentNPC = "Whirl";
+
+        DialogueScrollYield = new WaitForSeconds(textInputCheckSpeed);
+        DialogueTextScroll = new WaitForSeconds(textScrollSpeed);
 
         //Default values for the game state
         gameState.deathStatus = recentDeaths.newGame;
@@ -295,7 +302,7 @@ public class DialogueManager : MonoBehaviour
                 StartCoroutine(textCoroutine);
                 while (dialoguePriority)
                 {
-                    yield return new WaitForSeconds(textInputCheckSpeed);
+                    yield return DialogueScrollYield;
                 }
                 Cleanup();
                 break;
@@ -394,7 +401,7 @@ public class DialogueManager : MonoBehaviour
                         StartCoroutine(textCoroutine);
                         while (dialoguePriority)
                         {
-                            yield return new WaitForSeconds(textInputCheckSpeed);
+                            yield return DialogueScrollYield;
                         }
                         StopCoroutine(textCoroutine);
                     }
@@ -419,7 +426,7 @@ public class DialogueManager : MonoBehaviour
         {
             scrollingTextMesh.maxVisibleCharacters = i+1;
             //displayTextObject.GetComponent<TextMeshProUGUI>().SetText(displayText.Substring(0, i+1));
-            yield return new WaitForSeconds(textScrollSpeed);
+            yield return DialogueTextScroll;
         }
     }
 
