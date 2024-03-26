@@ -14,15 +14,16 @@ public class PlayerSaveData
   //  public List<PlayerAbility> playerAbility;
     public int playerAbilityOne;
     public int playerAbilityTwo;
+    public string playerScene;
 
-    public PlayerSaveData(Player player, int health, int coins, int keys, int abilityone, int abilitytwo)
+    public PlayerSaveData(Player player, int health, int coins, int keys, int abilityone, int abilitytwo, string sceneSaved) 
     {
         playerHealth = health;
         playerCoins = coins;
         playerKeys = keys;
         playerAbilityOne = abilityone;
         playerAbilityTwo = abilitytwo;
-        
+        playerScene = sceneSaved;
 
 
 

@@ -8,6 +8,7 @@ using Core.StateMachine;
 using UnityEngine;
 using System.IO;
 using Core.GameStates;
+using UnityEngine.SceneManagement;
 
 namespace Core.Entity
 {
@@ -40,8 +41,10 @@ namespace Core.Entity
         public bool isSteppingOnElevator = false;
 
         private Transform _elevator;
+        private Scene scene;
         protected override void Start()
         {
+
             Debug.Log(Application.persistentDataPath);
             base.Start();
 
@@ -92,6 +95,9 @@ namespace Core.Entity
 
         public void SavePlayer()
         {
+            scene = SceneManager.GetActiveScene();
+            Debug.Log(" Scene Name: " + scene.name);
+            string sceneSaved = scene.name;
             int health = HealthComponent.GetHealth();
             int keys = KeyItemComponent.GetKeys();
             int coins = CoinComponent.GetCoins();
@@ -99,138 +105,33 @@ namespace Core.Entity
 
 
             List<PlayerAbility> ability = AbilityComponent.GetAbilities();
-            int abilityone;
-            int abilitytwo;
-            switch (ability[0])
-            {
-                case DashAbility:
-                    abilityone = 1;
-                    break;
-                case ShieldAbility:
-                    abilityone = 2;
-                    break;
-                case BowShootingAbility:
-                    abilityone = 3;
-                    break;
-                case ProjectileShootingAbility:
-                    abilityone = 4;
-                    break;
-                case LightningStrikeAbility:
-                    abilityone = 5;
-                    break;
-                case null:
-                    abilityone = 0;
-                    break;
-                default:
-                    // Debug.Log(ability[0]);
-                    Debug.Log("Ability one not found");
-                    abilityone = 0;
-                    break;
-            }
-            switch (ability[1])
-            {
-                case DashAbility:
-                    abilitytwo = 1;
-                    break;
-                case ShieldAbility:
-                    abilitytwo = 2;
-                    break;
-                case BowShootingAbility:
-                    abilitytwo = 3;
-                    break;
-                case ProjectileShootingAbility:
-                    abilitytwo = 4;
-                    break;
-                case LightningStrikeAbility:
-                    abilitytwo = 5;
-                    break;
-                case null:
-                    abilitytwo = 0;
-                    break;
-                default:
-                    // Debug.Log(ability[1]);
-                    Debug.Log("Ability two not found");
-                    abilitytwo = 0;
-                    break;
-            }
-            SaveSystem.SavePlayer(this, health, coins, keys, abilityone, abilitytwo);
+            int abilityone = serializeAbility(ability[0]);
+            int abilitytwo = serializeAbility(ability[1]);
+
+            
+            SaveSystem.SavePlayer(this, health, coins, keys, abilityone, abilitytwo, sceneSaved);
 
         }
 
 
         public bool LoadPlayer()
         {
+
             PlayerSaveData data = SaveSystem.LoadPlayer();
 
             if (data != null)
             {
                 Vector3 position;
 
+                Debug.Log("The scene the player was in was" + data.playerScene);
                 CoinComponent.ChangeCoins(data.playerCoins);
                 KeyItemComponent.ChangeKeys(data.playerKeys);
                 HealthComponent.ChangeHealth(data.playerHealth);
-                
-                var ability = AbilityComponent.playerAbilities;
-                /*                List<PlayerAbility> ability = new List<PlayerAbility>()
-                                {
-                                    null,
-                                    null
-                                };*/
-                switch (data.playerAbilityOne)
-                {
-                    case 1:
-                        ability[0] = AbilityComponent.DashAbility;
-                        break;
-                    case 2:
-                        ability[0] = AbilityComponent.ShieldAbility;
-                        break;
-                    case 3:
-                        ability[0] = AbilityComponent.BowShootingAbility;
-                        break;
-                    case 4:
-                        ability[0] = AbilityComponent.ProjectileShootingAbility;
-                        break;
-                    case 5:
-                        ability[0] = AbilityComponent.LightningStrikeAbility;
-                        break;
-                    case 0:
-                        ability[0] = null;
-                        break;
-                    default:
-                        // Debug.Log(ability[0]);
-                        Debug.Log("Ability one not found");
-                        ability[0] = null;
-                        break;
-                }
-                switch (data.playerAbilityTwo)
-                {
-                    case 1:
-                        ability[1] = AbilityComponent.DashAbility;
-                        break;
-                    case 2:
-                        ability[1] = AbilityComponent.ShieldAbility;
-                        break;
-                    case 3:
-                        ability[1] = AbilityComponent.BowShootingAbility;
-                        break;
-                    case 4:
-                        ability[1] = AbilityComponent.ProjectileShootingAbility;
-                        break;
-                    case 5:
-                        ability[1] = AbilityComponent.LightningStrikeAbility;
-                        break;
-                    case 0:
-                        ability[1] = null;
-                        break;
-                    default:
-                        //   Debug.Log(ability[1]);
-                        Debug.Log("Ability two not found");
-                        ability[1] = null;
-                        break;
-                }
 
-                AbilityComponent.SetupPlayerAbility(ability[0], 0);
-                AbilityComponent.SetupPlayerAbility(ability[1], 1);
+                PlayerAbility abilityOne = deserializeAbility(data.playerAbilityOne);
+                PlayerAbility abilityTwo = deserializeAbility(data.playerAbilityTwo);
+                AbilityComponent.SetupPlayerAbility(abilityOne, 0);
+                AbilityComponent.SetupPlayerAbility(abilityTwo, 1);
                 //AbilityComponent.ChangeAbilties(data.playerAbilityOne, data.playerAbilityTwo);
                 Debug.Log(data.playerPosition[0]);
 
@@ -249,9 +150,72 @@ namespace Core.Entity
 
         }
 
+        public int serializeAbility(PlayerAbility ability)
+        {
+            int abilitySerialized;
+            switch (ability)
+            {
+                case DashAbility:
+                    abilitySerialized = 1;
+                    break;
+                case ShieldAbility:
+                    abilitySerialized = 2;
+                    break;
+                case BowShootingAbility:
+                    abilitySerialized = 3;
+                    break;
+                case ProjectileShootingAbility:
+                    abilitySerialized = 4;
+                    break;
+                case LightningStrikeAbility:
+                    abilitySerialized = 5;
+                    break;
+                case null:
+                    abilitySerialized = 0;
+                    break;
+                default:
+                    // Debug.Log(ability[0]);
+                    Debug.Log("Ability one not found");
+                    abilitySerialized = 0;
+                    break;
+            }
+            return abilitySerialized;
 
+        }
+        public PlayerAbility deserializeAbility(int abilityData)
+        {
+            PlayerAbility abilityDeserialized;
+            switch (abilityData)
+            {
+                case 1:
+                    abilityDeserialized = AbilityComponent.DashAbility;
+                    break;
+                case 2:
+                    abilityDeserialized = AbilityComponent.ShieldAbility;
+                    break;
+                case 3:
+                    abilityDeserialized = AbilityComponent.BowShootingAbility;
+                    break;
+                case 4:
+                    abilityDeserialized = AbilityComponent.ProjectileShootingAbility;
+                    break;
+                case 5:
+                    abilityDeserialized = AbilityComponent.LightningStrikeAbility;
+                    break;
+                case 0:
+                    abilityDeserialized = null;
+                    break;
+                default:
+                    // Debug.Log(ability[0]);
+                    Debug.Log("Ability one not found");
+                    abilityDeserialized = null;
+                    break;
+            }
+            return abilityDeserialized;
+        }
         private string SavePath
         {
+    
             get { return Application.persistentDataPath + "/player.STH"; }
         }
         public void DeleteSave()
