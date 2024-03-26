@@ -26,7 +26,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] 
     private CoinComponent _coinComponent;
     private PlayerState _currentState => _playerStateComponent.stateMachine.currentState;
-    // Update is called once per frame
+
+    private void Start()
+    {
+        PlayerHealthComponent.OnDead += DisableInput;
+        GameState.Instance.CurrentGameState = GameState.States.Gameplay;
+    }
+
     private void Update()
     {
         if (GameState.Instance.CurrentGameState == GameState.States.Gameplay)
@@ -224,5 +230,14 @@ public class PlayerController : MonoBehaviour
     {
         if (_abilityShopUI == null)
             Debug.Log("Ability Shop UI object is missing");
+    }
+    private void DisableInput()
+    {
+        GameState.Instance.CurrentGameState = GameState.States.CutScene;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerHealthComponent.OnDead -= DisableInput;
     }
 }
