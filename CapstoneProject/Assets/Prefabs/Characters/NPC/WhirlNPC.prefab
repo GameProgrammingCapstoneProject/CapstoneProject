@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 87.81, y: 21.9, z: 0}
-  m_LocalScale: {x: 3.4636724, y: 3.4636724, z: 3.4636724}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -103,15 +103,12 @@ MonoBehaviour:
   displayTextObject: {fileID: 0}
   displayBoxObject: {fileID: 0}
   displayPortraitObject: {fileID: 0}
-  npcID: 0
+  currentID: 0
   vignetteEffect: {fileID: 0}
   whirlDialogue: {fileID: 11400000, guid: 4bd9232f02d683047a5532139282aefc, type: 2}
   emeliaDialogue: {fileID: 11400000, guid: 5d795a194dc8dd24d8362ee545bbe9c0, type: 2}
   ezekielDialogue: {fileID: 11400000, guid: 5b52d771ad74a5d4e8ebb2853a88b8de, type: 2}
   textBoxImage: {fileID: 21300000, guid: 050a329890c6a034299e6d032acdbf0a, type: 3}
-  whirlPortraitImage: {fileID: 21300000, guid: ded8fda03dbb920428bd6dcf09d1d7be, type: 3}
-  emeliaPortraitImage: {fileID: 21300000, guid: 4a70233909c2f854cb8889ae17cba69e, type: 3}
-  ezekielPortraitImage: {fileID: 21300000, guid: 063648d3d53663540b976aa11550ca18, type: 3}
 --- !u!114 &33866623895857349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +157,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1.5}
+    oldSize: {x: 1.3333334, y: 2}
     newSize: {x: 0.32, y: 0.48}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
