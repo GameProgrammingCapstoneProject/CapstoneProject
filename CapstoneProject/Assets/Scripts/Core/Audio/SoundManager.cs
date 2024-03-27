@@ -117,19 +117,8 @@ public class SoundManager : PersistentObject<SoundManager>
 
     public void ChangeMusicVolume(float musicValue)
     {
-
-
-
-
-
         musicMod = musicValue;
         Sound s = Array.Find(sounds, sound => sound.name == "ExampleSong");
         s.source.volume = (s.volume * musicMod);
-
-
-
     }
-
-
-
 }
