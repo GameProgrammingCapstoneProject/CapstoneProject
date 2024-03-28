@@ -73,9 +73,8 @@ public class PlayerController : MonoBehaviour
                         _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.jumpState);
                     if (IsPressed(PlayerInputReader.Instance.attackValue))
                         _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.groundAttackState);
-                    if (IsPressed(PlayerInputReader.Instance.dashValue))
-                        if (_playerAbilityComponent.DashAbility.CanUseAbility())
-                            _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
+                    if (IsPressed(PlayerInputReader.Instance.dashValue) && _playerAbilityComponent.DashAbility.CanUseAbility())
+                        _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
                     HandleAbilityState();
                     break;
                 }
@@ -85,9 +84,8 @@ public class PlayerController : MonoBehaviour
                         _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.airAttackState);
                     if (IsPressed(PlayerInputReader.Instance.jumpValue) && _player.canDoubleJump)
                         _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.doubleJumpState);
-                    if (IsPressed(PlayerInputReader.Instance.dashValue))
-                        if (_playerAbilityComponent.DashAbility.CanUseAbility())
-                            _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
+                    if (IsPressed(PlayerInputReader.Instance.dashValue) && _playerAbilityComponent.DashAbility.CanUseAbility())
+                        _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
                     break;
                 }
                 case PlayerAirState:
@@ -96,15 +94,16 @@ public class PlayerController : MonoBehaviour
                         _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.airAttackState);
                     if (IsPressed(PlayerInputReader.Instance.jumpValue) && _player.canDoubleJump)
                         _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.doubleJumpState);
+                    if (IsPressed(PlayerInputReader.Instance.dashValue) && _playerAbilityComponent.DashAbility.CanUseAbility())
+                        _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
                     break;
                 }
                 case PlayerDoubleJumpState:
                 {
                     if (IsPressed(PlayerInputReader.Instance.attackValue))
                         _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.airAttackState);
-                    if (IsPressed(PlayerInputReader.Instance.dashValue))
-                        if (_playerAbilityComponent.DashAbility.CanUseAbility())
-                            _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
+                    if (IsPressed(PlayerInputReader.Instance.dashValue) && _playerAbilityComponent.DashAbility.CanUseAbility())
+                        _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
                     break;
                 }
                 case PlayerWallSlideState:
@@ -115,9 +114,8 @@ public class PlayerController : MonoBehaviour
                 }
                 case PlayerWallJumpState:
                 {
-                    if (IsPressed(PlayerInputReader.Instance.dashValue))
-                        if (_playerAbilityComponent.DashAbility.CanUseAbility())
-                            _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
+                    if (IsPressed(PlayerInputReader.Instance.dashValue) && _playerAbilityComponent.DashAbility.CanUseAbility())
+                        _playerStateComponent.stateMachine.ChangeState(_playerStateComponent.dashState);
                     break;
                 }
             }
