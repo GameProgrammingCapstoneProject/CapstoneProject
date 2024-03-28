@@ -13,11 +13,9 @@ tree "Roam"
 		Move
 
 tree "Attack"
-	sequence
-		IsOnSamePlatform
-		fallback
-			sequence
-				IsWithinView
-				RangedAttack
-			tree("Roam")
+	fallback
+		sequence
+			IsWithinRange(15.0)
+			RangedAttack
+		tree("Roam")
 
