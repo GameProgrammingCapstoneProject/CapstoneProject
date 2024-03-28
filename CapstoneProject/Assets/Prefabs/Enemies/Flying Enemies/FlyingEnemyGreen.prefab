@@ -234,6 +234,7 @@ MonoBehaviour:
   _anim: {fileID: 1596466188744565456}
   initialSpeed: 1.5
   playerPos: {fileID: 0}
+  enemyRange: 10
 --- !u!114 &3051476983319788348
 MonoBehaviour:
   m_ObjectHideFlags: 0
