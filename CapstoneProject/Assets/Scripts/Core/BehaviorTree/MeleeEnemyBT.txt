@@ -17,7 +17,7 @@ tree "Attack"
 		IsOnSamePlatform
 		fallback
 			sequence
-				IsWithinRange
+				IsWithinRange(1.5)
 				MeleeAttack
 			tree("Roam")
 
