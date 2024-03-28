@@ -24,6 +24,8 @@ public class AI : MonoBehaviour
     float initialSpeed;
     [SerializeField]
     Transform playerPos;
+    [SerializeField]
+    float enemyRange;
     RigidbodyComponent playerRB;
 
     // Start is called before the first frame update
@@ -153,35 +155,35 @@ public class AI : MonoBehaviour
         return result;
     }
 
-    [Task]
-    public bool IsWithinRange()
-    {
-        bool result = false;
-        float distanceToTarget = Vector2.Distance(playerPos.position, transform.position);
-        float attackRange = 1.5f;
+    //[Task]
+    //public bool IsWithinRange()
+    //{
+    //    bool result = false;
+    //    float distanceToTarget = Vector2.Distance(playerPos.position, transform.position);
+    //    float attackRange = 1.5f;
 
-        if(distanceToTarget <= attackRange)
-        {
-            if(playerPos.position.x < transform.position.x )
-            {
-                if (_rb.CurrentFacingDirection == RigidbodyComponent.FacingDirections.RIGHT)
-                {
-                    Turn();
-                }
-            }
-            else
-            {
-                if (_rb.CurrentFacingDirection == RigidbodyComponent.FacingDirections.LEFT)
-                {
-                    Turn();
-                }
+    //    if(distanceToTarget <= attackRange)
+    //    {
+    //        if(playerPos.position.x < transform.position.x )
+    //        {
+    //            if (_rb.CurrentFacingDirection == RigidbodyComponent.FacingDirections.RIGHT)
+    //            {
+    //                Turn();
+    //            }
+    //        }
+    //        else
+    //        {
+    //            if (_rb.CurrentFacingDirection == RigidbodyComponent.FacingDirections.LEFT)
+    //            {
+    //                Turn();
+    //            }
 
-            }
-            result = true;
-        }
+    //        }
+    //        result = true;
+    //    }
 
-        return result;
-    }
+    //    return result;
+    //}
 
     [Task]
     public bool IsWithinRange(float range)
@@ -275,7 +277,7 @@ public class AI : MonoBehaviour
                     _anim.SetInteger("state", (int)Enemy.AnimationState.IDLE);
                 }
 
-                if (IsWithinRange() && movementSpeed == stopSpeed)
+                if (IsWithinRange(enemyRange) && movementSpeed == stopSpeed)
                 {
                     _anim.SetInteger("state", (int)Enemy.AnimationState.ATTACK);
                 }
@@ -289,7 +291,7 @@ public class AI : MonoBehaviour
 
             case (int)Enemy.EnemyType.RANGED_ENEMY:
 
-                if (IsWithinView())
+                if (IsWithinRange(enemyRange))
                 {
                     _anim.SetInteger("state", (int)Enemy.AnimationState.ATTACK);
                 }
@@ -307,7 +309,7 @@ public class AI : MonoBehaviour
 
             case (int)Enemy.EnemyType.FLYING_ENEMY:
 
-                if (IsWithinRange(10.0f))
+                if (IsWithinRange(enemyRange))
                 {
                     _anim.SetInteger("state", (int)Enemy.AnimationState.ATTACK);
                 }

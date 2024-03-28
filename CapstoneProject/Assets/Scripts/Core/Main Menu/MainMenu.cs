@@ -6,21 +6,25 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
 using UnityEngine.UI;
-using static Cinemachine.DocumentationSortingAttribute;
 
 public class MainMenu : MonoBehaviour
 {
     public Slider musicSlider;
     public Slider soundSlider;
+    public GameObject mainMenu;
+    public GameObject optionMenu;
 
     private void Start()
     {
-        OnMusicValueChanged(SoundManager.Instance.musicMod);
-        OnSoundValueChanged(SoundManager.Instance.soundMod);
+        EnableMainMenu();
+        DisableOptionMenu();
         musicSlider.value = SoundManager.Instance.musicMod;
         soundSlider.value = SoundManager.Instance.soundMod;
-        musicSlider.onValueChanged.AddListener(OnMusicValueChanged);
-        soundSlider.onValueChanged.AddListener(OnSoundValueChanged);
+        //OnSoundSliderValueChanged(SoundManager.Instance.soundMod);
+        //OnMusicSliderValueChanged(SoundManager.Instance.musicMod);
+        musicSlider.onValueChanged.AddListener(OnMusicSliderValueChanged);
+        soundSlider.onValueChanged.AddListener(OnSoundSliderValueChanged);
+        
     }
 
     public void Continue()
@@ -42,11 +46,6 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Vertical_Slice");
 #endif
         DeleteSave();
-    }
-
-    public void Option()
-    {
-
     }
 
     public void Quit()
@@ -73,12 +72,20 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    private void OnMusicValueChanged(float value)
+    private void OnSoundSliderValueChanged(float value)
     {
-        SoundManager.Instance.musicMod = value;
+        SoundManager.Instance.ChangeSoundVolume(value);
     }
-    private void OnSoundValueChanged(float value)
+    private void OnMusicSliderValueChanged(float value)
     {
-        SoundManager.Instance.soundMod = value;
+        SoundManager.Instance.ChangeMusicVolume(value);
     }
+
+    public void EnableOptionMenu() => optionMenu.SetActive(true);
+
+    public void DisableOptionMenu() => optionMenu.SetActive(false);
+
+    public void EnableMainMenu() => mainMenu.SetActive(true);
+    
+    public void DisableMainMenu() => mainMenu.SetActive(false);
 }

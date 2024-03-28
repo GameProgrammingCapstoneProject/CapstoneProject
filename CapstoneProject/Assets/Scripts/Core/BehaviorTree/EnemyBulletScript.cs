@@ -7,15 +7,20 @@ public class EnemyBulletScript : MonoBehaviour, IDamageable
 {
     private GameObject player;
     private Rigidbody2D rb;
-    float force = 10;
-    // Start is called before the first frame update
+    float force = 20.0f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
 
+        HomingShoot();
+    }
+
+    void Shoot()
+    {
         Vector3 direction = player.transform.position - transform.position;
-        if(direction.x > 0)
+        if (direction.x > 0)
         {
             rb.AddForce(transform.right * force, ForceMode2D.Impulse);
         }
@@ -23,6 +28,13 @@ public class EnemyBulletScript : MonoBehaviour, IDamageable
         {
             rb.AddForce(-transform.right * force, ForceMode2D.Impulse);
         }
+        Destroy(this.gameObject, 4.0f);
+    }
+
+    void HomingShoot()
+    {
+        Vector3 direction = player.transform.position - transform.position;
+        rb.AddForce(direction.normalized * force, ForceMode2D.Impulse);
         Destroy(this.gameObject, 4.0f);
     }
 
