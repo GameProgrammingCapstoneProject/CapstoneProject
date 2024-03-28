@@ -34,8 +34,6 @@ namespace Core.StateMachine
             base.StateUpdate();
             if (StateTimer < 0)
                 Player.States.stateMachine.ChangeState(Player.States.idleState);
-            if (Player.rb.velocity.y < 0)
-                Player.States.stateMachine.ChangeState(Player.States.airState);
         }
 
         public override void StateEnd()
