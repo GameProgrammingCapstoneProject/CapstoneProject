@@ -99,12 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34c76e94dcef01a42804d53a61e96314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pathObjectPrefab: {fileID: 8079893127616000681, guid: 53e30c5672fb5074c8d370f937095fac, type: 3}
   destinations:
   - {x: 38.42, y: -0.14, z: 0}
   - {x: 45.74, y: -0.14, z: 0}
   - {x: 45.74, y: 2.96, z: 0}
-  - {x: 38.26, y: 2.96, z: 0}
+  - {x: 38.42, y: 2.96, z: 0}
   speed: 5
+  distanceBetweenPathObjects: 1
 --- !u!61 &4642619507534827630
 BoxCollider2D:
   m_ObjectHideFlags: 0
