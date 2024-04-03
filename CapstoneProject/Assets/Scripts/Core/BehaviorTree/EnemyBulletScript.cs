@@ -7,7 +7,7 @@ public class EnemyBulletScript : MonoBehaviour, IDamageable
 {
     private GameObject player;
     private Rigidbody2D rb;
-    float force = 20.0f;
+    float force = 10.0f;
 
     void Start()
     {

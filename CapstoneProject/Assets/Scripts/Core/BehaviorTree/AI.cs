@@ -14,7 +14,7 @@ public class AI : MonoBehaviour
     RigidbodyComponent _rb;
     [SerializeField]
     Animator _anim;
-    float stopSpeed = 0f;
+    float stopSpeed = 0.0f;
     float movementSpeed;
     float offsetY = 1.0f;
 
