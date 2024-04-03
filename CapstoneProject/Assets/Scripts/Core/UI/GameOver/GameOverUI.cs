@@ -21,7 +21,7 @@ public class GameOverUI : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(level1Scene);
+        SceneManager.LoadScene("Level1");
     }
     
     public void GoToMainMenu()
