@@ -14,9 +14,10 @@ public class PlayerSaveData
   //  public List<PlayerAbility> playerAbility;
     public int playerAbilityOne;
     public int playerAbilityTwo;
+    public bool[] playerUnlockedAbilities;
     public string playerScene;
 
-    public PlayerSaveData(Player player, int health, int coins, int keys, int abilityone, int abilitytwo, string sceneSaved) 
+    public PlayerSaveData(Player player, int health, int coins, int keys, int abilityone, int abilitytwo, string sceneSaved, bool[] abilitiesUnlocked) 
     {
         playerHealth = health;
         playerCoins = coins;
@@ -24,6 +25,7 @@ public class PlayerSaveData
         playerAbilityOne = abilityone;
         playerAbilityTwo = abilitytwo;
         playerScene = sceneSaved;
+        playerUnlockedAbilities = abilitiesUnlocked;
 
 
 
