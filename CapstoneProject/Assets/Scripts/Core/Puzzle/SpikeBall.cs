@@ -1,3 +1,5 @@
+using System;
+using Core.Entity;
 using UnityEngine;
 
 public class SpikeBall : MonoBehaviour
@@ -54,6 +56,14 @@ public class SpikeBall : MonoBehaviour
             // Create a path point object from the prefab
             GameObject pathPoint = Instantiate(pathPointPrefab, pointPosition, Quaternion.identity);
             pathPoint.name = "SpikeBallChain" + i;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.GetComponent<Player>())
+        {
+            other.GetComponent<PlayerHealthComponent>().TakeDamage(1);
         }
     }
 }
