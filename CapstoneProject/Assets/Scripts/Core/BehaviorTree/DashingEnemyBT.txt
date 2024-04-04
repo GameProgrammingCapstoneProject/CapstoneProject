@@ -1,0 +1,25 @@
+tree("Root")
+	fallback
+		IsDead
+		tree("Attack")
+		tree("Roam")
+
+tree "Roam"
+	fallback
+		sequence
+			HasReachedObstacle
+			Wait 2.0
+			Turn
+		Move
+
+tree "Attack"
+	sequence
+		IsOnSamePlatform
+		fallback
+			sequence
+				IsWithinView(15.0)
+				Dash
+				IsWithinRange(1.5)
+				MeleeAttack
+			tree("Roam")
+

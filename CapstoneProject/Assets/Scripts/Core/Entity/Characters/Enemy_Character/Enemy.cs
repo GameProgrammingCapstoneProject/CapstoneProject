@@ -20,6 +20,7 @@ namespace Core.Entity
             RANGED_ENEMY,
             FLYING_ENEMY,
             CHASING_ENEMY,
+            DASHING_ENEMY,
 
             NUM_ENEMIES
         }
@@ -29,6 +30,7 @@ namespace Core.Entity
             IDLE,
             WALK,
             ATTACK,
+            DASH,
 
             NUM_ANIMATION_STATES
         }
