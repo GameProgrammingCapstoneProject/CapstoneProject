@@ -21,7 +21,9 @@ public class GameOverUI : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(level1Scene);
+        string scene = SceneManager.GetActiveScene().name;
+        Debug.Log("The scene is: " + scene);
+        SceneManager.LoadScene(scene);
     }
     
     public void GoToMainMenu()
