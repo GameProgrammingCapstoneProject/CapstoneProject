@@ -32,7 +32,7 @@ public class MainMenu : MonoBehaviour
 #if UNITY_EDITOR
         SceneManager.LoadScene(EditorBuildSettings.scenes[1].path);
 #else
-        SceneManager.LoadScene("Vertical_Slice");
+        SceneManager.LoadScene("Level1");
 #endif
 
         //   SceneManager.LoadScene("Final_Prototype");
@@ -43,7 +43,7 @@ public class MainMenu : MonoBehaviour
 #if UNITY_EDITOR
         SceneManager.LoadScene(EditorBuildSettings.scenes[1].path);
 #else
-        SceneManager.LoadScene("Vertical_Slice");
+        SceneManager.LoadScene("Level1");
 #endif
         DeleteSave();
     }
