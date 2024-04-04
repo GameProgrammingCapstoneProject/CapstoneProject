@@ -107,9 +107,17 @@ namespace Core.Entity
             List<PlayerAbility> ability = AbilityComponent.GetAbilities();
             int abilityone = serializeAbility(ability[0]);
             int abilitytwo = serializeAbility(ability[1]);
-
+            bool[] unlockedAbilities = new bool [5];
             
-            SaveSystem.SavePlayer(this, health, coins, keys, abilityone, abilitytwo, sceneSaved);
+            unlockedAbilities[0] = serializeLearnedAbility(AbilityComponent.HealthRegenAbility);
+            unlockedAbilities[1] = serializeLearnedAbility(AbilityComponent.ShieldAbility);
+            unlockedAbilities[2] = serializeLearnedAbility(AbilityComponent.ProjectileShootingAbility);
+            unlockedAbilities[3] = serializeLearnedAbility(AbilityComponent.BowShootingAbility);
+            unlockedAbilities[4] = serializeLearnedAbility(AbilityComponent.LightningStrikeAbility);
+
+
+
+            SaveSystem.SavePlayer(this, health, coins, keys, abilityone, abilitytwo, sceneSaved, unlockedAbilities);
 
         }
 
@@ -130,8 +138,16 @@ namespace Core.Entity
 
                 PlayerAbility abilityOne = deserializeAbility(data.playerAbilityOne);
                 PlayerAbility abilityTwo = deserializeAbility(data.playerAbilityTwo);
+
+
+
                 AbilityComponent.SetupPlayerAbility(abilityOne, 0);
                 AbilityComponent.SetupPlayerAbility(abilityTwo, 1);
+                deserializeLearnedAbility(data.playerUnlockedAbilities[0], AbilityComponent.HealthRegenAbility);
+                deserializeLearnedAbility(data.playerUnlockedAbilities[1], AbilityComponent.ShieldAbility);
+                deserializeLearnedAbility(data.playerUnlockedAbilities[2], AbilityComponent.ProjectileShootingAbility);
+                deserializeLearnedAbility(data.playerUnlockedAbilities[3], AbilityComponent.BowShootingAbility);
+                deserializeLearnedAbility(data.playerUnlockedAbilities[4], AbilityComponent.LightningStrikeAbility);
                 //AbilityComponent.ChangeAbilties(data.playerAbilityOne, data.playerAbilityTwo);
                 Debug.Log(data.playerPosition[0]);
 
@@ -155,7 +171,7 @@ namespace Core.Entity
             int abilitySerialized;
             switch (ability)
             {
-                case DashAbility:
+                case HealthRegenAbility:
                     abilitySerialized = 1;
                     break;
                 case ShieldAbility:
@@ -188,7 +204,7 @@ namespace Core.Entity
             switch (abilityData)
             {
                 case 1:
-                    abilityDeserialized = AbilityComponent.DashAbility;
+                    abilityDeserialized = AbilityComponent.HealthRegenAbility;
                     break;
                 case 2:
                     abilityDeserialized = AbilityComponent.ShieldAbility;
@@ -212,6 +228,31 @@ namespace Core.Entity
                     break;
             }
             return abilityDeserialized;
+        }
+
+        public bool serializeLearnedAbility(PlayerAbility ability)
+        {
+            if (ability._isUnlocked)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public void deserializeLearnedAbility(bool abilityUnlocked, PlayerAbility ability)
+        {
+            if (abilityUnlocked) 
+            {
+            ability._isUnlocked = true;
+            }
+            else
+            {
+                ability._isUnlocked = false;
+            }
         }
         private string SavePath
         {

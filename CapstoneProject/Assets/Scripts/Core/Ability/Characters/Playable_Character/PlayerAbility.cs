@@ -16,7 +16,7 @@ public abstract class PlayerAbility : ScriptableObject
     [SerializeField]
     private float _cooldown;
     [SerializeField]
-    private bool _isUnlocked = true;
+    public bool _isUnlocked = true;
 
     private float _coolDownTimer;
     protected PlayerAbilityComponent AbilityHandler;
