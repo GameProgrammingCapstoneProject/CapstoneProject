@@ -127,40 +127,45 @@ namespace Core.Entity
 
             PlayerSaveData data = SaveSystem.LoadPlayer();
 
-            if (data != null)
-            {
-                Vector3 position;
+            string scene = SceneManager.GetActiveScene().name;
+            
 
-                Debug.Log("The scene the player was in was" + data.playerScene);
-                CoinComponent.ChangeCoins(data.playerCoins);
-                KeyItemComponent.ChangeKeys(data.playerKeys);
-                HealthComponent.ChangeHealth(data.playerHealth);
+                if (data != null && scene == data.playerScene)
+                
+                {
+               
+                    Vector3 position;
 
-                PlayerAbility abilityOne = deserializeAbility(data.playerAbilityOne);
-                PlayerAbility abilityTwo = deserializeAbility(data.playerAbilityTwo);
+                 //   Debug.Log("The scene the player was in was" + data.playerScene);
+                    CoinComponent.ChangeCoins(data.playerCoins);
+                    KeyItemComponent.ChangeKeys(data.playerKeys);
+                    HealthComponent.ChangeHealth(data.playerHealth);
+
+                    PlayerAbility abilityOne = deserializeAbility(data.playerAbilityOne);
+                    PlayerAbility abilityTwo = deserializeAbility(data.playerAbilityTwo);
 
 
 
-                AbilityComponent.SetupPlayerAbility(abilityOne, 0);
-                AbilityComponent.SetupPlayerAbility(abilityTwo, 1);
-                deserializeLearnedAbility(data.playerUnlockedAbilities[0], AbilityComponent.HealthRegenAbility);
-                deserializeLearnedAbility(data.playerUnlockedAbilities[1], AbilityComponent.ShieldAbility);
-                deserializeLearnedAbility(data.playerUnlockedAbilities[2], AbilityComponent.ProjectileShootingAbility);
-                deserializeLearnedAbility(data.playerUnlockedAbilities[3], AbilityComponent.BowShootingAbility);
-                deserializeLearnedAbility(data.playerUnlockedAbilities[4], AbilityComponent.LightningStrikeAbility);
-                //AbilityComponent.ChangeAbilties(data.playerAbilityOne, data.playerAbilityTwo);
-                Debug.Log(data.playerPosition[0]);
+                    AbilityComponent.SetupPlayerAbility(abilityOne, 0);
+                    AbilityComponent.SetupPlayerAbility(abilityTwo, 1);
+                    deserializeLearnedAbility(data.playerUnlockedAbilities[0], AbilityComponent.HealthRegenAbility);
+                    deserializeLearnedAbility(data.playerUnlockedAbilities[1], AbilityComponent.ShieldAbility);
+                    deserializeLearnedAbility(data.playerUnlockedAbilities[2], AbilityComponent.ProjectileShootingAbility);
+                    deserializeLearnedAbility(data.playerUnlockedAbilities[3], AbilityComponent.BowShootingAbility);
+                    deserializeLearnedAbility(data.playerUnlockedAbilities[4], AbilityComponent.LightningStrikeAbility);
+                    //AbilityComponent.ChangeAbilties(data.playerAbilityOne, data.playerAbilityTwo);
+                    Debug.Log(data.playerPosition[0]);
 
-                position.x = data.playerPosition[0];
-                position.y = data.playerPosition[1];
-                position.z = data.playerPosition[2];
-                transform.position = position;
-                return true;
-
-            }
+                    position.x = data.playerPosition[0];
+                    position.y = data.playerPosition[1];
+                    position.z = data.playerPosition[2];
+                    transform.position = position;
+                    return true;
+                }
+            
             else
             {
-                Debug.Log("Player Load attempted but no save data was found.");
+                Debug.Log("Player Load attempted but no save data was found, or scene loaded's name was identical to the scene saved.");
                 return false;
             }
 
