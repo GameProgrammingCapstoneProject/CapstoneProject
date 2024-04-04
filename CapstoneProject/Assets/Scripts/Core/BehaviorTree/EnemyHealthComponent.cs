@@ -59,10 +59,14 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
+        if(isDead)
+        {
+            return;
+        }
         SoundManager.Instance.Play("EnemyHurt");
         this.health -= damage;
         healthBar.UpdateHealthBar(health, maxHealth);
-        //_effect.StartCoroutine(nameof(_effect.FlashFX));
+        _effect.StartCoroutine(nameof(_effect.FlashFX));
         if (health <= 0)
         {
             isDead = true;
@@ -70,7 +74,6 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
             _player.CoinComponent.CollectCoins(GetComponent<CoinComponent>().GetCoins());
             if (GetComponent<KeyItemComponent>())
                 _player.KeyItemComponent.PickupKey();
-            //health = 0;
         }
     }
 
