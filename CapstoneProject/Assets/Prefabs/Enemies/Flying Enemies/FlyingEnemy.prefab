@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4729336955532688888}
   - component: {fileID: 4926908732455104304}
   - component: {fileID: 2916388407101994951}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,9 +120,9 @@ GameObject:
   - component: {fileID: 1062114949588360358}
   - component: {fileID: 3916804398182774511}
   - component: {fileID: 1611554755055532948}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FlyingEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 2800000, guid: a6fbd5a181bc51e42a61a73fe8d727c8, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 5249512175721011921}
   - component: {fileID: 1109680681353460518}
   - component: {fileID: 5940643676541192639}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 4567156938200948267}
   - component: {fileID: 9208038697233830203}
   - component: {fileID: 1987434210200256893}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -511,7 +511,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2862195241479310091}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 1220296112298096028}
   - component: {fileID: 7213413222037972089}
   - component: {fileID: 526486305098304609}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -625,7 +625,7 @@ GameObject:
   - component: {fileID: 1596466188744565456}
   - component: {fileID: 3551497180036800154}
   - component: {fileID: 8369631038873519971}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -707,7 +707,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2139497935
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 473789530, guid: 191cef9e08831ab42ae260efd31d8f78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
