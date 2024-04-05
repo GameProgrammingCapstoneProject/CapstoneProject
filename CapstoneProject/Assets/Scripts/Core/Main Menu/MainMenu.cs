@@ -29,13 +29,31 @@ public class MainMenu : MonoBehaviour
 
     public void Continue()
     {
+
+        PlayerSaveData data = SaveSystem.LoadPlayer();
+        if (data == null)
+        {
+            Debug.Log("No save data found!");
+            //TODO: Add UI for this!
+        }
+        else if (data!= null)
+        {
+            Debug.Log(data.playerScene);
+            SceneManager.LoadScene(data.playerScene);
+        }
+        else
+        {
+            Debug.Log("Data isn't null but it also isn't not null. May God have mercy on our souls.");
+            //TODO: delete OS if this happens
+        }
+        /*
 #if UNITY_EDITOR
         SceneManager.LoadScene(EditorBuildSettings.scenes[1].path);
 #else
         SceneManager.LoadScene("Level1");
 #endif
 
-        //   SceneManager.LoadScene("Final_Prototype");
+        //   SceneManager.LoadScene("Final_Prototype");*/
     }
 
     public void NewGame()
