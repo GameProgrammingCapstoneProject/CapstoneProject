@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f09997e9684434c429cff564b3d53651, type: 3}
   m_Name: EzekielSlice
   m_EditorClassIdentifier: 
-  dialogueID: 93
+  dialogueID: 3
   dialogueText:
   - "But yeah\u2026 "
   - maindialogue1
@@ -89,7 +89,7 @@ MonoBehaviour:
   - "I\u2019m not the most experienced combattant, and my age is showing for those
     longer leaps. "
   - "Maybe it\u2019ll be you. Best fortune to yourself. "
-  - playerdeath
+  - break
   - Took a bit of a tumble there, didn't you?
   - Well, you seemed to have recovered well.
   - "I\u2019m not entirely sure how, but it might be the influence over this area."
