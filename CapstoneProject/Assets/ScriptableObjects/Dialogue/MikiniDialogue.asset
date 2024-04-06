@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09997e9684434c429cff564b3d53651, type: 3}
+  m_Name: MikiniDialogue
+  m_EditorClassIdentifier: 
+  dialogueID: 0
+  dialogueText:
+  - "Go on then\u2026"
+  - maindialogue1
+  - "Gah! Don\u2019t run up so quickly like that\u2026 I almost dropped a potion. "
+  - "Well, what could you possibly want? Don\u2019t you have some galavanting to
+    do? "
+  - "Lots to do to save Deesha, or however you want to talk about it\u2026 "
+  - Why not do that instead of scaring old women?
+  - maindialogue2
+  - "Oh, fine, if you\u2019re intent on staying\u2026 "
+  - Why are you here anyways? Better not be for them.
+  - Deesha is an awful thing to worship, their influence does nothing but corrupt.
+  - "We\u2019re in a death trap of their creation, at the minute. "
+  - And yet everyone except that merchant, Ezekiel, seems stuck in their grasp.
+  - Either directly, or just getting into the spirit of the murder here.
+  - "You\uFFFDve already killed a bunch, haven't you?"
+  - "Then you\u2019re falling right into its trap. "
+  - maindialogue3
+  - Wanna know a secret?
+  - My old village was completely wiped out by Deesha, influencing some soldiers.
+  - Those soldiers razed it to the ground as a gift to them.
+  - Anyone who supports Deesha is just too foolish to smell the corpses.
+  - "I hope you aren\u2019t the same. You aren\u2019t so glassy eyed as to pass over
+    me at least. "
+  - "You may not even be one of the faith\u2026 although, then why are you here?"
+  - maindialogue4
+  - Just be warned then, I suppose.
+  - Deesha is not benevolent, nor will you be rewarded for freeing them.
+  - "In all likelihood, they\u2019ll use you for evil as they have used most others. "
+  - I am only here to turn others around from them, and failing that, lodge a knife
+    in their back.
+  - Before they become fully lost to the bloodlust and end up killing somebody.
+  - "There\u2019s not much left for me out there anyways, even if I am trapped. "
+  - maindialogue5
+  - "Also\u2026 some of the soldiers raided the village. "
+  - They took a few heirlooms with them, and then came here.
+  - Hopefully, I can recover them from their bodies before I get out of here.
+  - "I\u2019ve found a handful already.. Drawings and jewelry, mostly. "
+  - I hope to be able to find the rest. And let me know if you see any more corpses
+    of soldiers.
+  - "I\u2019ll need to check every one I come across. "
+  - maindialogue6
+  - Oh, and try not to get killed. Some parts of you are lost to Deesha whenever
+    it happens.
+  - "I suspect that\u2019s how those monsters are formed\u2026 "
+  - Monsters made from bits, scraped off you every time you die.
+  - What a horrifying thought, right?
+  - "Lambs to the slaughter, all of them\u2026 "
+  - break
+  dialogueSize: 43
+  displayPortraitImage: {fileID: 21300000, guid: af4a79db32c702b4d9a5cca8038a101e, type: 3}

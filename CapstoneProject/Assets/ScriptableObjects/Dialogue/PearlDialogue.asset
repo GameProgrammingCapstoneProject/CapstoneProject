@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09997e9684434c429cff564b3d53651, type: 3}
+  m_Name: PearlDialogue
+  m_EditorClassIdentifier: 
+  dialogueID: 0
+  dialogueText:
+  - "Y-yeah\u2026"
+  - maindialogue1
+  - "O-oh\u2026 Hey there\u2026 "
+  - "\u2026"
+  - "Sorry I\u2019m\u2026 glad you\u2019re not an enemy, but\u2026 I\u2019d kinda
+    like to be left alone. "
+  - "If that\u2019s, alright with you. "
+  - maindialogue2
+  - "\u2026"
+  - "\u2026"
+  - "You\u2019re\u2026 really not intent on leaving, are you? "
+  - "Alright well\u2026 I\u2019m Pearl, first lieutenant of the Southern Alliance. "
+  - "I think so, anyways\u2026 not sure if I\u2019m gonna be tossed out as soon as
+    I\u2019m back\u2026 "
+  - "I wouldn\u2019t really mind you hanging around\u2026 at least you\u2019ll scare
+    off some of the monsters\u2026 "
+  - "Don\u2019t look at me like that, you are kind of scary! "
+  - Nobody from my company could do magic for one, nevermind that you survived this
+    long.
+  - "And you did kill a few monsters just now\u2026 to even get to me. "
+  - maindialogue3
+  - "Oh, right\u2026 sorry, I should\u2019ve probably dealt with them by now, just\u2026 "
+  - "Hiding felt, a little easier, and\u2026 well\u2026 "
+  - Most of my company died trying to fight them.
+  - "We got separated from a mercenary, Whirl, a while ago\u2026 he was the one taking
+    most of the hits. "
+  - Huge shield that he has and all that. He seemed pretty competent.
+  - "We were an expeditionary force so the rest of us weren\u2019t really that suited
+    to how many of them there are. "
+  - "Especially after our leader charged off, mumbling something about Deesha\u2026 "
+  - Rest of us got picked off, one by one. I fell down here trying to get out of
+    here after the last one fell.
+  - maindialogue4
+  - "I\u2019m just hoping I\u2019ll make it out of here alive, at this rate. "
+  - Just got the short end of the stick again, I suppose.
+  - Southern Alliance sent out about 15 groups like us, but of course I was in the
+    group that ended up here.
+  - Every time we went further down it felt like it got harder and harder to leave.
+  - Last I heard of my group, they were intent on pushing down even as we lost more.
+  - "Some kind of madness\u2026 But then, even the walls feel like they\u2019re intent
+    on driving us down. "
+  - That switch next to us, no way to get back up after we go down.
+  - "Don\u2019t think the door opens from the other side. "
+  - "Although if I hear someone I\u2019ll open it for them. "
+  - "Suppose you\u2019ll have to speak if you wanna be saved, heh. "
+  - maindialogue5
+  - "I miss\u2026 those flowers that used to grow around my home. "
+  - "And my family. My mom\u2019s probably worried sick by now\u2026 "
+  - "I hope there\u2019s some kind of way out of here. Maybe someone will come along
+    with a pickaxe. "
+  - "At least we don\u2019t seem to need to eat down here. "
+  - "Damn mages\u2026 I should\u2019ve listened to Baus instead of Wellrod!"
+  - "Why\u2019d he have to go and get lost instead of leading us in? "
+  - "Baus is probably up above sipping tea and wondering why we\u2019re taking so
+    long\u2026 "
+  - "I hope someone bars the way, so that nobody else wanders into these damn caves\u2026 "
+  - maindialogue6
+  - "You seem pretty likely to get out of here at least\u2026"
+  - "If you get back to the surface, tell Baus that she shouldn\u2019t come after
+    us. "
+  - "And that\u2026 I hope she\u2019s doing well. "
+  - "I feel a bit better now\u2026 not enough to leave, mind you. "
+  - But thanks for sticking around for a bit.
+  - "I\u2019m gonna try to fight my way down, too. Just need a bit to get myself
+    together. "
+  - "Hey, maybe I\u2019ll find the mage who built this place and get them to teleport
+    me out\u2026"
+  - break
+  dialogueSize: 54
+  displayPortraitImage: {fileID: 21300000, guid: 34affc6f22263f846822f4f97884ff48, type: 3}

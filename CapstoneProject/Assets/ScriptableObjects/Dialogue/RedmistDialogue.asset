@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09997e9684434c429cff564b3d53651, type: 3}
+  m_Name: RedmistDialogue
+  m_EditorClassIdentifier: 
+  dialogueID: 0
+  dialogueText:
+  - Go, leave me.
+  - maindialogue1
+  - 'Glorious day to you, combattant. '
+  - 'I am known as Redmist, a name earned in combat and strife. '
+  - 'My kill count of the beasts that lay in this drab tomb is fifty-two and counting. '
+  - "\u2026Your silent demeanor tells me that you are in awe of this!  "
+  - 'Good! For I will be the greatest of champions to venture into this battlefield! '
+  - 'Although I am sure you are accomplished yourself. You have made it down this
+    far, after all. '
+  - maindialogue2
+  - 'If you have reached this far, surely you have seen some of the fodder that lay
+    around. '
+  - 'I have splayed them across the stone above, and have continued to do so with
+    them here. '
+  - 'Applaud yourself, for you have pleased those above for your work. '
+  - 'No life lays behind their eyes, yet they shamble and kill as any beast would. '
+  - 'Despicable! I will purge them myself, every one! '
+  - 'Although the ones that spit energy are particularly annoying. '
+  - 'I would recommend you respond in kind, seeing as you are of magical ability. '
+  - 'As cowardly as I find the prospect, I suppose that it is effective. '
+  - maindialogue3
+  - 'I would never part with my axe, Aqas. '
+  - 'She is my companion on the battlefield, true and consistent. '
+  - Keeps an edge like no other, proven with the blood of these fiends.
+  - "Or\u2026 blood? It feels of a similar texture, but more animated.  "
+  - I see it twitch occasionally, on the edge of my blade, even hours after my last
+    kill.
+  - It is of little matter, they die all the same.
+  - My will is certain! I will continue without care for the pointless details.
+  - maindialogue4
+  - Quite unlike that scholar above. I believe Emelia was her name.
+  - She stood around examining my kills like a stray cat!
+  - "Small wonder that she hasn\u2019t made it this far down yet. "
+  - I will be the one who cleaves to the bottom of this cave.
+  - For all I have back home, and the promises I made to my brothers and sisters.
+  - "Besides, if I do not see success\u2026 "
+  - I will have little to return to, as a warrior.
+  - maindialogue5
+  - "Ugh\u2026 What is this melancholy that hangs in the air? "
+  - I despise the atmosphere here, the utter lack of celebration for my conquest.
+  - "I\u2019ve no choice but to continue cleaving, of course. "
+  - But a battle must eventually end, and a warrior rewarded for her fight.
+  - As much as I call into the caves and hear my voice echo back,
+  - It feels less and less like my normal warcry by the minute.
+  - maindialogue6
+  - Perhaps I am finally in need of rest.
+  - My blade will still for a time, and I will breathe and reassert myself.
+  - "Then, I will continue on\u2026 "
+  - Destroy more of these things, no matter how many stand between myself and the
+    end.
+  - You shall do the same! Go now!
+  - Perhaps you will match my count. I will count the cries of each defeated foe.
+  - break
+  dialogueSize: 48
+  displayPortraitImage: {fileID: 21300000, guid: 305104dcc81a7f74dba85d30d808d146, type: 3}
