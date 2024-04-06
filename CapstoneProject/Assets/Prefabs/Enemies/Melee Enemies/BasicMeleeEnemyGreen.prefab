@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _anim: {fileID: 5774040205199454047}
-  initialSpeed: 2
+  initialSpeed: 3
   playerPos: {fileID: 0}
   enemyRange: 1.5
 --- !u!114 &2428302149192947423
@@ -469,7 +469,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2139497935
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f0958391b56cc884eadc99c07db752bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

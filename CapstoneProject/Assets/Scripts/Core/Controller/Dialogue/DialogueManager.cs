@@ -57,7 +57,7 @@ public class DialogueManager : MonoBehaviour
     private TextMeshProUGUI displayTextMeshPro;
 
     //Sets the NPC in the inspector to the desired type
-    public enum npcID { Whirl, Emelia, Ezekiel };
+    public enum npcID { Whirl, Emelia, Ezekiel, Pearl, Redmist, Mikini };
     public npcID currentID;
    
     //Use to get the relevant UI elements
@@ -72,6 +72,9 @@ public class DialogueManager : MonoBehaviour
     public DialogueExample whirlDialogue;
     public DialogueExample emeliaDialogue;
     public DialogueExample ezekielDialogue;
+    public DialogueExample pearlDialogue;
+    public DialogueExample redmistDialogue;
+    public DialogueExample mikiniDialogue;
 
     //Images for text and dialogue portrait
     public Sprite textBoxImage;
@@ -119,7 +122,19 @@ public class DialogueManager : MonoBehaviour
         {
             gameState.currentNPC = "Ezekiel";
         }
-        
+        else if (currentID == npcID.Pearl)
+        {
+            gameState.currentNPC = "Pearl";
+        }
+        else if (currentID == npcID.Redmist)
+        {
+            gameState.currentNPC = "Redmist";
+        }
+        else if (currentID == npcID.Mikini)
+        {
+            gameState.currentNPC = "Mikini";
+        }
+
 
         //Loads and checks the display box sprite
         displayBoxObject.GetComponent<UnityEngine.UI.Image>().sprite = textBoxImage;
@@ -189,6 +204,21 @@ public class DialogueManager : MonoBehaviour
         {
             MoveObjectToList(ezekielDialogue);
             displayPortraitObject.GetComponent<UnityEngine.UI.Image>().sprite = ezekielDialogue.displayPortraitImage;
+        }
+        else if (gameState.currentNPC == "Pearl")
+        {
+            MoveObjectToList(pearlDialogue);
+            displayPortraitObject.GetComponent<UnityEngine.UI.Image>().sprite = pearlDialogue.displayPortraitImage;
+        }
+        else if (gameState.currentNPC == "Redmist")
+        {
+            MoveObjectToList(redmistDialogue);
+            displayPortraitObject.GetComponent<UnityEngine.UI.Image>().sprite = redmistDialogue.displayPortraitImage;
+        }
+        else if (gameState.currentNPC == "Mikini")
+        {
+            MoveObjectToList(mikiniDialogue);
+            displayPortraitObject.GetComponent<UnityEngine.UI.Image>().sprite = mikiniDialogue.displayPortraitImage;
         }
 
         //Check if the dialogue loaded successfully
@@ -299,7 +329,7 @@ public class DialogueManager : MonoBehaviour
             }
             
             if (dialogueSkipRepeat || dialogueState == 6)
-            {                                                                    
+            {
                 textCoroutine = TextScrollInput(dialogueTransition);
                 dialoguePriority = true;
                 StartCoroutine(textCoroutine);
@@ -343,7 +373,7 @@ public class DialogueManager : MonoBehaviour
             }
             else if (dialogue == "maindialogue6" && dialogueState == 5)
             {
-                StartCoroutine(SearchForState(textCoroutine, "maindialogue6", "playerdeath"));
+                StartCoroutine(SearchForState(textCoroutine, "maindialogue6", "break"));
                 dialogueState++;
                 break;
             }
@@ -366,24 +396,29 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator TextScrollInput(string displayText)
     {
+        UnityEngine.Debug.Log("This should only happen once: Text Scroll Input");
         IEnumerator textCoroutine = TextScroll(displayText);
         StartCoroutine(textCoroutine);
 
         bool input = false;
+        UnityEngine.Debug.Log("Input time "+ input);
         while (!input)
         {
-            if (Input.GetKeyUp(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.R))
             {
+                UnityEngine.Debug.Log("Input is here!");
                 input = true;
                 dialoguePriority = false;
             }
             yield return null;
+            
         }
         StopCoroutine(textCoroutine);
     }
 
     private IEnumerator SearchForState(IEnumerator textCoroutine, string searchText, string checkText) 
     {
+        UnityEngine.Debug.Log("This should only happen once: SearchForState");
         bool breakText = false;
         foreach (string dialogueStatus in loadedDialogue)
         {
@@ -392,6 +427,7 @@ public class DialogueManager : MonoBehaviour
                 int position = loadedDialogue.IndexOf(dialogueStatus);
                 foreach (string dialogueStatusConfirmed in loadedDialogue)
                 {
+
                     if (dialogueStatusConfirmed == checkText)
                     {
                         breakText = true;
@@ -399,6 +435,7 @@ public class DialogueManager : MonoBehaviour
                     }
                     if (loadedDialogue.IndexOf(dialogueStatusConfirmed) > position)
                     {
+                        UnityEngine.Debug.Log(dialogueStatusConfirmed);
                         textCoroutine = TextScrollInput(dialogueStatusConfirmed);
                         dialoguePriority = true;
                         StartCoroutine(textCoroutine);
@@ -406,6 +443,7 @@ public class DialogueManager : MonoBehaviour
                         {
                             yield return DialogueScrollYield;
                         }
+                        dialoguePriority = true;
                         StopCoroutine(textCoroutine);
                     }
                 }
@@ -421,6 +459,7 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator TextScroll(string displayText)
     {
+        UnityEngine.Debug.Log("This should only happen once: Text Scroll");
         TextMeshProUGUI scrollingTextMesh = displayTextObject.GetComponent<TextMeshProUGUI>();
         scrollingTextMesh.SetText(displayText);
         scrollingTextMesh.maxVisibleCharacters = 0;

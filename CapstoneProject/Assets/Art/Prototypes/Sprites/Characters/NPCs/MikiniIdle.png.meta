@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0bcf2b342bdd9d744b44d6d01ff6f5e4
+guid: 0aa232eb9d14ebd4ebac075e2a9dbead
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RedmistIdle_0
+      name: MikiniIdle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56d21d09d3de3ec4abece1db0d6dc32a
-      internalID: 867296910
+      spriteID: 3efe836e86054c247b06413ad6a279ec
+      internalID: -1689671959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_1
+      name: MikiniIdle_1
       rect:
         serializedVersion: 2
         x: 32
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa197ea8cba83fd4fa31254e55c90247
-      internalID: -1802053607
+      spriteID: 8bdcbfab48bbc8a4891ed7293dea626b
+      internalID: 1394701559
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_2
+      name: MikiniIdle_2
       rect:
         serializedVersion: 2
         x: 64
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26eb2c140e71fd941bc562f5bba0aa37
-      internalID: -512068420
+      spriteID: 0dd2c3f11b934b34392a37031579b008
+      internalID: 1853599479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_3
+      name: MikiniIdle_3
       rect:
         serializedVersion: 2
         x: 96
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bca6d38cbd9e2f4a9c17564f9ff3ac1
-      internalID: 1203909929
+      spriteID: d182884b9f0bd4f40b039d5b6d36b2bc
+      internalID: 753706790
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_4
+      name: MikiniIdle_4
       rect:
         serializedVersion: 2
         x: 128
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c66bcd5250723fb4bb54c14c358e1691
-      internalID: 1115510485
+      spriteID: 299667a19d6e11e41b11bd58dd0a29a2
+      internalID: 71082291
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_5
+      name: MikiniIdle_5
       rect:
         serializedVersion: 2
         x: 160
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3515f670f35ae1741954018e338eccfa
-      internalID: 1572157078
+      spriteID: c4db65f1fa38aed49984d7d1d84964b4
+      internalID: -298867973
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_6
+      name: MikiniIdle_6
       rect:
         serializedVersion: 2
         x: 192
@@ -250,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a003c7a9ede95eb489d05b5215040209
-      internalID: 1801719541
+      spriteID: 7369695bc0ea20947a97ead471f6d407
+      internalID: -780794213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_7
+      name: MikiniIdle_7
       rect:
         serializedVersion: 2
         x: 224
@@ -271,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e59517d1c792ea246b5e66b408201754
-      internalID: 664956788
+      spriteID: 1c7fb64bc86a6fb479ee4af05955aa3c
+      internalID: -161532281
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_8
+      name: MikiniIdle_8
       rect:
         serializedVersion: 2
         x: 256
@@ -292,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6822528e02dd3d41a7a404e5ed95fec
-      internalID: 673179351
+      spriteID: 4f0e2bc24431d5a46971379eeea6d42c
+      internalID: 515537488
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_9
+      name: MikiniIdle_9
       rect:
         serializedVersion: 2
         x: 288
@@ -313,14 +313,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f942cc9087fb5504eb70cc66181dcc72
-      internalID: -1566931044
+      spriteID: d6c4a87346cd48d4496e9130c2a87bbb
+      internalID: -1052503723
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_10
+      name: MikiniIdle_10
       rect:
         serializedVersion: 2
         x: 320
@@ -334,14 +334,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 795fe81f731e5804a8c2950a098a2b10
-      internalID: 598460734
+      spriteID: e9420f18a1733114e9e8f0c0b2460770
+      internalID: -1896452511
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_11
+      name: MikiniIdle_11
       rect:
         serializedVersion: 2
         x: 352
@@ -355,14 +355,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ecbf10d202286f4582bc91225d1390b
-      internalID: 547167787
+      spriteID: 9a808e36ed644b64d9ea4d85a6bbf274
+      internalID: 246005824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_12
+      name: MikiniIdle_12
       rect:
         serializedVersion: 2
         x: 384
@@ -376,14 +376,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4acda175aa44f994f822c6ff70feb85d
-      internalID: -130689838
+      spriteID: 389b1411c58226743a1bd18c2fdf1da7
+      internalID: 976632734
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_13
+      name: MikiniIdle_13
       rect:
         serializedVersion: 2
         x: 416
@@ -397,14 +397,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd4905453ee887148a3f5979fe351c10
-      internalID: -1412919360
+      spriteID: e6ac42fe1c99fef43a58f2f6acaa05c5
+      internalID: 971084642
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_14
+      name: MikiniIdle_14
       rect:
         serializedVersion: 2
         x: 448
@@ -418,14 +418,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6e1fcd16c2afee4abb7496d77f44637
-      internalID: -34102945
+      spriteID: b8ef57218478b044aad500748d8c1a09
+      internalID: -873479643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_15
+      name: MikiniIdle_15
       rect:
         serializedVersion: 2
         x: 480
@@ -439,14 +439,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4eb5e8402e5fcf4791b00fad91c16bb
-      internalID: 1760338600
+      spriteID: 70b543194fd72274aa90ec373660d0bb
+      internalID: -669731754
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_16
+      name: MikiniIdle_16
       rect:
         serializedVersion: 2
         x: 512
@@ -460,14 +460,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 125d34176b85ff342a2cefe455752497
-      internalID: 1218550028
+      spriteID: 8edb5ff8d4e763240a70fba65e279114
+      internalID: -1603829496
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_17
+      name: MikiniIdle_17
       rect:
         serializedVersion: 2
         x: 544
@@ -481,14 +481,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecf12243bf154a3409b4ea4bef929606
-      internalID: 625914779
+      spriteID: 038333c3f7ccdae47b9e396608827243
+      internalID: -676903196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_18
+      name: MikiniIdle_18
       rect:
         serializedVersion: 2
         x: 576
@@ -502,14 +502,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d53565c20f41af44082775fe43c2784e
-      internalID: -836496891
+      spriteID: 76dea434ca1c34f45b43947121baaab0
+      internalID: 833855892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_19
+      name: MikiniIdle_19
       rect:
         serializedVersion: 2
         x: 608
@@ -523,14 +523,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aeafea2eeb8096d4dae2546f84d48c73
-      internalID: 232243397
+      spriteID: d0a9a18a8752b1b4085a3e43eec07d6d
+      internalID: 619574551
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_20
+      name: MikiniIdle_20
       rect:
         serializedVersion: 2
         x: 640
@@ -544,14 +544,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 682956e5d5ee4e94abade44852acff2e
-      internalID: 1127887180
+      spriteID: a14ed0a6526e21e4f95aea2eb9e38da6
+      internalID: 1770847391
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_21
+      name: MikiniIdle_21
       rect:
         serializedVersion: 2
         x: 672
@@ -565,14 +565,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57415d2d9a598cb408fc356b49c576a7
-      internalID: -1752766580
+      spriteID: 690d56cf7bb85ed499bdf19654f06c9a
+      internalID: 1740960985
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_22
+      name: MikiniIdle_22
       rect:
         serializedVersion: 2
         x: 704
@@ -586,14 +586,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcda0d9114766e24b8465874b10d023a
-      internalID: 673645318
+      spriteID: c063e989443823244aa0b830c93580ec
+      internalID: -1950252496
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_23
+      name: MikiniIdle_23
       rect:
         serializedVersion: 2
         x: 736
@@ -607,14 +607,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c097bab55997ec34f9a06a1e627fd59b
-      internalID: 2010902084
+      spriteID: 7e5f90784d4caec4198fe38df09a8519
+      internalID: -2031058043
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedmistIdle_24
+      name: MikiniIdle_24
       rect:
         serializedVersion: 2
         x: 768
@@ -628,8 +628,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d117207655df51f40ac25b14fc1580df
-      internalID: -788646749
+      spriteID: 0d92855135cd4454f9206812824c33f9
+      internalID: 1625880496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MikiniIdle_25
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 722d4dd7c6067fa48bcaa6d4586de72d
+      internalID: -1776451342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MikiniIdle_26
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 0
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb413cca7989abd47b8256cda2563be8
+      internalID: -1973866776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MikiniIdle_27
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37edaf16d6907cd4985f1bf876d60360
+      internalID: -851007272
       vertices: []
       indices: 
       edges: []
@@ -645,31 +708,34 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      RedmistIdle_0: 867296910
-      RedmistIdle_1: -1802053607
-      RedmistIdle_10: 598460734
-      RedmistIdle_11: 547167787
-      RedmistIdle_12: -130689838
-      RedmistIdle_13: -1412919360
-      RedmistIdle_14: -34102945
-      RedmistIdle_15: 1760338600
-      RedmistIdle_16: 1218550028
-      RedmistIdle_17: 625914779
-      RedmistIdle_18: -836496891
-      RedmistIdle_19: 232243397
-      RedmistIdle_2: -512068420
-      RedmistIdle_20: 1127887180
-      RedmistIdle_21: -1752766580
-      RedmistIdle_22: 673645318
-      RedmistIdle_23: 2010902084
-      RedmistIdle_24: -788646749
-      RedmistIdle_3: 1203909929
-      RedmistIdle_4: 1115510485
-      RedmistIdle_5: 1572157078
-      RedmistIdle_6: 1801719541
-      RedmistIdle_7: 664956788
-      RedmistIdle_8: 673179351
-      RedmistIdle_9: -1566931044
+      MikiniIdle_0: -1689671959
+      MikiniIdle_1: 1394701559
+      MikiniIdle_10: -1896452511
+      MikiniIdle_11: 246005824
+      MikiniIdle_12: 976632734
+      MikiniIdle_13: 971084642
+      MikiniIdle_14: -873479643
+      MikiniIdle_15: -669731754
+      MikiniIdle_16: -1603829496
+      MikiniIdle_17: -676903196
+      MikiniIdle_18: 833855892
+      MikiniIdle_19: 619574551
+      MikiniIdle_2: 1853599479
+      MikiniIdle_20: 1770847391
+      MikiniIdle_21: 1740960985
+      MikiniIdle_22: -1950252496
+      MikiniIdle_23: -2031058043
+      MikiniIdle_24: 1625880496
+      MikiniIdle_25: -1776451342
+      MikiniIdle_26: -1973866776
+      MikiniIdle_27: -851007272
+      MikiniIdle_3: 753706790
+      MikiniIdle_4: 71082291
+      MikiniIdle_5: -298867973
+      MikiniIdle_6: -780794213
+      MikiniIdle_7: -161532281
+      MikiniIdle_8: 515537488
+      MikiniIdle_9: -1052503723
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
