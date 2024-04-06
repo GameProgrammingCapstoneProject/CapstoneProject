@@ -22,6 +22,7 @@ public class HealthUI : MonoBehaviour
     {
         _playerHealthComponent.OnHealthChanged += UpdateHealthUI;
         UpdateDefaultHealthUI();
+        UpdateHealthUI();
     }
     
 
