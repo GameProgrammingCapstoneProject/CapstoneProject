@@ -130,11 +130,11 @@ namespace Core.Entity
             string scene = SceneManager.GetActiveScene().name;
             
 
-                if (data != null && scene == data.playerScene)
+                if (data != null)
                 
                 {
                
-                    Vector3 position;
+                   
 
                  //   Debug.Log("The scene the player was in was" + data.playerScene);
                     CoinComponent.ChangeCoins(data.playerCoins);
@@ -153,19 +153,28 @@ namespace Core.Entity
                     deserializeLearnedAbility(data.playerUnlockedAbilities[2], AbilityComponent.ProjectileShootingAbility);
                     deserializeLearnedAbility(data.playerUnlockedAbilities[3], AbilityComponent.BowShootingAbility);
                     deserializeLearnedAbility(data.playerUnlockedAbilities[4], AbilityComponent.LightningStrikeAbility);
-                    //AbilityComponent.ChangeAbilties(data.playerAbilityOne, data.playerAbilityTwo);
-                    Debug.Log(data.playerPosition[0]);
-
+             
+                //AbilityComponent.ChangeAbilties(data.playerAbilityOne, data.playerAbilityTwo);
+                if (scene == data.playerScene)
+                {
+                //    Debug.Log(data.playerPosition[0]);
+                    Vector3 position;
                     position.x = data.playerPosition[0];
                     position.y = data.playerPosition[1];
                     position.z = data.playerPosition[2];
                     transform.position = position;
                     return true;
                 }
+                else
+                {
+                    Debug.Log("Player Load partially completed but didn't load position due to scene not matching. If this happened after a level transistion, this is not a bug.");
+                    return false;
+                }
+                }
             
             else
             {
-                Debug.Log("Player Load attempted but no save data was found, or scene loaded's name was identical to the scene saved.");
+                Debug.Log("Player Load attempted but no save data was found.");
                 return false;
             }
 

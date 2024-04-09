@@ -9,11 +9,12 @@ public class LevelTrigger : MonoBehaviour
 {
     [SceneName]
     public string nextScene;
-
+    public Player player;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.GetComponent<Player>())
         {
+            player.SavePlayer();
             SceneManager.LoadScene(nextScene);
         }
     }
