@@ -21,12 +21,20 @@ public class Arrow : MonoBehaviour
     private float _height = 0f;
     private int _numberOfParabolaPoints = 20;
     [SerializeField]
-    private int _damage = 20;
+    private int _damage = 5;
+
+    private Vector3 _direction;
+    
+
+    private Enemy _target;
     private void Start()
     {
-        if (pathPoints.Count > 0)
+        if (_target != null)
         {
-            transform.position = pathPoints[0];
+            if (pathPoints.Count > 0)
+            {
+                transform.position = pathPoints[0];
+            }
         }
     }
 
@@ -36,34 +44,49 @@ public class Arrow : MonoBehaviour
         _existTime -= Time.deltaTime;
         if (_existTime < 0)
             SelfDestroy();
-        if (currentPointIndex < pathPoints.Count)
+        if (_target == null)
         {
-            Vector2 targetPosition = pathPoints[currentPointIndex];
-            Vector2 moveDirection = (targetPosition - (Vector2)transform.position).normalized;
-
-            // Move the arrow
-            transform.position += (Vector3)moveDirection * (speed * Time.deltaTime);
-
-            // Rotate the arrow to look in the move direction
-            float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-            // Check if the arrow has reached the current point
-            if (Vector2.Distance(transform.position, targetPosition) < _permissibleDistance)
+            transform.position += _direction * Time.deltaTime * speed;
+        }
+        else
+        {
+            if (currentPointIndex < pathPoints.Count)
             {
-                currentPointIndex++;
+                Vector2 targetPosition = pathPoints[currentPointIndex];
+                Vector2 moveDirection = (targetPosition - (Vector2)transform.position).normalized;
+
+                // Move the arrow
+                transform.position += (Vector3)moveDirection * (speed * Time.deltaTime);
+
+                // Rotate the arrow to look in the move direction
+                float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+                // Check if the arrow has reached the current point
+                if (Vector2.Distance(transform.position, targetPosition) < _permissibleDistance)
+                {
+                    currentPointIndex++;
+                }
             }
         }
     }
 
-    public void Setup(float existTime, Vector3 startPos, Vector3 targetPos)
+    public void Setup(float existTime, Vector3 startPos, Enemy target)
     {
         _existTime = existTime;
         _startPos = startPos;
-        _targetPos = targetPos;
+        _target = target;
+        _targetPos = _target.transform.position;
         SetupArrowHeightAndParabolaPoints();
         pathPoints = GenerateParabolaPoints(_startPos, _targetPos, _height, _numberOfParabolaPoints);
     }
+    public void Setup(float existTime, Vector3 startPos, Vector3 direction)
+    {
+        _existTime = existTime;
+        _startPos = startPos;
+        _direction = direction;
+    }
+
     private Vector3 CreateParabola(Vector2 start, Vector2 end, float height, float t)
     {
         float parabolicT = t * 2 - 1;
@@ -96,12 +119,13 @@ public class Arrow : MonoBehaviour
     private void HitCollision(GameObject target)
     {
         GetComponent<BoxCollider2D>().enabled = false;
-        _animator.SetTrigger("Impact");
+        //_animator.SetTrigger("Impact");
         if (target.GetComponent<EnemyHealthComponent>() != null)
         {
             target.GetComponent<EnemyHealthComponent>().TakeDamage(_damage);
         }
         _isImpact = true;
+        SelfDestroy();
     }
 
     private void SelfDestroy()

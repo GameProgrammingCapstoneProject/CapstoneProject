@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Core.Components;
 using Core.Entity;
 using UnityEngine;
 //using UnityEditor.Playables;
@@ -23,8 +24,9 @@ public class PlayerAbilityComponent : MonoBehaviour
     [SerializeField]
     private float _scanRadius = 6f;
     public List<PlayerAbility> playerAbilities { get; private set; }
-    public GameObject lowestHealthTarget { get; private set; }
     [SerializeField] private LayerMask _enemyLayerMask;
+    public float viewAngle = 90f;
+    public float viewRadius = 10f;
     // Define a delegate for the event
     public delegate void PlayerAbilityChangedHandler(PlayerAbility ability, int index);
     
@@ -62,8 +64,6 @@ public class PlayerAbilityComponent : MonoBehaviour
         {
             playerAbilities[slotNumber] = ability;
             ability.AbilityStart(_player, this);
-            Debug.Log(_player);
-            Debug.Log(this);
             OnCurrentAbilitiesChanged?.Invoke(ability, slotNumber);
         }
         
@@ -81,6 +81,12 @@ public class PlayerAbilityComponent : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, _scanRadius);
+        Gizmos.color = Color.red;
+        Vector2 direction = Quaternion.Euler(0, 0, viewAngle) * transform.right;
+        Gizmos.DrawRay(transform.position, direction * viewRadius);
+        direction = Quaternion.Euler(0, 0, -viewAngle) * transform.right;
+        Gizmos.DrawRay(transform.position, direction * viewRadius);
+        Gizmos.DrawWireSphere(transform.position, viewRadius);
     }
 
     public GameObject[] ScanForEnemiesInArea()
@@ -93,14 +99,64 @@ public class PlayerAbilityComponent : MonoBehaviour
         }
         return allEnemies.ToArray();
     }
-    public GameObject ScanForLowestHealthEnemy()
+    public Enemy ScanForNearestTarget()
     {
-        //TODO: Need to implement the this function
-        GameObject[] targets = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject lowestHealthEnemy = targets[0];
-        lowestHealthTarget = lowestHealthEnemy;
+        Collider2D[] allEnemiesCollider = Physics2D.OverlapCircleAll(this.transform.position, viewRadius, _enemyLayerMask);
+
+        List<Enemy> enemies = new List<Enemy>();
+        Enemy nearestEnemy = null;
+        if (allEnemiesCollider.Length > 0)
+        {
+            if (_player.rb.CurrentFacingDirection == RigidbodyComponent.FacingDirections.RIGHT)
+            {
+                foreach (var enemyInRange in allEnemiesCollider)
+                {
+                    if (enemyInRange.transform.position.x > _player.transform.position.x)
+                    {
+                        enemies.Add(enemyInRange.GetComponent<Enemy>());
+                    }
+                }
+            }
+            else
+            {
+                foreach (var enemyInRange in allEnemiesCollider)
+                {
+                    if (enemyInRange.transform.position.x < _player.transform.position.x)
+                    {
+                        enemies.Add(enemyInRange.GetComponent<Enemy>());
+                    }
+                }
+            }
+        }
+
+        float distance = 0;
+        if (enemies.Count > 0)
+        {
+            if (enemies.Count == 1)
+            {
+                nearestEnemy = enemies[0];
+            }
+            else
+            {
+                for (int i = 0; i < enemies.Count; i++)
+                {
+                    if (i == 0)
+                        distance = Vector3.Distance(enemies[0].transform.position, _player.transform.position);
+                    else
+                    {
+                        float newDistance = Vector3.Distance(enemies[i].transform.position, _player.transform.position);
+                        if (newDistance < distance)
+                        {
+                            distance = newDistance;
+                            nearestEnemy = enemies[i].GetComponent<Enemy>();
+                        }
+                    }
+                }
+            }
+
+        }
         
-        return lowestHealthTarget;
+        return nearestEnemy;
     }
 
     public List<PlayerAbility> GetAbilities() => playerAbilities;
