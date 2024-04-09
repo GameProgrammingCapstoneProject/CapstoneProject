@@ -51,6 +51,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject displayBoxObject;
     public GameObject displayPortraitObject;
 
+    TextMeshProUGUI scrollingTextMesh;
+
     //Needed UI components
     private UnityEngine.UI.Image displayBoxImage;
     private UnityEngine.UI.Image displayPortraitImage;
@@ -82,9 +84,11 @@ public class DialogueManager : MonoBehaviour
     //Text scrolling variables
     private float textScrollSpeed = 0.06f;
     private float textInputCheckSpeed = 0.2f;
+    private float textEndLineSpeed = 0.01f;
 
     //Player input variables
     private bool dialoguePriority = false;
+    private bool isLineFinished = false;
     private bool dialogueIsplaying = false;
     private short dialogueState = 0;
     private bool dialogueSkipRepeat = false;
@@ -92,18 +96,20 @@ public class DialogueManager : MonoBehaviour
     //Yields for WaitForSeconds
     private WaitForSeconds DialogueScrollYield;
     private WaitForSeconds DialogueTextScroll;
+    private WaitForSeconds DialogueEndLine;
 
     //Reference of the scrolling text coroutine to stop it
     private IEnumerator scrollingCoroutine;
 
     void Start()
     {
-        
+
         //Debug for game state
         //gameState.currentNPC = "Whirl";
-
+        scrollingTextMesh = displayTextObject.GetComponent<TextMeshProUGUI>();
         DialogueScrollYield = new WaitForSeconds(textInputCheckSpeed);
         DialogueTextScroll = new WaitForSeconds(textScrollSpeed);
+        DialogueEndLine = new WaitForSeconds(textEndLineSpeed);
 
         //Default values for the game state
         gameState.deathStatus = recentDeaths.newGame;
@@ -396,19 +402,17 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator TextScrollInput(string displayText)
     {
-        UnityEngine.Debug.Log("This should only happen once: Text Scroll Input");
         IEnumerator textCoroutine = TextScroll(displayText);
         StartCoroutine(textCoroutine);
 
         bool input = false;
-        UnityEngine.Debug.Log("Input time "+ input);
         while (!input)
         {
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.R) && isLineFinished == true)
             {
-                UnityEngine.Debug.Log("Input is here!");
                 input = true;
                 dialoguePriority = false;
+                isLineFinished = false;
             }
             yield return null;
             
@@ -418,7 +422,6 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator SearchForState(IEnumerator textCoroutine, string searchText, string checkText) 
     {
-        UnityEngine.Debug.Log("This should only happen once: SearchForState");
         bool breakText = false;
         foreach (string dialogueStatus in loadedDialogue)
         {
@@ -435,7 +438,6 @@ public class DialogueManager : MonoBehaviour
                     }
                     if (loadedDialogue.IndexOf(dialogueStatusConfirmed) > position)
                     {
-                        UnityEngine.Debug.Log(dialogueStatusConfirmed);
                         textCoroutine = TextScrollInput(dialogueStatusConfirmed);
                         dialoguePriority = true;
                         StartCoroutine(textCoroutine);
@@ -459,16 +461,30 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator TextScroll(string displayText)
     {
-        UnityEngine.Debug.Log("This should only happen once: Text Scroll");
-        TextMeshProUGUI scrollingTextMesh = displayTextObject.GetComponent<TextMeshProUGUI>();
         scrollingTextMesh.SetText(displayText);
         scrollingTextMesh.maxVisibleCharacters = 0;
+        StartCoroutine(TextScrollEndLine());
 
         for (int i = 0; i < displayText.Length; i++)
         {
-            scrollingTextMesh.maxVisibleCharacters = i+1;
+            scrollingTextMesh.maxVisibleCharacters = scrollingTextMesh.maxVisibleCharacters + 1;
             //displayTextObject.GetComponent<TextMeshProUGUI>().SetText(displayText.Substring(0, i+1));
+            
             yield return DialogueTextScroll;
+        }
+        isLineFinished = true;
+    }
+
+    private IEnumerator TextScrollEndLine()
+    {
+        while (!isLineFinished)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                scrollingTextMesh.maxVisibleCharacters = 9999;
+                isLineFinished = true;
+            }
+            yield return DialogueEndLine;
         }
     }
 
