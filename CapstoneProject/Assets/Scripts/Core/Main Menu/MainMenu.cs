@@ -90,6 +90,16 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    public bool checkSave()
+    {
+        PlayerSaveData data = SaveSystem.LoadPlayer();
+
+        if (data == null)
+            return false; //save does not exist
+        else
+            return true; //data does exist
+    }
+
     private void OnSoundSliderValueChanged(float value)
     {
         SoundManager.Instance.ChangeSoundVolume(value);
