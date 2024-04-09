@@ -21,20 +21,12 @@ public class HealthUI : MonoBehaviour
     void Start()
     {
         _playerHealthComponent.OnHealthChanged += UpdateHealthUI;
-        UpdateDefaultHealthUI();
+        UpdateHealthUI();
     }
     
-
-    private void UpdateDefaultHealthUI()
-    {
-        _defaultHealth = _playerHealthComponent.GetMaxHealthValue();
-        for (int i = 0; i < _defaultHealth; i++)
-        {
-            Instantiate(_heartUIPrefab, _healthUIParent);
-        }
-    }
     private void UpdateHealthUI()
     {
+        _defaultHealth = _playerHealthComponent.GetMaxHealthValue();
         if (_healthUIParent.childCount > 0)
         {
             for (int i = 0; i < _healthUIParent.childCount; i++)
