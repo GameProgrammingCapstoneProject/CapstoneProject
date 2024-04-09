@@ -9,6 +9,7 @@ using UnityEngine;
 using System.IO;
 using Core.GameStates;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 namespace Core.Entity
 {
@@ -25,7 +26,7 @@ namespace Core.Entity
         public PlayerHealthComponent HealthComponent;
         public CoinComponent CoinComponent;
         public KeyItemComponent KeyItemComponent;
-
+        public TMP_Text SaveText;
         public Transform bowShootingPosition;
         public Transform projectileShootingPosition;
         //TODO: The movement attributes needs to be made into one separate component
@@ -44,6 +45,7 @@ namespace Core.Entity
         private Scene scene;
         protected override void Start()
         {
+            SaveText.enabled = false;
 
             Debug.Log(Application.persistentDataPath);
             base.Start();
@@ -118,13 +120,19 @@ namespace Core.Entity
 
 
             SaveSystem.SavePlayer(this, health, coins, keys, abilityone, abilitytwo, sceneSaved, unlockedAbilities);
-
+            StartCoroutine(showSaveText(3));
         }
 
-
+        public IEnumerator showSaveText(float seconds)
+        {
+            SaveText.enabled = true;
+          yield return new WaitForSeconds(seconds);
+            SaveText.enabled = false;
+        }
         public bool LoadPlayer()
         {
 
+       
             PlayerSaveData data = SaveSystem.LoadPlayer();
 
             string scene = SceneManager.GetActiveScene().name;
