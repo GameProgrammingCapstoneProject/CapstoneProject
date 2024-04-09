@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Core.Components;
 using Core.Entity;
 using UnityEngine;
 
@@ -11,7 +12,6 @@ public class BowShootingAbility : PlayerAbility
     private Arrow _currentArrow;
     [SerializeField]
     private float _existDuration;
-    private Transform _target;
     public event System.Action<BowShootingAbility> OnBowShootingAbilityCoolDown;
     
     public override void AbilityUpdate()
@@ -24,10 +24,19 @@ public class BowShootingAbility : PlayerAbility
     {
         if (_currentArrow == null)
         {
-            _target = Instigator.AbilityComponent.lowestHealthTarget.transform;
-            _currentArrow = GameObject.Instantiate(_arrowPrefab, Instigator.bowShootingPosition.transform.position, Instigator.transform.rotation);
-            _currentArrow.Setup(_existDuration, Instigator.bowShootingPosition.transform.position, _target.position);
-            OnBowShootingAbilityCoolDown?.Invoke(this);
+            if (Instigator.AbilityComponent.ScanForNearestTarget())
+            {
+                _currentArrow = GameObject.Instantiate(_arrowPrefab, Instigator.bowShootingPosition.transform.position, Instigator.transform.rotation);
+                _currentArrow.Setup(_existDuration, Instigator.bowShootingPosition.transform.position, Instigator.AbilityComponent.ScanForNearestTarget());
+                OnBowShootingAbilityCoolDown?.Invoke(this);
+            }
+            else
+            {
+                Vector3 direction = Instigator.rb.CurrentFacingDirection == RigidbodyComponent.FacingDirections.RIGHT ? Vector3.right : Vector3.left;
+                _currentArrow = GameObject.Instantiate(_arrowPrefab, Instigator.bowShootingPosition.transform.position, Instigator.transform.rotation);
+                _currentArrow.Setup(_existDuration, Instigator.bowShootingPosition.transform.position, direction);
+                OnBowShootingAbilityCoolDown?.Invoke(this);
+            }
         }
     }
 }

@@ -17,17 +17,6 @@ namespace Core.StateMachine
         public override void StateBegin()
         {
             base.StateBegin();
-            _target = Player.AbilityComponent.ScanForLowestHealthEnemy();
-            float attackDirection = 1;
-            if (_target.transform.position.x > Player.transform.position.x)
-            {
-                attackDirection = 1;
-            }
-            else
-            {
-                attackDirection = -1;
-            }
-            Player.rb.SetVelocity(attackDirection, 0);
             Player.rb.ResetToZeroVelocity();
         }
 
