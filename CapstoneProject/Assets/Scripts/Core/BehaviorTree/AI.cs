@@ -16,7 +16,10 @@ public class AI : MonoBehaviour
     Animator _anim;
     float stopSpeed = 0.0f;
     float movementSpeed;
+    float dashSpeed;
     float offsetY = 1.0f;
+
+    bool isDashing;
 
     Vector2 SpawnPoint = Vector2.zero;
 
@@ -38,6 +41,7 @@ public class AI : MonoBehaviour
         playerPos = GameObject.FindWithTag("Player").transform;
         playerRB = GameObject.FindWithTag("Player").gameObject.GetComponent<RigidbodyComponent>();
         SpawnPoint = transform.position;
+        dashSpeed = movementSpeed * 3;
     }
 
     // Update is called once per frame
@@ -127,14 +131,16 @@ public class AI : MonoBehaviour
     }
 
     [Task]
-    public bool IsWithinView()
+    public bool IsWithinView(float distance)
     {
         bool result = false;
+        Vector2 direction = Vector2.zero;
         Vector2 directionR = Vector2.zero;
         Vector2 directionL = Vector2.zero;
 
         directionR = Vector2.right;
         directionL = Vector2.left;
+        direction = (_rb.CurrentFacingDirection == RigidbodyComponent.FacingDirections.RIGHT ? Vector2.right : Vector2.left);
 
         /* if (_rb.CurrentFacingDirection == RigidbodyComponent.FacingDirections.RIGHT)
          {
@@ -145,12 +151,22 @@ public class AI : MonoBehaviour
              direction = Vector2.left;
          }*/
 
-        Debug.DrawRay(transform.position, directionR * 15, Color.green);
-        Debug.DrawRay(transform.position, directionL * 15, Color.green);
-        if (Physics2D.Raycast(transform.position, directionR, 15.0f, 1 << LayerMask.NameToLayer("Player")) || Physics2D.Raycast(transform.position, directionL, 15.0f, 1 << LayerMask.NameToLayer("Player")))
+
+        //Debug.DrawRay(transform.position, directionR * 15, Color.green);
+        //Debug.DrawRay(transform.position, directionL * 15, Color.green);
+        Debug.DrawRay(transform.position, direction * 15, Color.green);
+        if (Physics2D.Raycast(transform.position, direction, distance, 1 << LayerMask.NameToLayer("Player")))
         {
             result = true;
         }
+        //if (Physics2D.Raycast(transform.position, directionR, 15.0f, 1 << LayerMask.NameToLayer("Player")))
+        //{
+        //    result = true;
+        //}
+        //if (Physics2D.Raycast(transform.position, directionL, 15.0f, 1 << LayerMask.NameToLayer("Player")))
+        //{
+        //    result = true;
+        //}
 
         return result;
     }
@@ -256,6 +272,25 @@ public class AI : MonoBehaviour
     }
 
     [Task]
+    public void Dash()
+    {
+        isDashing = true;
+        if (_rb.CurrentFacingDirection == RigidbodyComponent.FacingDirections.RIGHT)
+        {
+            movementSpeed = dashSpeed;
+            _rb.ApplyForceToObject(transform.right, dashSpeed);
+        }
+        else
+        {
+            movementSpeed = -dashSpeed;
+            _rb.ApplyForceToObject(transform.right, dashSpeed);
+        }
+        AnimStateUpdate();
+        //_rb.SetVelocity(movementSpeed, _rb.velocity.y);
+        Task.current.Succeed();
+    }
+
+    [Task]
     public void RangedAttack()
     {
         movementSpeed = stopSpeed;
@@ -316,6 +351,37 @@ public class AI : MonoBehaviour
                 else
                 {
                     _anim.SetInteger("state", (int)Enemy.AnimationState.IDLE);
+                }
+
+                if (enemy.GetComponent<EnemyHealthComponent>().isDead == true)
+                {
+                    _anim.SetInteger("state", -1);
+                    _anim.SetTrigger("death");
+                }
+                break;
+
+            case (int)Enemy.EnemyType.CHASING_ENEMY:
+
+                
+                break;
+
+            case (int)Enemy.EnemyType.DASHING_ENEMY:
+                if((movementSpeed > 0.1f || movementSpeed < -0.1f) && !isDashing)
+                {
+                    _anim.SetInteger("state", (int)Enemy.AnimationState.WALK);
+                }
+                else if((movementSpeed > 0.1f || movementSpeed < -0.1f) && isDashing)
+                {
+                    _anim.SetInteger("state", (int)Enemy.AnimationState.WALK);
+                }
+                else
+                {
+                    _anim.SetInteger("state", (int)Enemy.AnimationState.IDLE);
+                }
+
+                if (IsWithinRange(enemyRange) && movementSpeed == stopSpeed)
+                {
+                    _anim.SetInteger("state", (int)Enemy.AnimationState.ATTACK);
                 }
 
                 if (enemy.GetComponent<EnemyHealthComponent>().isDead == true)

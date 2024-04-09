@@ -61,6 +61,11 @@ namespace Core.Components
             _rb.velocity = new Vector2(horizontalVelocity, verticalVelocity);
             ControlFlip(horizontalVelocity);
         }
+
+        public void ApplyForceToObject(Vector2 direction, float force)
+        {
+            _rb.AddForce(direction * force, ForceMode2D.Impulse);
+        }
     }
 }
 
