@@ -277,10 +277,8 @@ public class DialogueManager : MonoBehaviour
     //Enables both UI elements
     private void DisplayDialogueBox()
     {
-
-
         displayBoxImage.enabled = true;
-
+        displayBoxImage.gameObject.transform.GetChild(0).gameObject.SetActive(true);
     }
 
     private void DisplayDialoguePortrait()
@@ -482,6 +480,7 @@ public class DialogueManager : MonoBehaviour
         if (displayBoxObject != null)
         {
             displayBoxImage.enabled = false;
+            displayBoxImage.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         }
         if (displayTextObject != null)
         {
@@ -493,7 +492,11 @@ public class DialogueManager : MonoBehaviour
         }
         dialogueIsplaying = false;
         GetComponent<NPCDialogue>().ResetTriggerFlag();
-        GameState.Instance.CurrentGameState = GameState.States.Gameplay;
+        if (GameState.Instance != null)
+        {
+            GameState.Instance.CurrentGameState = GameState.States.Gameplay;
+        }
+       
     }
     private void OnDestroy()
     {

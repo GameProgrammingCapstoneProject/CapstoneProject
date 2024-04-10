@@ -49713,6 +49713,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShopNPC
       objectReference: {fileID: 0}
+    - target: {fileID: 4175923055994424476, guid: 6a2c3be72da0eeb4388ea3502b97c338, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4973382989971704576, guid: 6a2c3be72da0eeb4388ea3502b97c338, type: 3}
       propertyPath: m_LocalPosition.x
       value: 71.30072
@@ -49757,6 +49761,10 @@ PrefabInstance:
       propertyPath: _abilityShopUI
       value: 
       objectReference: {fileID: 336449752}
+    - target: {fileID: 5907437305539213980, guid: 6a2c3be72da0eeb4388ea3502b97c338, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -49901,18 +49909,6 @@ PrefabInstance:
       propertyPath: displayPortraitObject
       value: 
       objectReference: {fileID: 1997326134}
-    - target: {fileID: 5595890771175148034, guid: c773d50c83d695a44b022a8eb7f13889, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5595890771175148034, guid: c773d50c83d695a44b022a8eb7f13889, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5595890771175148034, guid: c773d50c83d695a44b022a8eb7f13889, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5595890771175148034, guid: c773d50c83d695a44b022a8eb7f13889, type: 3}
       propertyPath: m_LocalPosition.x
       value: 48.7
@@ -53024,10 +53020,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 602985466}
     m_Modifications:
     - target: {fileID: 96609259065506377, guid: b47890780d38fb244887585e325844a3, type: 3}
-      propertyPath: currentID
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 96609259065506377, guid: b47890780d38fb244887585e325844a3, type: 3}
       propertyPath: vignetteEffect
       value: 
       objectReference: {fileID: 1897961287}
@@ -53221,10 +53213,6 @@ PrefabInstance:
     - target: {fileID: 4816804110992415193, guid: 52fd0f52bd8b9614281673ec3a1406fc, type: 3}
       propertyPath: m_Name
       value: EmeliaNPC
-      objectReference: {fileID: 0}
-    - target: {fileID: 5640913826048678646, guid: 52fd0f52bd8b9614281673ec3a1406fc, type: 3}
-      propertyPath: currentID
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5640913826048678646, guid: 52fd0f52bd8b9614281673ec3a1406fc, type: 3}
       propertyPath: vignetteEffect

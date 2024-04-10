@@ -284,22 +284,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2454135674760662055, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 362.52
-      objectReference: {fileID: 0}
-    - target: {fileID: 2454135674760662055, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 518.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2454135674760662055, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2454135674760662055, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 249.3
-      objectReference: {fileID: 0}
     - target: {fileID: 4577728038241824272, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -380,49 +364,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5375277145048774179, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
-      propertyPath: m_fontSize
-      value: 52
-      objectReference: {fileID: 0}
-    - target: {fileID: 5375277145048774179, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 6cfa8b1cf0607d944a8adaa20e7a4a2e, type: 2}
-    - target: {fileID: 5375277145048774179, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
-      propertyPath: m_fontStyle
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5375277145048774179, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5375277145048774179, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5375277145048774179, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5375277145048774179, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 52
-      objectReference: {fileID: 0}
-    - target: {fileID: 5375277145048774179, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -1159694407056361556, guid: 6cfa8b1cf0607d944a8adaa20e7a4a2e, type: 2}
-    - target: {fileID: 5375277145048774179, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9098622345982583324, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
       propertyPath: m_Name
       value: DialogueUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 9098622345982583324, guid: 1dc4c1f211afafa4b80290c465aeb90d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1039,6 +983,10 @@ PrefabInstance:
     - target: {fileID: 3875758161908205466, guid: 4d1251b65244a8443821b90196e83856, type: 3}
       propertyPath: m_Name
       value: BasicMeleeEnemyGreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 3875758161908205466, guid: 4d1251b65244a8443821b90196e83856, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7409420525291117383, guid: 4d1251b65244a8443821b90196e83856, type: 3}
       propertyPath: m_AnchorMax.x
@@ -54187,6 +54135,10 @@ PrefabInstance:
       propertyPath: _abilityShopUI
       value: 
       objectReference: {fileID: 336449752}
+    - target: {fileID: 5907437305539213980, guid: 6a2c3be72da0eeb4388ea3502b97c338, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -55392,6 +55344,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RangedEnemyGreen
       objectReference: {fileID: 0}
+    - target: {fileID: 297576976415879222, guid: 7215f8da8b5d7bc4499cdcf8a40b1e92, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3301546530538971502, guid: 7215f8da8b5d7bc4499cdcf8a40b1e92, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -55667,6 +55623,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2151321776219057909, guid: 7263810ded150f34281800013cd8ce3b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5933055382291667064, guid: 7263810ded150f34281800013cd8ce3b, type: 3}
       propertyPath: vignetteEffect
       value: 
@@ -55762,6 +55722,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 602985466}
     m_Modifications:
+    - target: {fileID: 547456952367502064, guid: ee3036110c399314db53517afc5c348f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1128842407981154353, guid: ee3036110c399314db53517afc5c348f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 39.6
