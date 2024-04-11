@@ -16,6 +16,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        CursorManager.EnableCursor();
         EnableMainMenu();
         DisableOptionMenu();
         musicSlider.value = SoundManager.Instance.musicMod;
@@ -29,7 +30,7 @@ public class MainMenu : MonoBehaviour
 
     public void Continue()
     {
-
+        CursorManager.DisableCursor();
         PlayerSaveData data = SaveSystem.LoadPlayer();
         if (data == null)
         {
@@ -58,6 +59,7 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
+        CursorManager.DisableCursor();
 #if UNITY_EDITOR
         SceneManager.LoadScene(EditorBuildSettings.scenes[1].path);
 #else
@@ -89,7 +91,7 @@ public class MainMenu : MonoBehaviour
             Debug.Log("No Save game found to delete");
         }
     }
-
+    
     public bool checkSave()
     {
         PlayerSaveData data = SaveSystem.LoadPlayer();

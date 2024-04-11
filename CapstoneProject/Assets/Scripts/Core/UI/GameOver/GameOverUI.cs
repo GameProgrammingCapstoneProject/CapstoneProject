@@ -16,6 +16,7 @@ public class GameOverUI : MonoBehaviour
 
     private void ShowUI()
     {
+        CursorManager.EnableCursor();
         gameOverUIHolder.SetActive(true);
     }
 
