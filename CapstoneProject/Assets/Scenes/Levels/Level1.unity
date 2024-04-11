@@ -50743,10 +50743,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShopNPC
       objectReference: {fileID: 0}
-    - target: {fileID: 4175923055994424476, guid: 6a2c3be72da0eeb4388ea3502b97c338, type: 3}
-      propertyPath: m_FlipX
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4973382989971704576, guid: 6a2c3be72da0eeb4388ea3502b97c338, type: 3}
       propertyPath: m_LocalPosition.x
       value: 71.30072
@@ -50791,10 +50787,6 @@ PrefabInstance:
       propertyPath: _abilityShopUI
       value: 
       objectReference: {fileID: 336449752}
-    - target: {fileID: 5907437305539213980, guid: 6a2c3be72da0eeb4388ea3502b97c338, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -50939,10 +50931,6 @@ PrefabInstance:
       propertyPath: displayPortraitObject
       value: 
       objectReference: {fileID: 1997326134}
-    - target: {fileID: 3728297563310352675, guid: c773d50c83d695a44b022a8eb7f13889, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5595890771175148034, guid: c773d50c83d695a44b022a8eb7f13889, type: 3}
       propertyPath: m_LocalPosition.x
       value: 48.7
@@ -54146,17 +54134,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3651941699122142494, guid: b47890780d38fb244887585e325844a3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4183032402719311124, guid: b47890780d38fb244887585e325844a3, type: 3}
       propertyPath: m_Name
       value: EzekielNPC
-      objectReference: {fileID: 0}
-    - target: {fileID: 6071747649474080170, guid: b47890780d38fb244887585e325844a3, type: 3}
-      propertyPath: m_FlipX
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -54297,10 +54277,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 602985466}
     m_Modifications:
-    - target: {fileID: 2487337581423372886, guid: 52fd0f52bd8b9614281673ec3a1406fc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4816804110992415193, guid: 52fd0f52bd8b9614281673ec3a1406fc, type: 3}
       propertyPath: m_Name
       value: EmeliaNPC
@@ -54374,10 +54350,58 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 878687216}
     m_Modifications:
+    - target: {fileID: 2036487051707704428, guid: 1b871234c46af4c4a87ce94dbdf5f0d1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2036487051707704428, guid: 1b871234c46af4c4a87ce94dbdf5f0d1, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2036487051707704428, guid: 1b871234c46af4c4a87ce94dbdf5f0d1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2036487051707704428, guid: 1b871234c46af4c4a87ce94dbdf5f0d1, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2036487051707704428, guid: 1b871234c46af4c4a87ce94dbdf5f0d1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2036487051707704428, guid: 1b871234c46af4c4a87ce94dbdf5f0d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3009207517328659249, guid: 1b871234c46af4c4a87ce94dbdf5f0d1, type: 3}
       propertyPath: _playerCoinComponent
       value: 
       objectReference: {fileID: 325890134}
+    - target: {fileID: 4357419026806002293, guid: 1b871234c46af4c4a87ce94dbdf5f0d1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4357419026806002293, guid: 1b871234c46af4c4a87ce94dbdf5f0d1, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4357419026806002293, guid: 1b871234c46af4c4a87ce94dbdf5f0d1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4357419026806002293, guid: 1b871234c46af4c4a87ce94dbdf5f0d1, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4357419026806002293, guid: 1b871234c46af4c4a87ce94dbdf5f0d1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4357419026806002293, guid: 1b871234c46af4c4a87ce94dbdf5f0d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4569734661095962903, guid: 1b871234c46af4c4a87ce94dbdf5f0d1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -54470,6 +54494,30 @@ PrefabInstance:
       propertyPath: _playerKeyItemComponent
       value: 
       objectReference: {fileID: 1977633014}
+    - target: {fileID: 7685669387413047693, guid: 1b871234c46af4c4a87ce94dbdf5f0d1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685669387413047693, guid: 1b871234c46af4c4a87ce94dbdf5f0d1, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685669387413047693, guid: 1b871234c46af4c4a87ce94dbdf5f0d1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685669387413047693, guid: 1b871234c46af4c4a87ce94dbdf5f0d1, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685669387413047693, guid: 1b871234c46af4c4a87ce94dbdf5f0d1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685669387413047693, guid: 1b871234c46af4c4a87ce94dbdf5f0d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
