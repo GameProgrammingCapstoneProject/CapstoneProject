@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4562223676720165616}
-  - component: {fileID: 883852252886419381}
+  - component: {fileID: -6391039893094418237}
   m_Layer: 5
   m_Name: VictoryScreen
   m_TagString: Untagged
@@ -37,7 +37,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &883852252886419381
+--- !u!114 &-6391039893094418237
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,11 +46,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 784831509764698631}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62bfe4785684d1d4d9cf9bf905d95224, type: 3}
+  m_Script: {fileID: 11500000, guid: 5cfc1775befd1354eb6820e9db94a86a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverUIHolder: {fileID: 5937545651299324225}
-  level1Scene: Assets/Scenes/Vertical_Slice/Vertical_Slice.unity
+  VictoryScreenUIHolder: {fileID: 5937545651299324225}
+  level1Scene: Assets/Scenes/Levels/Level1.unity
   mainMenuScene: Assets/Scenes/Prototypes/MainMenu.unity
 --- !u!1 &3134927176118618252
 GameObject:
@@ -355,7 +355,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1991654025719856870
 RectTransform:
   m_ObjectHideFlags: 0
@@ -724,10 +724,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5490397562242835442}
     - target: {fileID: 8061194423901627286, guid: 81736539296ce4c438c938a07f6f9481, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 883852252886419381}
-    - target: {fileID: 8061194423901627286, guid: 81736539296ce4c438c938a07f6f9481, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: QuitGame
       objectReference: {fileID: 0}
@@ -876,7 +872,7 @@ PrefabInstance:
     - target: {fileID: 8061194423901627286, guid: 81736539296ce4c438c938a07f6f9481, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 883852252886419381}
+      objectReference: {fileID: -6391039893094418237}
     - target: {fileID: 8061194423901627286, guid: 81736539296ce4c438c938a07f6f9481, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -887,7 +883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8061194423901627286, guid: 81736539296ce4c438c938a07f6f9481, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameOverUI, Assembly-CSharp
+      value: VictoryScreenUI, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8061194423901627286, guid: 81736539296ce4c438c938a07f6f9481, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -1038,7 +1034,7 @@ PrefabInstance:
     - target: {fileID: 8061194423901627286, guid: 81736539296ce4c438c938a07f6f9481, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 883852252886419381}
+      objectReference: {fileID: -6391039893094418237}
     - target: {fileID: 8061194423901627286, guid: 81736539296ce4c438c938a07f6f9481, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -1049,7 +1045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8061194423901627286, guid: 81736539296ce4c438c938a07f6f9481, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameOverUI, Assembly-CSharp
+      value: VictoryScreenUI, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8061194423901627286, guid: 81736539296ce4c438c938a07f6f9481, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
