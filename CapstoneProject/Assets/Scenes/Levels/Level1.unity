@@ -53180,6 +53180,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1977633020}
+    - target: {fileID: 6264866872116157497, guid: a3f4ab1640b9ab6419c28ea971acce35, type: 3}
+      propertyPath: nextScene
+      value: Assets/Scenes/Levels/Level1.unity
+      objectReference: {fileID: 0}
     - target: {fileID: 7196390063702916237, guid: a3f4ab1640b9ab6419c28ea971acce35, type: 3}
       propertyPath: m_Name
       value: LevelTrigger
