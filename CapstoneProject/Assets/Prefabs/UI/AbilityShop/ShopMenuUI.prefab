@@ -145,7 +145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 725988ee7b8058b40acfb8a7b56708fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 050a329890c6a034299e6d032acdbf0a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -297,7 +297,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press E to learn
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6cfa8b1cf0607d944a8adaa20e7a4a2e, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -634,8 +634,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1000
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6cfa8b1cf0607d944a8adaa20e7a4a2e, type: 2}
+  m_sharedMaterial: {fileID: -1159694407056361556, guid: 6cfa8b1cf0607d944a8adaa20e7a4a2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -768,15 +768,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Ability Shop
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6cfa8b1cf0607d944a8adaa20e7a4a2e, type: 2}
+  m_sharedMaterial: {fileID: -1159694407056361556, guid: 6cfa8b1cf0607d944a8adaa20e7a4a2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1020,17 +1020,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This is the ability description
+  m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6cfa8b1cf0607d944a8adaa20e7a4a2e, type: 2}
+  m_sharedMaterial: {fileID: -1159694407056361556, guid: 6cfa8b1cf0607d944a8adaa20e7a4a2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1139,11 +1139,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _allPlayerAbilities:
+  - {fileID: 11400000, guid: ec638402b2a15154bb81e2f748a45197, type: 2}
+  - {fileID: 11400000, guid: 205730797f4d93745b3462f3cae60fcf, type: 2}
   - {fileID: 11400000, guid: 919751b52fd326348b1eaa91adde5b07, type: 2}
   - {fileID: 11400000, guid: 76e81ea0c3a846946bb396f38441f667, type: 2}
   - {fileID: 11400000, guid: 6fcc3f09fb24a2b49860e08c56d3676d, type: 2}
-  - {fileID: 11400000, guid: ec638402b2a15154bb81e2f748a45197, type: 2}
-  - {fileID: 11400000, guid: 205730797f4d93745b3462f3cae60fcf, type: 2}
   _abilitySlotParent: {fileID: 1858335688007248585}
   _abilitySlotPrefab: {fileID: 6996289788056565448, guid: 0ecec9e8219994444beafd85d1f574e2, type: 3}
   _abilityDescription: {fileID: 2273914468878127281}

@@ -13,12 +13,14 @@ public class ShieldAbility : PlayerAbility
     [SerializeField]
     private float _existDuration;
     public event System.Action<ShieldAbility> OnShieldAbilityCoolDown;
+    [SerializeField] private int _blockDamage = 2;
     protected override void Activate()
     {
         if (_currentShield == null)
         {
             _currentShield = GameObject.Instantiate(_shieldPrefab, Instigator.transform.position, Instigator.transform.rotation);
             _currentShield.Setup(_existDuration, Instigator);
+            Instigator.HealthComponent.damageBlockedFromShieldAbility = _blockDamage;
             OnShieldAbilityCoolDown?.Invoke(this);
         }
     }

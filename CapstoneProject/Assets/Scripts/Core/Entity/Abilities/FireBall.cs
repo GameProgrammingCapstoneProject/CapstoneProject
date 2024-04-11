@@ -15,6 +15,7 @@ public class FireBall : MonoBehaviour
     private float _moveSpeed;
     private bool _explode = false;
     private List<EnemyHealthComponent> _enemyList;
+    [SerializeField] private int _damage = 20;
 
     public void Setup(float existTime, float moveSpeed)
     {
@@ -64,7 +65,7 @@ public class FireBall : MonoBehaviour
         {
             foreach (var enemy in _enemyList)
             {
-                enemy.TakeDamage(30);
+                enemy.TakeDamage(_damage);
             }
         }
         
