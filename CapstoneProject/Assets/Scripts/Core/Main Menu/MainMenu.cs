@@ -13,10 +13,12 @@ public class MainMenu : MonoBehaviour
     public Slider soundSlider;
     public GameObject mainMenu;
     public GameObject optionMenu;
+    public Button continueButton;
 
     private void Start()
     {
         CursorManager.EnableCursor();
+        ChangeContinueButtonState();
         EnableMainMenu();
         DisableOptionMenu();
         musicSlider.value = SoundManager.Instance.musicMod;
@@ -26,6 +28,18 @@ public class MainMenu : MonoBehaviour
         musicSlider.onValueChanged.AddListener(OnMusicSliderValueChanged);
         soundSlider.onValueChanged.AddListener(OnSoundSliderValueChanged);
         
+    }
+
+    public void ChangeContinueButtonState()
+    {
+        if (checkSave())
+        {
+            continueButton.interactable = true;
+        }
+        else
+        {
+            continueButton.interactable = false;
+        }
     }
 
     public void Continue()
