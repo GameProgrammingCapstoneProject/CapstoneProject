@@ -40,11 +40,16 @@ public class SoundManager : PersistentObject<SoundManager>
     public float soundMod = 1f;
     public float musicMod = 1f;
     private Scene scene;
+
+
     protected override void Awake()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         base.Awake();
 
     }
+
+
 
     protected override void Start()
     {
@@ -59,15 +64,22 @@ public class SoundManager : PersistentObject<SoundManager>
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
         }
-    //    Stop("ExampleSong");
-  //      PlayLoopedMusic("ExampleSong");
+        //    Stop("ExampleSong");
+        //      PlayLoopedMusic("ExampleSong");
 
+
+
+
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
         scene = SceneManager.GetActiveScene();
         string checkScene = scene.name;
-     //   Debug.Log(checkScene); 
+        //   Debug.Log(checkScene); 
         if (checkScene == "Level1")
         {
-            Play("Level1Music");
+            PlayLoopedMusic("Level1Music");
         }
         if (checkScene == "Level2")
         {
@@ -77,7 +89,6 @@ public class SoundManager : PersistentObject<SoundManager>
         {
             PlayLoopedMusic("Level3Music");
         }
-
     }
 
     private void OnDestroy()
