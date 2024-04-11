@@ -66,11 +66,11 @@ TagManager:
   - name: Enemy
     uniqueID: 2155469361
     locked: 0
-  - name: Player
-    uniqueID: 1456303091
-    locked: 0
   - name: Vfx
     uniqueID: 1132165347
+    locked: 0
+  - name: Player
+    uniqueID: 1456303091
     locked: 0
   - name: Bullet
     uniqueID: 339629575

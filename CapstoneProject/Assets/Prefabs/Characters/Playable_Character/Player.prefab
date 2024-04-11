@@ -94,7 +94,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1456303091
-  m_SortingLayer: 9
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: -1051919858, guid: 19b694f85e47ac74ba15b4a156fa532e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -344,6 +344,7 @@ MonoBehaviour:
   HealthComponent: {fileID: 7302558216791557394}
   CoinComponent: {fileID: 29325562241796421}
   KeyItemComponent: {fileID: 578591530977137137}
+  SaveText: {fileID: 0}
   bowShootingPosition: {fileID: 4872242686308043256}
   projectileShootingPosition: {fileID: 4872242686308043256}
   _moveSpeed: 10
@@ -433,6 +434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _effect: {fileID: 965212922198389418}
   _maxHealth: 6
+  damageBlockedFromShieldAbility: 0
 --- !u!114 &965212922198389418
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityIcon: {fileID: 21300000, guid: c4182e0c63bf9f647846542d1517499b, type: 3}
   _abilityCost: 100
-  abilityDescription: This is a shield ability
-  _cooldown: 10
+  abilityDescription: 'Raise a durable iron shield, nullifying 2 damage for<br>a
+    short duration.<br>Cooldown: 20s'
+  _cooldown: 20
   _isUnlocked: 0
   _shieldPrefab: {fileID: 311645483850425259, guid: 2723e0cb27cd3604aa4c3fb359f34906, type: 3}
-  _existDuration: 3
+  _existDuration: 7
+  _blockDamage: 2

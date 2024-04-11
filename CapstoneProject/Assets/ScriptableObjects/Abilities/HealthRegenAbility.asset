@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityIcon: {fileID: 21300000, guid: cccffc5ec9f2a1b47ba9a85fda7728b2, type: 3}
   _abilityCost: 400
-  abilityDescription: This is a health regen ability
-  _cooldown: 5
+  abilityDescription: 'Activate to regenerate 1 health, allowing you to recover<br>from
+    damage more quickly.<br>Can only be used once in a while.<br>Spend 100g per use.<br>Cooldown:
+    10s.'
+  _cooldown: 10
   _isUnlocked: 0
   _healthRegenPrefab: {fileID: 3883091892593726328, guid: b580b3ac2a0cf874ca47a7b1133be4b8, type: 3}
+  coinConsumeWhenUsing: 100

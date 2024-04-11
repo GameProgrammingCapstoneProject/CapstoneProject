@@ -15,4 +15,8 @@ public class HealthRegen : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
+    private void Update()
+    {
+        transform.position = _owner.transform.position;
+    }
 }
