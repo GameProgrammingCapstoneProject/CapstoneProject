@@ -42705,14 +42705,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4675395704184286957, guid: 0d4c42b0054bb124db6aaa874d67dca5, type: 3}
       propertyPath: tutorialDescription
-      value: Use the spacebar to jump. Press the spacebar again in midar to double
+      value: Press the spacebar to jump. Press the spacebar again in midar to double
         jump.
       objectReference: {fileID: 0}
     - target: {fileID: 4851478696374517246, guid: 0d4c42b0054bb124db6aaa874d67dca5, type: 3}
       propertyPath: m_text
-      value: 'Use the spacebar to jump. Press it again in midair for a double jump.
-
-'
+      value: Press the spacebar to jump. Press the spacebar again in midar to double
+        jump.
       objectReference: {fileID: 0}
     - target: {fileID: 6379536112728008016, guid: 0d4c42b0054bb124db6aaa874d67dca5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -44490,13 +44489,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4675395704184286957, guid: 0d4c42b0054bb124db6aaa874d67dca5, type: 3}
       propertyPath: tutorialDescription
-      value: While in midair, hold the arrow key corresponding to the direction of
-        a wall to wall-cling.   While wall-clinging, press space again to wall-jump.
+      value: While in midair, move against the nearest wall to wall-cling.  While
+        wall-clinging, press space again to wall-jump. If you let go of the arrow
+        key while wall clinging, you'll let go.
       objectReference: {fileID: 0}
     - target: {fileID: 4851478696374517246, guid: 0d4c42b0054bb124db6aaa874d67dca5, type: 3}
       propertyPath: m_text
-      value: "While in midair, hold the arrow key corresponding to the direction
-        of a wall to wall-cling.  \nWhile wall-clinging, press space again to wall-jump."
+      value: "While in midair, move against the nearest wall to wall-cling. \nWhile
+        wall-clinging, press space again to wall-jump.\nIf you let go of the arrow
+        key while wall clinging, you'll let go."
       objectReference: {fileID: 0}
     - target: {fileID: 6379536112728008016, guid: 0d4c42b0054bb124db6aaa874d67dca5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52704,11 +52705,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4675395704184286957, guid: 0d4c42b0054bb124db6aaa874d67dca5, type: 3}
       propertyPath: tutorialDescription
-      value: Use the arrow keys to move
+      value: Use the arrow keys to move.
       objectReference: {fileID: 0}
     - target: {fileID: 4851478696374517246, guid: 0d4c42b0054bb124db6aaa874d67dca5, type: 3}
       propertyPath: m_text
-      value: Use the arrow keys to move
+      value: Use the arrow keys to move.
       objectReference: {fileID: 0}
     - target: {fileID: 6379536112728008016, guid: 0d4c42b0054bb124db6aaa874d67dca5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52851,11 +52852,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4675395704184286957, guid: 0d4c42b0054bb124db6aaa874d67dca5, type: 3}
       propertyPath: tutorialDescription
-      value: 'Interacting with shopkeepers saves your game. '
+      value: Interacting with checkpoints saves your game and allows you to shop
+        for abilities.
       objectReference: {fileID: 0}
     - target: {fileID: 4851478696374517246, guid: 0d4c42b0054bb124db6aaa874d67dca5, type: 3}
       propertyPath: m_text
-      value: 'Interacting with shopkeepers saves your game. '
+      value: Interacting with checkpoints saves your game and allows you to shop
+        for abilities.
       objectReference: {fileID: 0}
     - target: {fileID: 6379536112728008016, guid: 0d4c42b0054bb124db6aaa874d67dca5, type: 3}
       propertyPath: m_LocalPosition.x
