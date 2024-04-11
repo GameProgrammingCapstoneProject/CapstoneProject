@@ -49946,6 +49946,10 @@ PrefabInstance:
       propertyPath: displayPortraitObject
       value: 
       objectReference: {fileID: 1997326134}
+    - target: {fileID: 3728297563310352675, guid: c773d50c83d695a44b022a8eb7f13889, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5595890771175148034, guid: c773d50c83d695a44b022a8eb7f13889, type: 3}
       propertyPath: m_LocalPosition.x
       value: 48.7
@@ -53147,9 +53151,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3651941699122142494, guid: b47890780d38fb244887585e325844a3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4183032402719311124, guid: b47890780d38fb244887585e325844a3, type: 3}
       propertyPath: m_Name
       value: EzekielNPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 6071747649474080170, guid: b47890780d38fb244887585e325844a3, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -53286,6 +53298,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 602985466}
     m_Modifications:
+    - target: {fileID: 2487337581423372886, guid: 52fd0f52bd8b9614281673ec3a1406fc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4816804110992415193, guid: 52fd0f52bd8b9614281673ec3a1406fc, type: 3}
       propertyPath: m_Name
       value: EmeliaNPC
