@@ -15,16 +15,21 @@ public class PlayerHealthComponent : MonoBehaviour, IDamageable
     public static event System.Action OnDead;
     [SerializeField]
     private int _maxHealth = 6;
+    public int damageBlockedFromShieldAbility = 0;
 
     private void Start()
     {
-      if (currentHealth == 0)
-            currentHealth = _maxHealth;
+        ChangeHealth(_maxHealth);
     }
 
     public void TakeDamage(int damage)
     {
         if (isDead || isInvincible) return;
+        if (damageBlockedFromShieldAbility > 0)
+        {
+            damageBlockedFromShieldAbility -= 1;
+            return;
+        }
         DecreaseHealthBy(damage);
         _effect.ShakeScreen();
         _effect.StartCoroutine(nameof(_effect.FlashFX));

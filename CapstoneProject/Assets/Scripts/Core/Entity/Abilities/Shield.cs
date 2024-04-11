@@ -17,8 +17,12 @@ public class Shield : MonoBehaviour
     private void Update()
     {
         _existTime -= Time.deltaTime;
-        if (_existTime < 0)
+        if (_existTime < 0 || _owner.HealthComponent.damageBlockedFromShieldAbility == 0)
+        {
+            _owner.HealthComponent.damageBlockedFromShieldAbility = 0;
             Destroy(this.gameObject);
+        }
+            
         transform.position = _owner.transform.position;
     }
 }

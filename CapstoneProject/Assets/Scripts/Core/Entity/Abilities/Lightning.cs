@@ -9,6 +9,7 @@ public class Lightning : MonoBehaviour
     private List<EnemyHealthComponent> _enemyList;
 
     private LightningStrikeAbility _ability;
+    [SerializeField] private int _damage = 5;
 
     private void Start()
     {
@@ -32,7 +33,7 @@ public class Lightning : MonoBehaviour
     {
         foreach (var enemy in _enemyList)
         {
-            enemy.TakeDamage(10);
+            enemy.TakeDamage(_damage);
         }
     }
 }

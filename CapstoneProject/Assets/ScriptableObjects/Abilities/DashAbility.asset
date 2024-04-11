@@ -15,6 +15,6 @@ MonoBehaviour:
   abilityIcon: {fileID: 0}
   _abilityCost: 0
   abilityDescription: 
-  _cooldown: 2.5
+  _cooldown: 5
   _isUnlocked: 1
-  _invincibleTime: 1
+  _invincibleTime: 0.6

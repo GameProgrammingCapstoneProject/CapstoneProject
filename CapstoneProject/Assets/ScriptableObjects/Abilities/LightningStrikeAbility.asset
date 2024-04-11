@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityIcon: {fileID: 21300000, guid: 44f966d6a4befdf4cacc3daa3ba37bee, type: 3}
   _abilityCost: 1200
-  abilityDescription: This is a lightning strike ability
-  _cooldown: 8
+  abilityDescription: 'Summon lightning bolts to strike your target, dealing<br>5
+    damage each time it hits your target.<br>Cooldown: 15s'
+  _cooldown: 15
   _isUnlocked: 0
   _lightningStrikePrefab: {fileID: 54144638978017016, guid: 4784265f2bbb17c46b74e66d2962bc2f, type: 3}
   _xOffset: 3
-  targets:
-  - {fileID: 0}
+  targets: []
   _activateTime: 6

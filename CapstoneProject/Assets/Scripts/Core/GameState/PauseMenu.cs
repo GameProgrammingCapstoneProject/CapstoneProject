@@ -55,6 +55,7 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
+        CursorManager.EnableCursor();
         pauseMenu.SetActive(true);
         Time.timeScale = 0.0f;
         isPaused = true;
@@ -63,6 +64,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ContinueGame()
     {
+        CursorManager.DisableCursor();
         pauseMenu.SetActive(false);
         Time.timeScale = 1.0f;
         isPaused = false;
@@ -77,6 +79,7 @@ public class PauseMenu : MonoBehaviour
 
     public void OpenPauseMenu()
     {
+        CursorManager.EnableCursor();
         pauseMenu.SetActive(true);
     }
 
