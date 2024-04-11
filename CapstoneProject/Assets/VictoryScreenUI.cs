@@ -9,11 +9,6 @@ public class VictoryScreenUI : MonoBehaviour
     [SceneName] public string level1Scene;
     [SceneName] public string mainMenuScene;
 
-    private void Start()
-    {
-        PlayerHealthComponent.OnDead += ShowUI;
-    }
-
     private void ShowUI()
     {
         VictoryScreenUIHolder.SetActive(true);

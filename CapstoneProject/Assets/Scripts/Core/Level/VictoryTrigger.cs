@@ -10,7 +10,6 @@ public class VictoryTrigger : MonoBehaviour
     private GameObject VictoryUIHolder;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("In trigger");
         if(collision.GetComponent<Player>())
         {
             VictoryUIHolder.SetActive(true);
