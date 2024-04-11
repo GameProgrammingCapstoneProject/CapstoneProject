@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class EnemyBulletScript : MonoBehaviour, IDamageable
 {
+
+    [SerializeField]
+    LayerMask collisionTest;
     private GameObject player;
     private Rigidbody2D rb;
     float force = 10.0f;
@@ -45,9 +48,12 @@ public class EnemyBulletScript : MonoBehaviour, IDamageable
             Player player = collision.GetComponent<Player>();
             DoDamage(1 , player);
         }
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            Destroy(this.gameObject);
+        }
         Destroy(gameObject);
     }
-
     public void TakeDamage(int damage)
     {
         throw new System.NotImplementedException();
