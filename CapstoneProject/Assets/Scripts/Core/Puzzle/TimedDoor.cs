@@ -48,7 +48,7 @@ public class TimedDoor : MonoBehaviour
         {
             timeRemaining -= Time.deltaTime;
             DisplayTime(timeRemaining);
-            Debug.Log(timeRemaining.ToString());
+           // Debug.Log(timeRemaining.ToString());
         }
         if (timeRemaining <= 0 && timeIsRunning)
         {

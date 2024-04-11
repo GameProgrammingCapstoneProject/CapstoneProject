@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using System;
 using Core.Extension;
+using UnityEngine.SceneManagement;
 
 /* GUIDE TO USING SOUND MANAGER
    BY JOSHUA MULLER
@@ -38,12 +39,17 @@ public class SoundManager : PersistentObject<SoundManager>
     public Sound[] sounds;
     public float soundMod = 1f;
     public float musicMod = 1f;
+    private Scene scene;
+
 
     protected override void Awake()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         base.Awake();
 
     }
+
+
 
     protected override void Start()
     {
@@ -58,8 +64,31 @@ public class SoundManager : PersistentObject<SoundManager>
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
         }
-        Stop("ExampleSong");
-        PlayLoopedMusic("ExampleSong");
+        //    Stop("ExampleSong");
+        //      PlayLoopedMusic("ExampleSong");
+
+
+
+
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        scene = SceneManager.GetActiveScene();
+        string checkScene = scene.name;
+        //   Debug.Log(checkScene); 
+        if (checkScene == "Level1")
+        {
+            PlayLoopedMusic("Level1Music");
+        }
+        if (checkScene == "Level2")
+        {
+            PlayLoopedMusic("Level2Music");
+        }
+        if (checkScene == "Level3")
+        {
+            PlayLoopedMusic("Level3Music");
+        }
     }
 
     private void OnDestroy()
@@ -118,7 +147,23 @@ public class SoundManager : PersistentObject<SoundManager>
     public void ChangeMusicVolume(float musicValue)
     {
         musicMod = musicValue;
-        Sound s = Array.Find(sounds, sound => sound.name == "ExampleSong");
-        s.source.volume = (s.volume * musicMod);
+        scene = SceneManager.GetActiveScene();
+        string checkScene= scene.ToString();
+        if (checkScene == "Level1")
+        {
+           Sound s = Array.Find(sounds, sound => sound.name == "Level1Music");
+            s.source.volume = (s.volume * musicMod);
+        }
+        if (checkScene == "Level2")
+        {
+            Sound s = Array.Find(sounds, sound => sound.name == "Level2Music");
+            s.source.volume = (s.volume * musicMod);
+        }
+        if (checkScene == "Level3")
+        {
+            Sound s = Array.Find(sounds, sound => sound.name == "Level3Music");
+            s.source.volume = (s.volume * musicMod);
+        }
+
     }
 }
