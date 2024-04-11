@@ -63,11 +63,11 @@ public class SoundManager : PersistentObject<SoundManager>
   //      PlayLoopedMusic("ExampleSong");
 
         scene = SceneManager.GetActiveScene();
-        string checkScene = scene.ToString();
-
+        string checkScene = scene.name;
+     //   Debug.Log(checkScene); 
         if (checkScene == "Level1")
         {
-            PlayLoopedMusic("Level1Music");
+            Play("Level1Music");
         }
         if (checkScene == "Level2")
         {
@@ -77,6 +77,7 @@ public class SoundManager : PersistentObject<SoundManager>
         {
             PlayLoopedMusic("Level3Music");
         }
+
     }
 
     private void OnDestroy()
