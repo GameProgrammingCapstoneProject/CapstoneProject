@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,11 +17,32 @@ public class VictoryScreenUI : MonoBehaviour
         VictoryScreenUIHolder.SetActive(true);
     }
 
-    public void Restart()
+    public void NewGame()
     {
-        string scene = SceneManager.GetActiveScene().name;
-        Debug.Log("The scene is: " + scene);
-        SceneManager.LoadScene(level1Scene);
+        CursorManager.DisableCursor();
+#if UNITY_EDITOR
+        SceneManager.LoadScene(EditorBuildSettings.scenes[1].path);
+#else
+        SceneManager.LoadScene("Level1");
+#endif
+        DeleteSave();
+    }
+
+    private string SavePath
+    {
+        get { return Application.persistentDataPath + "/player.STH"; }
+    }
+    public void DeleteSave()
+    {
+        try
+        {
+            File.Delete(SavePath);
+        }
+        catch (Exception ex)
+        {
+            Debug.LogException(ex);
+            Debug.Log("No Save game found to delete");
+        }
     }
 
     public void GoToMainMenu()
