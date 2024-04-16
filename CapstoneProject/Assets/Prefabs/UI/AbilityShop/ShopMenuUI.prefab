@@ -1139,11 +1139,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _allPlayerAbilities:
+  - {fileID: 11400000, guid: 919751b52fd326348b1eaa91adde5b07, type: 2}
+  - {fileID: 11400000, guid: 6fcc3f09fb24a2b49860e08c56d3676d, type: 2}
+  - {fileID: 11400000, guid: 76e81ea0c3a846946bb396f38441f667, type: 2}
   - {fileID: 11400000, guid: ec638402b2a15154bb81e2f748a45197, type: 2}
   - {fileID: 11400000, guid: 205730797f4d93745b3462f3cae60fcf, type: 2}
-  - {fileID: 11400000, guid: 919751b52fd326348b1eaa91adde5b07, type: 2}
-  - {fileID: 11400000, guid: 76e81ea0c3a846946bb396f38441f667, type: 2}
-  - {fileID: 11400000, guid: 6fcc3f09fb24a2b49860e08c56d3676d, type: 2}
   _abilitySlotParent: {fileID: 1858335688007248585}
   _abilitySlotPrefab: {fileID: 6996289788056565448, guid: 0ecec9e8219994444beafd85d1f574e2, type: 3}
   _abilityDescription: {fileID: 2273914468878127281}

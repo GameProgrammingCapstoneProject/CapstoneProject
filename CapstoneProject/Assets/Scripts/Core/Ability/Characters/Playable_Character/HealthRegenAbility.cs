@@ -9,11 +9,11 @@ public class HealthRegenAbility : PlayerAbility
     private HealthRegen _healthRegenPrefab;
     private HealthRegen _currenthealthRegen;
     private readonly float _yOffset = 1f;
-    [SerializeField] private int coinConsumeWhenUsing = 100;
+    [SerializeField] private int soulConsumeWhenUsing = 1;
     public event System.Action<HealthRegenAbility> OnHealthRegenAbilityCoolDown;
     protected override void Activate()
     {
-        if (Instigator.CoinComponent.TryToConsumeCoins(coinConsumeWhenUsing))
+        if (Instigator.SoulComponent.TryToConsumeSouls(soulConsumeWhenUsing))
         {
             if (_currenthealthRegen == null)
             {

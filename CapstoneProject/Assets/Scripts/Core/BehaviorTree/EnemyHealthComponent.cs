@@ -72,8 +72,8 @@ public class EnemyHealthComponent : MonoBehaviour, IDamageable
             isDead = true;
             SoundManager.Instance.Play("EnemyDeath");
             _player.CoinComponent.CollectCoins(GetComponent<CoinComponent>().GetCoins());
-            if (GetComponent<KeyItemComponent>())
-                _player.KeyItemComponent.PickupKey();
+            if (GetComponent<SoulComponent>())
+                _player.SoulComponent.CollectSouls(GetComponent<SoulComponent>().GetSouls());
         }
     }
 
