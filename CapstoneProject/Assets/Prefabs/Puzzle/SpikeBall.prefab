@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2467760984413270155}
   - component: {fileID: 4896466273519258457}
   - component: {fileID: 5535879716237170044}
-  - component: {fileID: 2956347314662094123}
+  - component: {fileID: 5433059803679935386}
   m_Layer: 0
   m_Name: SpikeBall
   m_TagString: Untagged
@@ -102,13 +102,15 @@ MonoBehaviour:
   radius: 3
   numPathPoints: 10
   pathPointPrefab: {fileID: 5192896335760394688, guid: d0d70e231f0a2644a8e358c756d19e21, type: 3}
---- !u!65 &2956347314662094123
-BoxCollider:
+--- !u!61 &5433059803679935386
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7095550872916107652}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -117,9 +119,31 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.2917328, y: 1.3258648, z: 0.2}
-  m_Center: {x: 0.004266739, y: -0.012800217, z: 0}
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2}
+  m_EdgeRadius: 0
