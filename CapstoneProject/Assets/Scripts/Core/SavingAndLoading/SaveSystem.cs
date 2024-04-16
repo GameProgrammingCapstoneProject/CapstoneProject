@@ -6,13 +6,13 @@ using System.Collections.Generic;
 
 public static class SaveSystem 
 {
-    public static void SavePlayer(Player player, int health, int coins, int keys, int abilityone, int abilitytwo, string sceneSaved, bool[] abilitiesUnlocked)
+    public static void SavePlayer(Player player, int health, int coins, int souls, int abilityone, int abilitytwo, string sceneSaved, bool[] abilitiesUnlocked)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/player.STH";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        PlayerSaveData data = new PlayerSaveData(player, health, coins, keys, abilityone, abilitytwo, sceneSaved, abilitiesUnlocked);
+        PlayerSaveData data = new PlayerSaveData(player, health, coins, souls, abilityone, abilitytwo, sceneSaved, abilitiesUnlocked);
 
         formatter.Serialize(stream, data);
 
