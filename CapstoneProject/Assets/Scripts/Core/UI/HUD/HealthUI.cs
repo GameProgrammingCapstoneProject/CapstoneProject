@@ -18,7 +18,7 @@ public class HealthUI : MonoBehaviour
 
     private int _defaultHealth;
 
-    void Start()
+    void Awake()
     {
         _playerHealthComponent.OnHealthChanged += UpdateHealthUI;
         UpdateHealthUI();
