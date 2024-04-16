@@ -355,7 +355,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1991654025719856870
 RectTransform:
   m_ObjectHideFlags: 0
@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 3129712075205482810}
   - component: {fileID: 215942249993094103}
   m_Layer: 5
-  m_Name: Restart
+  m_Name: NEW GAME
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1041,7 +1041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8061194423901627286, guid: 81736539296ce4c438c938a07f6f9481, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Restart
+      value: NewGame
       objectReference: {fileID: 0}
     - target: {fileID: 8061194423901627286, guid: 81736539296ce4c438c938a07f6f9481, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1057,7 +1057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8549722429783703774, guid: 81736539296ce4c438c938a07f6f9481, type: 3}
       propertyPath: m_Text
-      value: RESTART
+      value: NEW GAME
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
