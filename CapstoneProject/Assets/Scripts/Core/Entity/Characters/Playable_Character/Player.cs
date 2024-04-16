@@ -102,8 +102,9 @@ namespace Core.Entity
             Debug.Log(" Scene Name: " + scene.name);
             string sceneSaved = scene.name;
             int health = HealthComponent.GetHealth();
-            int keys = KeyItemComponent.GetKeys();
+      
             int coins = CoinComponent.GetCoins();
+            int souls = SoulComponent.GetSouls();
 
 
 
@@ -120,7 +121,7 @@ namespace Core.Entity
 
 
 
-            SaveSystem.SavePlayer(this, health, coins, keys, abilityone, abilitytwo, sceneSaved, unlockedAbilities);
+            SaveSystem.SavePlayer(this, health, coins, souls, abilityone, abilitytwo, sceneSaved, unlockedAbilities);
             StartCoroutine(showSaveText(3));
         }
 
@@ -147,7 +148,7 @@ namespace Core.Entity
 
                  //   Debug.Log("The scene the player was in was" + data.playerScene);
                     CoinComponent.ChangeCoins(data.playerCoins);
-                    KeyItemComponent.ChangeKeys(data.playerKeys);
+                    SoulComponent.ChangeSouls(data.playerSouls);
                     HealthComponent.ChangeHealth(data.playerHealth);
 
                     PlayerAbility abilityOne = deserializeAbility(data.playerAbilityOne);
