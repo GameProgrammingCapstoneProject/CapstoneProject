@@ -25,6 +25,7 @@ namespace Core.Entity
         public PlayerAbilityComponent AbilityComponent;
         public PlayerHealthComponent HealthComponent;
         public CoinComponent CoinComponent;
+        public SoulComponent SoulComponent;
         public KeyItemComponent KeyItemComponent;
         public TMP_Text SaveText;
         public Transform bowShootingPosition;
