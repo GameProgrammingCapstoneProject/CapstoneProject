@@ -10,18 +10,18 @@ public class PlayerSaveData
     public float[] playerPosition;
     public int playerHealth;
     public int playerCoins;
-    public int playerKeys;
+    public int playerSouls;
   //  public List<PlayerAbility> playerAbility;
     public int playerAbilityOne;
     public int playerAbilityTwo;
     public bool[] playerUnlockedAbilities;
     public string playerScene;
 
-    public PlayerSaveData(Player player, int health, int coins, int keys, int abilityone, int abilitytwo, string sceneSaved, bool[] abilitiesUnlocked) 
+    public PlayerSaveData(Player player, int health, int coins, int souls, int abilityone, int abilitytwo, string sceneSaved, bool[] abilitiesUnlocked) 
     {
         playerHealth = health;
         playerCoins = coins;
-        playerKeys = keys;
+        playerSouls = souls;
         playerAbilityOne = abilityone;
         playerAbilityTwo = abilitytwo;
         playerScene = sceneSaved;
