@@ -54202,10 +54202,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundList
       objectReference: {fileID: 0}
-    - target: {fileID: 8373586385399614479, guid: 0c684ea469bcbd347a963b1dbce9dc42, type: 3}
-      propertyPath: sounds.Array.data[28].name
-      value: LevelMusic
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

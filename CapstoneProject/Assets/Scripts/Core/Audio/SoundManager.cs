@@ -41,7 +41,6 @@ public class SoundManager : PersistentObject<SoundManager>
     public float musicMod = 1f;
     private Scene scene;
 
-
     protected override void Awake()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -68,15 +67,22 @@ public class SoundManager : PersistentObject<SoundManager>
         //      PlayLoopedMusic("ExampleSong");
 
 
+  
 
 
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+       
         scene = SceneManager.GetActiveScene();
+       
         string checkScene = scene.name;
         //   Debug.Log(checkScene); 
+   
+        Stop("Level1Music");
+        Stop("Level2Music");
+        Stop("Level3Music");
         if (checkScene == "Level1")
         {
             PlayLoopedMusic("Level1Music");
@@ -93,7 +99,10 @@ public class SoundManager : PersistentObject<SoundManager>
 
     private void OnDestroy()
     {
-        Stop("ExampleSong");
+        Stop("Level1Music");
+        Stop("Level2Music");
+        Stop("Level3Music");
+
     }
 
     public void Play(string name)
