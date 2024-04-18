@@ -210,7 +210,7 @@ public class AI : MonoBehaviour
 
         if (distanceToTarget <= attackRange)
         {
-            if (playerPos.position.x < transform.position.x)
+            if (playerPos.position.x <= transform.position.x)
             {
                 if (_rb.CurrentFacingDirection == RigidbodyComponent.FacingDirections.RIGHT)
                 {

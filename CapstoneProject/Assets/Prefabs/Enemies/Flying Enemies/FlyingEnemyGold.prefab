@@ -117,9 +117,10 @@ GameObject:
   - component: {fileID: 6863290612950186452}
   - component: {fileID: 3051476983319788348}
   - component: {fileID: 2564955643756476401}
-  - component: {fileID: 1062114949588360358}
   - component: {fileID: 3916804398182774511}
   - component: {fileID: 1611554755055532948}
+  - component: {fileID: 1062114949588360358}
+  - component: {fileID: 5341134686068972582}
   m_Layer: 0
   m_Name: FlyingEnemyGold
   m_TagString: Untagged
@@ -268,19 +269,6 @@ MonoBehaviour:
   maxHealth: 20
   _effect: {fileID: 3916804398182774511}
   isDead: 0
---- !u!114 &1062114949588360358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2680007655756638374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fb0e30b90c94a845811877f7afee599, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _coins: 150
 --- !u!114 &3916804398182774511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,6 +312,32 @@ MonoBehaviour:
     breakPointStatuses: 
     collapsedLines: 
     btScript: 
+--- !u!114 &1062114949588360358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2680007655756638374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fb0e30b90c94a845811877f7afee599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _souls: 1
+--- !u!114 &5341134686068972582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2680007655756638374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e17fdecf9c60b9459a24f6105b61f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coins: 125
 --- !u!1 &4876872096124091967
 GameObject:
   m_ObjectHideFlags: 0
