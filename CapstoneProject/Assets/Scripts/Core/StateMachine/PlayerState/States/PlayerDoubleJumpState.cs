@@ -11,6 +11,7 @@ namespace Core.StateMachine
     {
         private readonly float _moveSpeedWhileOnAir = 0.8f;
         private readonly float _doubleJumpForce = 1.2f;
+        private const float _minOnAirVelocity = -0.01f;
         public PlayerDoubleJumpState(Player inputPlayer, string inputAnimName) : base(inputPlayer, inputAnimName)
         {
         }
@@ -26,10 +27,8 @@ namespace Core.StateMachine
         {
             base.StateUpdate();
         
-            if (Mathf.Approximately(0, Player.rb.velocity.y))
-            {
-                Player.States.stateMachine.ChangeState(Player.States.idleState);
-            }
+            if (Player.rb.velocity.y < _minOnAirVelocity)
+                Player.States.stateMachine.ChangeState(Player.States.airState);
         
             if (Player.CollisionComponent.IsInteractingWithWall() && Player.rb.velocity.y < 0 && PlayerInputReader.Instance.movementAxis != 0)
                 Player.States.stateMachine.ChangeState(Player.States.wallSlideState);
