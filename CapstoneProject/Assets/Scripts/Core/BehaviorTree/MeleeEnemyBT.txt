@@ -8,7 +8,7 @@ tree "Roam"
 	fallback
 		sequence
 			HasReachedObstacle
-			Wait 2.0
+			//Wait 2.0
 			Turn
 		Move
 
