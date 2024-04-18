@@ -148,7 +148,7 @@ public class SoundManager : PersistentObject<SoundManager>
     {
         musicMod = musicValue;
         scene = SceneManager.GetActiveScene();
-        string checkScene= scene.ToString();
+        string checkScene= scene.name;
         if (checkScene == "Level1")
         {
            Sound s = Array.Find(sounds, sound => sound.name == "Level1Music");
