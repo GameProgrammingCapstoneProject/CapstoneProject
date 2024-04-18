@@ -17,16 +17,7 @@ public class VictoryScreenUI : MonoBehaviour
         VictoryScreenUIHolder.SetActive(true);
     }
 
-    public void NewGame()
-    {
-        CursorManager.DisableCursor();
-#if UNITY_EDITOR
-        SceneManager.LoadScene(EditorBuildSettings.scenes[1].path);
-#else
-        SceneManager.LoadScene("Level1");
-#endif
-        DeleteSave();
-    }
+
 
     private string SavePath
     {
