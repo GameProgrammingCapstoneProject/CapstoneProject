@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2921991046152739296}
   - component: {fileID: 5543081922546403874}
   - component: {fileID: 7008569504369381206}
+  - component: {fileID: 633306382220613420}
   m_Layer: 10
   m_Name: RangedEnemyGold
   m_TagString: Enemy
@@ -212,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fb0e30b90c94a845811877f7afee599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coins: 150
+  _souls: 0
 --- !u!114 &7008569504369381206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,6 +235,19 @@ MonoBehaviour:
   _hitFX01Prefab: {fileID: 0}
   _hitFX02Prefab: {fileID: 0}
   _rb: {fileID: 0}
+--- !u!114 &633306382220613420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297576976415879222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e17fdecf9c60b9459a24f6105b61f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coins: 150
 --- !u!1 &1519648896790312083
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,7 +593,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2139497935
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b738651bb8758b94685dc1dfe1eca854, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
